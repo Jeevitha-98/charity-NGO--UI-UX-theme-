@@ -1,0 +1,1070 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly Charity Header</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <link href="https://googleapis.com/css2?family=Inter:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <a href="#" class="logo" onclick="refreshPage(event)">
+                <img src="./Assests/logo agriculture farming.webp" alt="Stackly Logo">
+            </a>
+
+            <nav class="navbar" id="navbar">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-item active">Home</a></li>
+                    <li><a href="about.html" class="nav-item">About Us</a></li>
+                    <li><a href="programs.html" class="nav-item">Our Programs</a></li>
+                    <li><a href="impact.html" class="nav-item active">Impact</a></li>
+                    <li><a href="stories.html" class="nav-item">Stories</a></li>
+                    <li><a href="blog.html" class="nav-item">Blog</a></li>
+                    <li><a href="contact.html" class="nav-item">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions" id="headerActions">
+                <a href="login.html" class="btn-login">Login Now</a>
+            </div>
+
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle Navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+<script>
+    function refreshPage(event) {
+    event.preventDefault();
+    window.location.reload();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const hamburgerBtn = document.getElementById("hamburgerBtn");
+    const navbar = document.getElementById("navbar");
+    const headerActions = document.getElementById("headerActions");
+    const menuOverlay = document.getElementById("menuOverlay");
+    const navItems = document.querySelectorAll(".nav-item");
+
+    function toggleMenu() {
+        hamburgerBtn.classList.toggle("active");
+        navbar.classList.toggle("mobile-open");
+        headerActions.classList.toggle("mobile-open");
+        menuOverlay.classList.toggle("show");
+        document.body.classList.toggle("no-scroll");
+    }
+
+    hamburgerBtn.addEventListener("click", toggleMenu);
+    menuOverlay.addEventListener("click", toggleMenu);
+
+    navItems.forEach(item => {
+        item.addEventListener("click", () => {
+            document.querySelector(".nav-item.active")?.classList.remove("active");
+            item.classList.add("active");
+
+            if (navbar.classList.contains("mobile-open")) {
+                toggleMenu();
+            }
+        });
+    });
+});
+
+</script>
+
+<section class="stk-imp-hero-section">
+    
+    <!-- 🌟 Organic Gradient Mask Backdrop Photo Layer -->
+    <div class="stk-imp-hero-bg-frame">
+        <div class="stk-imp-gradient-mask-blend"></div>
+        <div class="stk-imp-image-deck">
+            <img src="./Assests/about section BG 1.webp" alt="Smiling school children holding a green sprout plant seedling" class="stk-imp-zoom-img">
+        </div>
+    </div>
+
+    <!-- Main Content Container Box Container -->
+    <div class="stk-imp-hero-container">
+        <div class="stk-imp-content-block">
+            
+            <!-- Breadcrumbs Navigation Bar -->
+            <nav class="stk-imp-breadcrumbs" aria-label="Breadcrumb navigation trail">
+                <a href="index.html">Home</a> <span class="stk-crumb-chevron">&gt;</span> <span class="stk-current-crumb">Our Impact</span>
+            </nav>
+
+            <!-- 🌟 Heading Target for Scroll-Based Letter Typewriter Script -->
+            <h1 class="stk-imp-main-title" id="scrollLetterImpTitle">Our Impact, <br><span class="stk-highlight-green">Their Future</span>
+            </h1>
+            
+            <!-- Paragraph Body Block Configuration -->
+            <p class="stk-imp-description">Every life we touch, every community we uplift, and every change we create brings us closer to a better tomorrow.</p>
+            
+            <!-- 🌟 Staggered Typewriter Badge Row with Hover Avatar Stack Array -->
+            <div class="stk-imp-join-badge-row" id="scrollStaggerJoinBadge">
+                <div class="stk-avatar-stack-container">
+                    <div class="stk-hover-avatar"><img src="./Assets/avatar-1.jpg" alt="Community member portrait 1"></div>
+                    <div class="stk-hover-avatar"><img src="./Assets/avatar-2.jpg" alt="Community member portrait 2"></div>
+                    <div class="stk-hover-avatar"><img src="./Assets/avatar-3.jpg" alt="Community member portrait 3"></div>
+                    <div class="stk-hover-avatar"><img src="./Assets/avatar-4.jpg" alt="Community member portrait 4"></div>
+                </div>
+                <div class="stk-join-badge-text-wrapper" id="typewriterTargetTextWrapper">
+                    <!-- Target for the repeating 2-second sentence trigger -->
+                    <p class="stk-join-animated-phrase" id="recurringTypewriterText">Join 15,000+ people making a difference everyday.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 🌟 Seamless Automatic Counter Marquee Strip Bar Section -->
+    <div class="stk-imp-marquee-strip-viewport">
+        <div class="stk-imp-marquee-strip-track">
+            
+            <!-- --- ORIGINAL SET --- -->
+            <!-- Stat 1: Users Impacted -->
+            <div class="stk-stat-node">
+                <div class="stk-stat-icon-badge">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+                        <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 1.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" fill="#FFFFFF"/>
+                    </svg>
+                </div>
+                <div class="stk-stat-copy">
+                    <h3>15000+</h3>
+                    <p>Users impacted</p>
+                </div>
+            </div>
+            <div class="stk-stat-line-divider"></div>
+
+            <!-- Stat 2: Communities Served -->
+            <div class="stk-stat-node">
+                <div class="stk-stat-icon-badge">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="#FFFFFF"/>
+                    </svg>
+                </div>
+                <div class="stk-stat-copy">
+                    <h3>250+</h3>
+                    <p>Communities Served</p>
+                </div>
+            </div>
+            <div class="stk-stat-line-divider"></div>
+
+            <!-- Stat 3: Volunteers -->
+            <div class="stk-stat-node">
+                <div class="stk-stat-icon-badge">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#FFFFFF"/>
+                    </svg>
+                </div>
+                <div class="stk-stat-copy">
+                    <h3>800+</h3>
+                    <p>Volunteers</p>
+                </div>
+            </div>
+            <div class="stk-stat-line-divider"></div>
+
+            <!-- Stat 4: Funds Utilized -->
+            <div class="stk-stat-node">
+                <div class="stk-stat-icon-badge">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+                        <path d="M5 8h14V6H5v2zm0 5h14v-2H5v2zm0 5h14v-2H5v2z" fill="#FFFFFF"/>
+                    </svg>
+                </div>
+                <div class="stk-stat-copy">
+                    <h3>₹5Cr+</h3>
+                    <p>Funds Utilized</p>
+                </div>
+            </div>
+            <div class="stk-stat-line-divider"></div>
+
+            <!-- --- 🌟 CLONED SET FOR SMOOTH CAROUSEL LOOP --- -->
+            <div class="stk-stat-node" aria-hidden="true">
+                <div class="stk-stat-icon-badge"><svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 1.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" fill="#FFFFFF"/></svg></div>
+                <div class="stk-stat-copy"><h3>15000+</h3><p>Users impacted</p></div>
+            </div>
+            <div class="stk-stat-line-divider" aria-hidden="true"></div>
+            <div class="stk-stat-node" aria-hidden="true">
+                <div class="stk-stat-icon-badge"><svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="#FFFFFF"/></svg></div>
+                <div class="stk-stat-copy"><h3>250+</h3><p>Communities Served</p></div>
+            </div>
+            <div class="stk-stat-line-divider" aria-hidden="true"></div>
+            <div class="stk-stat-node" aria-hidden="true">
+                <div class="stk-stat-icon-badge"><svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3c1.32 0 2.55.35 3.53 1l-1.45 1.45C17.79 5.15 17.16 5 16.5 5c-2.21 0-4 1.79-4 4 0 .67.15 1.3.43 1.86L10.3 13.5l1.7 1.7 2.64-2.64c.56.28 1.19.44 1.86.44 2.21 0 4-1.79 4-4a4 4 0 0 0-1-2.53l1.45-1.45C21.65 6.5 22 7.73 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#FFFFFF"/></svg></div>
+                <div class="stk-stat-copy"><h3>800+</h3><p>Volunteers</p></div>
+            </div>
+            <div class="stk-stat-line-divider" aria-hidden="true"></div>
+            <div class="stk-stat-node" aria-hidden="true">
+                <div class="stk-stat-icon-badge"><svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org"><path d="M5 8h14V6H5v2zm0 5h14v-2H5v2zm0 5h14v-2H5v2z" fill="#FFFFFF"/></svg></div>
+                <div class="stk-stat-copy"><h3>₹5Cr+</h3><p>Funds Utilized</p></div>
+            </div>
+            <div class="stk-stat-line-divider" aria-hidden="true"></div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+:root {
+    --imp-green-primary: #126B2F;
+    --imp-green-hover: #0c4d21;
+    --imp-green-glow: rgba(18, 107, 47, 0.4);
+    --imp-text-dark: #000000;
+    --imp-text-muted: #2D3748;
+    --imp-white: #FFFFFF;
+    --imp-transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.stk-imp-hero-section {
+    width: 100%;
+    background-color: #FFFFFF;
+    /* 🌟 Tight Spacing Constraint: Compressed top/bottom footprints downward to maximize folder view densities */
+    padding: 10px 0 20px 0; 
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* Background Image Frame Split and Non-Linear Gradient Blurring System */
+.stk-imp-hero-bg-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 100px); /* Leaves space at bottom so green footer strip isn't masked over */
+    z-index: 1;
+    display: flex;
+}
+
+.stk-imp-image-deck {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 52%; 
+    height: 100%;
+}
+
+.stk-imp-zoom-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* 🌟 Feathered Gradient Mesh Backdrop Blend Mask (Bypasses straight line clips) */
+.stk-imp-gradient-mask-blend {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, 
+        #FFFFFF 0%, 
+        #FFFFFF 45%, 
+        rgba(255, 255, 255, 0.95) 49%,
+        rgba(255, 255, 255, 0.7) 56%,
+        rgba(255, 255, 255, 0.2) 68%,
+        rgba(255, 255, 255, 0) 82%
+    );
+    z-index: 3;
+    pointer-events: none;
+}
+
+/* Frontplane Information Display Stack bounds */
+.stk-imp-hero-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 40px; 
+    position: relative;
+    z-index: 5;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    min-height: 380px;
+}
+
+.stk-imp-content-block {
+    flex: 0 0 50%;
+    max-width: 50%; 
+    display: flex;
+    flex-direction: column;
+}
+
+/* Breadcrumbs Links Formatting Setup */
+.stk-imp-breadcrumbs {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.stk-imp-breadcrumbs a {
+    color: var(--imp-green-primary);
+    text-decoration: none;
+    transition: var(--imp-transition);
+}
+
+.stk-crumb-chevron { margin: 0 5px; color: rgba(0, 0, 0, 0.4); }
+.stk-current-crumb { color: rgba(0, 0, 0, 0.55); }
+
+/* Main Title Heading Specs: Inter, Bold 700, 45px, 100% LH */
+.stk-imp-main-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 110%;
+    letter-spacing: -0.01em;
+    color: var(--imp-text-dark);
+    margin: 0 0 16px 0;
+}
+
+.stk-highlight-green {
+    color: var(--imp-green-primary);
+}
+
+/* Description Specs: Inter, Medium 500, 18px, 100% LH, Solid Black */
+.stk-imp-description {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 16px; /* Scaled slightly down to improve balance with image components */
+    line-height: 140%;
+    color: #000000;
+    margin: 0 0 24px 0;
+    max-width: 440px;
+}
+
+/* 🌟 Joined Badge Row Framework housing text wrapper & avatar array loops */
+.stk-imp-join-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 4px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px 16px;
+    border-radius: 50px;
+    width: fit-content;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+/* 🌟 Overlapping Avatar Stack with Interactive Growth Transitions */
+.stk-avatar-stack-container {
+    display: flex;
+    flex-direction: row-reverse; /* Allows hover layers to stack naturally over preceding nodes */
+    justify-content: flex-end;
+}
+
+.stk-hover-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 2px solid var(--imp-white);
+    overflow: hidden;
+    margin-left: -10px; /* Overlaps nodes neatly */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: var(--imp-transition);
+    cursor: pointer;
+}
+
+.stk-hover-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Avatar Hover State: Lifts up and triggers custom green glow boundary */
+.stk-hover-avatar:hover {
+    transform: translateY(-4px) scale(1.15);
+    z-index: 10;
+    border-color: var(--imp-green-primary);
+    box-shadow: 0 0 10px var(--imp-green-glow);
+}
+
+.stk-join-badge-text-wrapper {
+    display: block;
+    min-width: 250px; /* Preserves horizontal space for the typewriter script loop */
+}
+
+/* Quote/Badge Content Specs: Inter, Semi Bold 600 */
+.stk-join-animated-phrase {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    color:#000000;
+    margin: 0;
+}
+
+/* Typewriter target styling tokens injected via Javascript loops */
+.stk-badge-char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateX(-2px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.stk-badge-char.revealed-char {
+    opacity: 1;
+    transform: translateX(0);
+}
+.stk-badge-space { display: inline-block; width: 0.24em; }
+
+/* --- 🌟 SEAMLESS HARDWARE-ACCELERATED AUTOMATIC CAROUSEL STRIP BAR --- */
+.stk-imp-marquee-strip-viewport {
+    width: calc(100% - 48px);
+    max-width: 1152px;
+    background-color: var(--imp-green-primary);
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 24px 0;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 10px 30px rgba(18, 107, 47, 0.15);
+}
+
+.stk-imp-marquee-strip-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    will-change: transform;
+    /* Loops automatically infinitely with zero time lag delays */
+    animation: counterLinearMarquee 25s linear infinite; 
+}
+
+/* Stat Card Node Structures inside Marquee Bar */
+.stk-stat-node {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 40px;
+    box-sizing: border-box;
+    transition: var(--imp-transition);
+}
+
+/* Stat vector SVG icons circular base framework badge code */
+.stk-stat-icon-badge {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.12); /* Semi-translucent white shell mesh */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    transition: var(--imp-transition);
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+}
+
+.stk-stat-icon-badge svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Stat Card Hover & Glowing Interaction setup */
+.stk-stat-node:hover .stk-stat-icon-badge {
+    transform: scale(1.15);
+    background-color: var(--imp-white);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+}
+
+.stk-stat-node:hover .stk-stat-icon-badge svg path {
+    fill: var(--imp-green-primary) !important; /* Inverts vectors to deep theme green upon active hover triggers */
+}
+
+.stk-stat-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.stk-stat-copy h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 100%;
+    color: var(--imp-white);
+    margin: 0;
+}
+
+.stk-stat-copy p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 100%;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    white-space: nowrap;
+}
+
+/* Separator Lines between stats blocks inside carousel bar */
+.stk-stat-line-divider {
+    width: 1px;
+    height: 36px;
+    background-color: rgba(255, 255, 255, 0.15);
+    flex-shrink: 0;
+}
+
+@keyframes counterLinearMarquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Resets seamlessly halfway when clones catch up */
+}
+
+/* Heading animation single character span targets baseline code hooks */
+.stk-hd-char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.stk-hd-char.revealed-hd-char {
+    opacity: 1;
+    transform: translateY(0);
+}
+.stk-hd-space { display: inline-block; width: 0.24em; }
+
+/* 🌟 LIQUID RESPONSIVE BREAKPOINT overrides MATRIX LAYER (100% MOBILE COMPATIBLE) */
+@media (max-width: 992px) {
+    .stk-imp-gradient-mask-blend {
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.85) 0%, #FFFFFF 65%);
+    }
+    .stk-imp-image-deck { width: 100%; opacity: 0.18; }
+    .stk-imp-hero-container { padding: 0 20px; justify-content: center; min-height: auto; margin-bottom: 20px; }
+    .stk-imp-content-block { flex: 0 0 100%; max-width: 100%; text-align: center; align-items: center; }
+    .stk-imp-description { max-width: 100%; }
+    .stk-imp-marquee-strip-viewport { width: calc(100% - 32px); max-width: 100%; border-radius: 8px; }
+    .stk-stat-node { padding: 0 24px; }
+}
+
+@media (max-width: 576px) {
+    .stk-imp-main-title { font-size: 32px; }
+    .stk-imp-description { font-size: 14.5px; }
+    .stk-imp-join-badge-row { flex-direction: column; border-radius: 16px; padding: 14px; text-align: center; width: 100%; max-width: 320px; }
+    .stk-avatar-stack-container { justify-content: center; padding-left: 10px; }
+    .stk-join-badge-text-wrapper { min-width: auto; }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // --- PART 1: MAIN HEADING LETTER TYPEWRITER WITH <br> LINE PROTECTION ---
+    const impTitleNode = document.getElementById("scrollLetterImpTitle");
+    
+    if (impTitleNode) {
+        const structuralNodes = Array.from(impTitleNode.childNodes);
+        impTitleNode.innerHTML = ""; 
+
+        structuralNodes.forEach(node => {
+            if (node.nodeName === "BR") {
+                impTitleNode.appendChild(document.createElement("br"));
+            } else if (node.nodeType === Node.TEXT_NODE) {
+                Array.from(node.textContent).forEach(char => {
+                    if (char === " ") {
+                        const spaceSpan = document.createElement("span");
+                        spaceSpan.classList.add("stk-hd-space");
+                        impTitleNode.appendChild(spaceSpan);
+                    } else if (char !== "\n" && char !== "\r") {
+                        const letterSpan = document.createElement("span");
+                        letterSpan.textContent = char;
+                        letterSpan.classList.add("stk-hd-char");
+                        impTitleNode.appendChild(letterSpan);
+                    }
+                });
+            } else if (node.nodeType === Node.ELEMENT_NODE && node.classList.contains("stk-highlight-green")) {
+                // Preserves green span nodes and breaks down internal character chains
+                const greenSpanWrapper = document.createElement("span");
+                greenSpanWrapper.classList.add("stk-highlight-green");
+                
+                Array.from(node.textContent).forEach(char => {
+                    if (char === " ") {
+                        const spaceSpan = document.createElement("span");
+                        spaceSpan.classList.add("stk-hd-space");
+                        greenSpanWrapper.appendChild(spaceSpan);
+                    } else {
+                        const letterSpan = document.createElement("span");
+                        letterSpan.textContent = char;
+                        letterSpan.classList.add("stk-hd-char");
+                        greenSpanWrapper.appendChild(letterSpan);
+                    }
+                });
+                impTitleNode.appendChild(greenSpanWrapper);
+            }
+        });
+
+        const headingObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const characters = entry.target.querySelectorAll(".stk-hd-char");
+                    characters.forEach((charNode, index) => {
+                        setTimeout(() => {
+                            charNode.classList.add("revealed-hd-char");
+                        }, index * 35);
+                    });
+                    headingObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.4 });
+
+        headingObserver.observe(impTitleNode);
+    }
+
+
+    // --- PART 2: 🌟 BADGE TEXT RECURRING 2-SECONDS TYPEWRITER ENGINE ---
+    const badgeTextNode = document.getElementById("recurringTypewriterText");
+    
+    if (badgeTextNode) {
+        const fullBadgeString = badgeTextNode.textContent.trim();
+        
+        function animateBadgeTextSequence() {
+            badgeTextNode.innerHTML = ""; // Clear existing nodes
+
+            // Split raw phrase into individual character nodes
+            Array.from(fullBadgeString).forEach(char => {
+                if (char === " ") {
+                    const spaceNode = document.createElement("span");
+                    spaceNode.classList.add("stk-badge-space");
+                    badgeTextNode.appendChild(spaceNode);
+                } else {
+                    const charNode = document.createElement("span");
+                    charNode.textContent = char;
+                    charNode.classList.add("stk-badge-char");
+                    badgeTextNode.appendChild(charNode);
+                }
+            });
+
+            // Fast typing reveal loop execution step
+            const generatedSpans = badgeTextNode.querySelectorAll(".stk-badge-char");
+            generatedSpans.forEach((span, index) => {
+                setTimeout(() => {
+                    span.classList.add("revealed-char");
+                }, index * 20); // Brisk typing tempo (20ms per character)
+            });
+        }
+
+        // Initialize script reveal on section call entry point via scroll observer
+        const badgeRowTrigger = document.getElementById("scrollStaggerJoinBadge");
+        const badgeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateBadgeTextSequence();
+                    // 🌟 Set recurring loop interval to fire typewriter function every 2 seconds smoothly
+                    setInterval(animateBadgeTextSequence, 2000);
+                    badgeObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        badgeObserver.observe(badgeRowTrigger);
+    }
+});
+</script>
+
+<section class="stk-areas-section">
+    
+    <!-- Section Top Branding Header -->
+    <div class="stk-areas-header" id="stkAreasHeaderReveal">
+        <span class="stk-areas-pretitle">WHERE WE CREATE IMPACT</span>
+        <!-- 🌟 Target for Scroll-Based Sentence-by-Sentence Reveals -->
+        <h2 class="stk-areas-main-title" id="scrollSentenceAreasTitle">
+            <span>Areas Of Impact</span>
+        </h2>
+    </div>
+
+    <!-- 🌟 Cards Container Wrapper (Staggers entry sequentially on scroll) -->
+    <div class="stk-areas-grid-container" id="scrollStaggerAreasGrid">
+        
+        <!-- Card 1: Education -->
+        <div class="stk-impact-block-card">
+            <div class="stk-block-icon-wrapper">
+                <!-- Custom Large Vector Book / Education SVG Icon -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+                    <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5.49 12.18l-1.92.83L12 18.25l8.43-5.24-1.92-.83L12 16l-6.51-3.82z"/>
+                </svg>
+            </div>
+            <div class="stk-block-typography">
+                <h3 class="stk-block-title">Education</h3>
+                <p class="stk-block-desc">Quality education for underprivileged children and youth.</p>
+            </div>
+            <div class="stk-block-image-frame">
+                <img src="./Assets/impact-edu.jpg" alt="Underprivileged children smiling and studying inside a classroom setup">
+            </div>
+        </div>
+
+        <!-- Card 2: Healthcare -->
+        <div class="stk-impact-block-card">
+            <div class="stk-block-icon-wrapper">
+                <!-- Custom Large Vector Medical / Healthcare SVG Icon -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+            </div>
+            <div class="stk-block-typography">
+                <h3 class="stk-block-title">Healthcare</h3>
+                <p class="stk-block-desc">Accessible healthcare and wellness support for all.</p>
+            </div>
+            <div class="stk-block-image-frame">
+                <img src="./Assets/impact-health.jpg" alt="Female doctor caring and checking children health metrics safely">
+            </div>
+        </div>
+
+        <!-- Card 3: Clean Water -->
+        <div class="stk-impact-block-card">
+            <div class="stk-block-icon-wrapper">
+                <!-- Custom Large Vector Droplet / Clean Water SVG Icon -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+                    <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0zM12 19a6 6 0 0 0 6-6c0-3.31-6-9.5-6-9.5S6 9.69 6 13a6 6 0 0 0 6 6z"/>
+                </svg>
+            </div>
+            <div class="stk-block-typography">
+                <h3 class="stk-block-title">Clean Water</h3>
+                <p class="stk-block-desc">Ensuring access to safe and clean drinking water.</p>
+            </div>
+            <div class="stk-block-image-frame">
+                <img src="./Assets/impact-water.jpg" alt="Young child drinking refreshing clear water directly from an outdoor tap source">
+            </div>
+        </div>
+
+        <!-- Card 4: Livelihood -->
+        <div class="stk-impact-block-card">
+            <div class="stk-block-icon-wrapper">
+                <!-- Custom Large Vector Plant Grow / Livelihood SVG Icon -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+                    <path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L3.35 22h3.38l1.62-3.19C9.64 19.43 10.79 19.5 12 19.43l1.62 3.19h3.38l-1.62-4.39C19.26 16.68 20 14.73 20 12c0-4.97-4.03-9-9-9zm0 14.5c-3.04 0-5.5-2.46-5.5-5.5S8.96 6.5 12 6.5s5.5 2.46 5.5 5.5-2.46 5.5-5.5 5.5z"/>
+                </svg>
+            </div>
+            <div class="stk-block-typography">
+                <h3 class="stk-block-title">Livelihood</h3>
+                <p class="stk-block-desc">Skills training and livelihood programs for sustainable income.</p>
+            </div>
+            <div class="stk-block-image-frame">
+                <img src="./Assets/impact-livelihood.jpg" alt="Individuals enjoying lunch together at a community skill training camp center">
+            </div>
+        </div>
+
+        <!-- Card 5: Women Empowerment -->
+        <div class="stk-impact-block-card">
+            <div class="stk-block-icon-wrapper">
+                <!-- Custom Large Vector Gender / Women Empowerment SVG Icon -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+                    <path d="M12 2a5 5 0 0 0-5 5c0 2.3 1.54 4.24 3.66 4.85l-1.66 3.15H11v4h2v-4h2l-1.66-3.15C15.46 11.24 17 9.3 17 7a5 5 0 0 0-5-5zm0 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                </svg>
+            </div>
+            <div class="stk-block-typography">
+                <h3 class="stk-block-title">Women Empowerment</h3>
+                <p class="stk-block-desc">Empowering women to be independent and confident.</p>
+            </div>
+            <div class="stk-block-image-frame">
+                <img src="./Assets/impact-women.jpg" alt="Sustained self help female entrepreneur groups meeting and planning together outdoor">
+            </div>
+        </div>
+
+        <!-- Card 6: Community Support -->
+        <div class="stk-impact-block-card">
+            <div class="stk-block-icon-wrapper">
+                <!-- Custom Large Vector Unity Hands / Community Support SVG Icon -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3c1.32 0 2.55.35 3.53 1l-1.45 1.45C17.79 5.15 17.16 5 16.5 5c-2.21 0-4 1.79-4 4 0 .67.15 1.3.43 1.86L10.3 13.5l1.7 1.7 2.64-2.64c.56.28 1.19.44 1.86.44 2.21 0 4-1.79 4-4a4 4 0 0 0-1-2.53l1.45-1.45C21.65 6.5 22 7.73 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+            </div>
+            <div class="stk-block-typography">
+                <h3 class="stk-block-title">Community Support</h3>
+                <p class="stk-block-desc">Supporting communities during crises and emergencies.</p>
+            </div>
+            <div class="stk-block-image-frame">
+                <img src="./Assets/impact-community.jpg" alt="NGO foundation workers dropping relief supply aid material distribution packages">
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+:root {
+    --ar-green-primary: #126B2F;
+    --ar-green-glow: rgba(18, 107, 47, 0.4);
+    --ar-text-black: #000000;
+    --ar-text-muted: #555555;
+    --ar-border-line: #E2E8F0;
+    /* 🌟 Rich premium drop box shadow parameter variables extracted from template asset layouts */
+    --ar-box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+    --ar-transition: all 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.stk-areas-section {
+    width: 100%;
+    background-color: #FFFFFF;
+    padding: 60px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.stk-areas-header {
+    text-align: center;
+    margin-bottom: 44px;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stk-areas-pretitle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    color: var(--ar-green-primary);
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+}
+
+/* Header Main Title Specs Configuration: Inter, Bold 700, 34px, 100% LH */
+.stk-areas-main-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 100%;
+    letter-spacing: -0.01em;
+    color: var(--ar-text-black);
+    margin: 0;
+}
+
+/* Hidden initially to allow line-by-line sentence-by-sentence animation fades triggers */
+.stk-areas-main-title span {
+    display: block;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.stk-areas-main-title span.sentence-revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 🌟 Symmetric 6-Column Flex-Wrap Grid Track Container Block */
+.stk-areas-grid-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 16px; /* Symmetrical dense gap spacing separating blocks exactly like reference image */
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* 🌟 Individual Card Architecture (Icon Badge Top ➔ Text Center ➔ Photo Image Bottom) */
+.stk-impact-block-card {
+    flex: 1;
+    background-color: #FFFFFF;
+    border: 1px solid var(--ar-border-line);
+    border-radius: 14px; /* Slightly curved elegant outer corners profile matching sample image */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: var(--ar-box-shadow);
+    transition: var(--ar-transition);
+    will-change: transform, box-shadow, border-color;
+    box-sizing: border-box;
+    
+    /* Scroll Reveal Initial Animation Hidden Configuration States */
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+/* Active Class injected sequentially downstream via JavaScript observer */
+.stk-impact-block-card.card-revealed-scroll {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 🌟 Circular Vector Badges: Sized High Footprint Parameters */
+.stk-block-icon-wrapper {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background-color: rgba(18, 107, 47, 0.05); /* Soft light translucent theme green mesh circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 24px 0 16px 0;
+    border: 1px dashed rgba(18, 107, 47, 0.2);
+    transition: var(--ar-transition);
+    flex-shrink: 0;
+}
+
+/* 🌟 Increased Vector Graphic SVG Dimensions */
+.stk-block-icon-wrapper svg {
+    width: 24px;
+    height: 24px;
+}
+
+.stk-block-icon-wrapper svg path {
+    fill: var(--ar-green-primary);
+    transition: var(--ar-transition);
+}
+
+.stk-block-typography {
+    padding: 0 12px 20px 12px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-grow: 1; /* Drives description heights uniformly regardless of wrapped words lengths */
+}
+
+.stk-block-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 14.5px;
+    line-height: 110%;
+    color: var(--ar-text-black);
+    margin: 0;
+}
+
+.stk-block-desc {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 11.5px;
+    line-height: 135%;
+    color: var(--ar-text-muted);
+    margin: 0;
+}
+
+/* Bottom Activity Image Framing Layer */
+.stk-block-image-frame {
+    width: 100%;
+    height: 110px; /* Compact clean height tracks matching your layout snapshot proportions */
+    overflow: hidden;
+    position: relative;
+    border-top: 1px solid var(--ar-border-line);
+}
+
+.stk-block-image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: var(--ar-transition);
+}
+
+/* 🌟 Premium Hoover Interaction Matrix: Cards lift up, icons bloom/glow, and photos upscale */
+.stk-impact-block-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--ar-green-primary);
+    box-shadow: 0 16px 35px -5px var(--ar-green-glow), 0 10px 15px -5px rgba(0, 0, 0, 0.05);
+}
+
+.stk-impact-block-card:hover .stk-block-icon-wrapper {
+    background-color: var(--ar-green-primary);
+    border-color: var(--ar-green-primary);
+    filter: drop-shadow(0 0 6px var(--ar-green-glow)); /* Volumetric Neon Bloom */
+    transform: scale(1.06);
+}
+
+.stk-impact-block-card:hover .stk-block-icon-wrapper svg path {
+    fill: #FFFFFF !important; /* Smooth color inversion to solid white paths layers */
+}
+
+.stk-impact-block-card:hover .stk-block-image-frame img {
+    transform: scale(1.08); /* Clean image zoom tracking cursor focus triggers */
+}
+
+/* LIQUID RESPONSIVE MATRIX ADAPTATION LAYERS OVERRIDES */
+@media (max-width: 1024px) {
+    .stk-areas-grid-container {
+        gap: 16px;
+        flex-wrap: wrap; /* Reflows blocks smoothly into multiple lines on tablet monitors footprints */
+    }
+    .stk-impact-block-card {
+        flex: 0 0 calc(33.33% - 11px); /* Restructures grid smoothly into clear tri-card row arrays layers */
+    }
+}
+
+@media (max-width: 768px) {
+    .stk-areas-main-title { font-size: 28px; }
+    .stk-impact-block-card {
+        flex: 0 0 calc(50% - 8px); /* Restructures grid cleanly into two column tracks inside phone viewports */
+    }
+    .stk-block-image-frame {
+        height: 130px; /* Slightly opens vertical picture view thresholds on medium handheld screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .stk-impact-block-card {
+        flex: 0 0 100%; /* Spreads cards out full-width across extreme small smartphone displays */
+    }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // --- 1. SCROLL REVEAL: TITLE SENTENCE-BY-SENTENCE ENGINE ---
+    const sentenceTitleNode = document.getElementById("scrollSentenceAreasTitle");
+    
+    if (sentenceTitleNode) {
+        const sentenceLines = sentenceTitleNode.querySelectorAll("span");
+        
+        const titleObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    sentenceLines.forEach((lineSpan, index) => {
+                        // Reveals the main title line gracefully as it cuts into view
+                        setTimeout(() => {
+                            lineSpan.classList.add("sentence-revealed");
+                        }, index * 300); 
+                    });
+                    titleObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.4 });
+
+        titleObserver.observe(sentenceTitleNode);
+    }
+
+
+    // --- 2. SCROLL REVEAL: STAGGERED BLOCK CARDS ONE-BY-ONE ---
+    const cardsGridContainer = document.getElementById("scrollStaggerAreasGrid");
+    
+    if (cardsGridContainer) {
+        const structuralImpactCards = cardsGridContainer.querySelectorAll(".stk-impact-block-card");
+        
+        const gridObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    structuralImpactCards.forEach((cardNode, index) => {
+                        // Cascades card element entrance reveals down rows with an incremental 150ms delay flow
+                        setTimeout(() => {
+                            cardNode.classList.add("card-revealed-scroll");
+                        }, index * 150);
+                    });
+                    gridObserver.unobserve(entry.target);
+                }
+            });
+        }, { 
+            /* Triggers reveal animations promptly when cards container enters the lower 10% region */
+            rootMargin: "0px 0px -10% 0px",
+            threshold: 0.1 
+        });
+
+        gridObserver.observe(cardsGridContainer);
+    }
+});
+</script>
