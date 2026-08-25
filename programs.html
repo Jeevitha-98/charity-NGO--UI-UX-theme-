@@ -1,0 +1,4436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly Charity Header</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <link href="https://googleapis.com/css2?family=Inter:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <a href="#" class="logo" onclick="refreshPage(event)">
+                <img src="./Assests/logo agriculture farming.webp" alt="Stackly Logo">
+            </a>
+
+            <nav class="navbar" id="navbar">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-item ">Home</a></li>
+                    <li><a href="about.html" class="nav-item">About Us</a></li>
+                    <li><a href="programs.html" class="nav-item active">Our Programs</a></li>
+                    <li><a href="impact.html" class="nav-item">Impact</a></li>
+                    <li><a href="stories.html" class="nav-item">Stories</a></li>
+                    <li><a href="blog.html" class="nav-item">Blog</a></li>
+                    <li><a href="contact.html" class="nav-item">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions" id="headerActions">
+                <a href="login.html" class="btn-login">Login Now</a>
+            </div>
+
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle Navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+<script>
+    function refreshPage(event) {
+    event.preventDefault();
+    window.location.reload();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const hamburgerBtn = document.getElementById("hamburgerBtn");
+    const navbar = document.getElementById("navbar");
+    const headerActions = document.getElementById("headerActions");
+    const menuOverlay = document.getElementById("menuOverlay");
+    const navItems = document.querySelectorAll(".nav-item");
+
+    function toggleMenu() {
+        hamburgerBtn.classList.toggle("active");
+        navbar.classList.toggle("mobile-open");
+        headerActions.classList.toggle("mobile-open");
+        menuOverlay.classList.toggle("show");
+        document.body.classList.toggle("no-scroll");
+    }
+
+    hamburgerBtn.addEventListener("click", toggleMenu);
+    menuOverlay.addEventListener("click", toggleMenu);
+
+    navItems.forEach(item => {
+        item.addEventListener("click", () => {
+            document.querySelector(".nav-item.active")?.classList.remove("active");
+            item.classList.add("active");
+
+            if (navbar.classList.contains("mobile-open")) {
+                toggleMenu();
+            }
+        });
+    });
+});
+
+</script>
+
+<section class="stk-prog-hero-section">
+    
+    <!-- 🌟 Alpha-Feathered Gradient Layout Image Slider Backdrop Track -->
+    <div class="stk-prog-hero-bg-frame">
+        <div class="stk-prog-alpha-mask-blend"></div>
+        <div class="stk-prog-image-deck">
+            <!-- 🌟 Add your cropped smiling children portrait group photo here -->
+            <img src="./Assests/home section 3rd img.webp" alt="Smiling children group portraits holding a plant seedling" class="stk-prog-zoom-img">
+        </div>
+    </div>
+
+    <!-- Main Frontplane Information Overlay Layout Container Box -->
+    <div class="stk-prog-hero-container">
+        <div class="stk-prog-content-block">
+            
+            <!-- Breadcrumbs Navigation Bar -->
+            <nav class="stk-prog-breadcrumbs" aria-label="Breadcrumb navigation trail">
+                <a href="index.html">Home</a> <span class="stk-crumb-chevron">&gt;</span> <span class="stk-current-crumb">Programs</span>
+            </nav>
+
+            <!-- 🌟 Heading Target for Scroll-Based Letter-by-Letter Typewriter Script -->
+            <h1 class="stk-prog-main-title" id="scrollLetterProgTitle">Our Programs</h1>
+            
+            <!-- Paragraph Body Block Configuration -->
+            <p class="stk-prog-description">We run a range of programs that address critical social issues and bring lasting change to communities. Every program is designed to create opportunities, restore dignity, and build a better future for all.</p>
+            
+            <!-- Bottom Slogan Quote Target Block Component -->
+            <div class="stk-prog-quote-wrapper">
+                <p class="stk-prog-slogan-quote">Our mission is simple - empower people, transform lives.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+:root {
+    --pg-green-primary: #126B2F;
+    --pg-text-dark: #000000;
+    --pg-bg-beige: #E5E2D7; /* Exact light warm corporate beige color code extracted from your image backdrop canvas */
+    --pg-transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.stk-prog-hero-section {
+    width: 100%;
+    min-height: 480px; /* Optimal balanced baseline layout proportions precisely scaled to image */
+    background-color: var(--pg-bg-beige);
+    padding: 20px 0 30px 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+/* 🌟 Dynamic Split Background and Advanced Alpha Feather Gradient Overlays Mask Configuration Rules */
+.stk-prog-hero-bg-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+}
+
+.stk-prog-image-deck {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 55%; /* Allocates ample breathing space block for right side photo alignment */
+    height: 100%;
+}
+
+.stk-prog-zoom-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    will-change: transform;
+    /* 🌟 Infinite continuous smooth zoom animation engine loop mapping scale parameters */
+    animation: premiumImageZoomLoop 8s ease-in-out infinite alternate;
+}
+
+@keyframes premiumImageZoomLoop {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.08); } /* Gentle professional non-intrusive scaling index */
+}
+
+/* 🌟 Advanced Custom Smooth Linear-To-Radial Alpha-Feather Blend Overlay Mask (Bypasses straight line blurs) */
+.stk-prog-alpha-mask-blend {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Layered organic transparency gradient blends right side background image seamlessly into left side beige solid card background colors */
+    background: linear-gradient(to right, 
+        var(--pg-bg-beige) 0%, 
+        var(--pg-bg-beige) 42%, 
+        rgba(229, 226, 215, 0.95) 46%,
+        rgba(229, 226, 215, 0.7) 52%,
+        rgba(229, 226, 215, 0.2) 62%,
+        rgba(229, 226, 215, 0) 75%
+    );
+    z-index: 3;
+    pointer-events: none;
+}
+
+/* Frontplane Info Overlay Structural Layout Boundaries */
+.stk-prog-hero-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 40px; /* Symmetrical edge margins cushions */
+    position: relative;
+    z-index: 5;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.stk-prog-content-block {
+    flex: 0 0 50%;
+    max-width: 50%; /* Strictly protects text blocks column array from expanding out into photo spaces layers */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Breadcrumbs Links Formatting Setup */
+.stk-prog-breadcrumbs {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 24px;
+}
+
+.stk-prog-breadcrumbs a {
+    color: var(--pg-green-primary);
+    text-decoration: none;
+    transition: var(--pg-transition);
+}
+
+.stk-prog-breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+.stk-crumb-chevron {
+    margin: 0 5px;
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.stk-current-crumb {
+    color: rgba(0, 0, 0, 0.55);
+}
+
+/* 🌟 Main Title Typography Specs Calibration: Inter, Bold 700, 45px, 100% LH, 0% Spacing */
+.stk-prog-main-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 45px;
+    line-height: 100%;
+    letter-spacing: 0em;
+    color: var(--pg-text-dark);
+    margin: 0 0 20px 0;
+}
+
+/* 🌟 Target colored word highlighted within typography stack stream rules */
+.stk-prog-main-title .stk-highlight-word {
+    color: var(--pg-green-primary);
+}
+
+/* 🌟 Description Typography Specs Calibration: Inter, Medium 500, 18px, 100% LH, Solid Black */
+.stk-prog-description {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 135%; /* Set slightly relaxed to allow clean readability flows when words wrap rows */
+    letter-spacing: 0em;
+    color: var(--pg-text-dark);
+    margin: 0 0 28px 0;
+    max-width: 480px;
+}
+
+/* 🌟 Quote Typography Specs Calibration: Inter, Semi Bold 600, 15px, 100% LH, Primary Green Theme Color */
+.stk-prog-slogan-quote {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 0em;
+    color: var(--pg-green-primary);
+    margin: 0;
+}
+
+/* --- SCROLL-BASED TYPEWRITER SPAWNING MECHANICS STYLES --- */
+.stk-pr-char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+}
+
+.stk-pr-char.stk-pr-revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stk-pr-space {
+    display: inline-block;
+    width: 0.24em;
+}
+
+/* 🌟 LIQUID RESPONSIVE MATRIX ADAPTATION LAYERS OVERRIDES (100% MOBILE COMPATIBLE) */
+@media (max-width: 992px) {
+    .stk-prog-hero-section {
+        padding: 40px 0;
+    }
+    
+    .stk-prog-alpha-mask-blend {
+        /* Adjusts alpha mask direction smoothly to run from top-to-bottom on mobile devices grids */
+        background: linear-gradient(to bottom, rgba(229, 226, 215, 0.82) 0%, var(--pg-bg-beige) 65%);
+    }
+    
+    .stk-prog-image-deck {
+        width: 100%;
+        opacity: 0.2; /* Subtly converts backdrop portrait photo to watermark layer background to avoid breaking text contrasts */
+    }
+    
+    .stk-prog-hero-container {
+        padding: 0 20px;
+        justify-content: center;
+    }
+    
+    .stk-prog-content-block {
+        flex: 0 0 100%;
+        max-width: 100%;
+        text-align: center;
+        align-items: center;
+    }
+    
+    .stk-prog-description {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .stk-prog-main-title {
+        font-size: 34px; /* Dynamically downscales scale on compact phone viewports to prevent line overflows */
+    }
+    .stk-prog-description {
+        font-size: 16px;
+    }
+    .stk-prog-slogan-quote {
+        font-size: 14px;
+        line-height: 120%;
+    }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // --- SCROLL-TRIGGERED LETTER-BY-LETTER TYPEWRITER ANIMATION CONTROLLER ---
+    const progTitleNode = document.getElementById("scrollLetterProgTitle");
+    
+    if (progTitleNode) {
+        // Extract raw string text content data securely
+        const rawStringText = progTitleNode.textContent.trim();
+        progTitleNode.innerHTML = ""; // Empty string layout element placeholder safely
+
+        // Array mapping loop logic splits text tokens cleanly into standalone letter spans
+        Array.from(rawStringText).forEach(character => {
+            if (character === " ") {
+                const spaceSpanElement = document.createElement("span");
+                spaceSpanElement.classList.add("stk-pr-space");
+                progTitleNode.appendChild(spaceSpanElement);
+            } else {
+                const letterSpanElement = document.createElement("span");
+                letterSpanElement.textContent = character;
+                letterSpanElement.classList.add("stk-pr-char");
+                
+                // Color configuration parsing module logic checks if current text loop maps to "Programs" word
+                if (rawStringText.indexOf("Programs") !== -1 && ["P","r","o","g","r","a","m","s"].includes(character)) {
+                    letterSpanElement.style.color = "var(--pg-green-primary)";
+                }
+                
+                progTitleNode.appendChild(letterSpanElement);
+            }
+        });
+
+        // Intersection Observer executes typing delay timeline cascades upon viewport entry detection
+        const textIntersectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const structuralLetterSpans = entry.target.querySelectorAll(".stk-pr-char");
+                    
+                    structuralLetterSpans.forEach((individualLetterSpan, index) => {
+                        // Sequential incremental timer pacing reveal fades elegantly
+                        setTimeout(() => {
+                            individualLetterSpan.classList.add("stk-pr-revealed");
+                        }, index * 45); 
+                    });
+                    
+                    // Stop watching once active tracking run cycle triggers successfully
+                    textIntersectionObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.4 });
+
+        textIntersectionObserver.observe(progTitleNode);
+    }
+});
+</script>
+
+<section class="stk-focus-section">
+    <div class="stk-focus-header" id="scrollFocusHeader">
+        <h2 class="stk-focus-main-title">Our Focus Areas</h2>
+        <p class="stk-focus-desc">We focus on key areas that create the most impact and bring sustainable change.</p>
+    </div>
+
+    <!-- Seamless Infinite Continuous Marquee Viewport Track -->
+    <div class="stk-focus-marquee-viewport">
+        <div class="stk-focus-marquee-track">
+            
+            <!-- --- ORIGINAL CARD DECK TRACK --- -->
+            <!-- Card 1: Healthcare -->
+            <div class="stk-focus-card">
+                <div class="stk-focus-icon-badge">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                </div>
+                <h3 class="stk-focus-card-title">Healthcare</h3>
+                <p class="stk-focus-card-content">Accessible healthcare and wellness support for all.</p>
+            </div>
+
+            <!-- Card 2: Clean Water -->
+            <div class="stk-focus-card">
+                <div class="stk-focus-icon-badge">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+                        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0zM12 19a6 6 0 0 0 6-6c0-3.31-6-9.5-6-9.5S6 9.69 6 13a6 6 0 0 0 6 6z"/>
+                    </svg>
+                </div>
+                <h3 class="stk-focus-card-title">Clean Water</h3>
+                <p class="stk-focus-card-content">Ensuring access to safe and clean drinking water.</p>
+            </div>
+
+            <!-- Card 3: Livelihood -->
+            <div class="stk-focus-card">
+                <div class="stk-focus-icon-badge">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+                        <path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L3.35 22h3.38l1.62-3.19C9.64 19.43 10.79 19.5 12 19.43l1.62 3.19h3.38l-1.62-4.39C19.26 16.68 20 14.73 20 12c0-4.97-4.03-9-9-9zm0 14.5c-3.04 0-5.5-2.46-5.5-5.5S8.96 6.5 12 6.5s5.5 2.46 5.5 5.5-2.46 5.5-5.5 5.5z"/>
+                    </svg>
+                </div>
+                <h3 class="stk-focus-card-title">Livelihood</h3>
+                <p class="stk-focus-card-content">Skills training and livelihood programs for sustainable income.</p>
+            </div>
+
+            <!-- Card 4: Women Empowerment -->
+            <div class="stk-focus-card">
+                <div class="stk-focus-icon-badge">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+                        <path d="M12 2a5 5 0 0 0-5 5c0 2.3 1.54 4.24 3.66 4.85l-1.66 3.15H11v4h2v-4h2l-1.66-3.15C15.46 11.24 17 9.3 17 7a5 5 0 0 0-5-5zm0 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                    </svg>
+                </div>
+                <h3 class="stk-focus-card-title">Women Empowerment</h3>
+                <p class="stk-focus-card-content">Empowering women to be independent and confident.</p>
+            </div>
+
+            <!-- Card 5: Community Support -->
+            <div class="stk-focus-card">
+                <div class="stk-focus-icon-badge">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3c1.32 0 2.55.35 3.53 1l-1.45 1.45C17.79 5.15 17.16 5 16.5 5c-2.21 0-4 1.79-4 4 0 .67.15 1.3.43 1.86L10.3 13.5l1.7 1.7 2.64-2.64c.56.28 1.19.44 1.86.44 2.21 0 4-1.79 4-4a4 4 0 0 0-1-2.53l1.45-1.45C21.65 6.5 22 7.73 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                </div>
+                <h3 class="stk-focus-card-title">Community Support</h3>
+                <p class="stk-focus-card-content">Supporting communities during crises and emergencies.</p>
+            </div>
+
+            <!-- Card 6: Education -->
+            <div class="stk-focus-card">
+                <div class="stk-focus-icon-badge">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+                        <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5.49 12.18l-1.92.83L12 18.25l8.43-5.24-1.92-.83L12 16l-6.51-3.82z"/>
+                    </svg>
+                </div>
+                <h3 class="stk-focus-card-title">Education</h3>
+                <p class="stk-focus-card-content">Quality education for underprivileged children and youth.</p>
+            </div>
+
+            <!-- --- 🌟 CLONED DECK FOR SEAMLESS LOOPING --- -->
+            <div class="stk-focus-card" aria-hidden="true">
+                <div class="stk-focus-icon-badge">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                </div>
+                <h3 class="stk-focus-card-title">Healthcare</h3>
+                <p class="stk-focus-card-content">Accessible healthcare and wellness support for all.</p>
+            </div>
+            <div class="stk-focus-card" aria-hidden="true">
+                <div class="stk-focus-icon-badge">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0zM12 19a6 6 0 0 0 6-6c0-3.31-6-9.5-6-9.5S6 9.69 6 13a6 6 0 0 0 6 6z"/></svg>
+                </div>
+                <h3 class="stk-focus-card-title">Clean Water</h3>
+                <p class="stk-focus-card-content">Ensuring access to safe and clean drinking water.</p>
+            </div>
+            <div class="stk-focus-card" aria-hidden="true">
+                <div class="stk-focus-icon-badge">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L3.35 22h3.38l1.62-3.19C9.64 19.43 10.79 19.5 12 19.43l1.62 3.19h3.38l-1.62-4.39C19.26 16.68 20 14.73 20 12c0-4.97-4.03-9-9-9zm0 14.5c-3.04 0-5.5-2.46-5.5-5.5S8.96 6.5 12 6.5s5.5 2.46 5.5 5.5-2.46 5.5-5.5 5.5z"/></svg>
+                </div>
+                <h3 class="stk-focus-card-title">Livelihood</h3>
+                <p class="stk-focus-card-content">Skills training and livelihood programs for sustainable income.</p>
+            </div>
+            <div class="stk-focus-card" aria-hidden="true">
+                <div class="stk-focus-icon-badge">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org"><path d="M12 2a5 5 0 0 0-5 5c0 2.3 1.54 4.24 3.66 4.85l-1.66 3.15H11v4h2v-4h2l-1.66-3.15C15.46 11.24 17 9.3 17 7a5 5 0 0 0-5-5zm0 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
+                </div>
+                <h3 class="stk-focus-card-title">Women Empowerment</h3>
+                <p class="stk-focus-card-content">Empowering women to be independent and confident.</p>
+            </div>
+            <div class="stk-focus-card" aria-hidden="true">
+                <div class="stk-focus-icon-badge">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3c1.32 0 2.55.35 3.53 1l-1.45 1.45C17.79 5.15 17.16 5 16.5 5c-2.21 0-4 1.79-4 4 0 .67.15 1.3.43 1.86L10.3 13.5l1.7 1.7 2.64-2.64c.56.28 1.19.44 1.86.44 2.21 0 4-1.79 4-4a4 4 0 0 0-1-2.53l1.45-1.45C21.65 6.5 22 7.73 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                </div>
+                <h3 class="stk-focus-card-title">Community Support</h3>
+                <p class="stk-focus-card-content">Supporting communities during crises and emergencies.</p>
+            </div>
+            <div class="stk-focus-card" aria-hidden="true">
+                <div class="stk-focus-icon-badge">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5.49 12.18l-1.92.83L12 18.25l8.43-5.24-1.92-.83L12 16l-6.51-3.82z"/></svg>
+                </div>
+                <h3 class="stk-focus-card-title">Education</h3>
+                <p class="stk-focus-card-content">Quality education for underprivileged children and youth.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+:root {
+    --fc-green-primary: #126B2F;
+    --fc-green-glow: rgba(18, 107, 47, 0.4);
+    --fc-text-black: #000000;
+    --fc-text-muted: #555555;
+    --fc-box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+    --fc-transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.stk-focus-section {
+    width: 100%;
+    background-color: #FFFFFF;
+    padding: 30px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.stk-focus-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 0 24px;
+}
+
+.stk-focus-header h2 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 100%;
+    color: var(--fc-text-black);
+    margin: 0 0 14px 0;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.stk-focus-header p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--fc-text-muted);
+    margin: 0;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.6s ease-out 0.25s, transform 0.6s ease-out 0.25s;
+}
+
+.stk-focus-header.header-revealed h2,
+.stk-focus-header.header-revealed p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Infinite Marquee Viewport Window */
+.stk-focus-marquee-viewport {
+    width: 80%;
+    overflow: hidden;
+    position: relative;
+    padding: 20px 0;
+    display: flex;
+}
+
+.stk-focus-marquee-viewport::before,
+.stk-focus-marquee-viewport::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 80px;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+}
+.stk-focus-marquee-viewport::before { left: 0; background: linear-gradient(to right, #FFFFFF, rgba(255,255,255,0)); }
+.stk-focus-marquee-viewport::after { right: 0; background: linear-gradient(to left, #FFFFFF, rgba(255,255,255,0)); }
+
+/* Infinite Carousel Looping Layout Track */
+.stk-focus-marquee-track {
+    display: flex;
+    align-items: stretch;
+    width: max-content;
+    gap: 16px;
+    will-change: transform;
+    animation: constantInfiniteCarousel 35s linear infinite;
+}
+
+.stk-focus-marquee-track:hover {
+    animation-play-state: paused;
+}
+
+/* Individual Focus Card Component */
+.stk-focus-card {
+    width: 175px; 
+    background-color: #FFFFFF;
+    border: 1px solid #CBD5E1; 
+    border-radius: 12px;
+    padding: 24px 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    box-shadow: var(--fc-box-shadow);
+    transition: var(--fc-transition);
+}
+
+.stk-focus-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--fc-green-primary);
+    box-shadow: 0 12px 24px -5px rgba(18, 107, 47, 0.15);
+}
+
+/* Circle Badge Container Housing Vector Graphics */
+.stk-focus-icon-badge {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background-color: rgba(18, 107, 47, 0.06); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+    border: 1px dashed rgba(18, 107, 47, 0.2);
+    transition: var(--fc-transition);
+}
+
+/* Default state for the path nodes inside the SVG element tree */
+.stk-focus-icon-badge svg {
+    width: 22px;
+    height: 22px;
+}
+
+.stk-focus-icon-badge svg path {
+    fill: var(--fc-green-primary);
+    transition: var(--fc-transition);
+}
+
+/* 🌟 CRUCIAL HOVER BUG FIX: Re-colors background AND forces embedded vector paths to change to white */
+.stk-focus-card:hover .stk-focus-icon-badge {
+    background-color: var(--fc-green-primary);
+    border-color: var(--fc-green-primary);
+    filter: drop-shadow(0 0 6px var(--fc-green-glow));
+    transform: scale(1.05);
+}
+
+.stk-focus-card:hover .stk-focus-icon-badge svg path {
+    fill: #FFFFFF !important; /* Forces vectors to draw crisp white, preventing them from matching green background and vanishing */
+}
+
+/* Card Heading Specs */
+.stk-focus-card-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 115%;
+    color: var(--fc-text-black);
+    margin: 0 0 10px 0;
+}
+
+/* 🌟 Updated Card Content Specs: Font size locked exactly at 12px */
+.stk-focus-card-content {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px; 
+    line-height: 140%;
+    color: var(--fc-text-muted);
+    margin: 0;
+}
+
+@keyframes constantInfiniteCarousel {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 8px)); }
+}
+
+@media (max-width: 768px) {
+    .stk-focus-header h2 { font-size: 26px; }
+    .stk-focus-card {
+        width: 165px;
+        padding: 20px 10px;
+    }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // --- SCROLL INTERSECTION REVEAL OBSERVER ---
+    const headerNode = document.getElementById("scrollFocusHeader");
+    
+    if (headerNode) {
+        const headerObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("header-revealed");
+                    headerObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.35 });
+
+        headerObserver.observe(headerNode);
+    }
+});
+</script>
+
+<section class="stk-edu-block-section">
+    <div class="stk-edu-block-container">
+        
+        <!-- Left Side: Automated Rotational Image Deck (Swaps every 2 seconds) -->
+        <div class="stk-edu-block-media-col">
+            <div class="stk-edu-image-floating-deck">
+                <img src="./Assests/edu.webp" alt="Smiling school girl writing in classroom" class="stk-edu-rotate-slide active">
+                <img src="./Assests/edu.webp" alt="Children studying together with learning resources" class="stk-edu-rotate-slide">
+                <img src="./Assests/edu.webp" alt="Classroom school infrastructure environment" class="stk-edu-rotate-slide">
+            </div>
+        </div>
+
+        <!-- Right Side: Content Box Panel with Light Mesh Tint Background -->
+        <div class="stk-edu-block-content-col">
+            <div class="stk-edu-card-panel">
+                
+                <!-- 🌟 Target for Letter-by-Letter Scroll Typewriter Script -->
+                <h2 class="stk-edu-main-title" id="scrollLetterEduTitle">Education For All</h2>
+                
+                <p class="stk-edu-description">We believe every child deserves access to quality education. Our programs provide learning resources, scholarships, and safe learning spaces.</p>
+
+                <!-- 🌟 Horizontal 3-Points List (Staggers entry sequentially on scroll) -->
+                <div class="stk-edu-features-row" id="scrollEduFeaturesList">
+                    
+                    <!-- Point 1 -->
+                    <div class="stk-edu-feature-item">
+                        <div class="stk-edu-icon-badge">
+                            <!-- Custom White SVG Heart Hands Vector -->
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="#126B2F" xmlns="http://w3.org">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                        </div>
+                        <div class="stk-edu-feature-text">
+                            <h3>School Support</h3>
+                            <p>Providing books, supplies, and infrastructure.</p>
+                        </div>
+                    </div>
+
+                    <!-- Point 2 -->
+                    <div class="stk-edu-feature-item">
+                        <div class="stk-edu-icon-badge">
+                            <!-- Custom White SVG Book Open Vector -->
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="#126B2F" xmlns="http://w3.org">
+                                <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5.49 12.18l-1.92.83L12 18.25l8.43-5.24-1.92-.83L12 16l-6.51-3.82z"/>
+                            </svg>
+                        </div>
+                        <div class="stk-edu-feature-text">
+                            <h3>Scholarships</h3>
+                            <p>Financial assistance for bright, needy students.</p>
+                        </div>
+                    </div>
+
+                    <!-- Point 3 -->
+                    <div class="stk-edu-feature-item">
+                        <div class="stk-edu-icon-badge">
+                            <!-- Custom White SVG Safe Space Shield Vector -->
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="#126B2F" xmlns="http://w3.org">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10zm-1-6l-4-4 1.41-1.41L11 13.17l5.59-5.59L18 9l-7 7z"/>
+                            </svg>
+                        </div>
+                        <div class="stk-edu-feature-text">
+                            <h3>Safe Spaces</h3>
+                            <p>Building protected, friendly educational hubs.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 🌟 Floating Call-To-Action Button Block -->
+                <div class="stk-edu-btn-wrapper">
+                    <a href="404.html" class="stk-btn-edu-float" aria-label="Navigate to institutional programs directory details">Learn More</a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+:root {
+    --ed-green-primary: #126B2F;
+    --ed-green-hover: #0c4d21;
+    --ed-text-black: #000000;
+    --ed-text-muted: #4A5568;
+    --ed-bg-mesh: #F4F7F5; /* Crisp, clean off-white tinted green backdrop matching your image layout */
+    --ed-radius: 14px;
+    --ed-transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.stk-edu-block-section {
+    width: 100%;
+    background-color: #FFFFFF;
+    padding: 60px 0 0 0; /* 🌟 Strict Constraint: Bottom padding completely locked to 0 */
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.stk-edu-block-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 24px;
+    gap: 32px; /* Smooth tight horizontal split tracking reference image proportions */
+    align-items: stretch;
+    box-sizing: border-box;
+}
+
+/* --- LEFT COLUMN: AUTOMATED ROTATION MEDIA DECK --- */
+.stk-edu-block-media-col {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stk-edu-image-floating-deck {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 320px; /* Safeguards aspect volume metrics */
+    border-radius: var(--ed-radius);
+    will-change: transform;
+    /* Soft continuous floating translation bounce cycle loop */
+    animation: spatialVerticalBounce 4s ease-in-out infinite alternate;
+}
+
+.stk-edu-rotate-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--ed-radius);
+    opacity: 0;
+    transform: rotate(-2.5deg) scale(0.97);
+    transition: opacity 0.8s ease-in-out, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.15);
+    z-index: 1;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+
+/* 🌟 Active Rotation Token class applied via JavaScript intervals */
+.stk-edu-rotate-slide.active {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+    z-index: 2;
+}
+
+@keyframes spatialVerticalBounce {
+    0% { transform: translateY(3px); }
+    100% { transform: translateY(-6px); }
+}
+
+/* --- RIGHT COLUMN: MESH CARD PANEL --- */
+.stk-edu-block-content-col {
+    flex: 1.6; /* Grants expanded horizontal layout width space to right block context matching sample screenshot image */
+    display: flex;
+}
+
+.stk-edu-card-panel {
+    width: 100%;
+    background-color: var(--ed-bg-mesh);
+    border-radius: var(--ed-radius);
+    padding: 36px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+/* Main Title Specs Calibration: Inter, Bold 700, 32px, 100% LH */
+.stk-edu-main-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: -0.01em;
+    color: var(--ed-text-black);
+    margin: 0 0 14px 0;
+}
+
+/* Description Specs Calibration: Inter, Medium 500, 18px, 100% LH, Solid Black */
+.stk-edu-description {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 15px; /* Downscaled slightly from 18px to optimize balanced legibility inside cards grid layout views */
+    line-height: 140%;
+    color: var(--ed-text-black);
+    margin: 0 0 24px 0;
+}
+
+/* Horizontal 3-Points Row Container */
+.stk-edu-features-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 28px;
+    width: 100%;
+}
+
+/* Individual feature item card node structure layout */
+.stk-edu-feature-item {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    box-sizing: border-box;
+    
+    /* Scroll Reveal Initial Animation Hidden Setup hooks */
+    opacity: 0;
+    transform: translateY(12px);
+    transition: var(--ed-transition);
+}
+
+.stk-edu-feature-item.item-revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Round Badge circles housing vectors */
+.stk-edu-icon-badge {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: rgba(18, 107, 47, 0.08); /* Transparent tint mesh circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border: 1px dashed rgba(18, 107, 47, 0.15);
+}
+
+.stk-edu-icon-badge svg {
+    display: block;
+}
+
+.stk-edu-feature-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+/* Point Title Specs: Inter, Black 900, 18px */
+.stk-edu-feature-text h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700; /* Set cleanly to balance compact card columns without fracturing text wrappers lines */
+    font-size: 16px;
+    line-height: 100%;
+    color: #000000;
+    margin: 0;
+}
+
+/* Point Content Specs: Inter, Regular 400, 15px */
+.stk-edu-feature-text p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 130%;
+    color: #000000;
+    margin: 0;
+}
+
+/* CTA Floating Button wrappers alignment */
+.stk-edu-btn-wrapper {
+    display: block;
+    width: fit-content;
+}
+
+/* Floating Solid Green Pill Button Component Action Target */
+.stk-btn-edu-float {
+    display: inline-block;
+    background-color: var(--ed-green-primary);
+    color: #FFFFFF;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(18, 107, 47, 0.2);
+    will-change: transform;
+    transition: var(--ed-transition);
+    animation: ctaSubtleFloat 3.5s ease-in-out infinite alternate;
+}
+
+.stk-btn-edu-float:hover {
+    background-color: var(--ed-green-hover);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(18, 107, 47, 0.35);
+}
+
+@keyframes ctaSubtleFloat {
+    0% { transform: translateY(1px); }
+    100% { transform: translateY(-4px); }
+}
+
+/* --- SCROLL ANIMATION TYPOGRAPHY MECHANICS --- */
+.stk-ed-char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+}
+.stk-ed-char.stk-ed-revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+.stk-ed-space {
+    display: inline-block;
+    width: 0.25em;
+}
+
+/* --- LIQUID RESPONSIVE BREAKPOINTMEDIA LAYER OVERRIDES --- */
+@media (max-width: 992px) {
+    .stk-edu-block-container {
+        flex-direction: column;
+        gap: 36px;
+    }
+    .stk-edu-block-media-col,
+    .stk-edu-block-content-col {
+        width: 100%;
+    }
+    .stk-edu-image-floating-deck {
+        height: 280px;
+    }
+    .stk-edu-card-panel {
+        padding: 30px 24px;
+        text-align: center;
+        align-items: center;
+    }
+    .stk-edu-features-row {
+        text-align: left;
+    }
+}
+
+@media (max-width: 768px) {
+    .stk-edu-features-row {
+        flex-direction: column; /* Reflows the 3 feature point elements vertically inside mobile display bounds screen views */
+        gap: 16px;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 576px) {
+    .stk-edu-main-title { font-size: 26px; }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // --- 1. AUTOMATED 2-SECONDS IMAGE DECK SWAPPER ROTATOR ---
+    const eduSlides = document.querySelectorAll(".stk-edu-rotate-slide");
+    let activeSlideIndex = 0;
+
+    function runEduImageCycle() {
+        if (eduSlides.length === 0) return;
+        eduSlides[activeSlideIndex].classList.remove("active");
+        activeSlideIndex = (activeSlideIndex + 1) % eduSlides.length;
+        eduSlides[activeSlideIndex].classList.add("active");
+    }
+
+    if (eduSlides.length > 1) {
+        setInterval(runEduImageCycle, 2000);
+    }
+
+
+    // --- 2. MAIN TITLE: LETTER-BY-LETTER SCROLL INTERSECTION REVEAL ---
+    const eduTitleNode = document.getElementById("scrollLetterEduTitle");
+    
+    if (eduTitleNode) {
+        const rawTextString = eduTitleNode.textContent.trim();
+        eduTitleNode.innerHTML = ""; 
+
+        Array.from(rawTextString).forEach(char => {
+            if (char === " ") {
+                const spaceSpan = document.createElement("span");
+                spaceSpan.classList.add("stk-ed-space");
+                eduTitleNode.appendChild(spaceSpan);
+            } else {
+                const letterSpan = document.createElement("span");
+                letterSpan.textContent = char;
+                letterSpan.classList.add("stk-ed-char");
+                eduTitleNode.appendChild(letterSpan);
+            }
+        });
+
+        const textObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const characterNodes = entry.target.querySelectorAll(".stk-ed-char");
+                    characterNodes.forEach((letterNode, index) => {
+                        setTimeout(() => {
+                            letterNode.classList.add("stk-ed-revealed");
+                        }, index * 40);
+                    });
+                    textObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        textObserver.observe(eduTitleNode);
+    }
+
+
+    // --- 3. SUB-FEATURES: HORIZONTAL STAGGER ONE-BY-ONE SCROLL OBSERVER ---
+    const featuresListContainer = document.getElementById("scrollEduFeaturesList");
+    
+    if (featuresListContainer) {
+        const featuresItems = featuresListContainer.querySelectorAll(".stk-edu-feature-item");
+        
+        const listObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    featuresItems.forEach((itemNode, index) => {
+                        // Cascades element row reveals sequentially downstream
+                        setTimeout(() => {
+                            itemNode.classList.add("item-revealed");
+                        }, index * 200);
+                    });
+                    listObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        listObserver.observe(featuresListContainer);
+    }
+});
+</script>
+<section class="stk-health-block-section">
+    <div class="stk-health-block-container">
+        
+        <!-- Left Side: Content Box Panel with Light Mesh Tint Background -->
+        <div class="stk-health-block-content-col">
+            <div class="stk-health-card-panel">
+                
+                <!-- 🌟 Target for Letter-by-Letter Scroll Typewriter Script -->
+                <h2 class="stk-health-main-title" id="scrollLetterHealthTitle">Healthcare & Wellness</h2>
+                
+                <p class="stk-health-description">We work towards healthier communities by providing medical care, awareness, and wellness programs.</p>
+
+                <!-- 🌟 Horizontal 3-Points List (Staggers entry sequentially on scroll) -->
+                <div class="stk-health-features-row" id="scrollHealthFeaturesList">
+                    
+                    <!-- Point 1 -->
+                    <div class="stk-health-feature-item">
+                        <div class="stk-health-icon-badge">
+                            <!-- Custom SVG Medical Heart Vector -->
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="#126B2F" xmlns="http://w3.org">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                        </div>
+                        <div class="stk-health-feature-text">
+                            <h3>Medical Camps</h3>
+                            <p>Free health check-ups and treatments.</p>
+                        </div>
+                    </div>
+
+                    <!-- Point 2 -->
+                    <div class="stk-health-feature-item">
+                        <div class="stk-health-icon-badge">
+                            <!-- Custom SVG Awareness Stethoscope/Lamp Vector -->
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="#126B2F" xmlns="http://w3.org">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                            </svg>
+                        </div>
+                        <div class="stk-health-feature-text">
+                            <h3>Health Awareness</h3>
+                            <p>Workshops on hygiene, nutrition & wellness.</p>
+                        </div>
+                    </div>
+
+                    <!-- Point 3 -->
+                    <div class="stk-health-feature-item">
+                        <div class="stk-health-icon-badge">
+                            <!-- Custom SVG Mental Health Lotus/Brain Vector -->
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="#126B2F" xmlns="http://w3.org">
+                                <path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L3.35 22h3.38l1.62-3.19C9.64 19.43 10.79 19.5 12 19.43l1.62 3.19h3.38l-1.62-4.39C19.26 16.68 20 14.73 20 12c0-4.97-4.03-9-9-9zm0 14.5c-3.04 0-5.5-2.46-5.5-5.5S8.96 6.5 12 6.5s5.5 2.46 5.5 5.5-2.46 5.5-5.5 5.5z"/>
+                            </svg>
+                        </div>
+                        <div class="stk-health-feature-text">
+                            <h3>Mental Health Support</h3>
+                            <p>Counselling and support for those in need.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Floating Call-To-Action Button Block -->
+                <div class="stk-health-btn-wrapper">
+                    <a href="404.html" class="stk-btn-health-float" aria-label="Learn more about health programs">Learn More</a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Right Side: Automated Rotational Image Deck (Swaps every 2 seconds) -->
+        <div class="stk-health-block-media-col">
+            <div class="stk-health-image-floating-deck">
+                <img src="./Assests/health.webp" alt="Doctor checking child with stethoscope" class="stk-health-rotate-slide active">
+                <img src="./Assests/health.webp" alt="Medical camp checkup operation" class="stk-health-rotate-slide">
+                <img src="./Assests/health.webp" alt="Health awareness workshop session" class="stk-health-rotate-slide">
+            </div>
+        </div>
+
+    </div>
+</section>
+<style>
+:root {
+    --hl-green-primary: #126B2F;
+    --hl-green-hover: #0c4d21;
+    --hl-text-black: #000000;
+    --hl-text-muted: #4A5568;
+    --hl-bg-mesh: #F4F7F5; 
+    --hl-radius: 14px;
+    --hl-transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.stk-health-block-section {
+    width: 100%;
+    background-color: #FFFFFF;
+    /* 🌟 Tight Constraint: Both top and bottom paddings are completely set to 0 */
+    padding: 0; 
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.stk-health-block-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 24px;
+    gap: 32px; 
+    align-items: stretch;
+    box-sizing: border-box;
+}
+
+/* --- LEFT COLUMN: MESH CARD PANEL --- */
+.stk-health-block-content-col {
+    flex: 1.6; /* Expanded layout width space to right block context matching sample screenshot image */
+    display: flex;
+}
+
+.stk-health-card-panel {
+    width: 100%;
+    background-color: var(--hl-bg-mesh);
+    border-radius: var(--hl-radius);
+    padding: 36px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+/* Main Title Specs Calibration: Inter, Bold 700, 32px, 100% LH */
+.stk-health-main-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: -0.01em;
+    color: var(--hl-text-black);
+    margin: 0 0 14px 0;
+}
+
+/* Description Specs Calibration: Inter, Medium 500, 18px, 100% LH, Solid Black */
+.stk-health-description {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 15px; 
+    line-height: 140%;
+    color: var(--hl-text-black);
+    margin: 0 0 24px 0;
+}
+
+/* Horizontal 3-Points Row Container */
+.stk-health-features-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 28px;
+    width: 100%;
+}
+
+/* Individual feature item card node structure layout */
+.stk-health-feature-item {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    box-sizing: border-box;
+    
+    /* Scroll Reveal Initial Animation Hidden Setup hooks */
+    opacity: 0;
+    transform: translateY(12px);
+    transition: var(--hl-transition);
+}
+
+.stk-health-feature-item.item-revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Round Badge circles housing vectors */
+.stk-health-icon-badge {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: rgba(18, 107, 47, 0.08); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border: 1px dashed rgba(18, 107, 47, 0.15);
+}
+
+.stk-health-icon-badge svg {
+    display: block;
+}
+
+.stk-health-feature-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+/* Point Title Specs: Inter, Black 900, 18px */
+.stk-health-feature-text h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700; 
+    font-size: 16px;
+    line-height: 100%;
+    color: #000000;
+    margin: 0;
+}
+
+/* Point Content Specs: Inter, Regular 400, 15px */
+.stk-health-feature-text p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 130%;
+    color: #000000;
+    margin: 0;
+}
+
+/* CTA Floating Button wrappers alignment */
+.stk-health-btn-wrapper {
+    display: block;
+    width: fit-content;
+}
+
+/* Floating Solid Green Pill Button Component Action Target */
+.stk-btn-health-float {
+    display: inline-block;
+    background-color: var(--hl-green-primary);
+    color: #FFFFFF;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(18, 107, 47, 0.2);
+    will-change: transform;
+    transition: var(--hl-transition);
+    animation: ctaSubtleFloat 3.5s ease-in-out infinite alternate;
+}
+
+.stk-btn-health-float:hover {
+    background-color: var(--hl-green-hover);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(18, 107, 47, 0.35);
+}
+
+@keyframes ctaSubtleFloat {
+    0% { transform: translateY(1px); }
+    100% { transform: translateY(-4px); }
+}
+
+/* --- RIGHT COLUMN: AUTOMATED ROTATION MEDIA DECK --- */
+.stk-health-block-media-col {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stk-health-image-floating-deck {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 320px; 
+    border-radius: var(--hl-radius);
+    will-change: transform;
+    animation: spatialVerticalBounce 4s ease-in-out infinite alternate;
+}
+
+.stk-health-rotate-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--hl-radius);
+    opacity: 0;
+    transform: rotate(2.5deg) scale(0.97); /* Swapped rotation mirror angle natively */
+    transition: opacity 0.8s ease-in-out, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.15);
+    z-index: 1;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+
+.stk-health-rotate-slide.active {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+    z-index: 2;
+}
+
+@keyframes spatialVerticalBounce {
+    0% { transform: translateY(3px); }
+    100% { transform: translateY(-6px); }
+}
+
+/* --- SCROLL ANIMATION TYPOGRAPHY MECHANICS --- */
+.stk-hl-char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+}
+.stk-hl-char.stk-hl-revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+.stk-hl-space {
+    display: inline-block;
+    width: 0.25em;
+}
+
+/* --- LIQUID RESPONSIVE BREAKPOINT MEDIA LAYER OVERRIDES --- */
+@media (max-width: 992px) {
+    .stk-health-block-container {
+        flex-direction: column-reverse; /* Reverses order on mobile screens so content card sits cleanly above image slider */
+        gap: 36px;
+    }
+    .stk-health-block-media-col,
+    .stk-health-block-content-col {
+        width: 100%;
+    }
+    .stk-health-image-floating-deck {
+        height: 280px;
+    }
+    .stk-health-card-panel {
+        padding: 30px 24px;
+        text-align: center;
+        align-items: center;
+    }
+    .stk-health-features-row {
+        text-align: left;
+    }
+}
+
+@media (max-width: 768px) {
+    .stk-health-features-row {
+        flex-direction: column; 
+        gap: 16px;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 576px) {
+    .stk-health-main-title { font-size: 26px; }
+}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // --- 1. AUTOMATED 2-SECONDS IMAGE DECK SWAPPER ROTATOR ---
+    const healthSlides = document.querySelectorAll(".stk-health-rotate-slide");
+    let activeHealthSlideIndex = 0;
+
+    function runHealthImageCycle() {
+        if (healthSlides.length === 0) return;
+        healthSlides[activeHealthSlideIndex].classList.remove("active");
+        activeHealthSlideIndex = (activeHealthSlideIndex + 1) % healthSlides.length;
+        healthSlides[activeHealthSlideIndex].classList.add("active");
+    }
+
+    if (healthSlides.length > 1) {
+        setInterval(runHealthImageCycle, 2000);
+    }
+
+
+    // --- 2. MAIN TITLE: LETTER-BY-LETTER SCROLL INTERSECTION REVEAL ---
+    const healthTitleNode = document.getElementById("scrollLetterHealthTitle");
+    
+    if (healthTitleNode) {
+        const rawTextString = healthTitleNode.textContent.trim();
+        healthTitleNode.innerHTML = ""; 
+
+        Array.from(rawTextString).forEach(char => {
+            if (char === " ") {
+                const spaceSpan = document.createElement("span");
+                spaceSpan.classList.add("stk-hl-space");
+                healthTitleNode.appendChild(spaceSpan);
+            } else {
+                const letterSpan = document.createElement("span");
+                letterSpan.textContent = char;
+                letterSpan.classList.add("stk-hl-char");
+                healthTitleNode.appendChild(letterSpan);
+            }
+        });
+
+        const textObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const characterNodes = entry.target.querySelectorAll(".stk-hl-char");
+                    characterNodes.forEach((letterNode, index) => {
+                        setTimeout(() => {
+                            letterNode.classList.add("stk-hl-revealed");
+                        }, index * 40);
+                    });
+                    textObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        textObserver.observe(healthTitleNode);
+    }
+
+
+    // --- 3. SUB-FEATURES: HORIZONTAL STAGGER ONE-BY-ONE SCROLL OBSERVER ---
+    const healthFeaturesContainer = document.getElementById("scrollHealthFeaturesList");
+    
+    if (healthFeaturesContainer) {
+        const healthItems = healthFeaturesContainer.querySelectorAll(".stk-health-feature-item");
+        
+        const listObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    healthItems.forEach((itemNode, index) => {
+                        setTimeout(() => {
+                            itemNode.classList.add("item-revealed");
+                        }, index * 200);
+                    });
+                    listObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        listObserver.observe(healthFeaturesContainer);
+    }
+});
+</script>
+<section class="stk-water-block-section">
+    <div class="stk-water-block-container">
+        
+        <!-- Left Side: Automated Rotational Image Deck (Swaps every 2 seconds) -->
+        <div class="stk-water-block-media-col">
+            <div class="stk-water-image-floating-deck">
+                <img src="./Assests/water.webp" alt="Child happily drinking clean water from an outdoor tap" class="stk-water-rotate-slide active">
+                <img src="./Assests/water.webp" alt="Sanitation facility construction" class="stk-water-rotate-slide">
+                <img src="./Assests/water.webp" alt="Community training workshop on conservation" class="stk-water-rotate-slide">
+            </div>
+        </div>
+
+        <!-- Right Side: Content Box Panel with Light Mesh Tint Background -->
+        <div class="stk-water-block-content-col">
+            <div class="stk-water-card-panel">
+                
+                <!-- 🌟 Target for Letter-by-Letter Scroll Typewriter Script -->
+                <h2 class="stk-water-main-title" id="scrollLetterWaterTitle">Clean Water & Sanitation</h2>
+                
+                <p class="stk-water-description">We ensure communities have access to safe drinking water and promote hygiene for better living.</p>
+
+                <!-- 🌟 Horizontal 3-Points List (Staggers entry sequentially on scroll) -->
+                <div class="stk-water-features-row" id="scrollWaterFeaturesList">
+                    
+                    <!-- Point 1 -->
+                    <div class="stk-water-feature-item">
+                        <div class="stk-water-icon-badge">
+                            <!-- Custom SVG Heart/Water Droplet Vector -->
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="#126B2F" xmlns="http://w3.org">
+                                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0zM12 19a6 6 0 0 0 6-6c0-3.31-6-9.5-6-9.5S6 9.69 6 13a6 6 0 0 0 6 6z"/>
+                            </svg>
+                        </div>
+                        <div class="stk-water-feature-text">
+                            <h3>Water Projects</h3>
+                            <p>Building wells, borewells & water tanks.</p>
+                        </div>
+                    </div>
+
+                    <!-- Point 2 -->
+                    <div class="stk-water-feature-item">
+                        <div class="stk-water-icon-badge">
+                            <!-- Custom SVG Clean Sanitation/Home Vector -->
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="#126B2F" xmlns="http://w3.org">
+                                <path d="M19 6H5c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7 11c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm0-8c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/>
+                            </svg>
+                        </div>
+                        <div class="stk-water-feature-text">
+                            <h3>Sanitation drives</h3>
+                            <p>Promoting clean toilets and hygiene.</p>
+                        </div>
+                    </div>
+
+                    <!-- Point 3 -->
+                    <div class="stk-water-feature-item">
+                        <div class="stk-water-icon-badge">
+                            <!-- Custom SVG Community Training Vector -->
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="#126B2F" xmlns="http://w3.org">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/>
+                            </svg>
+                        </div>
+                        <div class="stk-water-feature-text">
+                            <h3>Community Training</h3>
+                            <p>Educating communities on water conservation.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Floating Call-To-Action Button Block -->
+                <div class="stk-water-btn-wrapper">
+                    <a href="404.html" class="stk-btn-water-float" aria-label="Learn more about clean water projects">Learn More</a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+<style>
+:root {
+    --wt-green-primary: #126B2F;
+    --wt-green-hover: #0c4d21;
+    --wt-text-black: #000000;
+    --wt-text-muted: #4A5568;
+    --wt-bg-mesh: #F4F7F5; 
+    --wt-radius: 14px;
+    --wt-transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.stk-water-block-section {
+    width: 100%;
+    background-color: #FFFFFF;
+    /* 🌟 Tight Constraint: Both top and bottom paddings are completely set to 0 */
+    padding: 0; 
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.stk-water-block-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 24px;
+    gap: 32px; 
+    align-items: stretch;
+    box-sizing: border-box;
+}
+
+/* --- LEFT COLUMN: AUTOMATED ROTATION MEDIA DECK --- */
+.stk-water-block-media-col {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stk-water-image-floating-deck {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 320px; 
+    border-radius: var(--wt-radius);
+    will-change: transform;
+    animation: spatialVerticalBounce 4s ease-in-out infinite alternate;
+}
+
+.stk-water-rotate-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--wt-radius);
+    opacity: 0;
+    transform: rotate(-2.5deg) scale(0.97); 
+    transition: opacity 0.8s ease-in-out, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.15);
+    z-index: 1;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+
+.stk-water-rotate-slide.active {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+    z-index: 2;
+}
+
+@keyframes spatialVerticalBounce {
+    0% { transform: translateY(3px); }
+    100% { transform: translateY(-6px); }
+}
+
+/* --- RIGHT COLUMN: MESH CARD PANEL --- */
+.stk-water-block-content-col {
+    flex: 1.6; 
+    display: flex;
+}
+
+.stk-water-card-panel {
+    width: 100%;
+    background-color: var(--wt-bg-mesh);
+    border-radius: var(--wt-radius);
+    padding: 36px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+/* Main Title Specs Calibration: Inter, Bold 700, 32px, 100% LH */
+.stk-water-main-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: -0.01em;
+    color: var(--wt-text-black);
+    margin: 0 0 14px 0;
+}
+
+/* Description Specs Calibration: Inter, Medium 500, 18px, 100% LH, Solid Black */
+.stk-water-description {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 15px; 
+    line-height: 140%;
+    color: var(--wt-text-black);
+    margin: 0 0 24px 0;
+}
+
+/* Horizontal 3-Points Row Container */
+.stk-water-features-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 28px;
+    width: 100%;
+}
+
+/* Individual feature item card node structure layout */
+.stk-water-feature-item {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    box-sizing: border-box;
+    
+    /* Scroll Reveal Initial Animation Hidden Setup hooks */
+    opacity: 0;
+    transform: translateY(12px);
+    transition: var(--wt-transition);
+}
+
+.stk-water-feature-item.item-revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Round Badge circles housing vectors */
+.stk-water-icon-badge {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: rgba(18, 107, 47, 0.08); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border: 1px dashed rgba(18, 107, 47, 0.15);
+}
+
+.stk-water-icon-badge svg {
+    display: block;
+}
+
+.stk-water-feature-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+/* Point Title Specs: Inter, Black 900, 18px */
+.stk-water-feature-text h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700; 
+    font-size: 16px;
+    line-height: 100%;
+    color: #000000;
+    margin: 0;
+}
+
+/* Point Content Specs: Inter, Regular 400, 15px */
+.stk-water-feature-text p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 130%;
+    color: #000000;
+    margin: 0;
+}
+
+/* CTA Floating Button wrappers alignment */
+.stk-water-btn-wrapper {
+    display: block;
+    width: fit-content;
+}
+
+/* Floating Solid Green Pill Button Component Action Target */
+.stk-btn-water-float {
+    display: inline-block;
+    background-color: var(--wt-green-primary);
+    color: #FFFFFF;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(18, 107, 47, 0.2);
+    will-change: transform;
+    transition: var(--wt-transition);
+    animation: ctaSubtleFloat 3.5s ease-in-out infinite alternate;
+}
+
+.stk-btn-water-float:hover {
+    background-color: var(--wt-green-hover);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(18, 107, 47, 0.35);
+}
+
+@keyframes ctaSubtleFloat {
+    0% { transform: translateY(1px); }
+    100% { transform: translateY(-4px); }
+}
+
+/* --- SCROLL ANIMATION TYPOGRAPHY MECHANICS --- */
+.stk-wt-char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+}
+.stk-wt-char.stk-wt-revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+.stk-wt-space {
+    display: inline-block;
+    width: 0.25em;
+}
+
+/* --- LIQUID RESPONSIVE BREAKPOINT MEDIA LAYER OVERRIDES --- */
+@media (max-width: 992px) {
+    .stk-water-block-container {
+        flex-direction: column;
+        gap: 36px;
+    }
+    .stk-water-block-media-col,
+    .stk-water-block-content-col {
+        width: 100%;
+    }
+    .stk-water-image-floating-deck {
+        height: 280px;
+    }
+    .stk-water-card-panel {
+        padding: 30px 24px;
+        text-align: center;
+        align-items: center;
+    }
+    .stk-water-features-row {
+        text-align: left;
+    }
+}
+
+@media (max-width: 768px) {
+    .stk-water-features-row {
+        flex-direction: column; 
+        gap: 16px;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 576px) {
+    .stk-water-main-title { font-size: 26px; }
+}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // --- 1. AUTOMATED 2-SECONDS IMAGE DECK SWAPPER ROTATOR ---
+    const waterSlides = document.querySelectorAll(".stk-water-rotate-slide");
+    let activeWaterSlideIndex = 0;
+
+    function runWaterImageCycle() {
+        if (waterSlides.length === 0) return;
+        waterSlides[activeWaterSlideIndex].classList.remove("active");
+        activeWaterSlideIndex = (activeWaterSlideIndex + 1) % waterSlides.length;
+        waterSlides[activeWaterSlideIndex].classList.add("active");
+    }
+
+    if (waterSlides.length > 1) {
+        setInterval(runWaterImageCycle, 2000);
+    }
+
+
+    // --- 2. MAIN TITLE: LETTER-BY-LETTER SCROLL INTERSECTION REVEAL ---
+    const waterTitleNode = document.getElementById("scrollLetterWaterTitle");
+    
+    if (waterTitleNode) {
+        const rawTextString = waterTitleNode.textContent.trim();
+        waterTitleNode.innerHTML = ""; 
+
+        Array.from(rawTextString).forEach(char => {
+            if (char === " ") {
+                const spaceSpan = document.createElement("span");
+                spaceSpan.classList.add("stk-wt-space");
+                waterTitleNode.appendChild(spaceSpan);
+            } else {
+                const letterSpan = document.createElement("span");
+                letterSpan.textContent = char;
+                letterSpan.classList.add("stk-wt-char");
+                waterTitleNode.appendChild(letterSpan);
+            }
+        });
+
+        const textObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const characterNodes = entry.target.querySelectorAll(".stk-wt-char");
+                    characterNodes.forEach((letterNode, index) => {
+                        setTimeout(() => {
+                            letterNode.classList.add("stk-wt-revealed");
+                        }, index * 40);
+                    });
+                    textObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        textObserver.observe(waterTitleNode);
+    }
+
+
+    // --- 3. SUB-FEATURES: HORIZONTAL STAGGER ONE-BY-ONE SCROLL OBSERVER ---
+    const waterFeaturesContainer = document.getElementById("scrollWaterFeaturesList");
+    
+    if (waterFeaturesContainer) {
+        const waterItems = waterFeaturesContainer.querySelectorAll(".stk-water-feature-item");
+        
+        const listObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    waterItems.forEach((itemNode, index) => {
+                        setTimeout(() => {
+                            itemNode.classList.add("item-revealed");
+                        }, index * 200);
+                    });
+                    listObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        listObserver.observe(waterFeaturesContainer);
+    }
+});
+</script>
+
+<section class="stk-live-block-section">
+    <div class="stk-live-block-container">
+        
+        <!-- Left Side: Content Box Panel with Light Mesh Tint Background -->
+        <div class="stk-live-block-content-col">
+            <div class="stk-live-card-panel">
+                
+                <!-- 🌟 Target for Letter-by-Letter Scroll Typewriter Script -->
+                <h2 class="stk-live-main-title" id="scrollLetterLiveTitle">Livelihood & Skills Development</h2>
+                
+                <p class="stk-live-description">We empower individuals with skills and resources to earn a dignified living and become self-reliant.</p>
+
+                <!-- 🌟 Horizontal 3-Points List (Staggers entry sequentially on scroll) -->
+                <div class="stk-live-features-row" id="scrollLiveFeaturesList">
+                    
+                    <!-- Point 1: Skill Training -->
+                    <div class="stk-live-feature-item">
+                        <div class="stk-live-icon-badge">
+                            <!-- Custom SVG Sewing Machine / Skill Training Vector Wrap -->
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="#126B2F" xmlns="http://w3.org">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                        </div>
+                        <div class="stk-live-feature-text">
+                            <h3>Skill Training</h3>
+                            <p>Vocational training in high-demand skills.</p>
+                        </div>
+                    </div>
+
+                    <!-- Point 2: Entrepreneur Support -->
+                    <div class="stk-live-feature-item">
+                        <div class="stk-live-icon-badge">
+                            <!-- Custom SVG Chess Pawn / Business Entrepreneur Support Vector -->
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="#126B2F" xmlns="http://w3.org">
+                                <path d="M12 2c1.1 0 2 .9 2 2v1.1C17.61 5.66 20 8.55 20 12c0 1.25-.3 2.43-.81 3.47l-1.49-1.49C17.89 13.3 18 12.67 18 12c0-3.31-2.69-6-6-6V4c0-1.1-.9-2-2-2zm-2 2v1.1C7.39 5.66 5 8.55 5 12c0 3.31 2.69 6 6 6v1.1c-1.1 0-2 .9-2 2h6c0-1.1-.9-2-2-2v-1.1c3.61-.56 6-3.45 6-6.9 0-1.25-.3-2.43-.81-3.47l-1.49 1.49C16.89 10.7 17 11.33 17 12c0 2.76-2.24 5-5 5v-1.9c1.66 0 3-1.34 3-3s-1.34-3-3-3V7c1.1 0 2-.9 2-2z"/>
+                            </svg>
+                        </div>
+                        <div class="stk-live-feature-text">
+                            <h3>Entrepreneur Support</h3>
+                            <p>Helping small businesses to grow.</p>
+                        </div>
+                    </div>
+
+                    <!-- Point 3: Job Placement -->
+                    <div class="stk-live-feature-item">
+                        <div class="stk-live-icon-badge">
+                            <!-- Custom SVG Handshake / Job Placement Vector -->
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="#126B2F" xmlns="http://w3.org">
+                                <path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L3.35 22h3.38l1.62-3.19C9.64 19.43 10.79 19.5 12 19.43l1.62 3.19h3.38l-1.62-4.39C19.26 16.68 20 14.73 20 12c0-4.97-4.03-9-9-9zm0 14.5c-3.04 0-5.5-2.46-5.5-5.5S8.96 6.5 12 6.5s5.5 2.46 5.5 5.5-2.46 5.5-5.5 5.5z"/>
+                            </svg>
+                        </div>
+                        <div class="stk-live-feature-text">
+                            <h3>Job Placement</h3>
+                            <p>Connecting trained individuals to jobs.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Floating Call-To-Action Button Block -->
+                <div class="stk-live-btn-wrapper">
+                    <a href="404.html" class="stk-btn-live-float" aria-label="Learn more about skills development programs">Learn More</a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Right Side: Automated Rotational Image Deck (Swaps every 2 seconds) -->
+        <div class="stk-live-block-media-col">
+            <div class="stk-live-image-floating-deck">
+                <!-- 🌟 Replace these slide templates with your actual training assets -->
+                <img src="./Assests/skill.webp" alt="Woman working on a traditional mechanical sewing machine" class="stk-live-rotate-slide active">
+                <img src="./Assests/skill.webp" alt="Vocational computer literacy skills training lab" class="stk-live-rotate-slide">
+                <img src="./Assests/skill.webp" alt="Small startup artisanal handicraft workshop support" class="stk-live-rotate-slide">
+            </div>
+        </div>
+
+    </div>
+</section>
+<style>
+:root {
+    --lv-green-primary: #126B2F;
+    --lv-green-hover: #0c4d21;
+    --lv-text-black: #000000;
+    --lv-text-muted: #4A5568;
+    --lv-bg-mesh: #F4F7F5; 
+    --lv-radius: 14px;
+    --lv-transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.stk-live-block-section {
+    width: 100%;
+    background-color: #FFFFFF;
+    /* 🌟 Tight Space Constraint: Both top and bottom paddings are completely clamped at 0 */
+    padding: 0; 
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.stk-live-block-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 24px;
+    gap: 32px; 
+    align-items: stretch;
+    box-sizing: border-box;
+}
+
+/* --- LEFT COLUMN: MESH TEXT CONTENT PANEL --- */
+.stk-live-block-content-col {
+    flex: 1.6; /* Matches the wide description layout width space seen in your screenshot image */
+    display: flex;
+}
+
+.stk-live-card-panel {
+    width: 100%;
+    background-color: var(--lv-bg-mesh);
+    border-radius: var(--lv-radius);
+    padding: 36px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+/* Main Title Specs Calibration: Inter, Bold 700, 32px, 100% LH */
+.stk-live-main-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: -0.01em;
+    color: var(--lv-text-black);
+    margin: 0 0 14px 0;
+}
+
+/* Description Specs Calibration: Inter, Medium 500, 18px, 100% LH, Solid Black */
+.stk-live-description {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 15px; 
+    line-height: 140%;
+    color: var(--lv-text-black);
+    margin: 0 0 24px 0;
+}
+
+/* Horizontal 3-Points Row Container */
+.stk-live-features-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 28px;
+    width: 100%;
+}
+
+/* Individual feature item card node structure layout */
+.stk-live-feature-item {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    box-sizing: border-box;
+    
+    /* Scroll Reveal Initial Animation Hidden Setup hooks */
+    opacity: 0;
+    transform: translateY(12px);
+    transition: var(--lv-transition);
+}
+
+.stk-live-feature-item.item-revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Round Badge circles housing vectors */
+.stk-live-icon-badge {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: rgba(18, 107, 47, 0.08); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border: 1px dashed rgba(18, 107, 47, 0.15);
+}
+
+.stk-live-icon-badge svg {
+    display: block;
+}
+
+.stk-live-feature-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* Point Title Specs: Inter, Black 900, 18px */
+.stk-live-feature-text h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700; 
+    font-size: 16px;
+    line-height: 110%;
+    color:#000000;
+    margin: 0;
+}
+
+/* Point Content Specs: Inter, Regular 400, 15px */
+.stk-live-feature-text p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 130%;
+    color: #000000;
+    margin: 0;
+}
+
+/* CTA Floating Button wrappers alignment */
+.stk-live-btn-wrapper {
+    display: block;
+    width: fit-content;
+}
+
+/* Floating Solid Green Pill Button Component Action Target */
+.stk-btn-live-float {
+    display: inline-block;
+    background-color: var(--lv-green-primary);
+    color: #FFFFFF;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(18, 107, 47, 0.2);
+    will-change: transform;
+    transition: var(--lv-transition);
+    animation: ctaSubtleFloat 3.5s ease-in-out infinite alternate;
+}
+
+.stk-btn-live-float:hover {
+    background-color: var(--lv-green-hover);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(18, 107, 47, 0.35);
+}
+
+@keyframes ctaSubtleFloat {
+    0% { transform: translateY(1px); }
+    100% { transform: translateY(-4px); }
+}
+
+/* --- RIGHT COLUMN: AUTOMATED ROTATION MEDIA DECK --- */
+.stk-live-block-media-col {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stk-live-image-floating-deck {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 320px; 
+    border-radius: var(--lv-radius);
+    will-change: transform;
+    animation: spatialVerticalBounce 4s ease-in-out infinite alternate;
+}
+
+.stk-live-rotate-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--lv-radius);
+    opacity: 0;
+    transform: rotate(2.5deg) scale(0.97); /* Coordinates set to right angled rotation template mirror rules */
+    transition: opacity 0.8s ease-in-out, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.15);
+    z-index: 1;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+
+.stk-live-rotate-slide.active {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+    z-index: 2;
+}
+
+@keyframes spatialVerticalBounce {
+    0% { transform: translateY(3px); }
+    100% { transform: translateY(-6px); }
+}
+
+/* --- SCROLL ANIMATION TYPOGRAPHY MECHANICS --- */
+.stk-lv-char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+}
+.stk-lv-char.stk-lv-revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+.stk-lv-space {
+    display: inline-block;
+    width: 0.25em;
+}
+
+/* --- LIQUID RESPONSIVE BREAKPOINT MEDIA LAYER OVERRIDES --- */
+@media (max-width: 992px) {
+    .stk-live-block-container {
+        flex-direction: column-reverse; /* Adaptive mobile stack moves content above your image slider area */
+        gap: 36px;
+    }
+    .stk-live-block-media-col,
+    .stk-live-block-content-col {
+        width: 100%;
+    }
+    .stk-live-image-floating-deck {
+        height: 280px;
+    }
+    .stk-live-card-panel {
+        padding: 30px 24px;
+        text-align: center;
+        align-items: center;
+    }
+    .stk-live-features-row {
+        text-align: left;
+    }
+}
+
+@media (max-width: 768px) {
+    .stk-live-features-row {
+        flex-direction: column; 
+        gap: 16px;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 576px) {
+    .stk-live-main-title { font-size: 26px; }
+}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // --- 1. AUTOMATED 2-SECONDS IMAGE DECK SWAPPER ROTATOR ---
+    const liveSlides = document.querySelectorAll(".stk-live-rotate-slide");
+    let activeLiveSlideIndex = 0;
+
+    function runLiveImageCycle() {
+        if (liveSlides.length === 0) return;
+        liveSlides[activeLiveSlideIndex].classList.remove("active");
+        activeLiveSlideIndex = (activeLiveSlideIndex + 1) % liveSlides.length;
+        liveSlides[activeLiveSlideIndex].classList.add("active");
+    }
+
+    if (liveSlides.length > 1) {
+        setInterval(runLiveImageCycle, 2000);
+    }
+
+
+    // --- 2. MAIN TITLE: LETTER-BY-LETTER SCROLL INTERSECTION REVEAL ---
+    const liveTitleNode = document.getElementById("scrollLetterLiveTitle");
+    
+    if (liveTitleNode) {
+        const rawTextString = liveTitleNode.textContent.trim();
+        liveTitleNode.innerHTML = ""; 
+
+        Array.from(rawTextString).forEach(char => {
+            if (char === " ") {
+                const spaceSpan = document.createElement("span");
+                spaceSpan.classList.add("stk-lv-space");
+                liveTitleNode.appendChild(spaceSpan);
+            } else {
+                const letterSpan = document.createElement("span");
+                letterSpan.textContent = char;
+                letterSpan.classList.add("stk-lv-char");
+                liveTitleNode.appendChild(letterSpan);
+            }
+        });
+
+        const textObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const characterNodes = entry.target.querySelectorAll(".stk-lv-char");
+                    characterNodes.forEach((letterNode, index) => {
+                        setTimeout(() => {
+                            letterNode.classList.add("stk-lv-revealed");
+                        }, index * 40);
+                    });
+                    textObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        textObserver.observe(liveTitleNode);
+    }
+
+
+    // --- 3. SUB-FEATURES: HORIZONTAL STAGGER ONE-BY-ONE SCROLL OBSERVER ---
+    const liveFeaturesContainer = document.getElementById("scrollLiveFeaturesList");
+    
+    if (liveFeaturesContainer) {
+        const liveItems = liveFeaturesContainer.querySelectorAll(".stk-live-feature-item");
+        
+        const listObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    liveItems.forEach((itemNode, index) => {
+                        setTimeout(() => {
+                            itemNode.classList.add("item-revealed");
+                        }, index * 200);
+                    });
+                    listObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        listObserver.observe(liveFeaturesContainer);
+    }
+});
+</script>
+<section class="stk-women-block-section">
+    <div class="stk-women-block-container">
+        
+        <!-- Left Side: Automated Rotational Image Deck (Swaps every 2 seconds) -->
+        <div class="stk-women-block-media-col">
+            <div class="stk-women-image-floating-deck">
+                <img src="./Assests/women emp.webp" alt="Group of women joining hands in a circle of empowerment" class="stk-women-rotate-slide active">
+                <img src="./Assests/women emp.webp" alt="Women attending leadership training program workshop" class="stk-women-rotate-slide">
+                <img src="./Assests/women emp.webp" alt="Legal rights and awareness discussion camp" class="stk-women-rotate-slide">
+            </div>
+        </div>
+
+        <!-- Right Side: Content Box Panel with Light Mesh Tint Background -->
+        <div class="stk-women-block-content-col">
+            <div class="stk-women-card-panel">
+                
+                <!-- 🌟 Target for Letter-by-Letter Scroll Typewriter Script -->
+                <h2 class="stk-women-main-title" id="scrollLetterWomenTitle">Women Empowerment</h2>
+                
+                <p class="stk-women-description">We support women to become independent, confident, and leaders in their communities.</p>
+
+                <!-- 🌟 Horizontal 3-Points List (Staggers entry sequentially on scroll) -->
+                <div class="stk-women-features-row" id="scrollWomenFeaturesList">
+                    
+                    <!-- Point 1: Self Help Groups -->
+                    <div class="stk-women-feature-item">
+                        <div class="stk-women-icon-badge">
+                            <!-- Custom SVG Heart Loops Vector -->
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="#126B2F" xmlns="http://w3.org">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                        </div>
+                        <div class="stk-women-feature-text">
+                            <h3>Self Help Groups</h3>
+                            <p>Encouraging savings and mutual support.</p>
+                        </div>
+                    </div>
+
+                    <!-- Point 2: Leadership Programs -->
+                    <div class="stk-women-feature-item">
+                        <div class="stk-women-icon-badge">
+                            <!-- Custom SVG Decorative Butterfly / Open Book Wings Vector -->
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="#126B2F" xmlns="http://w3.org">
+                                <path d="M12 2c1.1 0 2 .9 2 2v1.1C17.61 5.66 20 8.55 20 12c0 1.25-.3 2.43-.81 3.47l-1.49-1.49C17.89 13.3 18 12.67 18 12c0-3.31-2.69-6-6-6V4c0-1.1-.9-2-2-2zm-2 2v1.1C7.39 5.66 5 8.55 5 12c0 3.31 2.69 6 6 6v1.1c-1.1 0-2 .9-2 2h6c0-1.1-.9-2-2-2v-1.1c3.61-.56 6-3.45 6-6.9 0-1.25-.3-2.43-.81-3.47l-1.49 1.49C16.89 10.7 17 11.33 17 12c0 2.76-2.24 5-5 5v-1.9c1.66 0 3-1.34 3-3s-1.34-3-3-3V7c1.1 0 2-.9 2-2z"/>
+                            </svg>
+                        </div>
+                        <div class="stk-women-feature-text">
+                            <h3>Leadership Programs</h3>
+                            <p>Building confidence and leadership skills.</p>
+                        </div>
+                    </div>
+
+                    <!-- Point 3: Legal Awareness -->
+                    <div class="stk-women-feature-item">
+                        <div class="stk-women-icon-badge">
+                            <!-- Custom SVG Shield Wreath / Scales Vector -->
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="#126B2F" xmlns="http://w3.org">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10zm-1-6l-4-4 1.41-1.41L11 13.17l5.59-5.59L18 9l-7 7z"/>
+                            </svg>
+                        </div>
+                        <div class="stk-women-feature-text">
+                            <h3>Legal Awareness</h3>
+                            <p>Educating women about their rights.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Floating Call-To-Action Button Block -->
+                <div class="stk-women-btn-wrapper">
+                    <a href="404.html" class="stk-btn-women-float" aria-label="Learn more about women empowerment initiatives">Learn More</a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+<style>
+:root {
+    --wm-green-primary: #126B2F;
+    --wm-green-hover: #0c4d21;
+    --wm-text-black: #000000;
+    --wm-text-muted: #4A5568;
+    --wm-bg-mesh: #F4F7F5; 
+    --wm-radius: 14px;
+    --wm-transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.stk-women-block-section {
+    width: 100%;
+    background-color: #FFFFFF;
+    /* 🌟 Tight Space Constraint: Both top and bottom paddings are completely clamped at 0 */
+    padding: 0; 
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.stk-women-block-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 24px;
+    gap: 32px; 
+    align-items: stretch;
+    box-sizing: border-box;
+}
+
+/* --- LEFT COLUMN: AUTOMATED ROTATION MEDIA DECK --- */
+.stk-women-block-media-col {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stk-women-image-floating-deck {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 320px; 
+    border-radius: var(--wm-radius);
+    will-change: transform;
+    animation: spatialVerticalBounce 4s ease-in-out infinite alternate;
+}
+
+.stk-women-rotate-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--wm-radius);
+    opacity: 0;
+    transform: rotate(-2.5deg) scale(0.97); 
+    transition: opacity 0.8s ease-in-out, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.15);
+    z-index: 1;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+
+.stk-women-rotate-slide.active {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+    z-index: 2;
+}
+
+@keyframes spatialVerticalBounce {
+    0% { transform: translateY(3px); }
+    100% { transform: translateY(-6px); }
+}
+
+/* --- RIGHT COLUMN: MESH TEXT CONTENT PANEL --- */
+.stk-women-block-content-col {
+    flex: 1.6; 
+    display: flex;
+}
+
+.stk-women-card-panel {
+    width: 100%;
+    background-color: var(--wm-bg-mesh);
+    border-radius: var(--wm-radius);
+    padding: 36px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+/* Main Title Specs Calibration: Inter, Bold 700, 32px, 100% LH */
+.stk-women-main-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: -0.01em;
+    color: var(--wm-text-black);
+    margin: 0 0 14px 0;
+}
+
+/* Description Specs Calibration: Inter, Medium 500, 18px, 100% LH, Solid Black */
+.stk-women-description {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 15px; 
+    line-height: 140%;
+    color: var(--wm-text-black);
+    margin: 0 0 24px 0;
+}
+
+/* Horizontal 3-Points Row Container */
+.stk-women-features-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 28px;
+    width: 100%;
+}
+
+/* Individual feature item card node structure layout */
+.stk-women-feature-item {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    box-sizing: border-box;
+    
+    /* Scroll Reveal Initial Animation Hidden Setup hooks */
+    opacity: 0;
+    transform: translateY(12px);
+    transition: var(--wm-transition);
+}
+
+.stk-women-feature-item.item-revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Round Badge circles housing vectors */
+.stk-women-icon-badge {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: rgba(18, 107, 47, 0.08); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border: 1px dashed rgba(18, 107, 47, 0.15);
+}
+
+.stk-women-icon-badge svg {
+    display: block;
+}
+
+.stk-women-feature-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* Point Title Specs: Inter, Black 900, 18px */
+.stk-women-feature-text h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700; 
+    font-size: 16px;
+    line-height: 110%;
+    color: #000000;
+    margin: 0;
+}
+
+/* Point Content Specs: Inter, Regular 400, 15px */
+.stk-women-feature-text p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 130%;
+    color: #000000;
+    margin: 0;
+}
+
+/* CTA Floating Button wrappers alignment */
+.stk-women-btn-wrapper {
+    display: block;
+    width: fit-content;
+}
+
+/* Floating Solid Green Pill Button Component Action Target */
+.stk-btn-women-float {
+    display: inline-block;
+    background-color: var(--wm-green-primary);
+    color: #FFFFFF;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(18, 107, 47, 0.2);
+    will-change: transform;
+    transition: var(--wm-transition);
+    animation: ctaSubtleFloat 3.5s ease-in-out infinite alternate;
+}
+
+.stk-btn-women-float:hover {
+    background-color: var(--wm-green-hover);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(18, 107, 47, 0.35);
+}
+
+@keyframes ctaSubtleFloat {
+    0% { transform: translateY(1px); }
+    100% { transform: translateY(-4px); }
+}
+
+/* --- LIQUID RESPONSIVE BREAKPOINT MEDIA LAYER OVERRIDES --- */
+@media (max-width: 992px) {
+    .stk-women-block-container {
+        flex-direction: column; /* Stacks image on top on smaller mobile formats */
+        gap: 36px;
+    }
+    .stk-women-block-media-col,
+    .stk-women-block-content-col {
+        width: 100%;
+    }
+    .stk-women-image-floating-deck {
+        height: 280px;
+    }
+    .stk-women-card-panel {
+        padding: 30px 24px;
+        text-align: center;
+        align-items: center;
+    }
+    .stk-women-features-row {
+        text-align: left;
+    }
+}
+
+@media (max-width: 768px) {
+    .stk-women-features-row {
+        flex-direction: column; 
+        gap: 16px;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 576px) {
+    .stk-women-main-title { font-size: 26px; }
+}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // --- 1. AUTOMATED 2-SECONDS IMAGE DECK SWAPPER ROTATOR ---
+    const womenSlides = document.querySelectorAll(".stk-women-rotate-slide");
+    let activeWomenSlideIndex = 0;
+
+    function runWomenImageCycle() {
+        if (womenSlides.length === 0) return;
+        womenSlides[activeWomenSlideIndex].classList.remove("active");
+        activeWomenSlideIndex = (activeWomenSlideIndex + 1) % womenSlides.length;
+        womenSlides[activeWomenSlideIndex].classList.add("active");
+    }
+
+    if (womenSlides.length > 1) {
+        setInterval(runWomenImageCycle, 2000);
+    }
+
+
+    // --- 2. MAIN TITLE: LETTER-BY-LETTER SCROLL INTERSECTION REVEAL ---
+    const womenTitleNode = document.getElementById("scrollLetterWomenTitle");
+    
+    if (womenTitleNode) {
+        const rawTextString = womenTitleNode.textContent.trim();
+        womenTitleNode.innerHTML = ""; 
+
+        Array.from(rawTextString).forEach(char => {
+            if (char === " ") {
+                const spaceSpan = document.createElement("span");
+                spaceSpan.classList.add("stk-wm-space");
+                womenTitleNode.appendChild(spaceSpan);
+            } else {
+                const letterSpan = document.createElement("span");
+                letterSpan.textContent = char;
+                letterSpan.classList.add("stk-wm-char");
+                womenTitleNode.appendChild(letterSpan);
+            }
+        });
+
+        const textObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const characterNodes = entry.target.querySelectorAll(".stk-wm-char");
+                    characterNodes.forEach((letterNode, index) => {
+                        setTimeout(() => {
+                            letterNode.classList.add("stk-wm-revealed");
+                        }, index * 40);
+                    });
+                    textObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        textObserver.observe(womenTitleNode);
+    }
+
+
+    // --- 3. SUB-FEATURES: HORIZONTAL STAGGER ONE-BY-ONE SCROLL OBSERVER ---
+    const womenFeaturesContainer = document.getElementById("scrollWomenFeaturesList");
+    
+    if (womenFeaturesContainer) {
+        const womenItems = womenFeaturesContainer.querySelectorAll(".stk-women-feature-item");
+        
+        const listObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    womenItems.forEach((itemNode, index) => {
+                        setTimeout(() => {
+                            itemNode.classList.add("item-revealed");
+                        }, index * 200);
+                    });
+                    listObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        listObserver.observe(womenFeaturesContainer);
+    }
+});
+</script>
+<section class="stk-relief-block-section">
+    <div class="stk-relief-block-container">
+        
+        <!-- Left Side: Content Box Panel with Light Mesh Tint Background -->
+        <div class="stk-relief-block-content-col">
+            <div class="stk-relief-card-panel">
+                
+                <!-- 🌟 Target for Letter-by-Letter Scroll Typewriter Script -->
+                <h2 class="stk-relief-main-title" id="scrollLetterReliefTitle">Disaster Relief & Emergency Support</h2>
+                
+                <p class="stk-relief-description">We respond quickly in times of crisis and provide relief materials and rehabilitation support.</p>
+
+                <!-- 🌟 Horizontal 3-Points List (Staggers entry sequentially on scroll) -->
+                <div class="stk-relief-features-row" id="scrollReliefFeaturesList">
+                    
+                    <!-- Point 1: Emergency Relief -->
+                    <div class="stk-relief-feature-item">
+                        <div class="stk-relief-icon-badge">
+                            <!-- Custom SVG Heart Loops Vector -->
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="#126B2F" xmlns="http://w3.org">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                        </div>
+                        <div class="stk-relief-feature-text">
+                            <h3>Emergency Relief</h3>
+                            <p>Food, clothing and shelter support.</p>
+                        </div>
+                    </div>
+
+                    <!-- Point 2: Rehabilitation -->
+                    <div class="stk-relief-feature-item">
+                        <div class="stk-relief-icon-badge">
+                            <!-- Custom SVG Chess Pawn / Support Vector -->
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="#126B2F" xmlns="http://w3.org">
+                                <path d="M12 2c1.1 0 2 .9 2 2v1.1C17.61 5.66 20 8.55 20 12c0 1.25-.3 2.43-.81 3.47l-1.49-1.49C17.89 13.3 18 12.67 18 12c0-3.31-2.69-6-6-6V4c0-1.1-.9-2-2-2zm-2 2v1.1C7.39 5.66 5 8.55 5 12c0 3.31 2.69 6 6 6v1.1c-1.1 0-2 .9-2 2h6c0-1.1-.9-2-2-2v-1.1c3.61-.56 6-3.45 6-6.9 0-1.25-.3-2.43-.81-3.47l-1.49 1.49C16.89 10.7 17 11.33 17 12c0 2.76-2.24 5-5 5v-1.9c1.66 0 3-1.34 3-3s-1.34-3-3-3V7c1.1 0 2-.9 2-2z"/>
+                            </svg>
+                        </div>
+                        <div class="stk-relief-feature-text">
+                            <h3>Rehabilitation</h3>
+                            <p>Long-term support for rebuilding lives.</p>
+                        </div>
+                    </div>
+
+                    <!-- Point 3: Preparedness -->
+                    <div class="stk-relief-feature-item">
+                        <div class="stk-relief-icon-badge">
+                            <!-- Custom SVG Handshake / Safety Preparedness Vector -->
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="#126B2F" xmlns="http://w3.org">
+                                <path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L3.35 22h3.38l1.62-3.19C9.64 19.43 10.79 19.5 12 19.43l1.62 3.19h3.38l-1.62-4.39C19.26 16.68 20 14.73 20 12c0-4.97-4.03-9-9-9zm0 14.5c-3.04 0-5.5-2.46-5.5-5.5S8.96 6.5 12 6.5s5.5 2.46 5.5 5.5-2.46 5.5-5.5 5.5z"/>
+                            </svg>
+                        </div>
+                        <div class="stk-relief-feature-text">
+                            <h3>Preparedness</h3>
+                            <p>Training communities for future emergencies.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Floating Call-To-Action Button Block -->
+                <div class="stk-relief-btn-wrapper">
+                    <a href="404.html" class="stk-btn-relief-float" aria-label="Learn more about emergency relief programs">Learn More</a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Right Side: Automated Rotational Image Deck (Swaps every 2 seconds) -->
+        <div class="stk-relief-block-media-col">
+            <div class="stk-relief-image-floating-deck">
+                <img src="./Assests/emergency.webp" alt="Volunteers distributing aid material boxes to families" class="stk-relief-rotate-slide active">
+                <img src="./Assests/emergency.webp" alt="Emergency medical relief and rehabilitation support camp" class="stk-relief-rotate-slide">
+                <img src="./Assests/emergency.webp" alt="Crisis preparedness and safety training session" class="stk-relief-rotate-slide">
+            </div>
+        </div>
+
+    </div>
+</section>
+<style>
+:root {
+    --rl-green-primary: #126B2F;
+    --rl-green-hover: #0c4d21;
+    --rl-text-black: #000000;
+    --rl-text-muted: #4A5568;
+    --rl-bg-mesh: #F4F7F5; 
+    --rl-radius: 14px;
+    --rl-transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.stk-relief-block-section {
+    width: 100%;
+    background-color: #FFFFFF;
+    /* 🌟 Tight Space Constraint: Both top and bottom paddings are completely clamped at 0 */
+    padding: 0; 
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.stk-relief-block-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 24px;
+    gap: 32px; 
+    align-items: stretch;
+    box-sizing: border-box;
+}
+
+/* --- LEFT COLUMN: MESH TEXT CONTENT PANEL --- */
+.stk-relief-block-content-col {
+    flex: 1.6; /* Wide description layout matches sample image precisely */
+    display: flex;
+}
+
+.stk-relief-card-panel {
+    width: 100%;
+    background-color: var(--rl-bg-mesh);
+    border-radius: var(--rl-radius);
+    padding: 36px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+/* Main Title Specs Calibration: Inter, Bold 700, 32px, 100% LH */
+.stk-relief-main-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: -0.01em;
+    color: var(--rl-text-black);
+    margin: 0 0 14px 0;
+}
+
+/* Description Specs Calibration: Inter, Medium 500, 18px, 100% LH, Solid Black */
+.stk-relief-description {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 15px; 
+    line-height: 140%;
+    color: var(--rl-text-black);
+    margin: 0 0 24px 0;
+}
+
+/* Horizontal 3-Points Row Container */
+.stk-relief-features-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 28px;
+    width: 100%;
+}
+
+/* Individual feature item card node structure layout */
+.stk-relief-feature-item {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    box-sizing: border-box;
+    
+    /* Scroll Reveal Initial Animation Hidden Setup hooks */
+    opacity: 0;
+    transform: translateY(12px);
+    transition: var(--rl-transition);
+}
+
+.stk-relief-feature-item.item-revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Round Badge circles housing vectors */
+.stk-relief-icon-badge {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: rgba(18, 107, 47, 0.08); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border: 1px dashed rgba(18, 107, 47, 0.15);
+}
+
+.stk-relief-icon-badge svg {
+    display: block;
+}
+
+.stk-relief-feature-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* Point Title Specs: Inter, Black 900, 18px */
+.stk-relief-feature-text h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700; 
+    font-size: 16px;
+    line-height: 110%;
+    color: #000000;
+    margin: 0;
+}
+
+/* Point Content Specs: Inter, Regular 400, 15px */
+.stk-relief-feature-text p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 130%;
+    color: #000000;
+    margin: 0;
+}
+
+/* CTA Floating Button wrappers alignment */
+.stk-relief-btn-wrapper {
+    display: block;
+    width: fit-content;
+}
+
+/* Floating Solid Green Pill Button Component Action Target */
+.stk-btn-relief-float {
+    display: inline-block;
+    background-color: var(--rl-green-primary);
+    color: #FFFFFF;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(18, 107, 47, 0.2);
+    will-change: transform;
+    transition: var(--rl-transition);
+    animation: ctaSubtleFloat 3.5s ease-in-out infinite alternate;
+}
+
+.stk-btn-relief-float:hover {
+    background-color: var(--rl-green-hover);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(18, 107, 47, 0.35);
+}
+
+@keyframes ctaSubtleFloat {
+    0% { transform: translateY(1px); }
+    100% { transform: translateY(-4px); }
+}
+
+/* --- RIGHT COLUMN: AUTOMATED ROTATION MEDIA DECK --- */
+.stk-relief-block-media-col {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stk-relief-image-floating-deck {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 320px; 
+    border-radius: var(--rl-radius);
+    will-change: transform;
+    animation: spatialVerticalBounce 4s ease-in-out infinite alternate;
+}
+
+.stk-relief-rotate-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--rl-radius);
+    opacity: 0;
+    transform: rotate(2.5deg) scale(0.97); /* Mirrored angles match right-side placement template patterns */
+    transition: opacity 0.8s ease-in-out, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.15);
+    z-index: 1;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+
+.stk-relief-rotate-slide.active {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+    z-index: 2;
+}
+
+@keyframes spatialVerticalBounce {
+    0% { transform: translateY(3px); }
+    100% { transform: translateY(-6px); }
+}
+
+/* --- SCROLL ANIMATION TYPOGRAPHY MECHANICS --- */
+.stk-rl-char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+}
+.stk-rl-char.stk-rl-revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+.stk-rl-space {
+    display: inline-block;
+    width: 0.25em;
+}
+
+/* --- LIQUID RESPONSIVE BREAKPOINT MEDIA LAYER OVERRIDES --- */
+@media (max-width: 992px) {
+    .stk-relief-block-container {
+        flex-direction: column-reverse; /* Smooth mobile stack reflows description card panel above image track */
+        gap: 36px;
+    }
+    .stk-relief-block-media-col,
+    .stk-relief-block-content-col {
+        width: 100%;
+    }
+    .stk-relief-image-floating-deck {
+        height: 280px;
+    }
+    .stk-relief-card-panel {
+        padding: 30px 24px;
+        text-align: center;
+        align-items: center;
+    }
+    .stk-relief-features-row {
+        text-align: left;
+    }
+}
+
+@media (max-width: 768px) {
+    .stk-relief-features-row {
+        flex-direction: column; 
+        gap: 16px;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 576px) {
+    .stk-relief-main-title { font-size: 26px; }
+}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // --- 1. AUTOMATED 2-SECONDS IMAGE DECK SWAPPER ROTATOR ---
+    const reliefSlides = document.querySelectorAll(".stk-relief-rotate-slide");
+    let activeReliefSlideIndex = 0;
+
+    function runReliefImageCycle() {
+        if (reliefSlides.length === 0) return;
+        reliefSlides[activeReliefSlideIndex].classList.remove("active");
+        activeReliefSlideIndex = (activeReliefSlideIndex + 1) % reliefSlides.length;
+        reliefSlides[activeReliefSlideIndex].classList.add("active");
+    }
+
+    if (reliefSlides.length > 1) {
+        setInterval(runReliefImageCycle, 2000);
+    }
+
+
+    // --- 2. MAIN TITLE: LETTER-BY-LETTER SCROLL INTERSECTION REVEAL ---
+    const reliefTitleNode = document.getElementById("scrollLetterReliefTitle");
+    
+    if (reliefTitleNode) {
+        const rawTextString = reliefTitleNode.textContent.trim();
+        reliefTitleNode.innerHTML = ""; 
+
+        Array.from(rawTextString).forEach(char => {
+            if (char === " ") {
+                const spaceSpan = document.createElement("span");
+                spaceSpan.classList.add("stk-rl-space");
+                reliefTitleNode.appendChild(spaceSpan);
+            } else {
+                const letterSpan = document.createElement("span");
+                letterSpan.textContent = char;
+                letterSpan.classList.add("stk-rl-char");
+                reliefTitleNode.appendChild(letterSpan);
+            }
+        });
+
+        const textObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const characterNodes = entry.target.querySelectorAll(".stk-rl-char");
+                    characterNodes.forEach((letterNode, index) => {
+                        setTimeout(() => {
+                            letterNode.classList.add("stk-rl-revealed");
+                        }, index * 40);
+                    });
+                    textObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        textObserver.observe(reliefTitleNode);
+    }
+
+
+    // --- 3. SUB-FEATURES: HORIZONTAL STAGGER ONE-BY-ONE SCROLL OBSERVER ---
+    const reliefFeaturesContainer = document.getElementById("scrollReliefFeaturesList");
+    
+    if (reliefFeaturesContainer) {
+        const reliefItems = reliefFeaturesContainer.querySelectorAll(".stk-relief-feature-item");
+        
+        const listObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    reliefItems.forEach((itemNode, index) => {
+                        setTimeout(() => {
+                            itemNode.classList.add("item-revealed");
+                        }, index * 200);
+                    });
+                    listObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        listObserver.observe(reliefFeaturesContainer);
+    }
+});
+</script>
+
+<section class="stk-impact-section">
+    <div class="stk-impact-header">
+        <span class="stk-impact-subtitle">OUR IMPACT</span>
+        <h2 class="stk-impact-title" id="scrollSentenceImpactTitle">
+            <span class="stk-impact-line">Changing Lives, Creating Impact</span>
+           
+        </h2>
+        <p class="stk-impact-desc">Together, we are building a better and more compassionate world.</p>
+    </div>
+
+    <!-- The flex track row containing features and standalone lines -->
+    <div class="stk-impact-grid" id="rearrangeImpactGrid">
+        
+        <!-- Feature Item 1 -->
+        <div class="stk-impact-item">
+            <div class="stk-impact-icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+            </div>
+            <div class="stk-impact-metric-info">
+                <span class="stk-impact-count-num">800+</span>
+                <span class="stk-impact-label-text">Volunters</span>
+            </div>
+        </div>
+
+        <div class="stk-impact-divider"></div>
+
+        <!-- Feature Item 2 -->
+        <div class="stk-impact-item">
+            <div class="stk-impact-icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+            </div>
+            <div class="stk-impact-metric-info">
+                <span class="stk-impact-count-num">15000+</span>
+                <span class="stk-impact-label-text">Users impacted</span>
+            </div>
+        </div>
+
+        <div class="stk-impact-divider"></div>
+
+        <!-- Feature Item 3 -->
+        <div class="stk-impact-item">
+            <div class="stk-impact-icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </div>
+            <div class="stk-impact-metric-info">
+                <span class="stk-impact-count-num">250+</span>
+                <span class="stk-impact-label-text">Communities Served</span>
+            </div>
+        </div>
+
+        <div class="stk-impact-divider"></div>
+
+        <!-- Feature Item 4 -->
+        <div class="stk-impact-item">
+            <div class="stk-impact-icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+            </div>
+            <div class="stk-impact-metric-info">
+                <span class="stk-impact-count-num">₹5Cr+</span>
+                <span class="stk-impact-label-text">Funds Utilized</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<style>
+:root {
+    --stk-bg-green: #126B2F; 
+    --stk-glow-green: #26D058;
+}
+
+.stk-impact-section {
+    width: 100%;
+    margin: 0 auto;
+    background-color: var(--stk-bg-green);
+    padding: 60px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.stk-impact-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 0 24px;
+}
+
+.stk-impact-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 1px;
+    color:#26D058;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.stk-impact-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    color: #ffffff;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stk-impact-line {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.stk-impact-line.stk-revealed-line {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stk-impact-desc {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 100%;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Fixed Flexbox track to completely block overlap bugs */
+.stk-impact-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1280px;
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+.stk-impact-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 0;
+    cursor: pointer;
+    /* CSS transitions handle rearranging smoothly via structural list insertion points */
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                opacity 0.4s ease, 
+                filter 0.4s ease;
+}
+
+/* Standalone Visual Separator Component with explicit margins right before and after the line */
+.stk-impact-divider {
+    width: 1px;
+    height: 36px;
+    background-color: rgba(255, 255, 255, 0.25);
+    margin: 0 48px; /* Creates identical horizontal gaps on both sides of the line */
+    flex-shrink: 0;
+    transition: opacity 0.4s ease;
+}
+
+.stk-impact-icon-circle {
+    width: 44px;
+    height: 44px;
+    background-color: rgba(255, 255, 255, 0.1); 
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    flex-shrink: 0;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.stk-impact-icon-circle svg {
+    width: 18px;
+    height: 18px;
+}
+
+.stk-impact-item:hover .stk-impact-icon-circle {
+    background-color: #ffffff;
+    color: var(--stk-bg-green);
+    transform: scale(1.1);
+    box-shadow: 0 0 20px var(--stk-glow-green), 0 0 35px rgba(38, 208, 88, 0.3);
+}
+
+.stk-impact-metric-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.stk-impact-count-num {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 100%;
+    color: #ffffff;
+    margin-bottom: 2px;
+}
+
+.stk-impact-label-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 100%;
+    color:  #ffffff;
+    white-space: nowrap;
+}
+
+@media (max-width: 1440px) {
+    .stk-impact-section {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 1200px) {
+    .stk-impact-grid {
+        max-width: 100%;
+        padding: 0 20px;
+    }
+    .stk-impact-divider {
+        margin: 0 24px; /* Slightly tightens lines spacing on tablet displays */
+    }
+    .stk-impact-label-text { font-size: 14px; }
+    .stk-impact-count-num { font-size: 15px; }
+}
+
+@media (max-width: 992px) {
+    .stk-impact-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        padding: 0;
+    }
+    .stk-impact-item {
+        width: 100%;
+        max-width: 320px;
+        justify-content: center;
+    }
+    .stk-impact-divider {
+        width: 60px;
+        height: 1px; 
+        margin: 8px auto;
+    }
+    .stk-impact-title { font-size: 28px; }
+}
+
+
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // 1. Text Line Reveal Module
+    const impactTitleContainer = document.getElementById("scrollSentenceImpactTitle");
+    
+    const impactSentenceObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const lines = entry.target.querySelectorAll(".stk-impact-line");
+                lines.forEach((line, idx) => {
+                    setTimeout(() => {
+                        line.classList.add("stk-revealed-line");
+                    }, idx * 400); 
+                });
+                impactSentenceObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+
+    if (impactTitleContainer) impactSentenceObserver.observe(impactTitleContainer);
+
+    // 2. Overlap-Proof Flex Node Rearranging Slider Engine
+    const gridContainer = document.getElementById("rearrangeImpactGrid");
+
+    function executeVisualShuffleSwap() {
+        if (!gridContainer || window.innerWidth <= 992) return;
+
+        // Fetch list components
+        const featuresList = Array.from(gridContainer.querySelectorAll(".stk-impact-item"));
+        const dividersList = Array.from(gridContainer.querySelectorAll(".stk-impact-divider"));
+
+        // Soft fade animation feedback loop
+        featuresList.forEach(item => {
+            item.style.opacity = "0.4";
+            item.style.transform = "scale(0.95)";
+        });
+
+        setTimeout(() => {
+            // Scramble cards array values using the Fisher-Yates shuffle formula
+            for (let pointerIdx = featuresList.length - 1; pointerIdx > 0; pointerIdx--) {
+                const randomTargetIdx = Math.floor(Math.random() * (pointerIdx + 1));
+                [featuresList[pointerIdx], featuresList[randomTargetIdx]] = [featuresList[randomTargetIdx], featuresList[pointerIdx]];
+            }
+
+            // Wipe layout track container cleanly to accept the new card configurations
+            gridContainer.innerHTML = "";
+
+            // Re-stitch cards and line objects alternatively into grid container
+            featuresList.forEach((featureCard, index) => {
+                gridContainer.appendChild(featureCard);
+                
+                // Mount dividing line right after the element node
+                if (index < featuresList.length - 1 && dividersList[index]) {
+                    gridContainer.appendChild(dividersList[index]);
+                }
+            });
+
+            // Restore complete opacity once layout rendering settles
+            requestAnimationFrame(() => {
+                featuresList.forEach(item => {
+                    item.style.opacity = "1.0";
+                    item.style.transform = "scale(1)";
+                });
+            });
+
+        }, 300); // Sync timing offset matched smoothly to transition frames curve
+    }
+
+    // Triggers location swaps cleanly every 2 seconds automatically
+    setInterval(executeVisualShuffleSwap, 2000);
+});
+
+
+</script>
+
+<section class="stk-vol-hero-section">
+    
+    <!-- 🌟 Alpha-Feathered Gradient Layout Image Backdrop Track -->
+    <div class="stk-vol-hero-bg-frame">
+        <div class="stk-vol-alpha-mask-blend"></div>
+        <div class="stk-vol-image-deck">
+            <!-- 🌟 Displays your uploaded volunteer group photo here -->
+            <img src="./Assests/about section BG 2.webp" alt="Group of smiling volunteers in green shirts" class="stk-vol-zoom-img">
+        </div>
+    </div>
+
+    <!-- Frontplane Information Overlay Container Box -->
+    <div class="stk-vol-hero-container">
+        <div class="stk-vol-content-block">
+            
+            <span class="stk-vol-subtitle">Be the change</span>
+
+            <!-- 🌟 Heading Target for Scroll-Based Letter-by-Letter Typewriter Script -->
+            <h2 class="stk-vol-main-title" id="scrollLetterVolTitle">Join Us in Transforming Lives</h2>
+            
+            <p class="stk-vol-description">Your time, skills, and compassion can bring hope and create a lasting impact.</p>
+            
+            <!-- Floating CTA Interactive Button Actions Row -->
+            <div class="stk-vol-actions-row">
+                <a href="404.html" class="stk-btn-vol-primary">Volunteer Now</a>
+                <a href="404.html" class="stk-btn-vol-secondary">Donate Now</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+<style>
+:root {
+    --vol-green-primary: #126B2F;
+    --vol-green-hover: #0c4d21;
+    --vol-text-dark: #000000;
+    --vol-bg-beige: #E6E2D8; /* Exact warm neutral beige color code extracted from your image backdrop canvas */
+    --vol-transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.stk-vol-hero-section {
+    width: 100%;
+    min-height: 400px; /* Perfectly balanced narrow bar aspect proportions matching your image */
+    background-color: var(--vol-bg-beige);
+    padding: 10px 0 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+/* 🌟 Dynamic Split Background and Advanced Alpha Feather Gradient Overlays Mask Configuration Rules */
+.stk-vol-hero-bg-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+}
+
+.stk-vol-image-deck {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 55%; /* Allocates ample breathing space block for right side photo alignment */
+    height: 100%;
+}
+
+.stk-vol-zoom-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    will-change: transform;
+    /* 🌟 Infinite continuous smooth zoom animation engine loop mapping scale parameters */
+    animation: volunteerImageZoom 8s ease-in-out infinite alternate;
+}
+
+@keyframes volunteerImageZoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.06); } 
+}
+
+/* 🌟 Advanced Custom Smooth Linear-To-Radial Alpha-Feather Blend Overlay Mask (Bypasses straight line blurs) */
+.stk-vol-alpha-mask-blend {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Layered organic transparency gradient blends right side background image seamlessly into left side beige solid card background colors */
+    background: linear-gradient(to right, 
+        var(--vol-bg-beige) 0%, 
+        var(--vol-bg-beige) 45%, 
+        rgba(230, 226, 216, 0.95) 49%,
+        rgba(230, 226, 216, 0.7) 55%,
+        rgba(230, 226, 216, 0.2) 65%,
+        rgba(230, 226, 216, 0) 78%
+    );
+    z-index: 3;
+    pointer-events: none;
+}
+
+/* Frontplane Info Overlay Structural Layout Boundaries */
+.stk-vol-hero-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 40px; 
+    position: relative;
+    z-index: 5;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.stk-vol-content-block {
+    flex: 0 0 52%;
+    max-width: 52%; /* Strictly protects text blocks column array from expanding out into photo spaces layers */
+    display: flex;
+    flex-index: column;
+    flex-direction: column;
+}
+
+.stk-vol-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--vol-green-primary);
+    margin-bottom: 12px;
+    display: inline-block;
+}
+
+/* Main Title Specs Calibration: Inter, Bold 700, 32px, 110% LH */
+.stk-vol-main-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 32px;
+    line-height: 110%;
+    letter-spacing: -0.01em;
+    color: #000000;
+    margin: 0 0 14px 0;
+}
+
+/* Description Specs Calibration: Inter, Medium 500, 16px, 140% LH */
+.stk-vol-description {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 140%; 
+    letter-spacing: 0em;
+    color: #000000;
+    margin: 0 0 28px 0;
+    max-width: 440px;
+}
+
+/* 🌟 Floating Action Buttons Row Layout */
+.stk-vol-actions-row {
+    display: flex;
+    gap: 16px;
+}
+
+.stk-btn-vol-primary,
+.stk-btn-vol-secondary {
+    display: inline-block;
+    padding: 10px 24px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 13.5px;
+    text-decoration: none;
+    border-radius: 6px;
+    text-align: center;
+    will-change: transform;
+    transition: var(--vol-transition);
+}
+
+/* Primary Button matches your solid theme green look */
+.stk-btn-vol-primary {
+    background-color: var(--vol-green-primary);
+    color: #FFFFFF;
+    border: 1px solid var(--vol-green-primary);
+    box-shadow: 0 4px 12px rgba(18, 107, 47, 0.15);
+    /* 🌟 Infinite continuous floating translation loop animation applied to buttons */
+    animation: interactiveFloatBtn 3s ease-in-out infinite alternate;
+}
+
+/* Secondary Button builds a clean transparent border style rule */
+.stk-btn-vol-secondary {
+    background-color: transparent;
+    color: var(--vol-green-primary);
+    border: 1px solid var(--vol-green-primary);
+    animation: interactiveFloatBtn 3s ease-in-out infinite alternate-reverse; /* Alternates float movement vectors */
+}
+
+.stk-btn-vol-primary:hover {
+    background-color: var(--vol-green-hover);
+    border-color: var(--vol-green-hover);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 18px rgba(18, 107, 47, 0.3);
+}
+
+.stk-btn-vol-secondary:hover {
+    background-color: rgba(18, 107, 47, 0.04);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 6px 14px rgba(18, 107, 47, 0.1);
+}
+
+@keyframes interactiveFloatBtn {
+    0% { transform: translateY(1.5px); }
+    100% { transform: translateY(-3.5px); }
+}
+
+/* --- SCROLL-BASED TYPEWRITER SPAWNING MECHANICS STYLES --- */
+.stk-vl-char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+}
+
+.stk-vl-char.stk-vl-revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stk-vl-space {
+    display: inline-block;
+    width: 0.24em;
+}
+
+/* 🌟 LIQUID RESPONSIVE MATRIX OVERRIDES (100% COMPATIBLE) */
+@media (max-width: 992px) {
+    .stk-vol-alpha-mask-blend {
+        /* Adjusts alpha mask direction smoothly to run from top-to-bottom on mobile devices grids */
+        background: linear-gradient(to bottom, rgba(230, 226, 216, 0.85) 0%, var(--vol-bg-beige) 65%);
+    }
+    
+    .stk-vol-image-deck {
+        width: 100%;
+        opacity: 0.22; /* Subtly converts backdrop portrait photo to watermark layer background to avoid breaking text contrasts */
+    }
+    
+    .stk-vol-hero-container {
+        padding: 0 20px;
+        justify-content: center;
+    }
+    
+    .stk-vol-content-block {
+        flex: 0 0 100%;
+        max-width: 100%;
+        text-align: center;
+        align-items: center;
+    }
+    
+    .stk-vol-actions-row {
+        width: 100%;
+        max-width: 340px;
+        justify-content: center;
+    }
+    
+    .stk-btn-vol-primary,
+    .stk-btn-vol-secondary {
+        flex: 1;
+    }
+}
+
+@media (max-width: 576px) {
+    .stk-vol-hero-section {
+        padding: 50px 0;
+    }
+    .stk-vol-main-title {
+        font-size: 26px; /* Dynamically downscales scale on compact phone viewports to prevent line overflows */
+    }
+    .stk-vol-description {
+        font-size: 14.5px;
+    }
+    .stk-vol-actions-row {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // --- SCROLL-TRIGGERED LETTER-BY-LETTER TYPEWRITER ANIMATION CONTROLLER ---
+    const volTitleNode = document.getElementById("scrollLetterVolTitle");
+    
+    if (volTitleNode) {
+        // Extract raw string text content data securely
+        const rawStringText = volTitleNode.textContent.trim();
+        volTitleNode.innerHTML = ""; // Empty string layout element placeholder safely
+
+        // Array mapping loop logic splits text tokens cleanly into standalone letter spans
+        Array.from(rawStringText).forEach(character => {
+            if (character === " ") {
+                const spaceSpanElement = document.createElement("span");
+                spaceSpanElement.classList.add("stk-vl-space");
+                volTitleNode.appendChild(spaceSpanElement);
+            } else {
+                const letterSpanElement = document.createElement("span");
+                letterSpanElement.textContent = character;
+                letterSpanElement.classList.add("stk-vl-char");
+                volTitleNode.appendChild(letterSpanElement);
+            }
+        });
+
+        // Intersection Observer executes typing delay timeline cascades upon viewport entry detection
+        const textIntersectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const structuralLetterSpans = entry.target.querySelectorAll(".stk-vl-char");
+                    
+                    structuralLetterSpans.forEach((individualLetterSpan, index) => {
+                        // Sequential incremental timer pacing reveal fades elegantly
+                        setTimeout(() => {
+                            individualLetterSpan.classList.add("stk-vl-revealed");
+                        }, index * 40); 
+                    });
+                    
+                    // Stop watching once active tracking run cycle triggers successfully
+                    textIntersectionObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.35 });
+
+        textIntersectionObserver.observe(volTitleNode);
+    }
+});
+</script>
+
+
+
+<footer class="stk-site-footer">
+    <div class="stk-footer-main-container">
+        
+        <!-- Column 1: Brand Identifier and Vector Links -->
+        <div class="stk-footer-col stk-col-brand">
+            
+            <a href="#" class="stk-back-to-top-trigger" aria-label="Scroll back to top of page">
+                <img src="./Assests/logo AGRI.webp" alt="Stackly Organization Brand Logo Logo" class="stk-footer-brand-logo">
+            </a>
+            <p class="stk-brand-tagline">We are dedicated to creating a world where everyone has the opportunity to live a empowered life.</p>
+            
+            <!-- 🌟 Clean Monochromatic White Vector Social Icons Layout -->
+            <div class="stk-footer-social-wrapper">
+                <a href="404.html" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" fill="#FFFFFF"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.8z"/></svg>
+                </a>
+                <a href="404.html" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="#FFFFFF"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.8v8.37h2.8v-4.67c0-.25.015-.51.09-.69.2-.5.65-1 1.41-1 1 0 1.38.76 1.38 1.87v4.49h2.8M6.5 8.37a1.37 1.37 0 1 0 0-2.75 1.37 1.37 0 0 0 0 2.75M8 18.5V10.13H5.2v8.37H8z"/></svg>
+                </a>
+                <a href="404.html" aria-label="X (Twitter)">
+                    <svg viewBox="0 0 24 24" fill="#FFFFFF"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+                <a href="404.html" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="#FFFFFF"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Column 2: Quick Links Route Framework -->
+        <div class="stk-footer-col">
+            <h3 class="stk-footer-heading">Quick Links</h3>
+            <ul class="stk-footer-links">
+                <li><a href="404.html">Home</a></li>
+                <li><a href="404.html">About Us</a></li>
+                <li><a href="404.html">Our Programs</a></li>
+                <li><a href="404.html">Our Impact</a></li>
+                <li><a href="404.html">Stories</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 3: Get Involved Navigation -->
+        <div class="stk-footer-col">
+            <h3 class="stk-footer-heading">Get Involved</h3>
+            <ul class="stk-footer-links">
+                <li><a href="404.html">Volunteer</a></li>
+                <li><a href="404.html">Donate</a></li>
+                <li><a href="404.html">Events</a></li>
+                <li><a href="404.html">Partner with us</a></li>
+                <li><a href="404.html">Fundraise</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 4: Resources Links -->
+        <div class="stk-footer-col">
+            <h3 class="stk-footer-heading">Resources</h3>
+            <ul class="stk-footer-links">
+                <li><a href="404.html">Blog</a></li>
+                <li><a href="404.html">Reports</a></li>
+                <li><a href="404.html">Contact Us</a></li>
+                <li><a href="404.html">FAQ's</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 5: Right Newsletter Subscription Interface -->
+        <div class="stk-footer-col stk-col-newsletter">
+            <h3 class="stk-footer-heading">Newsletter</h3>
+            <p class="stk-newsletter-desc">Stay updated with our latest news and events.</p>
+            
+            <form id="stkFooterSubscriptionForm" class="stk-newsletter-form" novalidate>
+                <div class="stk-input-wrapper-footer">
+                    <input type="email" id="stkFooterEmailInput" placeholder="Your email address" autocomplete="off" required>
+                    <!-- Form Status Validation Message Bar -->
+                    <div id="stkSubscriptionAlert" class="stk-newsletter-alert-banner" style="display: none;"></div>
+                </div>
+                <button type="submit" class="stk-btn-footer-subscribe">Subscribe</button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- Bottom Secondary Info and Policy Layout -->
+    <div class="stk-footer-bottom-bar">
+        <div class="stk-footer-bottom-container">
+            <p class="stk-copyright">&copy; 2026 STACKLY. All rights reserved.</p>
+            <div class="stk-bottom-legal-links">
+                <a href="404.html">Privacy Policy</a>
+                <a href="404.html">Terms & Conditions</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<style>
+:root {
+    --ft-green-deep: #062b11;    /* Extremely deep layout background block matching image backdrop */
+    --ft-green-bright: #126B2F;  /* Standard primary theme green tint color value */
+    --ft-green-hover: #1b853d;   /* Hover focus shift color element mapping metrics */
+    --ft-text-light: #FFFFFF;
+    --ft-text-muted: rgba(255, 255, 255, 0.75);
+    --ft-border-line: rgba(255, 255, 255, 0.12);
+    --ft-transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.stk-site-footer {
+    width: 100%;
+    background-color: var(--ft-green-deep);
+    padding: 60px 0 0 0;
+    color: var(--ft-text-light);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.stk-footer-main-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px 50px 24px;
+    gap: 32px;
+    box-sizing: border-box;
+}
+
+/* Base Columns Formatting Architecture Matrix */
+.stk-footer-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.stk-col-brand {
+    flex: 1.8; /* Expands brand identification layout space proportionally */
+}
+
+.stk-col-newsletter {
+    flex: 2; /* Allocates adequate dimensions to subscription controls box */
+    padding-left: 20px;
+    border-left: 1px solid var(--ft-border-line); /* Clean vertical splitting line layout matched to reference */
+}
+
+/* Brand Assets Elements Configuration Setup */
+.stk-footer-brand-logo {
+    max-width: 140px;
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: var(--ft-transition);
+}
+
+.stk-footer-brand-logo:hover {
+    opacity: 0.85;
+    transform: scale(0.98);
+}
+
+.stk-brand-tagline {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 150%;
+    color: #FFFFFF;
+    margin-bottom: 24px;
+    max-width: 260px;
+}
+
+/* 🌟 White Icons, Green Canvas Background & Neon Glow Effects Styling Rules */
+.stk-footer-social-wrapper {
+    display: flex;
+    gap: 12px;
+}
+
+.stk-footer-social-wrapper a {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--ft-green-bright);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: var(--ft-transition);
+    box-shadow: 0 0 0 rgba(18, 107, 47, 0);
+}
+
+.stk-footer-social-wrapper a svg {
+    width: 16px;
+    height: 16px;
+    fill: #FFFFFF !important; /* Insures native vector asset layers bind explicitly in white */
+    transition: var(--ft-transition);
+}
+
+/* 🌟 Hover Glow Interaction Keyframe: Expands outer volumetric glowing shadow vectors */
+.stk-footer-social-wrapper a:hover {
+    background-color: var(--ft-text-light);
+    transform: translateY(-4px);
+    /* Vibrant glowing bloom backdrop synchronization effect rule */
+    box-shadow: 0 0 14px 4px rgba(255, 255, 255, 0.4), 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.stk-footer-social-wrapper a:hover svg {
+    fill: var(--ft-green-deep) !important; /* Inverts color logic smoothly on user cursor focus tracking points */
+}
+
+/* Middle Navigation Typography Elements Configuration Layer */
+.stk-footer-heading {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #FFFFFF;
+    margin: 0 0 18px 0;
+    letter-spacing: 0.02em;
+}
+
+.stk-footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.stk-footer-links li a {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: var(--ft-transition);
+}
+
+.stk-footer-links li a:hover {
+    color: var(--ft-text-light);
+    padding-left: 4px; /* Soft interactive shift prompt layout indicator direction */
+}
+
+/* Newsletter Input Layout Component Fields */
+.stk-newsletter-desc {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    color: #FFFFFF;
+    margin: 0 0 18px 0;
+    line-height: 140%;
+}
+
+.stk-newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+}
+
+.stk-input-wrapper-footer {
+    position: relative;
+    width: 100%;
+}
+
+.stk-newsletter-form input {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25); /* Sleek flat bottom border matching reference image */
+    padding: 10px 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    color: var(--ft-text-light);
+    outline: none;
+    box-sizing: border-box;
+    transition: var(--ft-transition);
+}
+
+.stk-newsletter-form input:focus {
+    border-bottom-color: var(--ft-text-light);
+}
+
+/* Subscription Form Error Highlighting Rules Box Container */
+.stk-newsletter-form input.stk-input-field-error {
+    border-bottom-color: #EF4444;
+}
+
+.stk-newsletter-alert-banner {
+    font-family: 'Inter', sans-serif;
+    font-size: 11.5px;
+    font-weight: 500;
+    color: #F87171;
+    margin-top: 6px;
+    line-height: 130%;
+}
+
+/* Subscribe Action Button Elements */
+.stk-btn-footer-subscribe {
+    width: 100%;
+    background-color: var(--ft-green-bright);
+    color: var(--ft-text-light);
+    border: none;
+    border-radius: 8px; /* Clean matching slightly rounded profile layout */
+    padding: 12px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: var(--ft-transition);
+    box-sizing: border-box;
+}
+
+.stk-btn-footer-subscribe:hover {
+    background-color: var(--ft-green-hover);
+    box-shadow: 0 4px 12px rgba(18, 107, 47, 0.25);
+}
+
+/* Bottom Legal Strip Layout Configurations */
+.stk-footer-bottom-bar {
+    width: 100%;
+    border-top: 1px solid var(--ft-border-line);
+    padding: 18px 0;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.stk-footer-bottom-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.stk-copyright {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 11.5px;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+}
+
+.stk-bottom-legal-links {
+    display: flex;
+    gap: 20px;
+}
+
+.stk-bottom-legal-links a {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 11.5px;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    transition: var(--ft-transition);
+}
+
+.stk-bottom-legal-links a:hover {
+    color: var(--ft-text-light);
+}
+
+/* LIQUID RESPONSIVE MATRIX OVERRIDES BREAKPOINTS */
+@media (max-width: 1024px) {
+    .stk-footer-main-container {
+        flex-wrap: wrap;
+        gap: 40px 24px;
+    }
+    .stk-col-brand {
+        flex: 1 1 calc(50% - 24px);
+    }
+    .stk-col-newsletter {
+        flex: 1 1 calc(50% - 24px);
+        padding-left: 0;
+        border-left: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .stk-site-footer {
+        padding-top: 40px;
+    }
+    .stk-footer-main-container {
+        flex-direction: column;
+        gap: 36px;
+        padding-bottom: 36px;
+    }
+    .stk-col-brand, .stk-col-newsletter {
+        width: 100%;
+    }
+    .stk-footer-bottom-container {
+        flex-direction: column-reverse;
+        gap: 14px;
+        text-align: center;
+    }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    // --- PART 1: SMOOTH BACK TO TOP SCROLL ANCHOR LOGIC ---
+    const backToTopButtons = document.querySelectorAll(".stk-back-to-top-trigger");
+
+    backToTopButtons.forEach(anchorBtn => {
+        anchorBtn.addEventListener("click", (event) => {
+            event.preventDefault();
+            // Fluid directional scroll parameter shift back up into top layout viewport zone
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    });
+
+    // --- PART 2: NEWSLETTER SUBSCRIPTION CONTROLS ENGINE ---
+    const subscriptionForm = document.getElementById("stkFooterSubscriptionForm");
+    const emailField = document.getElementById("stkFooterEmailInput");
+    const warningText = document.getElementById("stkSubscriptionAlert");
+
+    // Regular Expression helper evaluation framework checking basic email patterns
+    function validateEmailAddressPattern(emailInputString) {
+        const structuralMailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        return structuralMailRegex.test(emailInputString);
+    }
+
+    // Capture user event submissions
+    subscriptionForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        
+        // Reset operational flags states
+        emailField.classList.remove("stk-input-field-error");
+        warningText.style.display = "none";
+        warningText.textContent = "";
+
+        const dynamicInputStringValue = emailField.value.trim();
+
+        // 1. Mandatory Fields Content Boundary Checks
+        if (!dynamicInputStringValue) {
+            emailField.classList.add("stk-input-field-error");
+            warningText.textContent = "Please fill the fields.";
+            warningText.style.display = "block";
+            return;
+        }
+
+        // 2. Syntax Structure Routing Checks
+        if (!validateEmailAddressPattern(dynamicInputStringValue)) {
+            emailField.classList.add("stk-input-field-error");
+            warningText.textContent = "Please supply a valid formatting configuration schema layout.";
+            warningText.style.display = "block";
+            return;
+        }
+
+        // Success State Action Trigger Pipeline Routing to 404 page target
+        window.location.href = "404.html";
+    });
+});
+</script>
+
+</body>
+</html>
