@@ -1,0 +1,2599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly Charity Header</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <link href="https://googleapis.com/css2?family=Inter:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <a href="#" class="logo" onclick="refreshPage(event)">
+                <img src="./Assests/logo agriculture farming.webp" alt="Stackly Logo">
+            </a>
+
+            <nav class="navbar" id="navbar">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-item ">Home</a></li>
+                    <li><a href="about.html" class="nav-item">About Us</a></li>
+                    <li><a href="programs.html" class="nav-item">Our Programs</a></li>
+                    <li><a href="impact.html" class="nav-item">Impact</a></li>
+                    <li><a href="stories.html" class="nav-item">Stories</a></li>
+                    <li><a href="blog.html" class="nav-item active">Blog</a></li>
+                    <li><a href="contact.html" class="nav-item">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions" id="headerActions">
+                <a href="login.html" class="btn-login">Login Now</a>
+            </div>
+
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle Navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+<script>
+    function refreshPage(event) {
+    event.preventDefault();
+    window.location.reload();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const hamburgerBtn = document.getElementById("hamburgerBtn");
+    const navbar = document.getElementById("navbar");
+    const headerActions = document.getElementById("headerActions");
+    const menuOverlay = document.getElementById("menuOverlay");
+    const navItems = document.querySelectorAll(".nav-item");
+
+    function toggleMenu() {
+        hamburgerBtn.classList.toggle("active");
+        navbar.classList.toggle("mobile-open");
+        headerActions.classList.toggle("mobile-open");
+        menuOverlay.classList.toggle("show");
+        document.body.classList.toggle("no-scroll");
+    }
+
+    hamburgerBtn.addEventListener("click", toggleMenu);
+    menuOverlay.addEventListener("click", toggleMenu);
+
+    navItems.forEach(item => {
+        item.addEventListener("click", () => {
+            document.querySelector(".nav-item.active")?.classList.remove("active");
+            item.classList.add("active");
+
+            if (navbar.classList.contains("mobile-open")) {
+                toggleMenu();
+            }
+        });
+    });
+});
+
+</script>
+
+<!-- Blog Hub Hero Section -->
+<!-- Blog Page - Flush Full-Width Image Hero Section -->
+<header class="blog-hero-section-flush">
+    <div class="blog-hero-split-grid">
+        
+        <!-- Left Half Column: Content & Controls Stack -->
+        <div class="blog-content-left-panel">
+            <nav class="blog-breadcrumb">
+                <a href="index.html" class="blog-crumb-link">Home</a>
+                <span class="blog-crumb-divider">&gt;</span>
+                <span class="blog-crumb-current">Blog</span>
+            </nav>
+
+            <span class="blog-section-tag">Our Blog</span>
+            <h1 class="blog-main-title" id="blog-letter-reveal">Stories Of Change Hope & Impact</h1>
+            <p class="blog-description">Discover inspiring stories, insights and updates from our journey to create a better world.</p>
+
+            <!-- Search Form Input Group -->
+            <form class="blog-search-box-form" id="blog-search-form" onsubmit="handleBlogSearch(event)">
+                <div class="blog-search-input-wrapper">
+                    <input type="text" id="blog-search-field" placeholder="Search Articles..." autocomplete="off">
+                    <button type="submit" class="blog-search-icon-btn" aria-label="Search Submit Button">
+                        <svg class="blog-search-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </button>
+                </div>
+                <div class="blog-validation-tooltip" id="blog-alert-bubble">Please fill the fields</div>
+            </form>
+        </div>
+
+        <!-- Right Half Column: Full-Width Edge Flush Painting-Mask Graphic -->
+        <div class="blog-graphic-right-flush-panel">
+            <img src="./Assests/blog page bg.webp" alt="Smiling young girl representing global community hope" class="flush-masked-img">
+        </div>
+
+    </div>
+
+    <!-- Bottom Filter Strip - Wide Spaced & End-to-End Aligned -->
+    <div class="blog-filter-strip-stretched">
+        <div class="blog-filter-strip-inner-stretched">
+            <button class="blog-filter-btn active">All Stories</button>
+            <button class="blog-filter-btn">Education</button>
+            <button class="blog-filter-btn">Health</button>
+            <button class="blog-filter-btn">Livelihood</button>
+            <button class="blog-filter-btn">Women Empowerment</button>
+            <button class="blog-filter-btn">Environment</button>
+            <button class="blog-filter-btn">Disaster Relief</button>
+        </div>
+    </div>
+</header>
+
+
+<style>
+  @import url('https://googleapis.com');
+
+/* Core Base Container - Padding hard-set to 0 to keep image flush against right viewport edge */
+.blog-hero-section-flush {
+    width: 100%;
+    background-color: #ffffff;
+    position: relative;
+    padding: 0px !important;
+    overflow: hidden;
+}
+
+/* Splits hero exactly in half; no grid gaps to allow image full bleeding edge layout */
+.blog-hero-split-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch; /* Forces left panel content and right image row heights to sync perfectly */
+    width: 100%;
+}
+
+/* Left Content Column Layout with native padding rules */
+.blog-content-left-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem 4rem 3rem 6rem; /* Extends starting indentation space */
+    z-index: 10;
+}
+
+.blog-breadcrumb {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.blog-crumb-link { color: #16803d; text-decoration: none; }
+.blog-crumb-divider { color: #9ca3af; font-size: 11px; }
+.blog-crumb-current { color: #4b5563; }
+
+.blog-section-tag {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    color: #16803d;
+    margin-bottom: 1rem;
+}
+
+.blog-main-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 115%;
+    color: #111827;
+    margin-bottom: 1.5rem;
+    max-width: 540px;
+}
+
+/* Character letter-by-letter transformation setup properties */
+.blog-main-title .letter {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.15);
+}
+.blog-main-title .letter.reveal-active { opacity: 1; transform: translateY(0); }
+
+.blog-description {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #000000;
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+}
+
+/* Interactive Search Form Box */
+.blog-search-box-form {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 320px;
+}
+
+.blog-search-input-wrapper {
+    position: relative;
+    width: 100%;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background-color: #ffffff;
+}
+
+#blog-search-field {
+    width: 100%;
+    padding: 0.7rem 3rem 0.7rem 1.2rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    border: none;
+    outline: none;
+}
+
+.blog-search-icon-btn {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #6b7280;
+    cursor: pointer;
+}
+.blog-search-svg { width: 18px; height: 18px; }
+
+/* Warning validation message element overlay styling */
+.blog-validation-tooltip {
+    position: absolute;
+    bottom: -34px;
+    left: 0;
+    background-color: #ef4444;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 50;
+}
+.blog-validation-tooltip.show-alert { opacity: 1; transform: translateY(0); }
+
+
+/* --- RIGHT SIDE FULL WIDTH PANEL & PAINTING BRUSH BLUR --- */
+.blog-graphic-right-flush-panel {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.flush-masked-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Guarantees image scales flawlessly covering vertical block sizes */
+    display: block;
+    
+    /* Blurs the image boundary cleanly using an asymmetrical fade mask map profile */
+    -webkit-mask-image: 
+        radial-gradient(circle at 100% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 45%, rgba(0,0,0,0) 85%),
+        linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 40%);
+    mask-image: 
+        radial-gradient(circle at 100% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 45%, rgba(0,0,0,0) 85%),
+        linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 40%);
+        
+    -webkit-mask-composite: source-over;
+    mask-composite: intersect;
+    
+    filter: saturate(1.05) contrast(1.01) blur(0.3px);
+}
+
+
+/* --- WIDE STRIPPED OPTIONS SYSTEM - ALIGNED START TO END --- */
+.blog-filter-strip-stretched {
+    width: 100%;
+    border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+    background-color: #f5f4ee; /* Warm bone-white canvas strip block asset */
+    padding: 0.8rem 6rem; /* Left/Right padding scales symmetrically with left content edge alignment indentation */
+}
+
+.blog-filter-strip-inner-stretched {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    /* Flex alignment spaces options evenly across the container line limits */
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.blog-filter-btn {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+    color: #000000;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.6rem 0.4rem;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+}
+
+.blog-filter-btn:hover { color: #16803d; }
+
+.blog-filter-btn.active {
+    background-color: #14532d;
+    color: #ffffff !important;
+    padding: 0.6rem 1.4rem;
+    border-radius: 6px;
+}
+
+
+/* --- LIQUID RESPONSIVE GRID ADAPTABILITY MEDIA BREAKPOINTS MATRIX --- */
+@media (max-width: 1140px) {
+    .blog-content-left-panel { padding: 3rem 2rem 3rem 3rem; }
+    .blog-filter-strip-stretched { padding: 0.8rem 3rem; }
+}
+
+@media (max-width: 992px) {
+    .blog-hero-split-grid {
+        grid-template-columns: 1fr; /* Switch to safe layout single column stack format */
+    }
+    .blog-graphic-right-flush-panel {
+        order: -1; /* Pushes the main character girl portrait safely above text blocks on phones/tablets */
+        height: 320px;
+    }
+    .flush-masked-img {
+        -webkit-mask-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 95%);
+        mask-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 95%);
+    }
+    .blog-content-left-panel { padding: 2.5rem 2rem; }
+    .blog-search-box-form { width: 100%; }
+    
+    .blog-filter-strip-inner-stretched {
+        /* Changes to flexible alignment wrapping rows to protect text spaces on smaller windows */
+        justify-content: flex-start;
+        gap: 1.25rem 1.5rem;
+        flex-wrap: wrap;
+    }
+    .blog-filter-strip-stretched { padding: 1.25rem 2rem; }
+}
+
+
+</style>
+
+<script>
+ document.addEventListener("DOMContentLoaded", () => {
+    prepareBlogLettersWrapping();
+    initBlogHeroObserver();
+    initBlogFilterTabsHandler();
+});
+
+function prepareBlogLettersWrapping() {
+    const titleBox = document.getElementById("blog-letter-reveal");
+    if (!titleBox) return;
+    const originalString = titleBox.innerText;
+    titleBox.innerHTML = "";
+    [...originalString].forEach(char => {
+        const span = document.createElement("span");
+        if (char === " ") { span.innerHTML = "&nbsp;"; } else { span.innerText = char; }
+        span.classList.add("letter");
+        titleBox.appendChild(span);
+    });
+}
+
+function initBlogHeroObserver() {
+    const sectionElement = document.querySelector(".blog-hero-section-flush");
+    const letterSpans = document.querySelectorAll("#blog-letter-reveal .letter");
+    if (!sectionElement) return;
+    const observerConfig = { root: null, threshold: 0.1 };
+    const intersectionObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                letterSpans.forEach((letter, index) => {
+                    setTimeout(() => { letter.classList.add("reveal-active"); }, index * 30);
+                });
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerConfig);
+    intersectionObserver.observe(sectionElement);
+}
+
+function handleBlogSearch(event) {
+    event.preventDefault();
+    const searchField = document.getElementById("blog-search-field");
+    const warningBubble = document.getElementById("blog-alert-bubble");
+    if (searchField.value.trim() === "") {
+        warningBubble.classList.add("show-alert");
+        searchField.focus();
+        setTimeout(() => { warningBubble.classList.remove("show-alert"); }, 3000);
+        return false;
+    }
+    warningBubble.classList.remove("show-alert");
+    window.location.href = "404.html";
+}
+
+function initBlogFilterTabsHandler() {
+    const tabButtons = document.querySelectorAll(".blog-filter-btn");
+    tabButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            tabButtons.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+        });
+    });
+}
+
+</script>
+
+<!-- Featured Stories Section Grid Layout -->
+<section id="featured-grid-section" class="featured-stories-container">
+    <div class="featured-stories-wrapper">
+        
+        <!-- Main Section Title Layout Header Component -->
+        <h2 class="stories-section-main-title">Featured Stories</h2>
+
+        <!-- Positioning Matrix Window Grid Track Frame -->
+        <div class="stories-matrix-track-frame">
+            
+            <!-- Card item 1 (Starts in Left Position Slot) -->
+            <div class="story-grid-card pos-card-left" id="feature-card-1">
+                <div class="card-image-lens">
+                    <img src="./Assests/education charity.webp" alt="Smiling children in school classroom learning environment" class="story-lens-img">
+                </div>
+                <div class="card-details-content-box">
+                    <span class="card-publish-date">May 15, 2014</span>
+                    <h3 class="card-article-title">How Education Opens Doors to Brighter Futures</h3>
+                    <p class="card-article-description">Your support helps us provide quality education to underprivileged children.</p>
+                    <a href="404.html" class="card-action-read-more-link">Read More...</a>
+                </div>
+            </div>
+
+            <!-- Card item 2 (Starts in Center Position Slot) -->
+            <div class="story-grid-card pos-card-center" id="feature-card-2">
+                <div class="card-image-lens">
+                    <img src="./Assests/home section 3rd img.webp" alt="Smiling student child holding a growing green seedling plant sprouts" class="story-lens-img">
+                </div>
+                <div class="card-details-content-box">
+                    <span class="card-publish-date">May 15, 2014</span>
+                    <h3 class="card-article-title">Small Actions,Big Impact: Tree Plantation Drive</h3>
+                    <p class="card-article-description">Our tree plantation drive brought the community together for a greener tomorrow.</p>
+                    <a href="404.html" class="card-action-read-more-link">Read More...</a>
+                </div>
+            </div>
+
+            <!-- Card item 3 (Starts in Right Position Slot) -->
+            <div class="story-grid-card pos-card-right" id="feature-card-3">
+                <div class="card-image-lens">
+                    <img src="./Assests/health charity.webp" alt="Doctors performing an essential medical checkup care campaign clinic row" class="story-lens-img">
+                </div>
+                <div class="card-details-content-box">
+                    <span class="card-publish-date">May 15, 2014</span>
+                    <h3 class="card-article-title">Improving Healthcare Access in Rural Communities</h3>
+                    <p class="card-article-description">Mobile health camps are bringing essential care to those who it more.</p>
+                    <a href="404.html" class="card-action-read-more-link">Read More...</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<style>
+    @import url('https://googleapis.com');
+
+/* Main Section Framing Wrapper Layout Rules */
+.featured-stories-container {
+    padding: 5rem 4rem;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.featured-stories-wrapper {
+    max-width: 1400px;
+    width: 100%;
+}
+
+/* 1. Section Title Styling: Inter, Weight 700, Bold, Size 32px */
+.stories-section-main-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #000000;
+    margin-bottom: 3.5rem;
+    text-align: left;
+}
+
+/* --- THE 3-SLOT HORIZONTAL POSITION SWAPPING MATRIX ENGINE --- */
+.stories-matrix-track-frame {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem; /* Layout baseline flex gaps configured for small responsive screens vertical columns stack */
+}
+
+/* Base Card Object Structural Container Layout Constraints */
+.story-grid-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    /* 3D accelerated transforms guarantee ultra-smooth positioning swapping slide frame passes */
+    transition: transform 0.75s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.75s ease, 
+                box-shadow 0.3s ease;
+}
+
+/* Desktop Horizontal Position Swapping Matrices Coordinates Configuration */
+@media (min-width: 769px) {
+    .stories-matrix-track-frame {
+        height: 440px; /* Pre-allocated locked box wrapper window containment line bounds */
+        display: block; /* Drops native layout vertical column flow stacks */
+    }
+
+    .story-grid-card {
+        position: absolute;
+        top: 0;
+        width: 31.5%; /* Custom thickness grid percentage width supporting three side-by-side elements cleanly */
+        height: 100%;
+    }
+
+    /* Target Positions Track Horizontal Vector Class Multipliers maps */
+    .story-grid-card.pos-card-left { left: 0%; }
+    .story-grid-card.pos-card-center { left: 34.25%; }
+    .story-grid-card.pos-card-right { left: 68.5%; }
+}
+
+/* --- HARDWARE ACCELERATED ZOOM IN LENS MASK ENGINE --- */
+.card-image-lens {
+    width: 100%;
+    height: 210px;
+    overflow: hidden;
+    position: relative;
+}
+
+.story-lens-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    will-change: transform;
+    /* Zoom in speed timeline curves calibration constraints settings */
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Active Zoom In expansion execution trigger states mapping hover interactions */
+.story-grid-card:hover .story-lens-img {
+    transform: scale(1.08); /* Delivers request smooth image magnify enlargement */
+}
+
+.story-grid-card:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+/* Details Core Typography Content Elements Packaging formatting rules */
+.card-details-content-box {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-publish-date {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    color: #64748b;
+    margin-bottom: 0.75rem;
+}
+
+/* 2. Inside Card Title Metric Specification: Inter, Weight 700, Bold, Size 20px */
+.card-article-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 125%; /* Expanded gracefully beyond tight 100% boundary limit blocks to stop characters stacking overlapping across multiline rows */
+    letter-spacing: 0%;
+    color: #111827;
+    margin-bottom: 0.75rem;
+}
+
+/* 3. Inside Card Description Metric Specification: Inter, Weight 600, Semi Bold, Size 13px */
+.card-article-description {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 13px;
+    line-height: 140%; /* Padded for enhanced web accessibility reading blocks flow properties */
+    letter-spacing: 0%;
+    color: #4b5563;
+    margin-bottom: 1.5rem;
+}
+
+/* Read More Link components alignment anchor settings */
+.card-action-read-more-link {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: #15803d; /* Trademark charity green core hue code */
+    text-decoration: none;
+    margin-top: auto; /* Force aligns action triggers cleanly to the base boundary edge row layers */
+    align-self: flex-start;
+    transition: color 0.2s ease;
+}
+
+.card-action-read-more-link:hover {
+    color: #166534;
+    text-decoration: underline;
+}
+
+/* --- FLEXIBLE RESPONSIVE STACKING MATRIX ADAPTABILITY QUERIES --- */
+@media (max-width: 1024px) {
+    .featured-stories-container { padding: 4rem 2rem; }
+    .stories-section-main-title { font-size: 28px; margin-bottom: 2.5rem; }
+    .card-article-title { font-size: 18px; }
+}
+
+@media (max-width: 768px) {
+    .featured-stories-container { padding: 3rem 1.25rem; }
+    .card-image-lens { height: 180px; }
+    .stories-matrix-track-frame { gap: 2rem; }
+    .story-grid-card { max-width: 100%; } /* Cards scale outward to consume maximum smartphone column row sizes fluidly */
+}
+
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    initFeaturedStoriesMatrixSwapper();
+});
+
+/**
+ * Continuous Card Position-Swapping Loop Pipeline Engine
+ * Shifts state layout index class tokens across grid targets exactly every 2000 milliseconds
+ */
+function initFeaturedStoriesMatrixSwapper() {
+    // Select the three structural target featured card element components
+    const cardsArray = [
+        document.getElementById("feature-card-1"),
+        document.getElementById("feature-card-2"),
+        document.getElementById("feature-card-3")
+    ];
+
+    // Safe checking verification validation loop bypass step: Check if objects are available in the DOM context tree
+    if (cardsArray.some(card => card === null)) return;
+
+    // Ordered horizontal slots index track tags configuration paths array maps
+    let positionsTrackArray = ["pos-card-left", "pos-card-center", "pos-card-right"];
+    const swapIntervalTimerMillis = 2000; // 2 seconds track duration
+
+    setInterval(() => {
+        // Shift tokens down the tracking chain layout mapping index bounds matrix
+        // pop() extracts the final slot indicator class, unshift() maps it right back to head index pointer 0
+        const shiftedSlotClassToken = positionsTrackArray.pop();
+        positionsTrackArray.unshift(shiftedSlotClassToken);
+
+        // Map newly transformed active positioning tokens onto target elements to fire CSS 3D translation vectors shifts
+        cardsArray.forEach((cardObject, structuralIndex) => {
+            // Drop prior state definitions safely to prevent style overlapping gaps
+            cardObject.classList.remove("pos-card-left", "pos-card-center", "pos-card-right");
+            
+            // Inject new layout target tags to update visual display positions smoothly
+            cardObject.classList.add(positionsTrackArray[structuralIndex]);
+        });
+
+    }, swapIntervalTimerMillis);
+}
+
+</script>
+
+<!-- Latest Articles Section Wrapper -->
+<section class="latest-articles-section">
+    <div class="articles-max-container">
+        
+        <!-- Main Component Heading -->
+        <h2 class="articles-main-heading">Latest Articles</h2>
+
+        <!-- Campaign Row Block 1: Women Empowerment -->
+        <article class="campaign-row-layout">
+            <div class="campaign-media-box">
+                <img src="./Assests/women wmpowerment.webp" alt="Group of women standing together with stacked hands" class="campaign-fluid-img">
+            </div>
+            <div class="campaign-details-box">
+                <h3 class="campaign-title">Women Empowerment</h3>
+                <p class="campaign-intro-text">We support women to become independent, confident, and leaders in their communities.</p>
+                
+                <!-- Inner Meta Features Matrix Links Row Grid -->
+                <div class="meta-features-row-grid">
+                    <div class="feature-item-node">
+                        <div class="badge-icon-holder">
+                            <svg class="badge-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+                            </svg>
+                        </div>
+                        <div class="feature-text-block">
+                            <h4 class="feature-headline">Self Help Groups</h4>
+                            <p class="feature-summary">Encouraging savings and mutual support.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item-node">
+                        <div class="badge-icon-holder">
+                            <svg class="badge-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                            </svg>
+                        </div>
+                        <div class="feature-text-block">
+                            <h4 class="feature-headline">Leadership Programs</h4>
+                            <p class="feature-summary">Building confidence and leadership skills.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item-node">
+                        <div class="badge-icon-holder">
+                            <svg class="badge-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                        </div>
+                        <div class="feature-text-block">
+                            <h4 class="feature-headline">Legal Awareness</h4>
+                            <p class="feature-summary">Educating women about their rights.</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="404.html" class="campaign-cta-btn">Learn More</a>
+            </div>
+        </article>
+
+        <!-- Campaign Row Block 2: Clean Water & Sanitation -->
+        <article class="campaign-row-layout">
+            <div class="campaign-media-box">
+                <img src="./Assests/clean water charity.webp" alt="Boy washing hands at an outdoor water tap" class="campaign-fluid-img">
+            </div>
+            <div class="campaign-details-box">
+                <h3 class="campaign-title">Clean Water & Sanitation</h3>
+                <p class="campaign-intro-text">We ensure communities have access to safe drinking water and promote hygiene for better living.</p>
+                
+                <div class="meta-features-row-grid">
+                    <div class="feature-item-node">
+                        <div class="badge-icon-holder">
+                            <svg class="badge-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.12a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l1.828 1.828A2 2 0 0118 14.828V19a2 2 0 01-2 2H8a2 2 0 01-2-2v-4.172a2 2 0 01.586-1.414l1.828-1.828A2 2 0 009 10.172V5L8 4z"/>
+                            </svg>
+                        </div>
+                        <div class="feature-text-block">
+                            <h4 class="feature-headline">Water Projects</h4>
+                            <p class="feature-summary">Building wells, borewells & water tanks.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item-node">
+                        <div class="badge-icon-holder">
+                            <svg class="badge-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                            </svg>
+                        </div>
+                        <div class="feature-text-block">
+                            <h4 class="feature-headline">Sanitation Drives</h4>
+                            <p class="feature-summary">Promoting clean toilets and hygiene.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item-node">
+                        <div class="badge-icon-holder">
+                            <svg class="badge-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/>
+                            </svg>
+                        </div>
+                        <div class="feature-text-block">
+                            <h4 class="feature-headline">Community Training</h4>
+                            <p class="feature-summary">Educating communities on water conservation.</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="404.html" class="campaign-cta-btn">Learn More</a>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<style>
+    @import url('https://googleapis.com');
+
+/* Main Wrapper Settings */
+.latest-articles-section {
+    padding: 10px 4rem;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.articles-max-container {
+    max-width: 1400px;
+    width: 100%;
+}
+
+/* Header Text Specification */
+.articles-main-heading {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 100%;
+    color: #000000;
+    margin-bottom: 4rem;
+}
+
+/* Two-Column Asymmetric Layout Row */
+.campaign-row-layout {
+    display: grid;
+    grid-template-columns: 360px 1fr; /* Image is set to a fixed structural base on desktop */
+    gap: 3.5rem;
+    align-items: start;
+    margin-bottom: 5rem;
+    padding-bottom: 0;
+    width: 100%;
+}
+
+.campaign-row-layout:last-of-type {
+    margin-bottom: 0px;
+}
+
+/* Image Viewport Bounding Framework with Zoom Animation */
+.campaign-media-box {
+    width: 100%;
+    height: 240px;
+    border-radius: 14px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+}
+
+.campaign-fluid-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    will-change: transform;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Interactive zoom-in triggered on card container hovers */
+.campaign-row-layout:hover .campaign-fluid-img {
+    transform: scale(1.06);
+}
+
+/* Content Details Column Framework */
+.campaign-details-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Campaign Header Metric: Inter, Weight 700, Bold, Size 22px */
+.campaign-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 22px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #000000;
+    margin-bottom: 0.85rem;
+}
+
+/* Campaign Body Description Metric: Inter, Weight 500, Medium, Size 15px */
+.campaign-intro-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 145%;
+    letter-spacing: 0%;
+    color: #000000;
+    margin-bottom: 2rem;
+    max-width: 820px;
+}
+
+/* Inner Sub-Features Matrix Grid Row Layout */
+.meta-features-row-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 clean side-by-side components matching image layout */
+    gap: 2rem;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.feature-item-node {
+    display: flex;
+    align-items: start;
+    gap: 0.85rem;
+}
+
+/* Oversized Badges & Neon-Glow Vector Filters */
+.badge-icon-holder {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #f0fdf4; /* Very subtle mint backdrop fill tint */
+    color: #16803d; /* Trademark green core hue code */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                background-color 0.3s ease, 
+                color 0.3s ease;
+}
+
+.badge-icon-svg {
+    width: 20px;
+    height: 20px;
+    transition: filter 0.3s ease;
+}
+
+/* Hover actions expand vector spheres, invert fills, and throw radiance drop shadows */
+.feature-item-node:hover .badge-icon-holder {
+    transform: scale(1.14);
+    background-color: #16803d;
+    color: #ffffff;
+}
+
+.feature-item-node:hover .badge-icon-svg {
+    filter: drop-shadow(0 0 8px rgba(22, 128, 61, 0.75));
+}
+
+.feature-text-block {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Inner Feature Title Metric: Inter, Weight 700, Bold, Size 15px, Solid Black */
+.feature-headline {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #000000;
+    margin-bottom: 0.4rem;
+}
+
+/* Inner Feature Description Metric: Inter, Weight 500, Medium, Size 12px, Solid Black */
+.feature-summary {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 12px;
+    line-height: 135%;
+    letter-spacing: 0%;
+    color: #000000;
+}
+
+/* Flat Green Trigger Action Button */
+.campaign-cta-btn {
+    background-color: #14532d; /* Solid deep forest color wrap layer */
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    text-decoration: none;
+    padding: 0.65rem 1.6rem;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    align-self: flex-start;
+}
+
+.campaign-cta-btn:hover {
+    background-color: #166534;
+    box-shadow: 0 4px 15px rgba(20, 83, 45, 0.2);
+}
+
+/* --- FLUID RESPONSIVE GRID ADAPTABILITY MATRIX BREAKPOINTS --- */
+@media (max-width: 1024px) {
+    .campaign-row-layout {
+        grid-template-columns: 280px 1fr;
+        gap: 2rem;
+    }
+    .meta-features-row-grid {
+        grid-template-columns: repeat(2, 1fr); /* Tablet adjusts layout blocks down to 2 columns wrapper */
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .latest-articles-section {
+        padding: 4rem 1.25rem;
+    }
+    .articles-main-heading {
+        font-size: 26px;
+        margin-bottom: 2.5rem;
+    }
+    .campaign-row-layout {
+        grid-template-columns: 1fr; /* Mobile viewports break horizontal grid down to standard stacked row fallback block */
+        gap: 1.75rem;
+        margin-bottom: 3.5rem;
+    }
+    .campaign-media-box {
+        height: 200px;
+    }
+    .meta-features-row-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+    .campaign-cta-btn {
+        width: 100%;
+        text-align: center; /* Stretch buttons full length across mobile viewing profiles */
+    }
+}
+
+</style>
+
+<!-- Campaigns Layout Section (Part 2) -->
+<section class="campaigns-block-section">
+    <div class="campaigns-max-wrapper">
+
+        <!-- Row 3: Disaster Relief & Emergency Support -->
+        <article class="campaign-split-row">
+            <div class="campaign-media-lens">
+                <img src="./Assests/emergency.webp" alt="Volunteers handing out relief boxes to community families" class="campaign-zoom-img">
+            </div>
+            <div class="campaign-data-panel">
+                <h3 class="campaign-panel-title">Disaster Relief & Emergency Support</h3>
+                <p class="campaign-panel-desc">We respond quickly in times of crisis and provide relief materials and rehabilitation support.</p>
+                
+                <!-- Inner Sub-Features Matrix -->
+                <div class="sub-features-row-matrix">
+                    <div class="matrix-item-node">
+                        <div class="vector-ring-glow">
+                            <svg class="node-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                            </svg>
+                        </div>
+                        <div class="node-text-box">
+                            <h4 class="node-headline">Emergency Relief</h4>
+                            <p class="node-summary">Food, clothing, and shelter support.</p>
+                        </div>
+                    </div>
+                    <div class="matrix-item-node">
+                        <div class="vector-ring-glow">
+                            <svg class="node-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <div class="node-text-box">
+                            <h4 class="node-headline">Rehabilitation</h4>
+                            <p class="node-summary">Long-term support for rebuilding lives.</p>
+                        </div>
+                    </div>
+                    <div class="matrix-item-node">
+                        <div class="vector-ring-glow">
+                            <svg class="node-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                            </svg>
+                        </div>
+                        <div class="node-text-box">
+                            <h4 class="node-headline">Preparedness</h4>
+                            <p class="node-summary">Training communities for future emergencies.</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="404.html" class="campaign-action-btn">Learn More</a>
+            </div>
+        </article>
+
+        <!-- Row 4: Education For All -->
+        <article class="campaign-split-row">
+            <div class="campaign-media-lens">
+                <img src="./Assests/education charity.webp" alt="Smiling school young girl writing down notes inside classroom" class="campaign-zoom-img">
+            </div>
+            <div class="campaign-data-panel">
+                <h3 class="campaign-panel-title">Education For All</h3>
+                <p class="campaign-panel-desc">We believe every child deserves accesses to quality education. Our programs provide learning resources, scholarships, and safe learning spaces.</p>
+                
+                <div class="sub-features-row-matrix">
+                    <div class="matrix-item-node">
+                        <div class="vector-ring-glow">
+                            <svg class="node-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"/>
+                            </svg>
+                        </div>
+                        <div class="node-text-box">
+                            <h4 class="node-headline">School Support</h4>
+                            <p class="node-summary">Providing books, supplies, and infrastructure.</p>
+                        </div>
+                    </div>
+                    <div class="matrix-item-node">
+                        <div class="vector-ring-glow">
+                            <svg class="node-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                            </svg>
+                        </div>
+                        <div class="node-text-box">
+                            <h4 class="node-headline">Learning Kits</h4>
+                            <p class="node-summary">Providing books, supplies, and infrastructure.</p>
+                        </div>
+                    </div>
+                    <div class="matrix-item-node">
+                        <div class="vector-ring-glow">
+                            <svg class="node-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-6 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                            </svg>
+                        </div>
+                        <div class="node-text-box">
+                            <h4 class="node-headline">Infrastructure</h4>
+                            <p class="node-summary">Providing books, supplies, and infrastructure.</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="404.html" class="campaign-action-btn">Learn More</a>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<style>
+    @import url('https://googleapis.com');
+
+/* Main Wrapper Settings */
+.campaigns-block-section {
+    padding: 70px 4rem;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.campaigns-max-wrapper {
+    max-width: 1400px;
+    width: 100%;
+}
+
+/* Horizontal 2-Column Desktop Card Row Framework */
+.campaign-split-row {
+    display: grid;
+    grid-template-columns: 360px 1fr; /* Image tracks to locked width bounding column grids */
+    gap: 3.5rem;
+    align-items: start;
+    margin-bottom: 5rem;
+    padding-bottom: 1.5rem;
+    width: 100%;
+}
+
+.campaign-split-row:last-of-type {
+    margin-bottom: 0px;
+}
+
+/* Image Container viewport with scale animations */
+.campaign-media-lens {
+    width: 100%;
+    height: 240px;
+    border-radius: 14px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+}
+
+.campaign-zoom-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    will-change: transform;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Hover scales picture seamlessly up */
+.campaign-split-row:hover .campaign-zoom-img {
+    transform: scale(1.06);
+}
+
+/* Details Stack Core Panel */
+.campaign-data-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Card Row Title Metric: Inter, Weight 700, Bold, Size 22px */
+.campaign-panel-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 22px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #000000;
+    margin-bottom: 0.85rem;
+}
+
+/* Card Row Description Metric: Inter, Weight 500, Medium, Size 15px */
+.campaign-panel-desc {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 145%;
+    letter-spacing: 0%;
+    color: #000000;
+    margin-bottom: 2rem;
+    max-width: 820px;
+}
+
+/* Sub-Features Matrix Row Layout Grid */
+.sub-features-row-matrix {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 clean side-by-side elements */
+    gap: 2rem;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.matrix-item-node {
+    display: flex;
+    align-items: start;
+    gap: 0.85rem;
+}
+
+/* Oversized Status Circles & Glowing Neon Filters */
+.vector-ring-glow {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #f0fdf4; /* faint soft mint backdrop glow tint */
+    color: #16803d; /* Characteristic identity brand green accent */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                background-color 0.3s ease, 
+                color 0.3s ease;
+}
+
+.node-svg {
+    width: 20px;
+    height: 20px;
+    transition: filter 0.3s ease;
+}
+
+/* Interactive Hover transitions inverted colors and casts radiance shadow halos */
+.matrix-item-node:hover .vector-ring-glow {
+    transform: scale(1.14);
+    background-color: #16803d;
+    color: #ffffff;
+}
+
+.matrix-item-node:hover .node-svg {
+    filter: drop-shadow(0 0 8px rgba(22, 128, 61, 0.75));
+}
+
+.node-text-box {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Sub-Feature Title Metric: Inter, Weight 700, Bold, Size 15px, Solid Black */
+.node-headline {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #000000;
+    margin-bottom: 0.4rem;
+}
+
+/* Sub-Feature Description Metric: Inter, Weight 500, Medium, Size 12px, Solid Black */
+.node-summary {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 12px;
+    line-height: 135%;
+    letter-spacing: 0%;
+    color: #000000;
+}
+
+/* Flat Accent Green Trigger Action Button */
+.campaign-action-btn {
+    background-color: #14532d; /* Solid deep forest core color block asset */
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    text-decoration: none;
+    padding: 0.65rem 1.6rem;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    align-self: flex-start;
+}
+
+.campaign-action-btn:hover {
+    background-color: #166534;
+    box-shadow: 0 4px 15px rgba(20, 83, 45, 0.25);
+}
+
+/* --- FLUID BREAKPOINT MEDIA QUERY LAYOUT RESPONSIVETARGETS --- */
+@media (max-width: 1024px) {
+    .campaign-split-row {
+        grid-template-columns: 280px 1fr;
+        gap: 2rem;
+    }
+    .sub-features-row-matrix {
+        grid-template-columns: repeat(2, 1fr); /* Scales row layout elements inside secondary pairs on tablets */
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .campaigns-block-section {
+        padding: 3rem 1.25rem;
+    }
+    
+    .campaign-split-row {
+        grid-template-columns: 1fr; /* Breaks side panel grids up into clean standalone vertical stacks on phones */
+        gap: 1.5rem;
+        margin-bottom: 4rem;
+    }
+    
+    .campaign-media-lens {
+        height: 200px;
+    }
+    
+    .sub-features-row-matrix {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+    
+    .campaign-action-btn {
+        width: 100%;
+        text-align: center; /* Forces button width layout full wide across device viewport lines */
+    }
+}
+
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const campaignRows = document.querySelectorAll('.campaign-split-row');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+            }
+        });
+    }, { threshold: 0.1 });
+
+    campaignRows.forEach(row => {
+        // Initialize hidden styling states cleanly before running tracker animations
+        row.style.opacity = "0";
+        row.style.transform = "translateY(25px)";
+        row.style.transition = "opacity 0.7s ease, transform 0.7s ease";
+        observer.observe(row);
+    });
+});
+
+</script>
+
+<!-- Newsletter and Impact Tracking Section -->
+<section id="footer-newsletter-section" class="newsletter-impact-container">
+    
+    <!-- Upper Strip: Newsletter Subscription Form Component -->
+    <div class="newsletter-subscription-strip">
+        <div class="newsletter-strip-inner">
+            
+            
+            <div class="newsletter-brand-badge-box">
+                <div class="brand-icon-sphere-glow">
+                    <svg class="brand-envelope-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0l-7.5-4.615a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                    </svg>
+                </div>
+                <div class="newsletter-text-stack">
+                    <h2 class="newsletter-main-title" id="scroll-phrase-heading">Stay Updated With Our Stories</h2>
+                    <p class="newsletter-sub-desc">Subscribe to our newsletter and never miss an inspiring story of change and impact.</p>
+                </div>
+            </div>
+
+            <!-- Right Side Interactive Input System Form Pipeline -->
+            <form class="newsletter-input-form-box" id="newsletter-form" onsubmit="validateSubscriberEmail(event)">
+                <div class="newsletter-input-wrapper-inner">
+                    <input type="email" id="subscriber-email-field" placeholder="Enter your email address" autocomplete="off">
+                    <button type="submit" class="newsletter-submit-action-btn">Subscribe</button>
+                </div>
+                <!-- Inline validation error overlay banner layout tooltips -->
+                <div class="newsletter-alert-tooltip" id="newsletter-validation-alert">Please fill the fields</div>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- Lower Strip: Operational Metrics Impacts Grid Dashboard -->
+    <div class="impact-metrics-dashboard-strip">
+        <div class="metrics-dashboard-inner-grid">
+            
+            <!-- Metric Node Item 1: Users Impacted -->
+            <div class="metric-dashboard-node">
+                <div class="metric-vector-sphere-glow">
+                    <svg class="metric-node-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0z" />
+                    </svg>
+                </div>
+                <div class="metric-text-label-block">
+                    <h3 class="metric-numeric-value">15000+</h3>
+                    <p class="metric-string-label">Users impacted</p>
+                </div>
+            </div>
+
+            <!-- Metric Node Item 2: Communities Served -->
+            <div class="metric-dashboard-node">
+                <div class="metric-vector-sphere-glow">
+                    <svg class="metric-node-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                    </svg>
+                </div>
+                <div class="metric-text-label-block">
+                    <h3 class="metric-numeric-value">250+</h3>
+                    <p class="metric-string-label">Communities Served</p>
+                </div>
+            </div>
+
+            <!-- Metric Node Item 3: Volunteers Enrolled -->
+            <div class="metric-dashboard-node">
+                <div class="metric-vector-sphere-glow">
+                    <svg class="metric-node-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.182 15.182a4.5 4.5 0 0 1-6.364 0M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0zM9.75 9.75c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm6.5 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75z" />
+                    </svg>
+                </div>
+                <div class="metric-text-label-block">
+                    <h3 class="metric-numeric-value">800+</h3>
+                    <p class="metric-string-label">Volunters</p>
+                </div>
+            </div>
+
+            <!-- Metric Node Item 4: Funds Utilized -->
+            <div class="metric-dashboard-node">
+                <div class="metric-vector-sphere-glow">
+                    <svg class="metric-node-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.839.284a5.053 5.053 0 0 0 3.322-.033M9 10.5h1.168c.783 0 1.545.16 2.247.467M12 3v18m0-18a9 9 0 1 1 0 18 9 9 0 0 1 0-18z" />
+                    </svg>
+                </div>
+                <div class="metric-text-label-block">
+                    <h3 class="metric-numeric-value">₹5Cr+</h3>
+                    <p class="metric-string-label">Funds Utilized</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+<style>
+    @import url('https://googleapis.com');
+
+/* Main Wrapper Settings */
+.newsletter-impact-container {
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- UPPER NEWSLETTER SUB-STRIP --- */
+.newsletter-subscription-strip {
+    width: 100%;
+    background-color: #d1e2d9; /* Clean subtle sage-green wash backdrop matching reference layout */
+    padding: 2.5rem 4rem;
+}
+
+.newsletter-strip-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+}
+
+/* Left Side Text Packaging Content Rules */
+.newsletter-brand-badge-box {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.brand-icon-sphere-glow {
+    width: 76px; /* Oversized visual configuration constraint */
+    height: 76px;
+    border-radius: 50%;
+    background-color: #14532d; /* Trademark deep forest primary green accent */
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.brand-envelope-svg {
+    width: 32px;
+    height: 32px;
+    transition: filter 0.3s ease;
+}
+
+/* Hover transitions expand badge circle spheres and project aura halo shadows */
+.newsletter-brand-badge-box:hover .brand-icon-sphere-glow {
+    transform: scale(1.1);
+}
+
+.newsletter-brand-badge-box:hover .brand-envelope-svg {
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.65));
+}
+
+.newsletter-text-stack {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Title reveal element configuration setup metrics */
+.newsletter-main-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 120%;
+    color: #000000;
+    margin-bottom: 0.65rem;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.6s cubic-bezier(0.2, 1, 0.2, 1), 
+                transform 0.6s cubic-bezier(0.2, 1, 0.2, 1);
+}
+
+/* Active identifier reveal class toggled downstream by scroll observer */
+.newsletter-main-title.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.newsletter-sub-desc {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14.5px;
+    line-height: 140%;
+    color: #000000;
+    max-width: 580px;
+}
+
+/* Right Side Interactive Input System Structure */
+.newsletter-input-form-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.newsletter-input-wrapper-inner {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 0.35rem;
+    border: 1px solid transparent;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+    width: 440px; /* Precise desktop thickness component limits configuration settings */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.newsletter-input-wrapper-inner:focus-within {
+    border-color: #14532d;
+    box-shadow: 0 0 0 3px rgba(20, 83, 45, 0.12);
+}
+
+#subscriber-email-field {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    padding: 0.5rem 1rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    color: #111827;
+    background-color: transparent;
+}
+
+#subscriber-email-field::placeholder {
+    color: #94a3b8;
+}
+
+.newsletter-submit-action-btn {
+    background-color: #14532d;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 13.5px;
+    padding: 0.65rem 1.6rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.newsletter-submit-action-btn:hover {
+    background-color: #166534;
+    box-shadow: 0 4px 12px rgba(22, 101, 52, 0.2);
+}
+
+/* Alert Warning Tooltip Banner overlay styling configurations */
+.newsletter-alert-tooltip {
+    position: absolute;
+    bottom: -36px;
+    left: 10px;
+    background-color: #ef4444; /* Crisis crimson validation identifier brand color code block */
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    opacity: 0;
+    transform: translateY(-4px);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 50;
+    white-space: nowrap;
+}
+
+.newsletter-alert-tooltip.show-alert {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* --- LOWER IMPACT TRACK METRICS DASHBOARD STRIP --- */
+.impact-metrics-dashboard-strip {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 3rem 4rem;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.metrics-dashboard-inner-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 Balanced layout spaces across rows */
+    gap: 2.5rem;
+}
+
+.metric-dashboard-node {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.metric-vector-sphere-glow {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #14532d;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.metric-node-svg {
+    width: 20px;
+    height: 20px;
+    transition: filter 0.3s ease;
+}
+
+/* Hover scales individual metrics badges and triggers neon line sharpening shadows */
+.metric-dashboard-node:hover .metric-vector-sphere-glow {
+    transform: scale(1.15) rotate(4deg);
+    background-color: #16803d;
+}
+
+.metric-dashboard-node:hover .metric-node-svg {
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.7));
+}
+
+.metric-text-label-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.metric-numeric-value {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 100%;
+    color: #14532d;
+    margin-bottom: 0.35rem;
+}
+
+.metric-string-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13.5px;
+    line-height: 100%;
+    color: #16803d;
+}
+
+
+/* --- TOUGH RESPONSIVE MEDIA Breakpoints MATRIX ADAPTABILITY SYSTEM --- */
+@media (max-width: 1140px) {
+    .newsletter-strip-inner {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.75rem;
+    }
+    .newsletter-input-wrapper-inner { width: 100%; }
+    .metrics-dashboard-inner-grid {
+        grid-template-columns: repeat(2, 1fr); /* Collapses dashboard blocks downward inside tablet screens */
+        gap: 2.5rem 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .newsletter-subscription-strip,
+    .impact-metrics-dashboard-strip {
+        padding: 2.5rem 1.5rem;
+    }
+    
+    .newsletter-brand-badge-box { flex-direction: column; text-align: center; gap: 1rem; }
+    .newsletter-main-title { font-size: 24px; }
+    .newsletter-sub-desc { font-size: 13px; }
+    
+    .newsletter-input-wrapper-inner { flex-direction: column; background-color: transparent; padding: 0px; gap: 0.85rem; border: none; box-shadow: none; }
+    #subscriber-email-field { width: 100%; background-color: #ffffff; border-radius: 6px; padding: 0.75rem 1.2rem; border: 1px solid #cbd5e1; }
+    .newsletter-submit-action-btn { width: 100%; padding: 0.8rem; text-align: center; } /* Spans button wide size full mobile widths */
+    
+    .newsletter-alert-tooltip { bottom: auto; top: -38px; left: 0px; width: 100%; text-align: center; }
+    .metrics-dashboard-inner-grid { grid-template-columns: 1fr; gap: 1.75rem; } /* Mobile grid returns to safe relative stacks layout fallback */
+}
+
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    initNewsletterScrollObserver();
+});
+
+/**
+ * Phrase Text Layer Trigger Scroll Observer Engine
+ * Reveals title stack smoothly line-by-line upon viewport scroll intersection arrival
+ */
+function initNewsletterScrollObserver() {
+    const mainTitleBlock = document.getElementById("scroll-phrase-heading");
+    if (!mainTitleBlock) return;
+
+    const revealConfigOptions = {
+        root: null,
+        threshold: 0.15 // Runs reveal logic cleanly when 15% of title passes baseline frames
+    };
+
+    const sectionScrollObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("reveal-active");
+                observer.unobserve(entry.target); // Detach validation monitoring tracking to conserve CPU computation paths
+            }
+        });
+    }, revealConfigOptions);
+
+    sectionScrollObserver.observe(mainTitleBlock);
+}
+
+/**
+ * Input Subscriber Email Validation Pipeline Form Checker
+ * Evaluates values. Triggers alert tooltip overlays on blanks, or relocates target frame routing vectors on success.
+ */
+function validateSubscriberEmail(event) {
+    // Intercept default browser page postback workflows instantly
+    event.preventDefault();
+
+    const inputFieldElement = document.getElementById("subscriber-email-field");
+    const validationTooltipAlert = document.getElementById("newsletter-validation-alert");
+
+    // Clean space paddings safely away from value chains
+    const sanitizedEmailInputString = inputFieldElement.value.trim();
+
+    if (sanitizedEmailInputString === "") {
+        // Error validation path identified: Render warning alert bubble overlay view
+        validationTooltipAlert.classList.add("show-alert");
+        inputFieldElement.focus();
+
+        // Flush bubble state automatically out of view frames after a standard 3 second duration window
+        setTimeout(() => {
+            validationTooltipAlert.classList.remove("show-alert");
+        }, 3000);
+
+        return false;
+    }
+
+    // Input fields confirmed verified. Clear visual warning states cleanly
+    validationTooltipAlert.classList.remove("show-alert");
+
+    // Execute structural allocation route redirect point targeting layout standard 404 page file path
+    window.location.href = "404.html";
+}
+
+</script>
+
+<section class="stk-cta-section">
+    <!-- 🌟 Vector SVG Floating Background Elements -->
+    <div class="stk-cta-bg-vectors">
+        <!-- Floating Element 1: Abstract Heart Ring -->
+        <svg class="stk-vector-shape stk-shape-1" viewBox="0 0 100 100" fill="none" xmlns="http://w3.org">
+            <path d="M50 80c-15-12-30-24-30-38 0-8 6-14 14-14 6 0 11 4 16 9 5-5 10-9 16-9 8 0 14 6 14 14 0 14-15 26-30 38z" stroke="rgba(255,255,255,0.06)" stroke-width="2" stroke-dasharray="4 4"/>
+        </svg>
+        <!-- Floating Element 2: Concentric Circular Ripple -->
+        <svg class="stk-vector-shape stk-shape-2" viewBox="0 0 100 100" fill="none" xmlns="http://w3.org">
+            <circle cx="50" cy="50" r="40" stroke="rgba(255,255,255,0.05)" stroke-width="1.5"/>
+            <circle cx="50" cy="50" r="25" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+        </svg>
+        <!-- Floating Element 3: Abstract Geometric Sparkle -->
+        <svg class="stk-vector-shape stk-shape-3" viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+            <path d="M12 2l2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5L12 2z" fill="rgba(255,255,255,0.04)"/>
+        </svg>
+    </div>
+
+    <div class="stk-cta-container">
+        <!-- Text Content Wrapper -->
+        <div class="stk-cta-text-block">
+            <!-- 🌟 Target for Letter-by-Letter Javascript Observer Matrix -->
+            <h2 class="stk-cta-title" id="scrollLetterCtaTitle">Together,We Can Make A Difference</h2>
+            <p class="stk-cta-desc">Your donation today can bring hope,create opportunities,and build a better tomorrow for countless lives.</p>
+        </div>
+
+        <!-- 🌟 Floating Interaction Button Framework Container Target -->
+        <div class="stk-cta-btn-wrapper">
+            <a href="#donate" class="stk-btn-cta-float" aria-label="Navigate to donation checkout interface">Donate Now</a>
+        </div>
+    </div>
+</section>
+
+<style>
+:root {
+    --cta-green-bg: #126B2F;
+    --cta-green-text: #126B2F;
+    --cta-white: #FFFFFF;
+    --cta-transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Core Full-Bleed Section Panel Matching Your Image Profile */
+.stk-cta-section {
+    width: 100%;
+    background-color: var(--cta-green-bg);
+    padding: 20px 0; /* Tight horizontal bar padding proportions exactly like image layout */
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.stk-cta-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 40px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    position: relative;
+    z-index: 5;
+    box-sizing: border-box;
+}
+
+/* Left Alignment Text Layout blocks */
+.stk-cta-text-block {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+/* Title Specs: Inter, White, Bold 700, 30px, tight margins */
+.stk-cta-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    color: #FFFFFF;
+    margin: 0 0 10px 0;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+}
+
+/* Description Specs: Inter, Medium 500, 14px, muted white opacity matching sample image */
+.stk-cta-desc {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size:20px;
+    color: #FFFFFF;
+    margin: 0;
+    line-height: 145%;
+    max-width: 680px;
+}
+
+/* Right Alignment Button Floating Layout Matrix */
+.stk-cta-btn-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+/* 🌟 Pill Button Box with Dynamic Continuous Floating Translation Layer */
+.stk-btn-cta-float {
+    display: inline-block;
+    background-color: #FFFFFF;
+    color: var(--cta-green-text);
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 16px;
+    padding: 12px 28px;
+    border-radius: 8px; /* Clean matching slightly rounded profile layout */
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    will-change: transform;
+    transition: var(--cta-transition);
+    /* Soft infinite idle float animation layout cycle */
+    animation: idleCtaButtonFloat 3s ease-in-out infinite alternate;
+}
+
+/* Interactivity Hover States Overrides */
+.stk-btn-cta-float:hover {
+    background-color: var(--cta-white);
+    color: #0c4d21;
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.16);
+}
+
+/* 🌟 Continuous Floating Keyframe Script Engine for Button */
+@keyframes idleCtaButtonFloat {
+    0% {
+        transform: translateY(2px);
+    }
+    100% {
+        transform: translateY(-4px);
+    }
+}
+
+/* 🌟 Vector SVG Background Elements Arrangement Styles */
+.stk-cta-bg-vectors {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Passes mouse clicks safely down to input nodes */
+    z-index: 1;
+}
+
+.stk-vector-shape {
+    position: absolute;
+    will-change: transform;
+}
+
+/* Gentle structural animations tracking background assets */
+.stk-shape-1 {
+    width: 120px;
+    height: 120px;
+    left: 3%;
+    top: -20px;
+    animation: slowRotateShape 25s linear infinite;
+}
+
+.stk-shape-2 {
+    width: 200px;
+    height: 200px;
+    right: 18%;
+    bottom: -80px;
+    animation: slowDriftShape 12s ease-in-out infinite alternate;
+}
+
+.stk-shape-3 {
+    width: 40px;
+    height: 40px;
+    left: 45%;
+    bottom: 10%;
+    animation: slowRotateShape 15s linear infinite reverse;
+}
+
+@keyframes slowRotateShape {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes slowDriftShape {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(15px, -10px) scale(1.05); }
+}
+
+/* --- SCROLL ANIMATION SUB-STRUCTURES GENERATOR ENGINE --- */
+.stk-cta-char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateX(-4px) translateY(2px);
+    transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1), transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.stk-cta-char.stk-cta-revealed {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+}
+
+.stk-cta-space {
+    display: inline-block;
+    width: 0.26em;
+}
+
+/* LIQUID RESPONSIVE MATRIX ADAPTATION LAYER */
+@media (max-width: 768px) {
+    .stk-cta-section {
+        padding: 40px 0;
+    }
+    .stk-cta-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 28px;
+        padding: 0 24px;
+    }
+    .stk-cta-text-block {
+        text-align: center;
+        align-items: center;
+    }
+    .stk-cta-title {
+        font-size: 24px;
+    }
+    .stk-cta-desc {
+        font-size: 13.5px;
+    }
+    .stk-btn-cta-float {
+        width: 100%;
+        max-width: 260px;
+        padding: 12px 0;
+        text-align: center;
+    }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // --- LETTER-BY-LETTER CASCADING TRANSITION PROTOCOL ---
+    const ctaTitleNode = document.getElementById("scrollLetterCtaTitle");
+    
+    if (ctaTitleNode) {
+        const textContentString = ctaTitleNode.textContent.trim();
+        ctaTitleNode.innerHTML = ""; // Empty baseline text nodes container maps completely
+
+        // Parse strings into standalone animated characters hooks array nodes
+        Array.from(textContentString).forEach(char => {
+            if (char === " ") {
+                const spaceElement = document.createElement("span");
+                spaceElement.classList.add("stk-cta-space");
+                ctaTitleNode.appendChild(spaceElement);
+            } else {
+                const letterElement = document.createElement("span");
+                letterElement.textContent = char;
+                letterElement.classList.add("stk-cta-char");
+                ctaTitleNode.appendChild(letterElement);
+            }
+        });
+
+        // Intersection Observer kicks off typewriter sequence on scroll detect framework bounds
+        const ctaIntersectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const charactersArray = entry.target.querySelectorAll(".stk-cta-char");
+                    
+                    charactersArray.forEach((letterNode, index) => {
+                        // 🌟 Calibrated staggered delay timeline (index * 35ms) to reveal cleanly over ~1-2 seconds
+                        setTimeout(() => {
+                            letterNode.classList.add("stk-cta-revealed");
+                        }, index * 35);
+                    });
+                    
+                    // Stop watching once active tracking configuration runs successfully
+                    ctaIntersectionObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.25 });
+
+        ctaIntersectionObserver.observe(ctaTitleNode);
+    }
+});
+</script>
+
+<footer class="stk-site-footer">
+    <div class="stk-footer-main-container">
+        
+        <!-- Column 1: Brand Identifier and Vector Links -->
+        <div class="stk-footer-col stk-col-brand">
+            
+            <a href="#" class="stk-back-to-top-trigger" aria-label="Scroll back to top of page">
+                <img src="./Assests/logo AGRI.webp" alt="Stackly Organization Brand Logo Logo" class="stk-footer-brand-logo">
+            </a>
+            <p class="stk-brand-tagline">We are dedicated to creating a world where everyone has the opportunity to live a empowered life.</p>
+            
+            <!-- 🌟 Clean Monochromatic White Vector Social Icons Layout -->
+            <div class="stk-footer-social-wrapper">
+                <a href="404.html" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" fill="#FFFFFF"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.8z"/></svg>
+                </a>
+                <a href="404.html" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="#FFFFFF"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.8v8.37h2.8v-4.67c0-.25.015-.51.09-.69.2-.5.65-1 1.41-1 1 0 1.38.76 1.38 1.87v4.49h2.8M6.5 8.37a1.37 1.37 0 1 0 0-2.75 1.37 1.37 0 0 0 0 2.75M8 18.5V10.13H5.2v8.37H8z"/></svg>
+                </a>
+                <a href="404.html" aria-label="X (Twitter)">
+                    <svg viewBox="0 0 24 24" fill="#FFFFFF"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+                <a href="404.html" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="#FFFFFF"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Column 2: Quick Links Route Framework -->
+        <div class="stk-footer-col">
+            <h3 class="stk-footer-heading">Quick Links</h3>
+            <ul class="stk-footer-links">
+                <li><a href="404.html">Home</a></li>
+                <li><a href="404.html">About Us</a></li>
+                <li><a href="404.html">Our Programs</a></li>
+                <li><a href="404.html">Our Impact</a></li>
+                <li><a href="404.html">Stories</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 3: Get Involved Navigation -->
+        <div class="stk-footer-col">
+            <h3 class="stk-footer-heading">Get Involved</h3>
+            <ul class="stk-footer-links">
+                <li><a href="404.html">Volunteer</a></li>
+                <li><a href="404.html">Donate</a></li>
+                <li><a href="404.html">Events</a></li>
+                <li><a href="404.html">Partner with us</a></li>
+                <li><a href="404.html">Fundraise</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 4: Resources Links -->
+        <div class="stk-footer-col">
+            <h3 class="stk-footer-heading">Resources</h3>
+            <ul class="stk-footer-links">
+                <li><a href="404.html">Blog</a></li>
+                <li><a href="404.html">Reports</a></li>
+                <li><a href="404.html">Contact Us</a></li>
+                <li><a href="404.html">FAQ's</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 5: Right Newsletter Subscription Interface -->
+        <div class="stk-footer-col stk-col-newsletter">
+            <h3 class="stk-footer-heading">Newsletter</h3>
+            <p class="stk-newsletter-desc">Stay updated with our latest news and events.</p>
+            
+            <form id="stkFooterSubscriptionForm" class="stk-newsletter-form" novalidate>
+                <div class="stk-input-wrapper-footer">
+                    <input type="email" id="stkFooterEmailInput" placeholder="Your email address" autocomplete="off" required>
+                    <!-- Form Status Validation Message Bar -->
+                    <div id="stkSubscriptionAlert" class="stk-newsletter-alert-banner" style="display: none;"></div>
+                </div>
+                <button type="submit" class="stk-btn-footer-subscribe">Subscribe</button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- Bottom Secondary Info and Policy Layout -->
+    <div class="stk-footer-bottom-bar">
+        <div class="stk-footer-bottom-container">
+            <p class="stk-copyright">&copy; 2026 STACKLY. All rights reserved.</p>
+            <div class="stk-bottom-legal-links">
+                <a href="404.html">Privacy Policy</a>
+                <a href="404.html">Terms & Conditions</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<style>
+:root {
+    --ft-green-deep: #062b11;    /* Extremely deep layout background block matching image backdrop */
+    --ft-green-bright: #126B2F;  /* Standard primary theme green tint color value */
+    --ft-green-hover: #1b853d;   /* Hover focus shift color element mapping metrics */
+    --ft-text-light: #FFFFFF;
+    --ft-text-muted: rgba(255, 255, 255, 0.75);
+    --ft-border-line: rgba(255, 255, 255, 0.12);
+    --ft-transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.stk-site-footer {
+    width: 100%;
+    background-color: var(--ft-green-deep);
+    padding: 60px 0 0 0;
+    color: var(--ft-text-light);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.stk-footer-main-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px 50px 24px;
+    gap: 32px;
+    box-sizing: border-box;
+}
+
+/* Base Columns Formatting Architecture Matrix */
+.stk-footer-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.stk-col-brand {
+    flex: 1.8; /* Expands brand identification layout space proportionally */
+}
+
+.stk-col-newsletter {
+    flex: 2; /* Allocates adequate dimensions to subscription controls box */
+    padding-left: 20px;
+    border-left: 1px solid var(--ft-border-line); /* Clean vertical splitting line layout matched to reference */
+}
+
+/* Brand Assets Elements Configuration Setup */
+.stk-footer-brand-logo {
+    max-width: 140px;
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: var(--ft-transition);
+}
+
+.stk-footer-brand-logo:hover {
+    opacity: 0.85;
+    transform: scale(0.98);
+}
+
+.stk-brand-tagline {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 150%;
+    color: #FFFFFF;
+    margin-bottom: 24px;
+    max-width: 260px;
+}
+
+/* 🌟 White Icons, Green Canvas Background & Neon Glow Effects Styling Rules */
+.stk-footer-social-wrapper {
+    display: flex;
+    gap: 12px;
+}
+
+.stk-footer-social-wrapper a {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--ft-green-bright);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: var(--ft-transition);
+    box-shadow: 0 0 0 rgba(18, 107, 47, 0);
+}
+
+.stk-footer-social-wrapper a svg {
+    width: 16px;
+    height: 16px;
+    fill: #FFFFFF !important; /* Insures native vector asset layers bind explicitly in white */
+    transition: var(--ft-transition);
+}
+
+/* 🌟 Hover Glow Interaction Keyframe: Expands outer volumetric glowing shadow vectors */
+.stk-footer-social-wrapper a:hover {
+    background-color: var(--ft-text-light);
+    transform: translateY(-4px);
+    /* Vibrant glowing bloom backdrop synchronization effect rule */
+    box-shadow: 0 0 14px 4px rgba(255, 255, 255, 0.4), 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.stk-footer-social-wrapper a:hover svg {
+    fill: var(--ft-green-deep) !important; /* Inverts color logic smoothly on user cursor focus tracking points */
+}
+
+/* Middle Navigation Typography Elements Configuration Layer */
+.stk-footer-heading {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #FFFFFF;
+    margin: 0 0 18px 0;
+    letter-spacing: 0.02em;
+}
+
+.stk-footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.stk-footer-links li a {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: var(--ft-transition);
+}
+
+.stk-footer-links li a:hover {
+    color: var(--ft-text-light);
+    padding-left: 4px; /* Soft interactive shift prompt layout indicator direction */
+}
+
+/* Newsletter Input Layout Component Fields */
+.stk-newsletter-desc {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    color: #FFFFFF;
+    margin: 0 0 18px 0;
+    line-height: 140%;
+}
+
+.stk-newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+}
+
+.stk-input-wrapper-footer {
+    position: relative;
+    width: 100%;
+}
+
+.stk-newsletter-form input {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25); /* Sleek flat bottom border matching reference image */
+    padding: 10px 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    color: var(--ft-text-light);
+    outline: none;
+    box-sizing: border-box;
+    transition: var(--ft-transition);
+}
+
+.stk-newsletter-form input:focus {
+    border-bottom-color: var(--ft-text-light);
+}
+
+/* Subscription Form Error Highlighting Rules Box Container */
+.stk-newsletter-form input.stk-input-field-error {
+    border-bottom-color: #EF4444;
+}
+
+.stk-newsletter-alert-banner {
+    font-family: 'Inter', sans-serif;
+    font-size: 11.5px;
+    font-weight: 500;
+    color: #F87171;
+    margin-top: 6px;
+    line-height: 130%;
+}
+
+/* Subscribe Action Button Elements */
+.stk-btn-footer-subscribe {
+    width: 100%;
+    background-color: var(--ft-green-bright);
+    color: var(--ft-text-light);
+    border: none;
+    border-radius: 8px; /* Clean matching slightly rounded profile layout */
+    padding: 12px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: var(--ft-transition);
+    box-sizing: border-box;
+}
+
+.stk-btn-footer-subscribe:hover {
+    background-color: var(--ft-green-hover);
+    box-shadow: 0 4px 12px rgba(18, 107, 47, 0.25);
+}
+
+/* Bottom Legal Strip Layout Configurations */
+.stk-footer-bottom-bar {
+    width: 100%;
+    border-top: 1px solid var(--ft-border-line);
+    padding: 18px 0;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.stk-footer-bottom-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.stk-copyright {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 11.5px;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+}
+
+.stk-bottom-legal-links {
+    display: flex;
+    gap: 20px;
+}
+
+.stk-bottom-legal-links a {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 11.5px;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    transition: var(--ft-transition);
+}
+
+.stk-bottom-legal-links a:hover {
+    color: var(--ft-text-light);
+}
+
+/* LIQUID RESPONSIVE MATRIX OVERRIDES BREAKPOINTS */
+@media (max-width: 1024px) {
+    .stk-footer-main-container {
+        flex-wrap: wrap;
+        gap: 40px 24px;
+    }
+    .stk-col-brand {
+        flex: 1 1 calc(50% - 24px);
+    }
+    .stk-col-newsletter {
+        flex: 1 1 calc(50% - 24px);
+        padding-left: 0;
+        border-left: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .stk-site-footer {
+        padding-top: 40px;
+    }
+    .stk-footer-main-container {
+        flex-direction: column;
+        gap: 36px;
+        padding-bottom: 36px;
+    }
+    .stk-col-brand, .stk-col-newsletter {
+        width: 100%;
+    }
+    .stk-footer-bottom-container {
+        flex-direction: column-reverse;
+        gap: 14px;
+        text-align: center;
+    }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    // --- PART 1: SMOOTH BACK TO TOP SCROLL ANCHOR LOGIC ---
+    const backToTopButtons = document.querySelectorAll(".stk-back-to-top-trigger");
+
+    backToTopButtons.forEach(anchorBtn => {
+        anchorBtn.addEventListener("click", (event) => {
+            event.preventDefault();
+            // Fluid directional scroll parameter shift back up into top layout viewport zone
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    });
+
+    // --- PART 2: NEWSLETTER SUBSCRIPTION CONTROLS ENGINE ---
+    const subscriptionForm = document.getElementById("stkFooterSubscriptionForm");
+    const emailField = document.getElementById("stkFooterEmailInput");
+    const warningText = document.getElementById("stkSubscriptionAlert");
+
+    // Regular Expression helper evaluation framework checking basic email patterns
+    function validateEmailAddressPattern(emailInputString) {
+        const structuralMailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        return structuralMailRegex.test(emailInputString);
+    }
+
+    // Capture user event submissions
+    subscriptionForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        
+        // Reset operational flags states
+        emailField.classList.remove("stk-input-field-error");
+        warningText.style.display = "none";
+        warningText.textContent = "";
+
+        const dynamicInputStringValue = emailField.value.trim();
+
+        // 1. Mandatory Fields Content Boundary Checks
+        if (!dynamicInputStringValue) {
+            emailField.classList.add("stk-input-field-error");
+            warningText.textContent = "Please fill the fields.";
+            warningText.style.display = "block";
+            return;
+        }
+
+        // 2. Syntax Structure Routing Checks
+        if (!validateEmailAddressPattern(dynamicInputStringValue)) {
+            emailField.classList.add("stk-input-field-error");
+            warningText.textContent = "Please supply a valid formatting configuration schema layout.";
+            warningText.style.display = "block";
+            return;
+        }
+
+        // Success State Action Trigger Pipeline Routing to 404 page target
+        window.location.href = "404.html";
+    });
+});
+</script>
+
+</body>
+</html>

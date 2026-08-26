@@ -1,0 +1,3029 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly Charity Header</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <link href="https://googleapis.com/css2?family=Inter:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <a href="#" class="logo" onclick="refreshPage(event)">
+                <img src="./Assests/logo agriculture farming.webp" alt="Stackly Logo">
+            </a>
+
+            <nav class="navbar" id="navbar">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-item ">Home</a></li>
+                    <li><a href="about.html" class="nav-item">About Us</a></li>
+                    <li><a href="programs.html" class="nav-item">Our Programs</a></li>
+                    <li><a href="impact.html" class="nav-item">Impact</a></li>
+                    <li><a href="stories.html" class="nav-item active">Stories</a></li>
+                    <li><a href="blog.html" class="nav-item">Blog</a></li>
+                    <li><a href="contact.html" class="nav-item">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions" id="headerActions">
+                <a href="login.html" class="btn-login">Login Now</a>
+            </div>
+
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle Navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+<script>
+    function refreshPage(event) {
+    event.preventDefault();
+    window.location.reload();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const hamburgerBtn = document.getElementById("hamburgerBtn");
+    const navbar = document.getElementById("navbar");
+    const headerActions = document.getElementById("headerActions");
+    const menuOverlay = document.getElementById("menuOverlay");
+    const navItems = document.querySelectorAll(".nav-item");
+
+    function toggleMenu() {
+        hamburgerBtn.classList.toggle("active");
+        navbar.classList.toggle("mobile-open");
+        headerActions.classList.toggle("mobile-open");
+        menuOverlay.classList.toggle("show");
+        document.body.classList.toggle("no-scroll");
+    }
+
+    hamburgerBtn.addEventListener("click", toggleMenu);
+    menuOverlay.addEventListener("click", toggleMenu);
+
+    navItems.forEach(item => {
+        item.addEventListener("click", () => {
+            document.querySelector(".nav-item.active")?.classList.remove("active");
+            item.classList.add("active");
+
+            if (navbar.classList.contains("mobile-open")) {
+                toggleMenu();
+            }
+        });
+    });
+});
+
+</script>
+
+<!-- Stories Hub Compact Hero Section -->
+<!-- Stories Hub - Painting-Style Hero Section -->
+<header class="painting-hero-section">
+    <div class="hero-inner-container-painting">
+        
+        <!-- Left Column: Content Block -->
+        <div class="hero-text-block">
+            <nav class="breadcrumb-nav">
+                <a href="index.html" class="crumb-link">Home</a>
+                <span class="crumb-separator">&gt;</span>
+                <span class="crumb-current">Our Stories</span>
+            </nav>
+
+            <h1 class="hero-main-title">Get Stories.</h1>
+            <h2 class="hero-sub-title">Real Stories.Real Impact.Real Change.</h2>
+            <p class="hero-description-text">Every story you read here is a remainder that compassion creates change. These are the voices of hope, resilience, and transformation.</p>
+        </div>
+
+        <!-- Right Column: Canvas Painting Edge Blur Component -->
+        <div class="hero-graphic-painting-canvas">
+            <div class="painting-blur-wrapper">
+                <img src="./Assests/about section BG 2.webp" alt="Group of smiling children representing hope and change" class="artistic-painting-img">
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Filter & Validation Bar Component -->
+    <div class="filter-search-container-painting">
+        <div class="filter-bar-inner">
+            <div class="category-tabs-group">
+                <button class="category-tab-btn active">All Stories</button>
+                <button class="category-tab-btn">Education</button>
+                <button class="category-tab-btn">Health</button>
+                <button class="category-tab-btn">Livelihood</button>
+                <button class="category-tab-btn">Women Empowerment</button>
+                <button class="category-tab-btn">Environment</button>
+                <button class="category-tab-btn">Disaster Relief</button>
+            </div>
+
+            <form class="search-form-box" id="stories-search-form" onsubmit="validateAndNavigate(event)">
+                <div class="search-input-wrapper">
+                    <input type="text" id="search-input-field" placeholder="Search Stories..." autocomplete="off">
+                    <button type="submit" class="search-submit-icon-btn" aria-label="Submit Search">
+                        <svg class="search-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </button>
+                </div>
+                <div class="validation-tooltip-msg" id="search-alert-bubble">Please fill the fields</div>
+            </form>
+        </div>
+    </div>
+</header>
+
+
+
+<style>
+ @import url('https://googleapis.com');
+
+/* Main Wrapper Settings */
+.painting-hero-section {
+    width: 100%;
+    background-color: #ffffff;
+    position: relative;
+    padding-top: 1rem;
+    padding-bottom: 0px !important;
+    overflow: hidden;
+}
+
+.hero-inner-container-painting {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    padding: 1.5rem 4rem 0rem 4rem;
+}
+
+/* Typography Specifications */
+.hero-text-block {
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    padding-bottom: 2rem;
+}
+
+.breadcrumb-nav {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 100%;
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.crumb-link { color: #16803d; text-decoration: none; }
+.crumb-separator { color: #9ca3af; font-size: 11px; }
+.crumb-current { color: #4b5563; }
+
+.hero-main-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 100%;
+    color: #212529;
+    margin-bottom: 1.5rem;
+}
+
+.hero-sub-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 100%;
+    color: #16803d;
+    margin-bottom: 1.5rem;
+}
+
+.hero-description-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 160%;
+    color: #000000;
+    max-width: 540px;
+}
+
+/* --- THE ADVANCED PAINTING AND BRUSH BLUR SYSTEM --- */
+.hero-graphic-painting-canvas {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-bottom: -6px; /* Seals tight against the bottom border line */
+}
+
+.painting-blur-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 580px;
+    background: #ffffff;
+}
+
+/* Generates secondary artistic lighting backdrop layer to soften photo boundaries */
+.painting-blur-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at 60% 50%, transparent 10%, #ffffff 85%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.artistic-painting-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    
+    /* Layered alpha gradient masks to emulate wet brush strokes feathered painting blur look */
+    -webkit-mask-image: 
+        linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 8%, rgba(0,0,0,1) 38%),
+        linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.2) 4%, rgba(0,0,0,1) 25%),
+        radial-gradient(circle at 80% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 45%, rgba(0,0,0,0) 80%);
+    mask-image: 
+        linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 8%, rgba(0,0,0,1) 38%),
+        linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.2) 4%, rgba(0,0,0,1) 25%),
+        radial-gradient(circle at 80% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 45%, rgba(0,0,0,0) 80%);
+
+    -webkit-mask-composite: source-over;
+    mask-composite: intersect;
+
+    /* Gives a richer canvas artistic medium look and a tiny soft focus glow */
+    filter: saturate(1.08) contrast(1.02) blur(0.4px);
+}
+
+/* --- HORIZONTAL FILTER NAVIGATION BAR --- */
+.filter-search-container-painting {
+    width: 100%;
+    border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+    background-color: #ffffff;
+    padding: 0.6rem 4rem;
+    margin-top: 0px;
+}
+
+.filter-bar-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.category-tabs-group {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.category-tab-btn {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 100%;
+    color: #4b5563;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 0.3rem;
+    transition: color 0.2s ease;
+}
+
+.category-tab-btn:hover { color: #16803d; }
+
+.category-tab-btn.active {
+    background-color: #14532d;
+    color: #ffffff !important;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+}
+
+/* Search Box Form Layout Elements */
+.search-form-box { position: relative; display: flex; align-items: center; }
+.search-input-wrapper { position: relative; width: 260px; border: 1px solid #d1d5db; border-radius: 6px; }
+#search-input-field { width: 100%; padding: 0.55rem 2.5rem 0.55rem 1rem; font-family: 'Inter', sans-serif; font-size: 13px; border: none; outline: none; }
+.search-submit-icon-btn { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: transparent; border: none; color: #6b7280; cursor: pointer; }
+.search-svg-icon { width: 15px; height: 15px; }
+
+/* Validation Overlay Tooltip */
+.validation-tooltip-msg {
+    position: absolute;
+    bottom: -32px;
+    right: 0;
+    background-color: #ef4444;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 50;
+}
+.validation-tooltip-msg.show-alert { opacity: 1; transform: translateY(0); }
+
+/* --- RESPONSIVE LAYOUT MEDIA QUERY BREAKPOINTS --- */
+@media (max-width: 1024px) {
+    .hero-inner-container-painting {
+        grid-template-columns: 1fr;
+        padding: 1rem 2rem 0rem 2rem;
+    }
+    .hero-graphic-painting-canvas {
+        justify-content: center;
+        order: -1;
+        margin-bottom: 1.5rem;
+    }
+    .painting-blur-wrapper { max-width: 100%; }
+    .artistic-painting-img {
+        height: 260px;
+        -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 85%);
+        mask-image: radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 85%);
+    }
+    .filter-bar-inner { flex-direction: column; align-items: stretch; gap: 1.25rem; }
+    .filter-search-container-painting { padding: 1.25rem 2rem; }
+    .search-input-wrapper { width: 100%; }
+}
+
+</style>
+
+<script>
+ function validateAndNavigate(event) {
+    event.preventDefault();
+    const inputElement = document.getElementById("search-input-field");
+    const alertBubble = document.getElementById("search-alert-bubble");
+    
+    // Check if search bar input values are empty
+    if (inputElement.value.trim() === "") {
+        alertBubble.classList.add("show-alert");
+        inputElement.focus();
+        
+        // Hide warning tooltip message bubble window view automatically after 3 seconds
+        setTimeout(() => {
+            alertBubble.classList.remove("show-alert");
+        }, 3000);
+        return false;
+    }
+    
+    alertBubble.classList.remove("show-alert");
+    window.location.href = "404.html"; // Navigate instantly upon filling fields successfully
+}
+
+// Active state handling for category filter button tabs
+document.addEventListener("DOMContentLoaded", () => {
+    const filterButtons = document.querySelectorAll(".category-tab-btn");
+    filterButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            filterButtons.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+        });
+    });
+});
+
+</script>
+
+<!-- Featured Story Card Section -->
+<section id="featured-story-section" class="featured-story-container">
+    <div class="story-card-layout">
+        
+        <!-- Left Side: Automated Rotating/Flipping Image Panel -->
+        <div class="story-image-viewport">
+            <div class="rotating-image-track" id="image-rotator">
+                <!-- Image 1 -->
+                <img src="./Assests/education charity.webp" alt="Students in classroom learning" class="rotator-img active">
+                <!-- Image 2 -->
+                <img src="./Assests/about section BG 1.webp" alt="Children receiving books" class="rotator-img">
+                <!-- Image 3 -->
+                <img src="./Assests/about section BG 2.webp" alt="Smiling student studying" class="rotator-img">
+            </div>
+        </div>
+
+        <!-- Right Side: Metadata and Content Panel -->
+        <div class="story-details-panel">
+            <!-- Scroll Animated Title Element -->
+            <h2 class="story-main-title" id="scroll-letter-title">Education For All</h2>
+            
+            <p class="story-description-text">We believe every child deserves accesses to quality education. Our programs provide learning resources, scholarships, and safe learning spaces.</p>
+
+            <!-- Metadata Features Row (Stagger Entry on Scroll) -->
+            <div class="metadata-features-row" id="features-scroll-row">
+                
+                <!-- Feature item 1: Category -->
+                <div class="meta-feature-item">
+                    <div class="vector-glow-badge">
+                        <svg class="meta-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                        </svg>
+                    </div>
+                    <div class="meta-text-block">
+                        <span class="meta-value">Education</span>
+                        <span class="meta-label">Category</span>
+                    </div>
+                </div>
+
+                <!-- Feature item 2: Read Time -->
+                <div class="meta-feature-item">
+                    <div class="vector-glow-badge">
+                        <svg class="meta-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                        </svg>
+                    </div>
+                    <div class="meta-text-block">
+                        <span class="meta-value">5 min read</span>
+                        <span class="meta-label">Read Time</span>
+                    </div>
+                </div>
+
+                <!-- Feature item 3: Published Date -->
+                <div class="meta-feature-item">
+                    <div class="vector-glow-badge">
+                        <svg class="meta-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                    </div>
+                    <div class="meta-text-block">
+                        <span class="meta-value">May 10, 2024</span>
+                        <span class="meta-label">Published on</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Interactive Floating Action Button Component -->
+            <button class="floating-read-btn">Read Stories</button>
+        </div>
+
+    </div>
+</section>
+
+<style>
+    @import url('https://googleapis.com');
+
+/* Main Wrapper Container Layout */
+.featured-story-container {
+    padding: 3rem 2rem;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+}
+
+/* Horizontal card container structure mimicking user reference image */
+.story-card-layout {
+    max-width: 1200px;
+    width: 100%;
+    background-color: #f8fafc; /* Light canvas backdrop fill */
+    border-radius: 20px;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr; /* Splits layout cleanly between image track and metadata */
+    gap: 3rem;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+/* --- AUTOMATED 2s IMAGE ROTATOR COMPONENT --- */
+.story-image-viewport {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    border-radius: 14px;
+    overflow: hidden;
+    perspective: 1000px; /* Pre-allocates spatial depth properties for clean flipping rotations */
+}
+
+.rotating-image-track {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.rotator-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 14px;
+    
+    /* Default hidden state details: Flipped forward out of focus view window */
+    opacity: 0;
+    transform: rotateY(90deg) scale(0.95);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.6s ease;
+    z-index: 1;
+}
+
+/* Fully visible focused target item state assignment rule */
+.rotator-img.active {
+    opacity: 1;
+    transform: rotateY(0deg) scale(1);
+    z-index: 5;
+}
+
+/* --- DETAILS PANEL & TYPOGRAPHY METRICS --- */
+.story-details-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* 1. Main Title Specifications: Weight 700, Bold, Size 22px */
+.story-main-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 22px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #0f172a;
+    margin-bottom: 1rem;
+}
+
+/* Target setup metrics enabling smooth character transformations */
+.story-main-title .char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.story-main-title .char.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 2. Main Paragraph Description: Weight 500, Medium, Size 15px */
+.story-description-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 145%; /* Slightly padded to enhance web accessibility scannability */
+    letter-spacing: 0%;
+    color: #000000;
+    margin-bottom: 2rem;
+    max-width: 680px;
+}
+
+/* Features Stagger Entry Row Layout */
+.metadata-features-row {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-bottom: 2.25rem;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+/* Isolated feature items initial state properties before arrival inside screen views */
+.meta-feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    opacity: 0;
+    transform: scale(0.9) translateY(15px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.meta-feature-item.appeared {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+/* --- OVERSIZED GLOWING Badges & VECTOR ICON HOVERS --- */
+.vector-glow-badge {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 1px dashed #cbd5e1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #14532d; /* Characteristic theme identity deep green code */
+    position: relative;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                border-color 0.3s ease,
+                color 0.3s ease;
+}
+
+.meta-svg {
+    width: 22px;
+    height: 22px;
+    transition: filter 0.3s ease;
+}
+
+/* Interactive Badge and Icon Glowing Layer Behaviors */
+.meta-feature-item:hover .vector-glow-badge {
+    transform: scale(1.14);
+    border-color: #16803d;
+    color: #16803d;
+    background-color: #f0fdf4;
+}
+
+.meta-feature-item:hover .meta-svg {
+    filter: drop-shadow(0 0 8px rgba(22, 128, 61, 0.7));
+}
+
+/* Text Meta Block Layout */
+.meta-text-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.meta-value {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: #0f172a;
+}
+
+.meta-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    color: #000000;
+    margin-top: 2px;
+}
+
+/* --- INTERACTIVE FLOATING CTA BUTTON --- */
+.floating-read-btn {
+    background-color: #14532d;
+    color: #ffffff;
+    border: none;
+    padding: 0.75rem 1.75rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+    
+    /* Hardware accelerated infinite float cycle keyframes assignment */
+    animation: buttonFloatVertical 3.5s ease-in-out infinite;
+    box-shadow: 0 4px 14px rgba(20, 83, 45, 0.25);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.floating-read-btn:hover {
+    background-color: #166534;
+    box-shadow: 0 6px 20px rgba(22, 101, 52, 0.4);
+}
+
+@keyframes buttonFloatVertical {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0px); }
+}
+
+/* --- RESPONSIVE LAYOUT MEDIA QUERY MATRIX --- */
+@media (max-width: 992px) {
+    .story-card-layout {
+        grid-template-columns: 1fr; /* Collapses columns into vertical stacks on tablet screens */
+        gap: 2.5rem;
+        padding: 1.5rem;
+    }
+    .story-image-viewport {
+        height: 240px;
+    }
+    .metadata-features-row {
+        gap: 2rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .featured-story-container { padding: 1.5rem 1rem; }
+    .story-main-title { font-size: 20px; }
+    .story-description-text { font-size: 14px; }
+    .metadata-features-row { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+    .floating-read-btn { width: 100%; text-align: center; }
+}
+
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    prepareLetterParsing();
+    initFeaturedStoryObserver();
+    initAutomatedImageRotator();
+});
+
+/**
+ * 1. String Wrapping Module
+ * Isolates letters inside markup elements to configure independent animation delay lines
+ */
+function prepareLetterParsing() {
+    const titleBox = document.getElementById("scroll-letter-title");
+    if (!titleBox) return;
+
+    const rawString = titleBox.innerText;
+    titleBox.innerHTML = "";
+
+    [...rawString].forEach(character => {
+        const span = document.createElement("span");
+        if (character === " ") {
+            span.innerHTML = "&nbsp;";
+        } else {
+            span.innerText = character;
+        }
+        span.classList.add("char");
+        titleBox.appendChild(span);
+    });
+}
+
+/**
+ * 2. Scroll Intersection Observer Loop
+ * Monitors scroll alignment positions to cascade character reveals and features list displays
+ */
+function initFeaturedStoryObserver() {
+    const section = document.getElementById("featured-story-section");
+    const characters = document.querySelectorAll("#scroll-letter-title .char");
+    const features = document.querySelectorAll(".meta-feature-item");
+
+    if (!section) return;
+
+    const observerOptions = {
+        root: null,
+        threshold: 0.2 // Runs scripts precisely when 20% of section appears inside screen viewports
+    };
+
+    const intersectionObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                
+                // A. Reveal Title letters with tight cascaded intervals
+                characters.forEach((char, index) => {
+                    setTimeout(() => {
+                        char.classList.add("revealed");
+                    }, index * 45); // 45ms step gap creates a polished sweeping motion look
+                });
+
+                // B. Stagger feature items entries step-by-step downstream
+                features.forEach((feature, index) => {
+                    setTimeout(() => {
+                        feature.classList.add("appeared");
+                    }, 350 + (index * 180)); // Triggers sequentially every 180ms
+                });
+
+                // Clear operational observer instances tracking to boost system performance speeds
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    intersectionObserver.observe(section);
+}
+
+/**
+ * 3. 2-Second Canvas Image Flipping Rotator
+ * Updates photo indexing pointers exactly every 2000 milliseconds
+ */
+function initAutomatedImageRotator() {
+    const imagesTrack = document.querySelectorAll("#image-rotator .rotator-img");
+    if (imagesTrack.length === 0) return;
+
+    let indexPointer = 0;
+    const trackingLoopDuration = 2000; // 2 seconds
+
+    setInterval(() => {
+        // Strip out active states from current active frames
+        imagesTrack[indexPointer].classList.remove("active");
+
+        // Advance layout tracking index pointers safely wrap-around arrays boundaries
+        indexPointer = (indexPointer + 1) % imagesTrack.length;
+
+        // Apply focus state variables to reveal subsequent photos inside tracks
+        imagesTrack[indexPointer].classList.add("active");
+    }, trackingLoopDuration);
+}
+
+</script>
+
+<!-- Why These Stories Matter Section -->
+<section id="why-matter-section" class="why-matter-container">
+    <div class="why-matter-content-wrapper">
+        
+        <!-- Header Group (Scroll Sentence Animation Targets) -->
+        <div class="matter-header-block" id="scroll-sentence-header">
+            <h2 class="matter-tag-title">WHY THESE STORIES MATTERS</h2>
+            <p class="matter-main-desc">
+                <span class="reveal-phrase">Behind every number is a person,</span>
+                <span class="reveal-phrase">behind every project is a purpose,</span>
+                <span class="reveal-phrase">and behind every achievement is a story of someone whose life has been touched by kindness.</span>
+            </p>
+        </div>
+
+        <!-- 4-Slot Position Matrix Swapping Container Frame -->
+        <div class="matter-matrix-track-window">
+            
+            <!-- Feature Card 1 (Starts at Position Slot 1) -->
+            <div class="matter-feature-card pos-slot-1" id="matter-card-1">
+                <div class="badge-icon-glow">
+                    <svg class="vector-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+                    </svg>
+                </div>
+                <h3 class="card-headline">Inspire Others</h3>
+                <p class="card-body-text">Real stories inspire more people to take action.</p>
+            </div>
+
+            <!-- Feature Card 2 (Starts at Position Slot 2) -->
+            <div class="matter-feature-card pos-slot-2" id="matter-card-2">
+                <div class="badge-icon-glow">
+                    <svg class="vector-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                </div>
+                <h3 class="card-headline">Build Transparency</h3>
+                <p class="card-body-text">We share honest stories to build trust and show real impact.</p>
+            </div>
+
+            <!-- Feature Card 3 (Starts at Position Slot 3) -->
+            <div class="matter-feature-card pos-slot-3" id="matter-card-3">
+                <div class="badge-icon-glow">
+                    <svg class="vector-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                    </svg>
+                </div>
+                <h3 class="card-headline">Give a voice</h3>
+                <p class="card-body-text">We give a voice to those who are often unheard.</p>
+            </div>
+
+            <!-- Feature Card 4 (Starts at Position Slot 4) -->
+            <div class="matter-feature-card pos-slot-4" id="matter-card-4">
+                <div class="badge-icon-glow">
+                    <svg class="vector-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                    </svg>
+                </div>
+                <h3 class="card-headline">Create Change</h3>
+                <p class="card-body-text">Every story has the power to create more change.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+    @import url('https://googleapis.com');
+
+.why-matter-container {
+    padding: 10px 2rem;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.why-matter-content-wrapper {
+    max-width: 1300px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- TITLE AND HEADER STYLING CONSTRAINTS --- */
+.matter-header-block {
+    text-align: center;
+    margin-bottom: 5rem;
+    max-width: 820px;
+}
+
+/* 1. Sub-Tag Title: Inter, Weight 800, Extra Bold, Size 16px */
+.matter-tag-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #16803d; /* Signature theme brand emerald tone */
+    margin-bottom: 1.25rem;
+    text-transform: uppercase;
+}
+
+/* 2. Description Paragraph: Inter, Weight 500, Medium, Size 15px, Center Aligned */
+.matter-main-desc {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 150%; /* Adjusted for real-world row readability balance */
+    letter-spacing: 0%;
+    text-align: center;
+    color: #000000;
+}
+
+/* Sentence Reveal Target Elements CSS Rules */
+.reveal-phrase {
+    opacity: 0;
+    transform: translateY(12px);
+    display: inline-block;
+    transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.reveal-phrase.phrase-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* --- THE 4-SLOT SWAPPING MATRIX DESIGN --- */
+.matter-matrix-track-window {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem; /* Layout baseline gap for mobile viewports */
+}
+
+.matter-feature-card {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0px;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.7s ease, 
+                box-shadow 0.3s ease;
+}
+
+/* Desktop Swapping Matrix Engine Configuration Metrics */
+@media (min-width: 769px) {
+    .matter-matrix-track-window {
+        height: 240px; /* Locked frame containment window bounds */
+        display: block; /* Overrides column flex grid flows safely */
+    }
+
+    .matter-feature-card {
+        position: absolute;
+        top: 0;
+        width: 21.5%; /* Calculated perfectly to support 4 cards + horizontal spaces */
+        height: 100%;
+    }
+
+    /* Vertical dividing lines built directly with absolute padding constraints */
+    .matter-feature-card:not(.pos-slot-4)::after {
+        content: "";
+        position: absolute;
+        top: 25%;
+        height: 50%;
+        width: 1px;
+        background-color: #e5e7eb;
+        /* Strategic positioning spaces elements evenly away from the dividers */
+        right: -20.5%; 
+    }
+
+    /* 4 Distinct Horizontal Position Slot Array Maps */
+    .matter-feature-card.pos-slot-1 { left: 0%; }
+    .matter-feature-card.pos-slot-2 { left: 26.16%; }
+    .matter-feature-card.pos-slot-3 { left: 52.32%; }
+    .matter-feature-card.pos-slot-4 { left: 78.48%; }
+}
+
+
+/* --- OVERSIZED BADGES & GLOWING VECTOR ICON EFFECT --- */
+.badge-icon-glow {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background-color: #f0fdf4; /* Very faint soft mint backdrop fill */
+    color: #16803d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                background-color 0.3s ease;
+}
+
+.vector-svg {
+    width: 24px;
+    height: 24px;
+    transition: filter 0.3s ease;
+}
+
+/* Hover triggers scaling, backdrop conversion and neon aura radiance glows */
+.matter-feature-card:hover .badge-icon-glow {
+    transform: scale(1.15);
+    background-color: #16803d;
+    color: #ffffff;
+}
+
+.matter-feature-card:hover .vector-svg {
+    filter: drop-shadow(0 0 8px rgba(22, 128, 61, 0.65));
+}
+
+
+/* --- FEATURE CONTENT TEXT METRICS --- */
+
+/* 3. Below Features Title: Inter, Weight 900, Black, Size 18px */
+.card-headline {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #000000;
+    margin-bottom: 0.75rem;
+}
+
+/* 4. Description Content: Inter, Weight 500, Medium, Size 12px, Center, Black */
+.card-body-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 140%;
+    letter-spacing: 0%;
+    text-align: center;
+    color: #000000; /* Flat strict solid black code selection */
+    max-width: 190px;
+}
+
+
+/* --- FLEXIBLE BREAKPOINT SCALING SYSTEM FOR MOBILE STACKS --- */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .card-headline { font-size: 16px; }
+    .card-body-text { font-size: 11px; }
+}
+
+@media (max-width: 768px) {
+    .why-matter-container { padding: 4rem 1.25rem; }
+    .matter-header-block { margin-bottom: 3.5rem; }
+    .matter-feature-card { padding: 2rem 1rem; border-bottom: 1px solid #f3f4f6; }
+    .matter-feature-card:last-child { border-bottom: none; }
+    .card-body-text { max-width: 280px; }
+}
+
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    initSentenceRevealObserver();
+    initFeatureMatrixSwapper();
+});
+
+/**
+ * 1. Phrase Sequence Reveal System
+ * Staggers sentences into view with an organic entry timing sequence
+ */
+function initSentenceRevealObserver() {
+    const headerBlock = document.getElementById("scroll-sentence-header");
+    const phrases = headerBlock.querySelectorAll(".reveal-phrase");
+
+    if (!headerBlock) return;
+
+    const observerOptions = {
+        root: null,
+        threshold: 0.15
+    };
+
+    const intersectionObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                phrases.forEach((phrase, index) => {
+                    setTimeout(() => {
+                        phrase.classList.add("phrase-visible");
+                    }, index * 400); // 400ms delay builds a rhythmic sentence-by-sentence animation sweep
+                });
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    intersectionObserver.observe(headerBlock);
+}
+
+/**
+ * 2. Continuous Horizontal Position-Swapping Matrix Engine
+ * Cycles position slots dynamically exactly every 2000 milliseconds
+ */
+function initFeatureMatrixSwapper() {
+    const cardsArray = [
+        document.getElementById("matter-card-1"),
+        document.getElementById("matter-card-2"),
+        document.getElementById("matter-card-3"),
+        document.getElementById("matter-card-4")
+    ];
+
+    // Ensure all 4 structural card objects are available in the DOM context tree
+    if (cardsArray.some(card => card === null)) return;
+
+    // Track state slots matching ordered string indices matching target styles
+    let slotsTrack = ["pos-slot-1", "pos-slot-2", "pos-slot-3", "pos-slot-4"];
+    const rotateIntervalTimer = 2000; // 2 seconds
+
+    setInterval(() => {
+        // Shift tokens down the tracking chain loop
+        // pop() drops the end position token, unshift() maps it right back to head index 0
+        const shiftedSlot = slotsTrack.pop();
+        slotsTrack.unshift(shiftedSlot);
+
+        // Assign newly mapped class definitions onto matching elements to fire layout shifts
+        cardsArray.forEach((card, index) => {
+            card.classList.remove("pos-slot-1", "pos-slot-2", "pos-slot-3", "pos-slot-4");
+            card.classList.add(slotsTrack[index]);
+        });
+
+    }, rotateIntervalTimer);
+}
+
+</script>
+
+<section class="stk-areas-section">
+    
+    <!-- Section Top Branding Header -->
+    <div class="stk-areas-header" id="stkAreasHeaderReveal">
+       
+        <!-- 🌟 Target for Scroll-Based Sentence-by-Sentence Reveals -->
+        <h2 class="stk-areas-main-title" id="scrollSentenceAreasTitle">
+            <span>Latest Stories Of Change</span>
+        </h2>
+    </div>
+
+    <!-- 🌟 Cards Container Wrapper (Staggers entry sequentially on scroll) -->
+    <div class="stk-areas-grid-container" id="scrollStaggerAreasGrid">
+        
+        <!-- Card 1: Education -->
+        <div class="stk-impact-block-card">
+            <div class="stk-block-icon-wrapper">
+                <!-- Custom Large Vector Book / Education SVG Icon -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+                    <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5.49 12.18l-1.92.83L12 18.25l8.43-5.24-1.92-.83L12 16l-6.51-3.82z"/>
+                </svg>
+            </div>
+            <div class="stk-block-typography">
+                <h3 class="stk-block-title">Education</h3>
+                <p class="stk-block-desc">Quality education for underprivileged children and youth.</p>
+            </div>
+            <div class="stk-block-image-frame">
+                <img src="./Assests/education charity.webp" alt="Underprivileged children smiling and studying inside a classroom setup">
+            </div>
+        </div>
+
+        <!-- Card 2: Healthcare -->
+        <div class="stk-impact-block-card">
+            <div class="stk-block-icon-wrapper">
+                <!-- Custom Large Vector Medical / Healthcare SVG Icon -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+            </div>
+            <div class="stk-block-typography">
+                <h3 class="stk-block-title">Healthcare</h3>
+                <p class="stk-block-desc">Accessible healthcare and wellness support for all.</p>
+            </div>
+            <div class="stk-block-image-frame">
+                <img src="./Assests/health charity.webp" alt="Female doctor caring and checking children health metrics safely">
+            </div>
+        </div>
+
+        <!-- Card 3: Clean Water -->
+        <div class="stk-impact-block-card">
+            <div class="stk-block-icon-wrapper">
+                <!-- Custom Large Vector Droplet / Clean Water SVG Icon -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+                    <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0zM12 19a6 6 0 0 0 6-6c0-3.31-6-9.5-6-9.5S6 9.69 6 13a6 6 0 0 0 6 6z"/>
+                </svg>
+            </div>
+            <div class="stk-block-typography">
+                <h3 class="stk-block-title">Clean Water</h3>
+                <p class="stk-block-desc">Ensuring access to safe and clean drinking water.</p>
+            </div>
+            <div class="stk-block-image-frame">
+                <img src="./Assests/clean water charity.webp" alt="Young child drinking refreshing clear water directly from an outdoor tap source">
+            </div>
+        </div>
+
+        <!-- Card 4: Livelihood -->
+        <div class="stk-impact-block-card">
+            <div class="stk-block-icon-wrapper">
+                <!-- Custom Large Vector Plant Grow / Livelihood SVG Icon -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+                    <path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L3.35 22h3.38l1.62-3.19C9.64 19.43 10.79 19.5 12 19.43l1.62 3.19h3.38l-1.62-4.39C19.26 16.68 20 14.73 20 12c0-4.97-4.03-9-9-9zm0 14.5c-3.04 0-5.5-2.46-5.5-5.5S8.96 6.5 12 6.5s5.5 2.46 5.5 5.5-2.46 5.5-5.5 5.5z"/>
+                </svg>
+            </div>
+            <div class="stk-block-typography">
+                <h3 class="stk-block-title">Livelihood</h3>
+                <p class="stk-block-desc">Skills training and livelihood programs for sustainable income.</p>
+            </div>
+            <div class="stk-block-image-frame">
+                <img src="./Assests/food charity.webp" alt="Individuals enjoying lunch together at a community skill training camp center">
+            </div>
+        </div>
+
+        <!-- Card 5: Women Empowerment -->
+        <div class="stk-impact-block-card">
+            <div class="stk-block-icon-wrapper">
+                <!-- Custom Large Vector Gender / Women Empowerment SVG Icon -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+                    <path d="M12 2a5 5 0 0 0-5 5c0 2.3 1.54 4.24 3.66 4.85l-1.66 3.15H11v4h2v-4h2l-1.66-3.15C15.46 11.24 17 9.3 17 7a5 5 0 0 0-5-5zm0 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                </svg>
+            </div>
+            <div class="stk-block-typography">
+                <h3 class="stk-block-title">Women Empowerment</h3>
+                <p class="stk-block-desc">Empowering women to be independent and confident.</p>
+            </div>
+            <div class="stk-block-image-frame">
+                <img src="./Assests/women wmpowerment.webp" alt="Sustained self help female entrepreneur groups meeting and planning together outdoor">
+            </div>
+        </div>
+
+        <!-- Card 6: Community Support -->
+        <div class="stk-impact-block-card">
+            <div class="stk-block-icon-wrapper">
+                <!-- Custom Large Vector Unity Hands / Community Support SVG Icon -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3c1.32 0 2.55.35 3.53 1l-1.45 1.45C17.79 5.15 17.16 5 16.5 5c-2.21 0-4 1.79-4 4 0 .67.15 1.3.43 1.86L10.3 13.5l1.7 1.7 2.64-2.64c.56.28 1.19.44 1.86.44 2.21 0 4-1.79 4-4a4 4 0 0 0-1-2.53l1.45-1.45C21.65 6.5 22 7.73 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+            </div>
+            <div class="stk-block-typography">
+                <h3 class="stk-block-title">Community Support</h3>
+                <p class="stk-block-desc">Supporting communities during crises and emergencies.</p>
+            </div>
+            <div class="stk-block-image-frame">
+                <img src="./Assests/community support.webp" alt="NGO foundation workers dropping relief supply aid material distribution packages">
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+:root {
+    --ar-green-primary: #126B2F;
+    --ar-green-glow: rgba(18, 107, 47, 0.4);
+    --ar-text-black: #000000;
+    --ar-text-muted: #555555;
+    --ar-border-line: #E2E8F0;
+    /* 🌟 Rich premium drop box shadow parameter variables extracted from template asset layouts */
+    --ar-box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+    --ar-transition: all 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.stk-areas-section {
+    width: 100%;
+    background-color: #FFFFFF;
+    padding: 30px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.stk-areas-header {
+    text-align: center;
+    margin-bottom: 44px;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stk-areas-pretitle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    color: var(--ar-green-primary);
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+}
+
+/* Header Main Title Specs Configuration: Inter, Bold 700, 34px, 100% LH */
+.stk-areas-main-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 100%;
+    letter-spacing: -0.01em;
+    color: #000000;
+    margin: 0;
+   
+}
+
+/* Hidden initially to allow line-by-line sentence-by-sentence animation fades triggers */
+.stk-areas-main-title span {
+    display: block;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.stk-areas-main-title span.sentence-revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 🌟 Symmetric 6-Column Flex-Wrap Grid Track Container Block */
+.stk-areas-grid-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 16px; /* Symmetrical dense gap spacing separating blocks exactly like reference image */
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* 🌟 Individual Card Architecture (Icon Badge Top ➔ Text Center ➔ Photo Image Bottom) */
+.stk-impact-block-card {
+    flex: 1;
+    background-color: #FFFFFF;
+    border: 1px solid var(--ar-border-line);
+    border-radius: 14px; /* Slightly curved elegant outer corners profile matching sample image */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: var(--ar-box-shadow);
+    transition: var(--ar-transition);
+    will-change: transform, box-shadow, border-color;
+    box-sizing: border-box;
+    
+    /* Scroll Reveal Initial Animation Hidden Configuration States */
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+/* Active Class injected sequentially downstream via JavaScript observer */
+.stk-impact-block-card.card-revealed-scroll {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 🌟 Circular Vector Badges: Sized High Footprint Parameters */
+.stk-block-icon-wrapper {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background-color: rgba(18, 107, 47, 0.05); /* Soft light translucent theme green mesh circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 24px 0 16px 0;
+    border: 1px dashed rgba(18, 107, 47, 0.2);
+    transition: var(--ar-transition);
+    flex-shrink: 0;
+}
+
+/* 🌟 Increased Vector Graphic SVG Dimensions */
+.stk-block-icon-wrapper svg {
+    width: 24px;
+    height: 24px;
+}
+
+.stk-block-icon-wrapper svg path {
+    fill: var(--ar-green-primary);
+    transition: var(--ar-transition);
+}
+
+.stk-block-typography {
+    padding: 0 12px 20px 12px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-grow: 1; /* Drives description heights uniformly regardless of wrapped words lengths */
+}
+
+.stk-block-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 110%;
+    color: #000000;
+    margin: 0;
+}
+
+.stk-block-desc {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 135%;
+    color: #000000;
+    margin: 0;
+}
+
+/* Bottom Activity Image Framing Layer */
+.stk-block-image-frame {
+    width: 100%;
+    height: 110px; /* Compact clean height tracks matching your layout snapshot proportions */
+    overflow: hidden;
+    position: relative;
+    border-top: 1px solid var(--ar-border-line);
+}
+
+.stk-block-image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: var(--ar-transition);
+}
+
+/* 🌟 Premium Hoover Interaction Matrix: Cards lift up, icons bloom/glow, and photos upscale */
+.stk-impact-block-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--ar-green-primary);
+    box-shadow: 0 16px 35px -5px var(--ar-green-glow), 0 10px 15px -5px rgba(0, 0, 0, 0.05);
+}
+
+.stk-impact-block-card:hover .stk-block-icon-wrapper {
+    background-color: var(--ar-green-primary);
+    border-color: var(--ar-green-primary);
+    filter: drop-shadow(0 0 6px var(--ar-green-glow)); /* Volumetric Neon Bloom */
+    transform: scale(1.06);
+}
+
+.stk-impact-block-card:hover .stk-block-icon-wrapper svg path {
+    fill: #FFFFFF !important; /* Smooth color inversion to solid white paths layers */
+}
+
+.stk-impact-block-card:hover .stk-block-image-frame img {
+    transform: scale(1.08); /* Clean image zoom tracking cursor focus triggers */
+}
+
+/* LIQUID RESPONSIVE MATRIX ADAPTATION LAYERS OVERRIDES */
+@media (max-width: 1024px) {
+    .stk-areas-grid-container {
+        gap: 16px;
+        flex-wrap: wrap; /* Reflows blocks smoothly into multiple lines on tablet monitors footprints */
+    }
+    .stk-impact-block-card {
+        flex: 0 0 calc(33.33% - 11px); /* Restructures grid smoothly into clear tri-card row arrays layers */
+    }
+}
+
+@media (max-width: 768px) {
+    .stk-areas-main-title { font-size: 28px; }
+    .stk-impact-block-card {
+        flex: 0 0 calc(50% - 8px); /* Restructures grid cleanly into two column tracks inside phone viewports */
+    }
+    .stk-block-image-frame {
+        height: 130px; /* Slightly opens vertical picture view thresholds on medium handheld screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .stk-impact-block-card {
+        flex: 0 0 100%; /* Spreads cards out full-width across extreme small smartphone displays */
+    }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // --- 1. SCROLL REVEAL: TITLE SENTENCE-BY-SENTENCE ENGINE ---
+    const sentenceTitleNode = document.getElementById("scrollSentenceAreasTitle");
+    
+    if (sentenceTitleNode) {
+        const sentenceLines = sentenceTitleNode.querySelectorAll("span");
+        
+        const titleObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    sentenceLines.forEach((lineSpan, index) => {
+                        // Reveals the main title line gracefully as it cuts into view
+                        setTimeout(() => {
+                            lineSpan.classList.add("sentence-revealed");
+                        }, index * 300); 
+                    });
+                    titleObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.4 });
+
+        titleObserver.observe(sentenceTitleNode);
+    }
+
+
+    // --- 2. SCROLL REVEAL: STAGGERED BLOCK CARDS ONE-BY-ONE ---
+    const cardsGridContainer = document.getElementById("scrollStaggerAreasGrid");
+    
+    if (cardsGridContainer) {
+        const structuralImpactCards = cardsGridContainer.querySelectorAll(".stk-impact-block-card");
+        
+        const gridObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    structuralImpactCards.forEach((cardNode, index) => {
+                        // Cascades card element entrance reveals down rows with an incremental 150ms delay flow
+                        setTimeout(() => {
+                            cardNode.classList.add("card-revealed-scroll");
+                        }, index * 150);
+                    });
+                    gridObserver.unobserve(entry.target);
+                }
+            });
+        }, { 
+            /* Triggers reveal animations promptly when cards container enters the lower 10% region */
+            rootMargin: "0px 0px -10% 0px",
+            threshold: 0.1 
+        });
+
+        gridObserver.observe(cardsGridContainer);
+    }
+});
+</script>
+
+<section class="stk-impact-section">
+    <div class="stk-impact-header">
+        <span class="stk-impact-subtitle">OUR IMPACT</span>
+        <h2 class="stk-impact-title" id="scrollSentenceImpactTitle">
+            <span class="stk-impact-line">Changing Lives, Creating Impact</span>
+           
+        </h2>
+        <p class="stk-impact-desc">Together, we are building a better and more compassionate world.</p>
+    </div>
+
+    <!-- The flex track row containing features and standalone lines -->
+    <div class="stk-impact-grid" id="rearrangeImpactGrid">
+        
+        <!-- Feature Item 1 -->
+        <div class="stk-impact-item">
+            <div class="stk-impact-icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+            </div>
+            <div class="stk-impact-metric-info">
+                <span class="stk-impact-count-num">800+</span>
+                <span class="stk-impact-label-text">Volunters</span>
+            </div>
+        </div>
+
+        <div class="stk-impact-divider"></div>
+
+        <!-- Feature Item 2 -->
+        <div class="stk-impact-item">
+            <div class="stk-impact-icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+            </div>
+            <div class="stk-impact-metric-info">
+                <span class="stk-impact-count-num">15000+</span>
+                <span class="stk-impact-label-text">Users impacted</span>
+            </div>
+        </div>
+
+        <div class="stk-impact-divider"></div>
+
+        <!-- Feature Item 3 -->
+        <div class="stk-impact-item">
+            <div class="stk-impact-icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </div>
+            <div class="stk-impact-metric-info">
+                <span class="stk-impact-count-num">250+</span>
+                <span class="stk-impact-label-text">Communities Served</span>
+            </div>
+        </div>
+
+        <div class="stk-impact-divider"></div>
+
+        <!-- Feature Item 4 -->
+        <div class="stk-impact-item">
+            <div class="stk-impact-icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+            </div>
+            <div class="stk-impact-metric-info">
+                <span class="stk-impact-count-num">₹5Cr+</span>
+                <span class="stk-impact-label-text">Funds Utilized</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<style>
+:root {
+    --stk-bg-green: #126B2F; 
+    --stk-glow-green: #26D058;
+}
+
+.stk-impact-section {
+    width: 100%;
+    margin: 0 auto;
+    background-color: var(--stk-bg-green);
+    padding: 60px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.stk-impact-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 0 24px;
+}
+
+.stk-impact-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 1px;
+    color:#26D058;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.stk-impact-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    color: #ffffff;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stk-impact-line {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.stk-impact-line.stk-revealed-line {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stk-impact-desc {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 100%;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Fixed Flexbox track to completely block overlap bugs */
+.stk-impact-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1280px;
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+.stk-impact-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 0;
+    cursor: pointer;
+    /* CSS transitions handle rearranging smoothly via structural list insertion points */
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                opacity 0.4s ease, 
+                filter 0.4s ease;
+}
+
+/* Standalone Visual Separator Component with explicit margins right before and after the line */
+.stk-impact-divider {
+    width: 1px;
+    height: 36px;
+    background-color: rgba(255, 255, 255, 0.25);
+    margin: 0 48px; /* Creates identical horizontal gaps on both sides of the line */
+    flex-shrink: 0;
+    transition: opacity 0.4s ease;
+}
+
+.stk-impact-icon-circle {
+    width: 44px;
+    height: 44px;
+    background-color: rgba(255, 255, 255, 0.1); 
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    flex-shrink: 0;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.stk-impact-icon-circle svg {
+    width: 18px;
+    height: 18px;
+}
+
+.stk-impact-item:hover .stk-impact-icon-circle {
+    background-color: #ffffff;
+    color: var(--stk-bg-green);
+    transform: scale(1.1);
+    box-shadow: 0 0 20px var(--stk-glow-green), 0 0 35px rgba(38, 208, 88, 0.3);
+}
+
+.stk-impact-metric-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.stk-impact-count-num {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 100%;
+    color: #ffffff;
+    margin-bottom: 2px;
+}
+
+.stk-impact-label-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 100%;
+    color:  #ffffff;
+    white-space: nowrap;
+}
+
+@media (max-width: 1440px) {
+    .stk-impact-section {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 1200px) {
+    .stk-impact-grid {
+        max-width: 100%;
+        padding: 0 20px;
+    }
+    .stk-impact-divider {
+        margin: 0 24px; /* Slightly tightens lines spacing on tablet displays */
+    }
+    .stk-impact-label-text { font-size: 14px; }
+    .stk-impact-count-num { font-size: 15px; }
+}
+
+@media (max-width: 992px) {
+    .stk-impact-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        padding: 0;
+    }
+    .stk-impact-item {
+        width: 100%;
+        max-width: 320px;
+        justify-content: center;
+    }
+    .stk-impact-divider {
+        width: 60px;
+        height: 1px; 
+        margin: 8px auto;
+    }
+    .stk-impact-title { font-size: 28px; }
+}
+
+
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // 1. Text Line Reveal Module
+    const impactTitleContainer = document.getElementById("scrollSentenceImpactTitle");
+    
+    const impactSentenceObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const lines = entry.target.querySelectorAll(".stk-impact-line");
+                lines.forEach((line, idx) => {
+                    setTimeout(() => {
+                        line.classList.add("stk-revealed-line");
+                    }, idx * 400); 
+                });
+                impactSentenceObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+
+    if (impactTitleContainer) impactSentenceObserver.observe(impactTitleContainer);
+
+    // 2. Overlap-Proof Flex Node Rearranging Slider Engine
+    const gridContainer = document.getElementById("rearrangeImpactGrid");
+
+    function executeVisualShuffleSwap() {
+        if (!gridContainer || window.innerWidth <= 992) return;
+
+        // Fetch list components
+        const featuresList = Array.from(gridContainer.querySelectorAll(".stk-impact-item"));
+        const dividersList = Array.from(gridContainer.querySelectorAll(".stk-impact-divider"));
+
+        // Soft fade animation feedback loop
+        featuresList.forEach(item => {
+            item.style.opacity = "0.4";
+            item.style.transform = "scale(0.95)";
+        });
+
+        setTimeout(() => {
+            // Scramble cards array values using the Fisher-Yates shuffle formula
+            for (let pointerIdx = featuresList.length - 1; pointerIdx > 0; pointerIdx--) {
+                const randomTargetIdx = Math.floor(Math.random() * (pointerIdx + 1));
+                [featuresList[pointerIdx], featuresList[randomTargetIdx]] = [featuresList[randomTargetIdx], featuresList[pointerIdx]];
+            }
+
+            // Wipe layout track container cleanly to accept the new card configurations
+            gridContainer.innerHTML = "";
+
+            // Re-stitch cards and line objects alternatively into grid container
+            featuresList.forEach((featureCard, index) => {
+                gridContainer.appendChild(featureCard);
+                
+                // Mount dividing line right after the element node
+                if (index < featuresList.length - 1 && dividersList[index]) {
+                    gridContainer.appendChild(dividersList[index]);
+                }
+            });
+
+            // Restore complete opacity once layout rendering settles
+            requestAnimationFrame(() => {
+                featuresList.forEach(item => {
+                    item.style.opacity = "1.0";
+                    item.style.transform = "scale(1)";
+                });
+            });
+
+        }, 300); // Sync timing offset matched smoothly to transition frames curve
+    }
+
+    // Triggers location swaps cleanly every 2 seconds automatically
+    setInterval(executeVisualShuffleSwap, 2000);
+});
+
+
+</script>
+
+<section class="stk-testimonial-section">
+    <div class="stk-testi-header">
+        <span class="stk-testi-subtitle">STORIES OF CHANGE</span>
+        <!-- Header Target for JavaScript Letter-by-Letter Parser -->
+        <h2 class="stk-testi-title" id="scrollLetterTestiTitle">Real Stories, Real Impact</h2>
+        <p class="stk-testi-desc">Hear from the people whose lives have been transformed.</p>
+    </div>
+
+    <div class="stk-testi-viewport" id="testiViewport">
+        <div class="stk-testi-track" id="testiTrack">
+
+            <!-- Card 1 -->
+            <div class="stk-testi-card">
+                <p class="stk-testi-quote">"The healthcare camp helped my family got the treatment we couldn't afford. Thank You!"</p>
+                <div class="stk-testi-footer">
+                    <div class="stk-testi-profile">
+                        <div class="stk-testi-avatar-frame">
+                            <img src="user1.jpg" alt="Seetha Patwar" class="stk-testi-img">
+                        </div>
+                        <div class="stk-testi-meta">
+                            <h4>Seetha Patwar</h4>
+                            <span>Beneficiary</span>
+                        </div>
+                    </div>
+                    <div class="stk-testi-stars">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="stk-testi-card">
+                <p class="stk-testi-quote">"Volunteering here has been the most meaningful experience of my life."</p>
+                <div class="stk-testi-footer">
+                    <div class="stk-testi-profile">
+                        <div class="stk-testi-avatar-frame">
+                            <img src="user2.jpg" alt="Ananya Sharma" class="stk-testi-img">
+                        </div>
+                        <div class="stk-testi-meta">
+                            <h4>Ananya Sharma</h4>
+                            <span>Volunter</span>
+                        </div>
+                    </div>
+                    <div class="stk-testi-stars">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="stk-testi-card">
+                <p class="stk-testi-quote">"Because of the education support, I can now dream of becoming a teacher and helping more children."</p>
+                <div class="stk-testi-footer">
+                    <div class="stk-testi-profile">
+                        <div class="stk-testi-avatar-frame">
+                            <img src="user3.jpg" alt="Priya Kumari" class="stk-testi-img">
+                        </div>
+                        <div class="stk-testi-meta">
+                            <h4>Priya Kumari</h4>
+                            <span>Student</span>
+                        </div>
+                    </div>
+                    <div class="stk-testi-stars">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+    :root {
+    --stk-text-dark: #1E1E1E;
+    --stk-text-muted: #555555;
+    --stk-green-accent: #126B2F;
+    --stk-star-gold: #F39C12;
+    --stk-border-light: #E8E8E2;
+}
+
+.stk-testimonial-section {
+    width: 100%;
+    background-color:#DBD5C654;
+    padding: 30px 0 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Reduced bottom margin to pull cards directly below description text */
+.stk-testi-header {
+    text-align: center;
+    margin-bottom: 12px; /* Tightened layout spacing matrix parameter */
+    padding: 0 24px;
+}
+
+.stk-testi-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--stk-green-accent);
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.stk-testi-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    color: #000000;
+    margin-bottom: 12px;
+}
+
+.stk-char-node {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1), transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.stk-char-node.stk-revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stk-char-space {
+    display: inline-block;
+    width: 0.25em;
+}
+
+.stk-testi-desc {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 100%;
+    color: #000000;
+}
+
+/* Zeroed out excessive padding offsets to smoothly merge content sections */
+.stk-testi-viewport {
+    width: 100%;
+    max-width: 1280px;
+    padding: 12px 24px 30px 24px; /* Optimized layout gap space */
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.stk-testi-track {
+    display: flex;
+    gap: 24px;
+    will-change: transform;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.stk-testi-card {
+    flex: 0 0 calc(33.333% - 16px);
+    min-width: 320px;
+    background-color: #FFFFFF;
+    border: 1px solid var(--stk-border-light);
+    border-radius: 20px;
+    padding: 36px 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05), 0 2px 8px rgba(0, 0, 0, 0.02);
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+                box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+                border-color 0.3s ease;
+}
+
+.stk-testi-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--stk-green-accent);
+    box-shadow: 0 20px 40px rgba(18, 107, 47, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.stk-testi-quote {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: #000000;
+    margin-bottom: 32px;
+}
+
+.stk-testi-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    width: 100%;
+}
+
+.stk-testi-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.stk-testi-avatar-frame {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #F0F0EE;
+    flex-shrink: 0;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.stk-testi-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.stk-testi-card:hover .stk-testi-img {
+    transform: scale(1.15);
+}
+
+.stk-testi-meta h4 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--stk-text-dark);
+    margin-bottom: 2px;
+    white-space: nowrap;
+}
+
+.stk-testi-meta span {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    color: var(--stk-text-muted);
+}
+
+.stk-testi-stars {
+    color: var(--stk-star-gold);
+    font-size: 13px;
+    display: flex;
+    gap: 1px;
+    align-self: center;
+}
+
+@media (max-width: 1024px) {
+    .stk-testi-card {
+        flex: 0 0 calc(50% - 12px);
+    }
+}
+
+@media (max-width: 768px) {
+    .stk-testi-header {
+        margin-bottom: 8px;
+    }
+    .stk-testi-title {
+        font-size: 28px;
+    }
+    .stk-testi-desc {
+        font-size: 15px;
+    }
+    .stk-testi-card {
+        flex: 0 0 100%;
+        padding: 28px 24px;
+    }
+    .stk-testi-viewport {
+        overflow-x: auto;
+        padding-bottom: 12px;
+        -webkit-overflow-scrolling: touch;
+    }
+    .stk-testi-footer {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    
+    // 1. Text Parsing & Letter-by-Letter Transition Setup Loop
+    const titleContainer = document.getElementById("scrollLetterTestiTitle");
+    const rawTextString = titleContainer.textContent.trim();
+    titleContainer.innerHTML = ""; 
+
+    Array.from(rawTextString).forEach(character => {
+        if (character === " ") {
+            const spaceSpan = document.createElement("span");
+            spaceSpan.classList.add("stk-char-space");
+            titleContainer.appendChild(spaceSpan);
+        } else {
+            const letterSpan = document.createElement("span");
+            letterSpan.textContent = character;
+            letterSpan.classList.add("stk-char-node");
+            titleContainer.appendChild(letterSpan);
+        }
+    });
+
+    const testiHeaderObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const letters = entry.target.querySelectorAll(".stk-char-node");
+                letters.forEach((letter, idx) => {
+                    setTimeout(() => {
+                        letter.classList.add("stk-revealed");
+                    }, idx * 45); 
+                });
+                testiHeaderObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    if (titleContainer) testiHeaderObserver.observe(titleContainer);
+
+    // 2. 2-Seconds Auto Rolling Loop Carousel Module
+    const viewport = document.getElementById("testiViewport");
+    const track = document.getElementById("testiTrack");
+    let cards = Array.from(track.children);
+
+    if (cards.length > 0) {
+        cards.forEach(card => {
+            const cloneBefore = card.cloneNode(true);
+            const cloneAfter = card.cloneNode(true);
+            track.insertBefore(cloneBefore, track.firstChild);
+            track.appendChild(cloneAfter);
+        });
+
+        const updatedCardSet = Array.from(track.children);
+        const nativeCardCount = cards.length;
+        
+        let activeSlideIndex = nativeCardCount; 
+        let cardStepWidthDistance = 0;
+
+        function updateSliderDimensionsLayoutMetrics() {
+            if (updatedCardSet.length === 0) return;
+            const singleCardElement = updatedCardSet[0];
+            const computedStyle = window.getComputedStyle(track);
+            const flexGapValue = parseInt(computedStyle.gap) || 0;
+            
+            cardStepWidthDistance = singleCardElement.offsetWidth + flexGapValue;
+            
+            track.style.transition = "none";
+            track.style.transform = `translateX(-${activeSlideIndex * cardStepWidthDistance}px)`;
+        }
+
+        function executeCarouselAutomationStep() {
+            if (window.innerWidth <= 768) return; 
+            
+            activeSlideIndex++;
+            track.style.transition = "transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)";
+            track.style.transform = `translateX(-${activeSlideIndex * cardStepWidthDistance}px)`;
+
+            setTimeout(() => {
+                if (activeSlideIndex >= nativeCardCount * 2) {
+                    track.style.transition = "none";
+                    activeSlideIndex = nativeCardCount;
+                    track.style.transform = `translateX(-${activeSlideIndex * cardStepWidthDistance}px)`;
+                }
+            }, 600);
+        }
+
+        window.addEventListener("resize", updateSliderDimensionsLayoutMetrics);
+        setTimeout(updateSliderDimensionsLayoutMetrics, 150);
+
+        let autoLoopTimerInterval = setInterval(executeCarouselAutomationStep, 2000);
+
+        viewport.addEventListener("mouseenter", () => clearInterval(autoLoopTimerInterval));
+        viewport.addEventListener("mouseleave", () => {
+            autoLoopTimerInterval = setInterval(executeCarouselAutomationStep, 2000);
+        });
+    }
+});
+
+</script>
+
+<section class="stk-cta-section">
+    <!-- 🌟 Vector SVG Floating Background Elements -->
+    <div class="stk-cta-bg-vectors">
+        <!-- Floating Element 1: Abstract Heart Ring -->
+        <svg class="stk-vector-shape stk-shape-1" viewBox="0 0 100 100" fill="none" xmlns="http://w3.org">
+            <path d="M50 80c-15-12-30-24-30-38 0-8 6-14 14-14 6 0 11 4 16 9 5-5 10-9 16-9 8 0 14 6 14 14 0 14-15 26-30 38z" stroke="rgba(255,255,255,0.06)" stroke-width="2" stroke-dasharray="4 4"/>
+        </svg>
+        <!-- Floating Element 2: Concentric Circular Ripple -->
+        <svg class="stk-vector-shape stk-shape-2" viewBox="0 0 100 100" fill="none" xmlns="http://w3.org">
+            <circle cx="50" cy="50" r="40" stroke="rgba(255,255,255,0.05)" stroke-width="1.5"/>
+            <circle cx="50" cy="50" r="25" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+        </svg>
+        <!-- Floating Element 3: Abstract Geometric Sparkle -->
+        <svg class="stk-vector-shape stk-shape-3" viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+            <path d="M12 2l2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5L12 2z" fill="rgba(255,255,255,0.04)"/>
+        </svg>
+    </div>
+
+    <div class="stk-cta-container">
+        <!-- Text Content Wrapper -->
+        <div class="stk-cta-text-block">
+            <!-- 🌟 Target for Letter-by-Letter Javascript Observer Matrix -->
+            <h2 class="stk-cta-title" id="scrollLetterCtaTitle">Together,We Can Make A Difference</h2>
+            <p class="stk-cta-desc">Your donation today can bring hope,create opportunities,and build a better tomorrow for countless lives.</p>
+        </div>
+
+        <!-- 🌟 Floating Interaction Button Framework Container Target -->
+        <div class="stk-cta-btn-wrapper">
+            <a href="#donate" class="stk-btn-cta-float" aria-label="Navigate to donation checkout interface">Donate Now</a>
+        </div>
+    </div>
+</section>
+
+<style>
+:root {
+    --cta-green-bg: #126B2F;
+    --cta-green-text: #126B2F;
+    --cta-white: #FFFFFF;
+    --cta-transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Core Full-Bleed Section Panel Matching Your Image Profile */
+.stk-cta-section {
+    width: 100%;
+    background-color: var(--cta-green-bg);
+    padding: 20px 0; /* Tight horizontal bar padding proportions exactly like image layout */
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.stk-cta-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 40px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    position: relative;
+    z-index: 5;
+    box-sizing: border-box;
+}
+
+/* Left Alignment Text Layout blocks */
+.stk-cta-text-block {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+/* Title Specs: Inter, White, Bold 700, 30px, tight margins */
+.stk-cta-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    color: #FFFFFF;
+    margin: 0 0 10px 0;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+}
+
+/* Description Specs: Inter, Medium 500, 14px, muted white opacity matching sample image */
+.stk-cta-desc {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size:20px;
+    color: #FFFFFF;
+    margin: 0;
+    line-height: 145%;
+    max-width: 680px;
+}
+
+/* Right Alignment Button Floating Layout Matrix */
+.stk-cta-btn-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+/* 🌟 Pill Button Box with Dynamic Continuous Floating Translation Layer */
+.stk-btn-cta-float {
+    display: inline-block;
+    background-color: #FFFFFF;
+    color: var(--cta-green-text);
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 16px;
+    padding: 12px 28px;
+    border-radius: 8px; /* Clean matching slightly rounded profile layout */
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    will-change: transform;
+    transition: var(--cta-transition);
+    /* Soft infinite idle float animation layout cycle */
+    animation: idleCtaButtonFloat 3s ease-in-out infinite alternate;
+}
+
+/* Interactivity Hover States Overrides */
+.stk-btn-cta-float:hover {
+    background-color: var(--cta-white);
+    color: #0c4d21;
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.16);
+}
+
+/* 🌟 Continuous Floating Keyframe Script Engine for Button */
+@keyframes idleCtaButtonFloat {
+    0% {
+        transform: translateY(2px);
+    }
+    100% {
+        transform: translateY(-4px);
+    }
+}
+
+/* 🌟 Vector SVG Background Elements Arrangement Styles */
+.stk-cta-bg-vectors {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Passes mouse clicks safely down to input nodes */
+    z-index: 1;
+}
+
+.stk-vector-shape {
+    position: absolute;
+    will-change: transform;
+}
+
+/* Gentle structural animations tracking background assets */
+.stk-shape-1 {
+    width: 120px;
+    height: 120px;
+    left: 3%;
+    top: -20px;
+    animation: slowRotateShape 25s linear infinite;
+}
+
+.stk-shape-2 {
+    width: 200px;
+    height: 200px;
+    right: 18%;
+    bottom: -80px;
+    animation: slowDriftShape 12s ease-in-out infinite alternate;
+}
+
+.stk-shape-3 {
+    width: 40px;
+    height: 40px;
+    left: 45%;
+    bottom: 10%;
+    animation: slowRotateShape 15s linear infinite reverse;
+}
+
+@keyframes slowRotateShape {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes slowDriftShape {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(15px, -10px) scale(1.05); }
+}
+
+/* --- SCROLL ANIMATION SUB-STRUCTURES GENERATOR ENGINE --- */
+.stk-cta-char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateX(-4px) translateY(2px);
+    transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1), transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.stk-cta-char.stk-cta-revealed {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+}
+
+.stk-cta-space {
+    display: inline-block;
+    width: 0.26em;
+}
+
+/* LIQUID RESPONSIVE MATRIX ADAPTATION LAYER */
+@media (max-width: 768px) {
+    .stk-cta-section {
+        padding: 40px 0;
+    }
+    .stk-cta-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 28px;
+        padding: 0 24px;
+    }
+    .stk-cta-text-block {
+        text-align: center;
+        align-items: center;
+    }
+    .stk-cta-title {
+        font-size: 24px;
+    }
+    .stk-cta-desc {
+        font-size: 13.5px;
+    }
+    .stk-btn-cta-float {
+        width: 100%;
+        max-width: 260px;
+        padding: 12px 0;
+        text-align: center;
+    }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // --- LETTER-BY-LETTER CASCADING TRANSITION PROTOCOL ---
+    const ctaTitleNode = document.getElementById("scrollLetterCtaTitle");
+    
+    if (ctaTitleNode) {
+        const textContentString = ctaTitleNode.textContent.trim();
+        ctaTitleNode.innerHTML = ""; // Empty baseline text nodes container maps completely
+
+        // Parse strings into standalone animated characters hooks array nodes
+        Array.from(textContentString).forEach(char => {
+            if (char === " ") {
+                const spaceElement = document.createElement("span");
+                spaceElement.classList.add("stk-cta-space");
+                ctaTitleNode.appendChild(spaceElement);
+            } else {
+                const letterElement = document.createElement("span");
+                letterElement.textContent = char;
+                letterElement.classList.add("stk-cta-char");
+                ctaTitleNode.appendChild(letterElement);
+            }
+        });
+
+        // Intersection Observer kicks off typewriter sequence on scroll detect framework bounds
+        const ctaIntersectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const charactersArray = entry.target.querySelectorAll(".stk-cta-char");
+                    
+                    charactersArray.forEach((letterNode, index) => {
+                        // 🌟 Calibrated staggered delay timeline (index * 35ms) to reveal cleanly over ~1-2 seconds
+                        setTimeout(() => {
+                            letterNode.classList.add("stk-cta-revealed");
+                        }, index * 35);
+                    });
+                    
+                    // Stop watching once active tracking configuration runs successfully
+                    ctaIntersectionObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.25 });
+
+        ctaIntersectionObserver.observe(ctaTitleNode);
+    }
+});
+</script>
+
+<footer class="stk-site-footer">
+    <div class="stk-footer-main-container">
+        
+        <!-- Column 1: Brand Identifier and Vector Links -->
+        <div class="stk-footer-col stk-col-brand">
+            
+            <a href="#" class="stk-back-to-top-trigger" aria-label="Scroll back to top of page">
+                <img src="./Assests/logo AGRI.webp" alt="Stackly Organization Brand Logo Logo" class="stk-footer-brand-logo">
+            </a>
+            <p class="stk-brand-tagline">We are dedicated to creating a world where everyone has the opportunity to live a empowered life.</p>
+            
+            <!-- 🌟 Clean Monochromatic White Vector Social Icons Layout -->
+            <div class="stk-footer-social-wrapper">
+                <a href="404.html" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" fill="#FFFFFF"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.8z"/></svg>
+                </a>
+                <a href="404.html" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="#FFFFFF"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.8v8.37h2.8v-4.67c0-.25.015-.51.09-.69.2-.5.65-1 1.41-1 1 0 1.38.76 1.38 1.87v4.49h2.8M6.5 8.37a1.37 1.37 0 1 0 0-2.75 1.37 1.37 0 0 0 0 2.75M8 18.5V10.13H5.2v8.37H8z"/></svg>
+                </a>
+                <a href="404.html" aria-label="X (Twitter)">
+                    <svg viewBox="0 0 24 24" fill="#FFFFFF"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+                <a href="404.html" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="#FFFFFF"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Column 2: Quick Links Route Framework -->
+        <div class="stk-footer-col">
+            <h3 class="stk-footer-heading">Quick Links</h3>
+            <ul class="stk-footer-links">
+                <li><a href="404.html">Home</a></li>
+                <li><a href="404.html">About Us</a></li>
+                <li><a href="404.html">Our Programs</a></li>
+                <li><a href="404.html">Our Impact</a></li>
+                <li><a href="404.html">Stories</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 3: Get Involved Navigation -->
+        <div class="stk-footer-col">
+            <h3 class="stk-footer-heading">Get Involved</h3>
+            <ul class="stk-footer-links">
+                <li><a href="404.html">Volunteer</a></li>
+                <li><a href="404.html">Donate</a></li>
+                <li><a href="404.html">Events</a></li>
+                <li><a href="404.html">Partner with us</a></li>
+                <li><a href="404.html">Fundraise</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 4: Resources Links -->
+        <div class="stk-footer-col">
+            <h3 class="stk-footer-heading">Resources</h3>
+            <ul class="stk-footer-links">
+                <li><a href="404.html">Blog</a></li>
+                <li><a href="404.html">Reports</a></li>
+                <li><a href="404.html">Contact Us</a></li>
+                <li><a href="404.html">FAQ's</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 5: Right Newsletter Subscription Interface -->
+        <div class="stk-footer-col stk-col-newsletter">
+            <h3 class="stk-footer-heading">Newsletter</h3>
+            <p class="stk-newsletter-desc">Stay updated with our latest news and events.</p>
+            
+            <form id="stkFooterSubscriptionForm" class="stk-newsletter-form" novalidate>
+                <div class="stk-input-wrapper-footer">
+                    <input type="email" id="stkFooterEmailInput" placeholder="Your email address" autocomplete="off" required>
+                    <!-- Form Status Validation Message Bar -->
+                    <div id="stkSubscriptionAlert" class="stk-newsletter-alert-banner" style="display: none;"></div>
+                </div>
+                <button type="submit" class="stk-btn-footer-subscribe">Subscribe</button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- Bottom Secondary Info and Policy Layout -->
+    <div class="stk-footer-bottom-bar">
+        <div class="stk-footer-bottom-container">
+            <p class="stk-copyright">&copy; 2026 STACKLY. All rights reserved.</p>
+            <div class="stk-bottom-legal-links">
+                <a href="404.html">Privacy Policy</a>
+                <a href="404.html">Terms & Conditions</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<style>
+:root {
+    --ft-green-deep: #062b11;    /* Extremely deep layout background block matching image backdrop */
+    --ft-green-bright: #126B2F;  /* Standard primary theme green tint color value */
+    --ft-green-hover: #1b853d;   /* Hover focus shift color element mapping metrics */
+    --ft-text-light: #FFFFFF;
+    --ft-text-muted: rgba(255, 255, 255, 0.75);
+    --ft-border-line: rgba(255, 255, 255, 0.12);
+    --ft-transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.stk-site-footer {
+    width: 100%;
+    background-color: var(--ft-green-deep);
+    padding: 60px 0 0 0;
+    color: var(--ft-text-light);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.stk-footer-main-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px 50px 24px;
+    gap: 32px;
+    box-sizing: border-box;
+}
+
+/* Base Columns Formatting Architecture Matrix */
+.stk-footer-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.stk-col-brand {
+    flex: 1.8; /* Expands brand identification layout space proportionally */
+}
+
+.stk-col-newsletter {
+    flex: 2; /* Allocates adequate dimensions to subscription controls box */
+    padding-left: 20px;
+    border-left: 1px solid var(--ft-border-line); /* Clean vertical splitting line layout matched to reference */
+}
+
+/* Brand Assets Elements Configuration Setup */
+.stk-footer-brand-logo {
+    max-width: 140px;
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: var(--ft-transition);
+}
+
+.stk-footer-brand-logo:hover {
+    opacity: 0.85;
+    transform: scale(0.98);
+}
+
+.stk-brand-tagline {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 150%;
+    color: #FFFFFF;
+    margin-bottom: 24px;
+    max-width: 260px;
+}
+
+/* 🌟 White Icons, Green Canvas Background & Neon Glow Effects Styling Rules */
+.stk-footer-social-wrapper {
+    display: flex;
+    gap: 12px;
+}
+
+.stk-footer-social-wrapper a {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--ft-green-bright);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: var(--ft-transition);
+    box-shadow: 0 0 0 rgba(18, 107, 47, 0);
+}
+
+.stk-footer-social-wrapper a svg {
+    width: 16px;
+    height: 16px;
+    fill: #FFFFFF !important; /* Insures native vector asset layers bind explicitly in white */
+    transition: var(--ft-transition);
+}
+
+/* 🌟 Hover Glow Interaction Keyframe: Expands outer volumetric glowing shadow vectors */
+.stk-footer-social-wrapper a:hover {
+    background-color: var(--ft-text-light);
+    transform: translateY(-4px);
+    /* Vibrant glowing bloom backdrop synchronization effect rule */
+    box-shadow: 0 0 14px 4px rgba(255, 255, 255, 0.4), 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.stk-footer-social-wrapper a:hover svg {
+    fill: var(--ft-green-deep) !important; /* Inverts color logic smoothly on user cursor focus tracking points */
+}
+
+/* Middle Navigation Typography Elements Configuration Layer */
+.stk-footer-heading {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #FFFFFF;
+    margin: 0 0 18px 0;
+    letter-spacing: 0.02em;
+}
+
+.stk-footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.stk-footer-links li a {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: var(--ft-transition);
+}
+
+.stk-footer-links li a:hover {
+    color: var(--ft-text-light);
+    padding-left: 4px; /* Soft interactive shift prompt layout indicator direction */
+}
+
+/* Newsletter Input Layout Component Fields */
+.stk-newsletter-desc {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    color: #FFFFFF;
+    margin: 0 0 18px 0;
+    line-height: 140%;
+}
+
+.stk-newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+}
+
+.stk-input-wrapper-footer {
+    position: relative;
+    width: 100%;
+}
+
+.stk-newsletter-form input {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25); /* Sleek flat bottom border matching reference image */
+    padding: 10px 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    color: var(--ft-text-light);
+    outline: none;
+    box-sizing: border-box;
+    transition: var(--ft-transition);
+}
+
+.stk-newsletter-form input:focus {
+    border-bottom-color: var(--ft-text-light);
+}
+
+/* Subscription Form Error Highlighting Rules Box Container */
+.stk-newsletter-form input.stk-input-field-error {
+    border-bottom-color: #EF4444;
+}
+
+.stk-newsletter-alert-banner {
+    font-family: 'Inter', sans-serif;
+    font-size: 11.5px;
+    font-weight: 500;
+    color: #F87171;
+    margin-top: 6px;
+    line-height: 130%;
+}
+
+/* Subscribe Action Button Elements */
+.stk-btn-footer-subscribe {
+    width: 100%;
+    background-color: var(--ft-green-bright);
+    color: var(--ft-text-light);
+    border: none;
+    border-radius: 8px; /* Clean matching slightly rounded profile layout */
+    padding: 12px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: var(--ft-transition);
+    box-sizing: border-box;
+}
+
+.stk-btn-footer-subscribe:hover {
+    background-color: var(--ft-green-hover);
+    box-shadow: 0 4px 12px rgba(18, 107, 47, 0.25);
+}
+
+/* Bottom Legal Strip Layout Configurations */
+.stk-footer-bottom-bar {
+    width: 100%;
+    border-top: 1px solid var(--ft-border-line);
+    padding: 18px 0;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.stk-footer-bottom-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.stk-copyright {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 11.5px;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+}
+
+.stk-bottom-legal-links {
+    display: flex;
+    gap: 20px;
+}
+
+.stk-bottom-legal-links a {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 11.5px;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    transition: var(--ft-transition);
+}
+
+.stk-bottom-legal-links a:hover {
+    color: var(--ft-text-light);
+}
+
+/* LIQUID RESPONSIVE MATRIX OVERRIDES BREAKPOINTS */
+@media (max-width: 1024px) {
+    .stk-footer-main-container {
+        flex-wrap: wrap;
+        gap: 40px 24px;
+    }
+    .stk-col-brand {
+        flex: 1 1 calc(50% - 24px);
+    }
+    .stk-col-newsletter {
+        flex: 1 1 calc(50% - 24px);
+        padding-left: 0;
+        border-left: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .stk-site-footer {
+        padding-top: 40px;
+    }
+    .stk-footer-main-container {
+        flex-direction: column;
+        gap: 36px;
+        padding-bottom: 36px;
+    }
+    .stk-col-brand, .stk-col-newsletter {
+        width: 100%;
+    }
+    .stk-footer-bottom-container {
+        flex-direction: column-reverse;
+        gap: 14px;
+        text-align: center;
+    }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    // --- PART 1: SMOOTH BACK TO TOP SCROLL ANCHOR LOGIC ---
+    const backToTopButtons = document.querySelectorAll(".stk-back-to-top-trigger");
+
+    backToTopButtons.forEach(anchorBtn => {
+        anchorBtn.addEventListener("click", (event) => {
+            event.preventDefault();
+            // Fluid directional scroll parameter shift back up into top layout viewport zone
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    });
+
+    // --- PART 2: NEWSLETTER SUBSCRIPTION CONTROLS ENGINE ---
+    const subscriptionForm = document.getElementById("stkFooterSubscriptionForm");
+    const emailField = document.getElementById("stkFooterEmailInput");
+    const warningText = document.getElementById("stkSubscriptionAlert");
+
+    // Regular Expression helper evaluation framework checking basic email patterns
+    function validateEmailAddressPattern(emailInputString) {
+        const structuralMailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        return structuralMailRegex.test(emailInputString);
+    }
+
+    // Capture user event submissions
+    subscriptionForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        
+        // Reset operational flags states
+        emailField.classList.remove("stk-input-field-error");
+        warningText.style.display = "none";
+        warningText.textContent = "";
+
+        const dynamicInputStringValue = emailField.value.trim();
+
+        // 1. Mandatory Fields Content Boundary Checks
+        if (!dynamicInputStringValue) {
+            emailField.classList.add("stk-input-field-error");
+            warningText.textContent = "Please fill the fields.";
+            warningText.style.display = "block";
+            return;
+        }
+
+        // 2. Syntax Structure Routing Checks
+        if (!validateEmailAddressPattern(dynamicInputStringValue)) {
+            emailField.classList.add("stk-input-field-error");
+            warningText.textContent = "Please supply a valid formatting configuration schema layout.";
+            warningText.style.display = "block";
+            return;
+        }
+
+        // Success State Action Trigger Pipeline Routing to 404 page target
+        window.location.href = "404.html";
+    });
+});
+</script>
+
+</body>
+</html>
