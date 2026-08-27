@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly - Create Account</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+
+    <div class="split-signup-container">
+        
+        <div class="signup-outer-logo-box">
+            <a href="index.html" class="outer-logo-link" title="Return to Stackly Homepage">
+                <img src="./Assests/logo agriculture farming.webp" alt="STACKLY" class="outer-logo-img">
+            </a>
+        </div>
+
+        <div class="signup-outer-top-nav">
+            <span>Already have an account?</span>
+            <a href="login.html" class="btn-outer-login-link">Login</a>
+        </div>
+
+        <div class="signup-left-panel">
+            <div class="signup-inside-card">
+                
+                <div class="card-title-header">
+                    <h2><br>
+                        Create Your Account</h2>
+                    <p>Join hands with us and make a difference</p>
+                </div>
+
+                <div class="sso-federated-row">
+                    <a href="404.html" class="btn-oauth-item">
+                        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M21.35,11.1H12v2.7h5.38c-0.23,1.23-0.93,2.27-1.97,2.97v2.47h3.18C21.05,17.22,22,14.37,22,11.1C22,10.5 21.93,9.88,21.35,11.1Z" fill="#4285F4"/><path d="M12,22c2.7,0,4.97-0.9,6.62-2.47l-3.18-2.47c-0.88,0.6-2,0.97-3.43,0.97c-2.63,0-4.87-1.78-5.67-4.17H3.1v2.55C4.75,19.78,8.12,22,12,22Z" fill="#34A853"/><path d="M6.33,13.87c-0.2-0.6-0.32-1.25-0.32-1.87s0.12-1.27,0.32-1.87V7.58H3.1C2.4,8.97,2,10.43,2,12s0.4,3.03,1.1,4.42L6.33,13.87Z" fill="#FBBC05"/><path d="M12,6.03c1.47,0,2.78,0.5,3.82,1.5l2.87-2.87C16.97,3.15,14.7,2.2,12,2C8.12,2,4.75,4.22,3.1,7.58l3.23,2.55C7.13,7.82,9.37,6.03,12,6.03Z" fill="#EA4335"/></svg>
+                        <span>Google</span>
+                    </a>
+                    <a href="404.html" class="btn-oauth-item">
+                        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.91 18.39,7.14 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.1,16.67C20.08,16.74 19.67,18.11 18.71,19.5M15.97,4.17C16.63,3.37 17.07,2.28 16.95,1C16,1.05 14.9,1.61 14.25,2.39C13.69,3.15 13.2,4.26 13.35,5.53C14.4,5.61 15.41,5.04 15.97,4.17Z" fill="#000000"/></svg>
+                        <span>Apple</span>
+                    </a>
+                    <a href="404.html" class="btn-oauth-item">
+                        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.95z" fill="#1877F2"/></svg>
+                        <span>Facebook</span>
+                    </a>
+                </div>
+
+                <div class="sso-divider-row"><span>or sign up with</span></div>
+
+                <form id="secure-registration-form" class="card-core-form" novalidate>
+                    
+                    <div class="field-wrapper">
+                        <label for="reg-full-name">Full Name</label>
+                        <input type="text" id="reg-full-name" placeholder="Enter your full name" required autocomplete="off">
+                    </div>
+
+                    <div class="field-wrapper">
+                        <label for="reg-email">Email Address</label>
+                        <input type="email" id="reg-email" placeholder="Enter your email address" required autocomplete="off">
+                    </div>
+
+                    <div class="field-wrapper">
+                        <label for="reg-phone">Phone Number</label>
+                        <input type="text" id="reg-phone" placeholder="Enter your phone number" maxlength="10" required autocomplete="off">
+                    </div>
+
+                    <div class="field-wrapper">
+                        <label for="reg-password">Password</label>
+                        <div class="password-input-composite">
+                            <input type="password" id="reg-password" placeholder="Create a password" required>
+                            <button type="button" class="btn-password-eye-toggle" data-target="reg-password">
+                                <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17Z"/></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="field-wrapper">
+                        <label for="reg-confirm">Confirm Password</label>
+                        <div class="password-input-composite">
+                            <input type="password" id="reg-confirm" placeholder="Confirm password" required>
+                            <button type="button" class="btn-password-eye-toggle" data-target="reg-confirm">
+                                <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17Z"/></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    
+
+                    <div class="card-terms-checkbox-row">
+                        <label class="terms-label-holder">
+                            <input type="checkbox" id="reg-terms-check" required>
+                            <span class="custom-checkmark"></span>
+                            <span class="terms-string-text">I agree to the <a href="404.html">Terms & Conditions</a> and <a href="404.html">Privacy Policy</a></span>
+                        </label>
+                    </div>
+
+                    <div id="signup-validation-toast" class="form-toast-alert-window">⚠️ Please fill out all required validation fields accurately!</div>
+
+                    <button type="submit" class="btn-card-submit-signup">Sign Up</button>
+                    <p class="form-bottom-security-notice">Your security is our priority</p>
+                </form>
+
+            </div>
+        </div>
+
+                <!-- ==========================================
+             RIGHT COLUMN: EXACT REPLICATION RIGHT PANEL
+             ========================================== -->
+        <div class="signup-right-panel">
+            <!-- Central field background photo image asset -->
+            <img src="./Assests/clean water charity.webp" alt="Sustainable harvesting canopy" class="panel-media-asset">
+            
+            <!-- FIXED: Exact reference match biscuit background mask pass with modern backdrop blurs -->
+            <div class="panel-biscuit-blur-shutter"></div>
+
+            <!-- Content Area perfectly positioned above layout scene exactly as per reference picture -->
+            <div class="panel-hero-content-deck">
+                <h2>Be the reason <br>someone smiles today.</h2>
+                <p>Every step you take with us creates a better tomorrow for someone in need.</p>
+            </div>
+
+            <!-- Bottom Floating Horizontal Metrics Banner Card Row Component -->
+            <div class="panel-metrics-capsule-strip">
+                <div class="metric-block-item">
+                    <div class="metric-vector-frame">
+                        <svg viewBox="0 0 24 24"><path d="M16,13C15.71,13 15.38,13 15.03,13.05C16.19,13.89 17,15.22 17,16.5V19H22V16.5C22,14.61 18.17,13.67 16,13M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C8.9,14 2,15.56 2,18.67V21H22V18.67C22,15.56 15.1,14 12,14Z"/></svg>
+                    </div>
+                    <strong>15,000+</strong>
+                    <span>Lives Impacted</span>
+                </div>
+                <div class="metric-block-item">
+                    <div class="metric-vector-frame">
+                        <svg viewBox="0 0 24 24"><path d="M12,21.35l-1.45-1.32C5.4,15.36,2,12.28,2,8.5C2,5.42,4.42,2,7.5,2c1.74,0,3.41,0.81,4.5,2.09C13.09,2.81,14.76,2,16.5,2C19.58,2,22,5.42,22,8.5c0,3.78-3.4,6.86-8.55,11.54L12,21.35z"/></svg>
+                    </div>
+                    <strong>250+</strong>
+                    <span>Communities</span>
+                </div>
+                <div class="metric-block-item">
+                    <div class="metric-vector-frame">
+                        <svg viewBox="0 0 24 24"><path d="M12,12A4,4 0 1,0 8,8A4,4 0 0,0 12,12M12,14c-4.42,0-8,1.79-8,4v2H20V18C20,15.79 16.42,14 12,14Z"/></svg>
+                    </div>
+                    <strong>800+</strong>
+                    <span>Volunteers</span>
+                </div>
+                <div class="metric-block-item">
+                    <div class="metric-vector-frame">
+                        <svg viewBox="0 0 24 24"><path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.11,3 19,3M19,19H5V5H19V19M7,7H17V9H7V7M7,11H17V13H7V11M7,15H14V17H7V15Z"/></svg>
+                    </div>
+                    <strong>120+</strong>
+                    <span>Projects</span>
+                </div>
+            </div>
+        </div>
+
+
+                    <style>
+                        :root {
+    --bg-light: #f8faf9;       
+    --text-dark: #003d1c;      
+    --agri-glow: #005a2b;      
+    --white: #ffffff;
+    --border-gray: #e2e8f0;
+    --placeholder-gray: #94a3b8;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background-color: #f0f4f1;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 2rem 50px 2rem;
+    position: relative;
+}
+
+.signup-outer-logo-box {
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    z-index: 10;
+}
+.outer-logo-link { display: inline-flex; text-decoration: none; }
+.outer-logo-img { height: 36px; width: auto; object-fit: contain; }
+
+.signup-outer-top-nav {
+    position: absolute;
+    top: 35px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    z-index: 10;
+}
+.signup-outer-top-nav span { font-size: 0.9rem; font-weight: 700; color: #475569; }
+.btn-outer-login-link {
+    text-decoration: none;
+    padding: 0.5rem 1.4rem;
+    background-color: var(--white);
+    color: var(--text-dark);
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-radius: 8px;
+    border: 1px solid var(--border-gray);
+    transition: all 0.25s ease;
+}
+.btn-outer-login-link:hover { background-color: var(--text-dark); color: var(--white); border-color: var(--text-dark); }
+
+.split-signup-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    background-color: var(--white);
+    border-radius: 28px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.04);
+}
+
+.signup-left-panel {
+    width: 100%;
+    padding: 3rem 2.5rem;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-inside-card {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.card-title-header { text-align: left; margin-bottom: 1.5rem; }
+.card-title-header h2 { font-size: 1.9rem; font-weight: 800; color: #111111; margin-bottom: 0.25rem; letter-spacing: -0.5px; }
+.card-title-header p { font-size: 0.95rem; color: #475569; font-weight: 600; }
+
+.sso-federated-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.65rem; margin-bottom: 1.25rem; }
+.btn-oauth-item {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 0.5rem;
+    background-color: var(--white);
+    border: 1px solid var(--border-gray);
+    border-radius: 8px;
+    color: #334155;
+    font-size: 0.85rem;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+.btn-oauth-item:hover { background-color: #f8fafc; border-color: #cbd5e1; }
+
+.sso-divider-row { text-align: center; margin: 1.25rem 0; position: relative; width: 100%; }
+.sso-divider-row::before { content: ''; position: absolute; left: 0; top: 50%; width: 100%; height: 1px; background-color: var(--border-gray); z-index: 1; }
+.sso-divider-row span { position: relative; background-color: var(--white); padding: 0 0.75rem; font-size: 0.75rem; font-weight: 700; color: #64748b; text-transform: lowercase; z-index: 2; }
+
+.card-core-form { display: flex; flex-direction: column; gap: 1.15rem; width: 100%; }
+.field-wrapper { display: flex; flex-direction: column; gap: 0.4rem; width: 100%; }
+.field-wrapper label { font-size: 0.85rem; font-weight: 700; color: #111111; }
+
+.card-core-form input[type="text"],
+.card-core-form input[type="email"],
+.card-core-form input[type="password"] {
+    width: 100%;
+    padding: 0.9rem 1.15rem;
+    border: 1px solid var(--border-gray);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #1e293b;
+    font-weight: 600;
+    background-color: var(--white);
+    transition: all 0.2s ease;
+}
+.card-core-form input::placeholder { color: var(--placeholder-gray); font-weight: 500; }
+.card-core-form input:focus { outline: none; border-color: var(--text-dark); box-shadow: 0 0 10px rgba(0, 61, 28, 0.06); }
+
+.password-input-composite { position: relative; width: 100%; display: flex; align-items: center; }
+.password-input-composite input { padding-right: 3rem !important; }
+.btn-password-eye-toggle { position: absolute; right: 12px; background: none; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0.4rem; }
+.btn-password-eye-toggle svg { fill: #94a3b8; transition: fill 0.2s ease; }
+.btn-password-eye-toggle:hover svg { fill: var(--text-dark); }
+
+.role-cards-selection-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; width: 100%; margin-top: 0.15rem; }
+.role-selection-option {
+    border: 1px solid var(--border-gray);
+    background-color: var(--white);
+    padding: 1rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.role-icon-shield { width: 34px; height: 34px; background-color: #f1f5f2; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.role-icon-shield svg { width: 16px; height: 16px; fill: var(--text-dark); }
+.role-copy-wrapper { display: flex; flex-direction: column; gap: 0.15rem; }
+.role-copy-wrapper strong { font-size: 0.9rem; font-weight: 800; color: #111111; }
+.role-copy-wrapper span { font-size: 0.75rem; color: #64748b; font-weight: 600; line-height: 1.35; }
+
+.role-selection-option.active {
+    border-color: var(--text-dark);
+    background-color: rgba(0, 61, 28, 0.01);
+    box-shadow: 0 4px 15px rgba(0, 61, 28, 0.03);
+}
+.role-selection-option.active .role-icon-shield { background-color: var(--text-dark); }
+.role-selection-option.active .role-icon-shield svg { fill: var(--white); }
+
+.card-terms-checkbox-row { display: flex; align-items: center; width: 100%; margin-top: 0.25rem; }
+.terms-label-holder { display: flex; align-items: flex-start; gap: 0.6rem; cursor: pointer; user-select: none; }
+.terms-label-holder input { position: absolute; opacity: 0; width: 0; height: 0; }
+.custom-checkmark { width: 16px; height: 16px; background-color: #ffffff; border: 2px solid var(--border-gray); border-radius: 4px; display: inline-block; position: relative; margin-top: 0.15rem; flex-shrink: 0; }
+.terms-label-holder input:checked ~ .custom-checkmark { background-color: var(--text-dark); border-color: var(--text-dark); }
+.custom-checkmark::after { content: ""; position: absolute; display: none; left: 4px; top: 1px; width: 4px; height: 7px; border: solid white; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.terms-label-holder input:checked ~ .custom-checkmark::after { display: block; }
+.terms-string-text { font-size: 0.85rem; font-weight: 600; color: #475569; line-height: 1.45; }
+.terms-string-text a { color: var(--text-dark); font-weight: 700; text-decoration: underline; }
+
+.btn-card-submit-signup {
+    cursor: pointer;
+    border: none;
+    width: 100%;
+    padding: 1.05rem;
+    background-color: var(--text-dark);
+    color: var(--white);
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 61, 28, 0.15);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    margin-top: 0.5rem;
+}
+.btn-card-submit-signup:hover { background-color: #002e14; transform: translateY(-1px); box-shadow: 0 6px 15px rgba(0, 61, 28, 0.25); }
+.form-bottom-security-notice { text-align: center; font-size: 0.8rem; font-weight: 700; color: #94a3b8; text-transform: lowercase; margin-top: -0.25rem; }
+
+.form-toast-alert-window { padding: 0.85rem 1rem; background-color: rgba(240, 84, 84, 0.04); border: 1px solid #f05454; border-radius: 8px; font-size: 0.85rem; font-weight: 700; color: #f05454; display: none; line-height: 1.4; width: 100%; }
+
+/* ==========================================================================
+   UPDATED RIGHT SIDE PANEL RULES (EXACT VISUAL REPLICATION)
+   ========================================================================== */
+.signup-right-panel {
+    position: relative;
+    width: 100%;
+    padding: 4.5rem 3.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden;
+    background-color: #e4decb; /* Flat warm biscuit base tint color code match */
+}
+
+.panel-media-asset { 
+    position: absolute; 
+    inset: 0; 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    z-index: 1; 
+}
+
+/* FIXED: Exact reference image linear gradient overlay mask for the biscuit tint pass */
+.panel-biscuit-blur-shutter {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    /* Hard-coded solid biscuit tracking blocks blending out into crisp imagery at the panel floor */
+    background: linear-gradient(to bottom, 
+        #e4decb 0%, 
+        #e4decb 32%, 
+        rgba(228, 222, 203, 0.9) 48%,
+        rgba(228, 222, 203, 0) 75%
+    );
+    z-index: 2;
+    pointer-events: none;
+}
+
+.panel-hero-content-deck { 
+    position: relative; 
+    z-index: 3; 
+    width: 100%; 
+    max-width: 440px; 
+    margin-top: 1.5rem; 
+    margin-bottom: 3rem; 
+}
+
+.panel-hero-content-deck h2 { 
+    font-size: 2.8rem; 
+    font-weight: 800; 
+    line-height: 1.15; 
+    color: #111111; /* Strong high-contrast black heading text */
+    margin-bottom: 1.25rem; 
+    letter-spacing: -1px; 
+}
+
+.panel-hero-content-deck p { 
+    font-size: 1.05rem; 
+    color: #2b2b2b; /* Muted deep charcoal reading text string */
+    line-height: 1.5; 
+    font-weight: 600; 
+    max-width: 400px; 
+}
+
+/* Floating horizontal metrics capsule banner overlay card at panel floor row */
+.panel-metrics-capsule-strip {
+    position: relative;
+    z-index: 3;
+    margin-top: auto; /* Automatically pushes floating elements straight down level to floor lines */
+    background-color: #f7f5ee; /* Light biscuit surface card color pulled straight from the picture */
+    padding: 1.25rem 1rem;
+    border-radius: 16px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    border: 1px solid rgba(255,255,255,0.5);
+}
+
+.metric-block-item { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+}
+
+.metric-vector-frame { 
+    width: 32px; 
+    height: 32px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    margin-bottom: 0.25rem; 
+}
+
+.metric-vector-frame svg { 
+    width: 22px; 
+    height: 22px; 
+    fill: #2e7d32; /* Flat clean forest vegetation green vector indicators */
+}
+
+.metric-block-item strong { 
+    font-size: 0.95rem; 
+    font-weight: 800; 
+    color: #111111; 
+    line-height: 1.1; 
+}
+
+.metric-block-item span { 
+    font-size: 0.7rem; 
+    font-weight: 700; 
+    color: #666666; 
+    margin-top: 0.15rem; 
+    line-height: 1.2; 
+}
+
+/* ==========================================================================
+   HIGH-PERFORMANCE VIEWPORT RESPONSIVITY BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .signup-right-panel { height: 440px; padding: 2.5rem 2rem; }
+    .panel-hero-content-deck h2 { font-size: 2.2rem; }
+}
+
+@media (max-width: 480px) {
+    .signup-right-panel { display: none; } /* Hide complex visual panel components inside phone displays */
+}
+@media (max-width: 1024px) {body { padding: 90px 1rem 40px 1rem; }.split-signup-container { grid-template-columns: 1fr; max-width: 580px; }.signup-right-panel { height: 420px; padding: 2.5rem 2rem; }.panel-hero-content-deck h2 { font-size: 2.1rem; }.signup-left-panel { padding: 2.5rem 1.5rem; }.signup-outer-logo-box { top: 25px; left: 15px; }.signup-outer-top-nav { top: 30px; right: 15px; }}@media (max-width: 480px) {body { padding: 80px 0.5rem 30px 0.5rem; }.signup-right-panel { display: none; }.signup-inside-card { padding: 0.5rem 0; }.sso-federated-row { grid-template-columns: 1fr; gap: 0.5rem; }.role-cards-selection-grid { grid-template-columns: 1fr; gap: 0.75rem; }}
+
+                    </style>
+
+                <script>
+                    document.addEventListener("DOMContentLoaded", () => {
+
+    const registrationForm = document.getElementById("secure-registration-form");
+    const nameInputNode = document.getElementById("reg-full-name");
+    const phoneInputNode = document.getElementById("reg-phone");
+    const passwordNode = document.getElementById("reg-password");
+    const confirmNode = document.getElementById("reg-confirm");
+    
+    const roleOptionsCollection = document.querySelectorAll(".role-selection-option");
+    const passwordEyeToggles = document.querySelectorAll(".btn-password-eye-toggle");
+    const validationToastBox = document.getElementById("signup-validation-toast");
+
+    let activeSelectedRoleString = "individual"; 
+
+    if (nameInputNode) {
+        nameInputNode.addEventListener("input", (event) => {
+            const field = event.target;
+            const cleanAlphaValue = field.value.replace(/[0-9]/g, ""); 
+            if (field.value !== cleanAlphaValue) {
+                field.value = cleanAlphaValue;
+            }
+        });
+    }
+
+    if (phoneInputNode) {
+        phoneInputNode.addEventListener("input", (event) => {
+            const field = event.target;
+            const cleanDigitValue = field.value.replace(/[^0-9]/g, ""); 
+            if (field.value !== cleanDigitValue) {
+                field.value = cleanDigitValue;
+            }
+        });
+    }
+
+    passwordEyeToggles.forEach((buttonNode) => {
+        buttonNode.addEventListener("click", () => {
+            const targetedId = buttonNode.getAttribute("data-target");
+            const targetedInputField = document.getElementById(targetedId);
+
+            if (targetedInputField) {
+                const currentFieldType = targetedInputField.getAttribute("type");
+                if (currentFieldType === "password") {
+                    targetedInputField.setAttribute("type", "text");
+                    buttonNode.style.opacity = "0.6";
+                } else {
+                    targetedInputField.setAttribute("type", "password");
+                    buttonNode.style.opacity = "1";
+                }
+            }
+        });
+    });
+
+    roleOptionsCollection.forEach((roleCardElement) => {
+        roleCardElement.addEventListener("click", () => {
+            roleOptionsCollection.forEach((card) => card.classList.remove("active"));
+            roleCardElement.classList.add("active");
+            activeSelectedRoleString = roleCardElement.getAttribute("data-role"); 
+        });
+
+        roleCardElement.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                roleCardElement.click();
+            }
+        });
+    });
+
+    if (registrationForm && validationToastBox) {
+        registrationForm.addEventListener("submit", (event) => {
+            event.preventDefault(); 
+
+            const targetRequiredFields = registrationForm.querySelectorAll("input[required]");
+            let isValidationPassed = true;
+
+            targetRequiredFields.forEach((inputElement) => {
+                if (inputElement.type === "checkbox") {
+                    if (!inputElement.checked) {
+                        isValidationPassed = false;
+                    }
+                } else if (inputElement.value.trim() === "") {
+                    isValidationPassed = false;
+                    inputElement.style.borderColor = "#f05454"; 
+                } else {
+                    inputElement.style.borderColor = "#e2e8f0";
+                }
+            });
+
+            if (isValidationPassed && phoneInputNode.value.trim().length !== 10) {
+                isValidationPassed = false;
+                phoneInputNode.style.borderColor = "#ff9100";
+                validationToastBox.style.display = "block";
+                validationToastBox.style.borderColor = "#ff9100";
+                validationToastBox.style.color = "#ff9100";
+                validationToastBox.textContent = "⚠️ Phone tracking channels require an exact 10-digit configuration sequence.";
+                return;
+            }
+
+            if (isValidationPassed && passwordNode.value.trim() !== confirmNode.value.trim()) {
+                isValidationPassed = false;
+                confirmNode.style.borderColor = "#f05454";
+                validationToastBox.style.display = "block";
+                validationToastBox.style.borderColor = "#f05454";
+                validationToastBox.style.color = "#f05454";
+                validationToastBox.textContent = "⚠️ Security password keys mismatch! Verify confirmation strings align.";
+                return;
+            }
+
+            if (!isValidationPassed) {
+                validationToastBox.style.display = "block";
+                validationToastBox.style.borderColor = "#f05454";
+                validationToastBox.style.color = "#f05454";
+                validationToastBox.textContent = "⚠️ Please fill out all required validation fields accurately!";
+                
+                setTimeout(() => {
+                    validationToastBox.style.display = "none";
+                }, 4000);
+            } else {
+                validationToastBox.style.display = "block";
+                validationToastBox.style.backgroundColor = "rgba(46, 125, 50, 0.04)";
+                validationToastBox.style.borderColor = "#003d1c";
+                validationToastBox.style.color = "#003d1c";
+                validationToastBox.textContent = "🌱 Successfully signed up! Redirecting to credentials login sheet...";
+
+                setTimeout(() => {
+                    validationToastBox.style.display = "none";
+                    window.location.href = "login.html";
+                }, 2500); 
+            }
+        });
+    }
+});
+                </script>

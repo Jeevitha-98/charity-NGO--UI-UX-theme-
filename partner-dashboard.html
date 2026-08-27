@@ -1,0 +1,2203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly - NGO Partner Mission Console</title>
+    <link rel="stylesheet" href="partner-dashboard.css">
+</head>
+<body>
+
+    <!-- Outer Structural Master CSS Grid Container Layer Shell -->
+    <div class="partner-grid-matrix">
+        
+        <!-- Mobile Layout Shutter Backdrop Overlay Lock Shield -->
+        <div class="sidebar-mobile-overlay" id="mobile-viewport-lock"></div>
+        
+        <!-- ==========================================
+             MODULE 1: FIXED DARK SIDEBAR NAVIGATION BAR
+             ========================================== -->
+        <aside class="sidebar-panel-wrapper" id="dashboard-sidebar">
+            <div class="sidebar-top-row">
+               <div class="brand-logo-anchor-box">
+    <a href="javascript:void(0);"
+       onclick="refreshAndStayOnCurrentPage();"
+       class="brand-refresh-link"
+       title="Refresh NGO Engine">
+
+        <img src="./Assests/logo AGRI.webp"
+             alt="STACKLY NGO"
+             class="sidebar-brand-img">
+
+    </a>
+</div>
+                <!-- Mobile overlay close trigger vector button -->
+                <button class="btn-sidebar-close" id="sidebar-close-trigger" aria-label="Close layout navigation bar">×</button>
+            </div>
+
+            <!-- Professional Section-Wise Titles Alone Traversal Links -->
+            <nav class="sidebar-navigation">
+                <ul class="nav-links-list">
+                    <li>
+                        <a href="javascript:void(0);" class="nav-item-link active" data-target="campaigns-view">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,17C7.58,17 4,14.42 4,12C4,9.58 7.58,7 12,7C16.42,7 20,9.58 20,12C20,14.42 16.42,17 12,17Z"/></svg>
+                            <span>Active Campaigns</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="nav-item-link" data-target="donation-ledgers">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5,6H19V18H5V6M5,4A2,2 0 0,0 3,6V18A2,2 0 0,0 5,20H19A2,2 0 0,0 21,18V6A2,2 0 0,0 19,4H5M7,8H11V11H7V8M7,13H17V15H7V13M13,8H17V10H13V8Z"/></svg>
+                            <span>Donation Ledgers</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="nav-item-link" data-target="volunteer-rosters">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.5,13C15.3,13 13.43,13.34 12,14C10.57,13.34 8.7,13 7.5,13C5.5,13 2,14 2,16V19H22V16C22,14 18.5,13 16.5,13M7.5,12A2.5,2.5 0 0,0 10,9.5A2.5,2.5 0 0,0 7.5,7A2.5,2.5 0 0,0 5,9.5A2.5,2.5 0 0,0 7.5,12M16.5,12A2.5,2.5 0 0,0 19,9.5A2.5,2.5 0 0,0 16.5,7A2.5,2.5 0 0,0 14,9.5A2.5,2.5 0 0,0 16.5,12Z"/></svg>
+                            <span>Volunteer Rosters</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="nav-item-link" data-target="resource-dispatches">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20,8H17V4H3A2,2 0 0,0 1,6V17H3A3,3 0 0,0 6,20A3,3 0 0,0 9,17H15A3,3 0 0,0 18,20A3,3 0 0,0 21,17H23V12L20,8M6,18.5A1.5,1.5 0 1,1 7.5,17A1.5,1.5 0 0,1 6,18.5M17,12V9.5H19.5L21.4,12H17M18,18.5A1.5,1.5 0 1,1 19.5,17A1.5,1.5 0 0,1 18,18.5Z"/></svg>
+                            <span>Resource Dispatches</span>
+                        </a>
+                    </li>
+                  
+                </ul>
+            </nav>
+
+            <!-- Bottom Guard Programmatic Log Out Action Row Area -->
+            <div class="sidebar-lower-actions">
+                <button class="btn-sidebar-logout" id="portal-logout-trigger">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.08,15.59L16.66,13H7V11H16.66L14.08,8.41L15.5,7L20.5,12L15.5,17L14.08,15.59M19,3A2,2 0 0,1 21,5V9.67L19,7.67V5H5V19H19V16.33L21,14.33V19A2,2 0 0,1 19,21H5C3.89,21 3,20.11 3,19V5C3,3.89 3.89,3 5,3H14.08Z"/></svg>
+                    <span>Log Out</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- ==========================================
+             MODULE 2: PRIMARY WORKSPACE CENTRAL WRAPPER
+             ========================================== -->
+        <div class="dashboard-viewport-wrapper">
+            
+            <!-- FIXED UPPER CONTAINER: CEILING HEADER NAVIGATION DECK -->
+            <header class="dashboard-upper-header">
+                <!-- Responsive Touch Hamburger Button Module Action Trigger -->
+                <button class="hamburger-menu-trigger" id="mobile-hamburger-btn" aria-label="Open sidebar menu channels">
+                    <svg viewBox="0 0 24 24" width="24" height="24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"/></svg>
+                </button>
+
+                <div class="header-breadcrumbs">
+                    <span>NGO Hub / <strong id="dynamic-section-breadcrumb">Active Campaigns</strong></span>
+                </div>
+
+                <div class="header-utility-actions">
+                    <!-- Bell Alert Notification Anchor Button -->
+                   <button class="header-bell-btn"
+        aria-label="Open notifications summary drawer"
+        onclick="window.location.href='404.html'">
+    <div class="alert-unread-dot"></div>
+
+    <svg viewBox="0 0 24 24" width="22" height="22">
+        <path d="M12,2A2,2 0,0,0 10,4A2,2 0,0,0 10,4.29C7.12,5.14 5,7.82 5,11V17L3,19V20H21V19L19,17V11C19,7.82 16.88,5.14 14,4.29A2,2 0,0,0 14,4A2,2 0,0,0 12,2M12,22A2,2 0,0,0 14,20H10A2,2 0,0,0 12,22Z"/>
+    </svg>
+</button>
+
+                    <!-- Account Profile Badge Capsule (Extracts nickname values programmatically) -->
+                    <div class="header-profile-badge">
+                        <div class="profile-avatar-circle">N</div>
+                        <span class="profile-username-string" id="dashboard-user-display">Loading Partner...</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- ==========================================
+                 MODULE 3: ISOLATED WORKSPACE CONTENT PANELS
+                 ========================================== -->
+            <main class="dashboard-content-main">
+                
+                <!-- Section Block 1: Active Campaigns -->
+           <!-- Enhanced Active Aid Campaigns Panel -->
+<section class="viewport-section-card active" id="campaigns-view">
+    
+    <!-- GRID ROW 1: Strategic NGO Campaign Metrics Grid -->
+    <div class="ngo-campaigns-analytics-grid">
+        
+        <!-- Metric Tile 1 -->
+        <div class="ngo-analytics-card">
+            <div class="ngo-tile-header-row">
+                <span class="ngo-tile-tag-label">Global Active Missions</span>
+                <div class="ngo-vector-shield orange-theme">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M11,7H13V12H11V7M11,14H13V16H11V14Z"/></svg>
+                </div>
+            </div>
+            <div class="ngo-tile-major-value">12 / 12</div>
+            <p class="ngo-tile-footer-note">All relief teams successfully deployed</p>
+        </div>
+
+        <!-- Metric Tile 2 -->
+        <div class="ngo-analytics-card">
+            <div class="ngo-tile-header-row">
+                <span class="ngo-tile-tag-label">Lives Reached Today</span>
+                <div class="ngo-vector-shield green-theme">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16,13C15.71,13 15.38,13 15.03,13.05C16.19,13.89 17,15.22 17,16.5V19H22V16.5C22,14.61 18.17,13.67 16,13M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C8.9,14 2,15.56 2,18.67V21H22V18.67C22,15.56 15.1,14 12,14Z"/></svg>
+                </div>
+            </div>
+            <div class="ngo-tile-major-value">4,280 <span class="ngo-sub-unit">Individuals</span></div>
+            <p class="ngo-tile-footer-note">Aiding families inside remote coordinates</p>
+        </div>
+
+        <!-- Metric Tile 3 -->
+        <div class="ngo-analytics-card">
+            <div class="ngo-tile-header-row">
+                <span class="ngo-tile-tag-label">Emergency Relief Flux</span>
+                <div class="ngo-vector-shield blue-theme">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20,8H17V4H3A2,2 0 0,0 1,6V17H3A3,3 0 0,0 6,20A3,3 0 0,0 9,17H15A3,3 0 0,0 18,20A3,3 0 0,0 21,17H23V12L20,8M6,18.5A1.5,1.5 0 1,1 7.5,17A1.5,1.5 0 0,1 6,18.5M17,12V9.5H19.5L21.4,12H17M18,18.5A1.5,1.5 0 1,1 19.5,17A1.5,1.5 0 0,1 18,18.5Z"/></svg>
+                </div>
+            </div>
+            <div class="ngo-tile-major-value">94.2%</div>
+            <p class="ngo-tile-footer-note">Optimal resource efficiency index logged</p>
+        </div>
+
+    </div>
+
+    <!-- GRID ROW 2: Active Campaigns Impact Cards Grid -->
+    <div class="ngo-campaigns-panel">
+        <div class="ngo-panel-header-row">
+            <h3>Humanitarian Relief & Active Campaigns</h3>
+            <span class="live-mission-pill"><span class="live-pulse-dot"></span>Active Fundraisers</span>
+        </div>
+        
+        <div class="ngo-campaigns-cards-grid">
+            
+            <!-- Campaign Card 1 -->
+            <div class="ngo-interactive-campaign-card">
+                <div class="campaign-card-upper">
+                    <div class="campaign-meta-title-wrapper">
+                        <h4>Clean Water Aquifer Initiative</h4>
+                        <span class="campaign-id-token">ID: CMP-2026-WTR</span>
+                    </div>
+                    <span class="campaign-status-tag state-critical">Critical Need</span>
+                </div>
+                <p class="campaign-description-text">Constructing high-volume subsurface clean water well grids and filtration instrumentation systems inside severe drought sectors.</p>
+                <div class="campaign-progress-container">
+                    <div class="progress-labels-row">
+                        <span>Fundraising Goal: ₹15,00,000</span>
+                        <strong>78% Raised</strong>
+                    </div>
+                    <div class="progress-bar-track">
+                        <div class="progress-bar-fill fill-orange" style="width: 78%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Campaign Card 2 -->
+            <div class="ngo-interactive-campaign-card">
+                <div class="campaign-card-upper">
+                    <div class="campaign-meta-title-wrapper">
+                        <h4>Rural Nutrition Delivery Mesh</h4>
+                        <span class="campaign-id-token">ID: CMP-2026-NUT</span>
+                    </div>
+                    <span class="campaign-status-tag state-ongoing">Active Flow</span>
+                </div>
+                <p class="campaign-description-text">Organizing autonomous cold-chain logistics networks to safely distribute emergency medical assets and macronutrient packets to remote rural health nodes.</p>
+                <div class="campaign-progress-container">
+                    <div class="progress-labels-row">
+                        <span>Fundraising Goal: ₹25,00,000</span>
+                        <strong>45% Raised</strong>
+                    </div>
+                    <div class="progress-bar-track">
+                        <div class="progress-bar-fill fill-green" style="width: 45%;"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- GRID ROW 3: Live Emergency Dispatch Registry Data Table -->
+    <div class="ngo-registry-table-box">
+        <div class="ngo-table-title-row">
+            <h3>Live Campaign Dispatch Log Streams</h3>
+        </div>
+        
+        <div class="ngo-table-overflow-containment">
+            <table class="ngo-dispatch-data-table">
+                <thead>
+                    <tr>
+                        <th>Timestamp Logged</th>
+                        <th>Campaign Context</th>
+                        <th>Target Relief Field Sector</th>
+                        <th>Allocated Budget Capital</th>
+                        <th>Ground Mission Efficiency</th>
+                        <th>Operational Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>14:02:15 PM</td>
+                        <td><strong>Clean Water Grids</strong></td>
+                        <td>Salem Northern Interchange Node</td>
+                        <td>₹4,50,000</td>
+                        <td>94.2% Efficiency</td>
+                        <td><span class="ngo-pill-chip status-dispatched">In Transit</span></td>
+                    </tr>
+                    <tr>
+                        <td>13:48:02 PM</td>
+                        <td><strong>Nutrition Delivery Mesh</strong></td>
+                        <td>MMR Complex Center Gate 2</td>
+                        <td>₹8,20,000</td>
+                        <td class="text-caution font-heavy">78.5% Efficiency</td>
+                        <td><span class="ngo-pill-chip status-holding">Delayed / Docking</span></td>
+                    </tr>
+                    <tr>
+                        <td>11:14:50 PM</td>
+                        <td><strong>Clean Water Grids</strong></td>
+                        <td>Chinna Thirupathi Sector Grid</td>
+                        <td>₹3,10,000</td>
+                        <td>96.8% Efficiency</td>
+                        <td><span class="ngo-pill-chip status-dispatched">In Transit</span></td>
+                    </tr>
+                    <tr>
+                        <td>Yesterday, 16:45 PM</td>
+                        <td><strong>Educational Toolkits</strong></td>
+                        <td>Distribution Depot Beta Core</td>
+                        <td>₹12,40,000</td>
+                        <td>91.0% Efficiency</td>
+                        <td><span class="ngo-pill-chip status-complete">Mission Settled</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</section>
+<style>
+    /* ==========================================================================
+   MODULE 6: RE-ENGINEERED ELABORATED NGO CAMPAIGNS COMPONENTS
+   ========================================================================== */
+
+/* --- 1. UPPER MISSION SUMMARY STATS GRID --- */
+.ngo-campaigns-analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.ngo-analytics-card {
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ngo-tile-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.ngo-tile-tag-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #666666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.ngo-vector-shield {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ngo-vector-shield svg { width: 18px; height: 18px; }
+
+/* Micro color design asset token mappings */
+.ngo-vector-shield.orange-theme { background-color: rgba(230, 81, 0, 0.08); fill: #e65100; }
+.ngo-vector-shield.green-theme { background-color: rgba(76, 175, 80, 0.08); fill: var(--text-forest); }
+.ngo-vector-shield.blue-theme { background-color: #e3f2fd; fill: #1e88e5; }
+
+.ngo-tile-major-value {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--dark-neutral);
+    line-height: 1;
+    margin-bottom: 0.35rem;
+    letter-spacing: -0.5px;
+}
+.ngo-tile-major-value .ngo-sub-unit { font-size: 0.95rem; font-weight: 700; color: #777777; }
+.ngo-tile-footer-note { font-size: 0.8rem; font-weight: 600; color: #888888; }
+
+/* Analytics Card Hover Anim */
+.ngo-analytics-card:hover {
+    transform: translateY(-4px);
+    border-color: #ff9100;
+    box-shadow: 0 10px 25px rgba(230, 81, 0, 0.08);
+}
+
+/* --- 2. MIDDLE ROW ACTIVE CAMPAIGNS INTERACTIVE CARDS GRID --- */
+.ngo-campaigns-panel {
+    background-color: var(--white);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+    padding: 1.75rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.ngo-panel-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+.ngo-panel-header-row h3 { font-size: 1.2rem; font-weight: 800; color: var(--dark-neutral); }
+
+.live-mission-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.9rem;
+    background-color: #f5f7f6;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #444444;
+    border: 1px solid rgba(0,0,0,0.04);
+}
+
+.live-pulse-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #ff9100;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #ff9100;
+    animation: missionBeaconPulse 2s infinite ease-in-out;
+}
+
+.ngo-campaigns-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.ngo-interactive-campaign-card {
+    background-color: #f9fbf9;
+    border: 1px solid rgba(0, 61, 28, 0.03);
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.25rem;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.campaign-card-upper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.campaign-meta-title-wrapper h4 { font-size: 1.1rem; font-weight: 800; color: var(--dark-neutral); margin-bottom: 0.15rem; }
+.campaign-id-token { font-family: monospace; font-size: 0.8rem; color: #64748b; font-weight: 700; }
+
+.campaign-status-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.3rem 0.75rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.campaign-status-tag.state-critical { background-color: rgba(244, 81, 30, 0.1); color: #f4511e; }
+.campaign-status-tag.state-ongoing { background-color: rgba(76, 175, 80, 0.1); color: #2e7d32; }
+
+.campaign-description-text { font-size: 0.9rem; color: #52635c; line-height: 1.5; font-weight: 500; }
+
+/* Interactive fundraising goals progress matrix sliders bar */
+.campaign-progress-container { display: flex; flex-direction: column; gap: 0.45rem; width: 100%; }
+.progress-labels-row { display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; }
+.progress-labels-row span { color: #666666; font-weight: 600; }
+.progress-labels-row strong { color: var(--dark-neutral); font-weight: 800; }
+
+.progress-bar-track { width: 100%; height: 6px; background-color: #e2e8f0; border-radius: 10px; overflow: hidden; }
+.progress-bar-fill { height: 100%; border-radius: 10px; }
+.progress-bar-fill.fill-orange { background-color: #e65100; }
+.progress-bar-fill.fill-green { background-color: var(--text-forest); }
+
+/* Campaign Card Hover */
+.ngo-interactive-campaign-card:hover {
+    transform: translateY(-4px);
+    border-color: #ff9100;
+    box-shadow: 0 8px 24px rgba(230, 81, 0, 0.06);
+}
+
+/* --- 3. BOTTOM ROW EMERGENCY DISPATCH LOG RECORDS TABLE --- */
+.ngo-registry-table-box {
+    background-color: var(--white);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+    padding: 1.75rem;
+    width: 100%;
+}
+
+.ngo-table-title-row { margin-bottom: 1.25rem; }
+.ngo-table-title-row h3 { font-size: 1.2rem; font-weight: 800; color: var(--dark-neutral); }
+
+.ngo-table-overflow-containment { width: 100%; overflow-x: auto; }
+
+.ngo-dispatch-data-table { width: 100%; border-collapse: collapse; text-align: left; }
+.ngo-dispatch-data-table th, .ngo-dispatch-data-table td { padding: 1rem 1.25rem; font-size: 0.9rem; font-weight: 600; border-bottom: 1px solid #f0f2f5; }
+
+.ngo-dispatch-data-table th {
+    background-color: #f5f7f6;
+    color: #555555;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.8rem;
+}
+
+.ngo-dispatch-data-table tbody tr { transition: background-color 0.2s ease; }
+.ngo-dispatch-data-table tbody tr:hover { background-color: var(--bg-faint); }
+
+.text-caution { color: #f4511e !important; }
+.font-heavy { font-weight: 800 !important; }
+
+/* Status table pill status tag markers */
+.ngo-pill-chip {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.ngo-pill-chip.status-dispatched { background-color: rgba(30, 136, 229, 0.1); color: #1e88e5; }
+.ngo-pill-chip.status-holding { background-color: rgba(244, 81, 30, 0.1); color: #f4511e; }
+.ngo-pill-chip.status-complete { background-color: rgba(76, 175, 80, 0.1); color: #2e7d32; border: 1px solid rgba(76, 175, 80, 0.15); }
+
+/* --- HUB HARDWARE BEACON PULSE KEYFRAMES --- */
+@keyframes missionBeaconPulse { 0% { transform: scale(0.95); opacity: 0.5; } 50% { transform: scale(1.05); opacity: 1; box-shadow: 0 0 12px #ff9100; } 100% { transform: scale(0.95); opacity: 0.5; } }
+
+/* --- RESPONSIVE CONFIGURATION FOR SUB-CAMPAGIN WRAPPERS --- */
+@media (max-width: 1200px) {
+    .ngo-campaigns-analytics-grid { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .ngo-analytics-card:last-child { grid-column: span 2; }
+}
+
+@media (max-width: 768px) {
+    .ngo-campaigns-analytics-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .ngo-analytics-card:last-child { grid-column: span 1; }
+    .ngo-campaigns-cards-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+}
+
+@media (max-width: 520px) {
+    .ngo-panel-header-row { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+    .ngo-dispatch-data-table th, .ngo-dispatch-data-table td { padding: 0.85rem 0.6rem; font-size: 0.8rem; }
+}
+
+</style>
+
+                <!-- Section Block 2: Donation Ledgers -->
+              <!-- Enhanced Donation Ledger Audits Panel -->
+<section class="viewport-section-card" id="donation-ledgers">
+    
+    <!-- GRID ROW 1: Capital Flux Metrics Grid Matrix -->
+    <div class="ledger-flux-analytics-grid">
+        
+        <!-- Flux Tile 1 -->
+        <div class="ledger-flux-card">
+            <div class="flux-tile-top-row">
+                <span class="flux-tile-tag-label">Total Capital Pooled</span>
+                <div class="flux-vector-box color-green">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5,6H19V18H5V6M5,4A2,2 0 0,0 3,6V18A2,2 0 0,0 5,20H19A2,2 0 0,0 21,18V6A2,2 0 0,0 19,4H5M7,8H11V11H7V8M7,13H17V15H7V13M13,8H17V10H13V8Z"/></svg>
+                </div>
+            </div>
+            <div class="flux-tile-major">₹42.85 <span class="flux-unit-label">Lakhs</span></div>
+            <div class="flux-mini-indicator-track">
+                <div class="flux-indicator-fill status-optimal" style="width: 84%;"></div>
+            </div>
+            <p class="flux-tile-caption">84% Allocated straight to field dispatches</p>
+        </div>
+
+        <!-- Flux Tile 2 -->
+        <div class="ledger-flux-card">
+            <div class="flux-tile-top-row">
+                <span class="flux-tile-tag-label">Active Grant Matches</span>
+                <div class="flux-vector-box color-blue">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.11,3 19,3M19,19H5V5H19V19M7,7H17V9H7V7M7,11H17V13H7V11M7,15H14V17H7V15Z"/></svg>
+                </div>
+            </div>
+            <div class="flux-tile-major">3 : 1 <span class="flux-unit-label">Ratio</span></div>
+            <div class="flux-mini-indicator-track">
+                <div class="flux-indicator-fill status-secure" style="width: 90%;"></div>
+            </div>
+            <p class="flux-tile-caption">Corporate matching multipliers operational</p>
+        </div>
+
+        <!-- Flux Tile 3 -->
+        <div class="ledger-flux-card">
+            <div class="flux-tile-top-row">
+                <span class="flux-tile-tag-label">Direct Governance Ratio</span>
+                <div class="flux-vector-box color-amber">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M11,7H13V12H11V7M11,14H13V16H11V14Z"/></svg>
+                </div>
+            </div>
+            <div class="flux-tile-major">3.8% <span class="flux-unit-label">Admin</span></div>
+            <div class="flux-mini-indicator-track">
+                <div class="flux-indicator-fill status-minimal" style="width: 25%;"></div>
+            </div>
+            <p class="flux-tile-caption">Pristine administrative efficiency logged</p>
+        </div>
+
+    </div>
+
+    <!-- GRID ROW 2: Interactive Fund Allocation Structural Split Deck -->
+    <div class="ledger-allocation-blueprint-card">
+        <div class="blueprint-card-upper">
+            <div class="blueprint-meta-titles">
+                <h3>Active Cycle Institutional Allocation Split</h3>
+                <span class="blueprint-cycle-tag">Financial Audit Window: Q3 2026 Fiscal Cycle</span>
+            </div>
+            <span class="audit-badge-pill"><span class="audit-pulse-dot"></span>Transparency Verified</span>
+        </div>
+        
+        <div class="blueprint-asymmetric-columns">
+            <div class="blueprint-specs-well">
+                <h4>Humanitarian Deployment Breakdown</h4>
+                <p>Pooled global philanthropy assets are divided programmatically based on real-time field urgency matrices. Capital routing priority shields medical supply mesh pipelines, community clean water rigs, and critical logistics transport tracks first.</p>
+            </div>
+            <div class="blueprint-pie-surfaces">
+                <div class="surface-segment-row">
+                    <div class="segment-legend"><span class="color-dot block-orange"></span><span>70% Emergency Resource Logistics</span></div>
+                    <strong>₹30,00,000</strong>
+                </div>
+                <div class="surface-segment-row">
+                    <div class="segment-legend"><span class="color-dot block-green"></span><span>20% Local Infrastructure Grants</span></div>
+                    <strong>₹8,57,000</strong>
+                </div>
+                <div class="surface-segment-row">
+                    <div class="segment-legend"><span class="color-dot block-blue"></span><span>10% Medical Mesh Procurement</span></div>
+                    <strong>₹4,28,000</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GRID ROW 3: Transparent Global Philanthropy Statement Ledger Data Table -->
+    <div class="ledger-history-table-box">
+        <div class="ledger-table-headline">
+            <h3>Verified Transnational Donation Audits</h3>
+        </div>
+        
+        <div class="ledger-table-overflow-containment">
+            <table class="ngo-audited-finance-table">
+                <thead>
+                    <tr>
+                        <th>Audit Token ID</th>
+                        <th>Donor Affiliation Identity</th>
+                        <th>Payment Route Method</th>
+                        <th>Capital Mass Dispatched</th>
+                        <th>Verification Status</th>
+                        <th>Proof Accountability Receipt</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="audit-hash">TXN-7491-88A</code></td>
+                        <td>Azim Premji Philanthropy Fund</td>
+                        <td>Wire Route Gateway •••• 9012</td>
+                        <td><strong>₹12,50,000</strong></td>
+                        <td><span class="ledger-status-chip state-verified">Audited Safe</span></td>
+                        <td>
+                            <a href="404.html" class="btn-receipt-download" aria-label="Download Audited Receipt Statement">
+                                <svg viewBox="0 0 24 24" width="16" height="16"><path d="M5,20H19V18H5V20M19,9H15V3H9V9H5L12,16L19,9Z"/></svg>
+                                <span>PDF Audit</span>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code class="audit-hash">TXN-6240-42C</code></td>
+                        <td>Tech Mahindra Giving Council</td>
+                        <td>Corporate Visa •••• 4021</td>
+                        <td><strong>₹4,25,000</strong></td>
+                        <td><span class="ledger-status-chip state-verified">Audited Safe</span></td>
+                        <td>
+                            <a href="404.html" class="btn-receipt-download" aria-label="Download Audited Receipt Statement">
+                                <svg viewBox="0 0 24 24" width="16" height="16"><path d="M5,20H19V18H5V20M19,9H15V3H9V9H5L12,16L19,9Z"/></svg>
+                                <span>PDF Audit</span>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code class="audit-hash">TXN-5011-19F</code></td>
+                        <td>Tata Trust Relief Interchange</td>
+                        <td>Wire Route Gateway •••• 1104</td>
+                        <td><strong>₹25,00,000</strong></td>
+                        <td><span class="ledger-status-chip state-verified">Audited Safe</span></td>
+                        <td>
+                            <a href="404.html" class="btn-receipt-download" aria-label="Download Audited Receipt Statement">
+                                <svg viewBox="0 0 24 24" width="16" height="16"><path d="M5,20H19V18H5V20M19,9H15V3H9V9H5L12,16L19,9Z"/></svg>
+                                <span>PDF Audit</span>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</section>
+<style>
+    /* ==========================================================================
+   MODULE 7: SECURE NGO DONATION LEDGER & FINANCIAL COMPONENTS
+   ========================================================================== */
+
+/* --- 1. UPPER STRIP CAPITAL FLUX METRICS GRID --- */
+.ledger-flux-analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.ledger-flux-card {
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.flux-tile-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.85rem;
+}
+
+.flux-tile-tag-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #666666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.flux-vector-box {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.flux-vector-box svg { width: 18px; height: 18px; }
+
+/* Dynamic financial metric color tokens mapping */
+.flux-vector-box.color-green { background-color: rgba(76, 175, 80, 0.08); fill: var(--text-forest); }
+.flux-vector-box.color-blue { background-color: #e3f2fd; fill: #1e88e5; }
+.flux-vector-box.color-amber { background-color: rgba(230, 81, 0, 0.08); fill: #e65100; }
+
+.flux-tile-major {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--dark-neutral);
+    line-height: 1;
+    margin-bottom: 0.85rem;
+    letter-spacing: -0.5px;
+}
+.flux-tile-major .flux-unit-label { font-size: 0.95rem; font-weight: 700; color: #777777; }
+
+/* Linear spatial indicators progress tracks */
+.flux-mini-indicator-track {
+    width: 100%;
+    height: 6px;
+    background-color: #f0f2f5;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 0.6rem;
+}
+
+.flux-indicator-fill { height: 100%; border-radius: 10px; }
+.flux-indicator-fill.status-optimal { background-color: #2e7d32; }
+.flux-indicator-fill.status-secure { background-color: #2196f3; }
+.flux-indicator-fill.status-minimal { background-color: #ff9100; }
+
+.flux-tile-caption { font-size: 0.8rem; font-weight: 600; color: #888888; }
+
+.ledger-flux-card:hover {
+    transform: translateY(-4px);
+    border-color: #ff9100;
+    box-shadow: 0 10px 25px rgba(230, 81, 0, 0.08);
+}
+
+/* --- 2. MIDDLE ROW INTERACTIVE PLAN ALLOCATION Blueprint DECK --- */
+.ledger-allocation-blueprint-card {
+    background-color: var(--white);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+    padding: 1.75rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.blueprint-card-upper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #f0f2f5;
+    padding-bottom: 1rem;
+}
+
+.blueprint-meta-titles h3 { font-size: 1.25rem; font-weight: 800; color: var(--dark-neutral); margin-bottom: 0.15rem; }
+.blueprint-cycle-tag { font-size: 0.8rem; font-weight: 700; color: #777777; }
+
+.audit-badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.35rem 0.85rem;
+    background-color: rgba(76, 175, 80, 0.08);
+    color: #2e7d32;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-radius: 20px;
+    border: 1px solid rgba(76, 175, 80, 0.15);
+}
+
+.audit-pulse-dot {
+    width: 7px;
+    height: 7px;
+    background-color: var(--text-forest);
+    border-radius: 50%;
+    box-shadow: 0 0 6px var(--text-forest);
+    animation: financialAuditPulse 2s infinite ease-in-out;
+}
+
+/* Asymmetrical column distribution split */
+.blueprint-asymmetric-columns {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.blueprint-specs-well h4 { font-size: 1.1rem; font-weight: 800; color: var(--dark-neutral); margin-bottom: 0.4rem; }
+.blueprint-specs-well p { font-size: 0.95rem; color: #52635c; line-height: 1.5; font-weight: 500; }
+
+.blueprint-pie-surfaces { display: flex; flex-direction: column; gap: 0.75rem; }
+.surface-segment-row { display: flex; justify-content: space-between; align-items: center; background-color: #f9fbf9; padding: 0.75rem 1rem; border-radius: 10px; border: 1px solid #f0f2f5; }
+
+.segment-legend { display: flex; align-items: center; gap: 0.6rem; font-size: 0.85rem; font-weight: 700; color: #555555; }
+.color-dot { width: 8px; height: 8px; border-radius: 50%; }
+.color-dot.block-orange { background-color: #e65100; box-shadow: 0 0 6px #e65100; }
+.color-dot.block-green { background-color: #2e7d32; box-shadow: 0 0 6px #2e7d32; }
+.color-dot.block-blue { background-color: #1e88e5; box-shadow: 0 0 6px #1e88e5; }
+
+.surface-segment-row strong { font-size: 0.95rem; font-weight: 800; color: var(--dark-neutral); }
+
+/* --- 3. BOTTOM AUDITED STATEMENT STATEMENT LEDGER TABLE MODULE --- */
+.ledger-history-table-box {
+    background-color: var(--white);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+    padding: 1.75rem;
+    width: 100%;
+}
+
+.ledger-table-headline { margin-bottom: 1.25rem; }
+.ledger-table-headline h3 { font-size: 1.2rem; font-weight: 800; color: var(--dark-neutral); }
+
+.ledger-table-overflow-containment { width: 100%; overflow-x: auto; }
+
+.ngo-audited-finance-table { width: 100%; border-collapse: collapse; text-align: left; }
+.ngo-audited-finance-table th, .ngo-audited-finance-table td { padding: 1rem 1.25rem; font-size: 0.9rem; font-weight: 600; border-bottom: 1px solid #f0f2f5; }
+
+.ngo-audited-finance-table th {
+    background-color: #f5f7f6;
+    color: #555555;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.8rem;
+}
+
+.ngo-audited-finance-table tbody tr { transition: background-color 0.2s ease; }
+.ngo-audited-finance-table tbody tr:hover { background-color: var(--bg-faint); }
+
+.audit-hash {
+    font-family: monospace;
+    background-color: #f5f7f6;
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: var(--dark-neutral);
+    font-weight: bold;
+}
+
+.ledger-status-chip {
+    display: inline-block;
+    padding: 0.25rem 0.65rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background-color: rgba(76, 175, 80, 0.1);
+    color: #2e7d32;
+    border: 1px solid rgba(76, 175, 80, 0.15);
+}
+
+/* Printable certified invoice receipt download action link node mapping */
+.btn-receipt-download {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 1rem;
+    background-color: #f5f7f6;
+    border-radius: 8px;
+    color: var(--dark-neutral);
+    font-size: 0.85rem;
+    font-weight: 700;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: all 0.25s ease;
+}
+
+.btn-receipt-download svg { fill: var(--dark-neutral); transition: transform 0.25s ease; }
+
+.btn-receipt-download:hover {
+    background-color: #ff9100;
+    color: var(--white);
+    border-color: #ff9100;
+}
+.btn-receipt-download:hover svg { fill: var(--white); transform: translateY(1px); }
+
+/* --- AUDIT LEDGER SIGNAL CONSOLE KEYFRAMES --- */
+@animation financialAuditPulse { 0% { transform: scale(0.95); opacity: 0.5; } 50% { transform: scale(1.05); opacity: 1; } 100% { transform: scale(0.95); opacity: 0.5; } }
+
+/* --- RESPONSIVE MEDIA GRID CLOSURES OVERRIDES --- */
+@media (max-width: 1200px) {
+    .ledger-flux-analytics-grid { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .ledger-flux-card:last-child { grid-column: span 2; }
+    .blueprint-asymmetric-columns { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+@media (max-width: 768px) {
+    .ledger-flux-analytics-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .ledger-flux-card:last-child { grid-column: span 1; }
+}
+
+@media (max-width: 520px) {
+    .blueprint-card-upper { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .ngo-audited-finance-table th, .ngo-audited-finance-table td { padding: 0.85rem 0.6rem; font-size: 0.8rem; }
+    .btn-receipt-download span { display: none; } /* Drop download text strings inside compressed touch view trees */
+    .btn-receipt-download { padding: 0.45rem; }
+}
+
+</style>
+
+              <!-- Enhanced Volunteer Deployment Rosters Panel -->
+<section class="viewport-section-card" id="volunteer-rosters">
+    
+    <!-- GRID ROW 1: Operational Force Analytics Tiles Matrix -->
+    <div class="volunteer-force-analytics-grid">
+        
+        <!-- Force Tile 1 -->
+        <div class="volunteer-force-card">
+            <div class="force-tile-upper">
+                <span class="force-tile-tag-label">Active Field Personnel</span>
+                <div class="force-vector-box color-green">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.5,13C15.3,13 13.43,13.34 12,14C10.57,13.34 8.7,13 7.5,13C5.5,13 2,14 2,16V19H22V16 Hazards C22,14 18.5,13 16.5,13M7.5,12A2.5,2.5 0 0,0 10,9.5A2.5,2.5 0 0,0 7.5,7A2.5,2.5 0 0,0 5,9.5A2.5,2.5 0 0,0 7.5,12M16.5,12A2.5,2.5 0 0,0 19,9.5A2.5,2.5 0 0,0 16.5,7A2.5,2.5 0 0,0 14,9.5A2.5,2.5 0 0,0 16.5,12Z"/></svg>
+                </div>
+            </div>
+            <div class="force-tile-major">342 <span class="force-unit-label">On-Duty</span></div>
+            <div class="force-progress-track">
+                <div class="force-progress-fill status-optimal" style="width: 85%;"></div>
+            </div>
+            <p class="force-tile-caption">85% Retention rate across rural zones</p>
+        </div>
+
+        <!-- Force Tile 2 -->
+        <div class="volunteer-force-card">
+            <div class="force-tile-upper">
+                <span class="force-tile-tag-label">Standby Response Pool</span>
+                <div class="force-vector-box color-blue">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M11,7H13V12H11V7M11,14H13V16H11V14Z"/></svg>
+                </div>
+            </div>
+            <div class="force-tile-major">118 <span class="force-unit-label">Ready</span></div>
+            <div class="force-progress-track">
+                <div class="force-progress-fill status-secure" style="width: 65%;"></div>
+            </div>
+            <p class="force-tile-caption">Available for emergency swift dispatch</p>
+        </div>
+
+        <!-- Force Tile 3 -->
+        <div class="volunteer-force-card">
+            <div class="force-tile-upper">
+                <span class="force-tile-tag-label">Logged Mission Hours</span>
+                <div class="force-vector-box color-amber">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"/></svg>
+                </div>
+            </div>
+            <div class="force-tile-major">14,250 <span class="force-unit-label">Hrs</span></div>
+            <div class="force-progress-track">
+                <div class="force-progress-fill status-boost" style="width: 92%;"></div>
+            </div>
+            <p class="force-tile-caption">+24% Hours boost over last fiscal window</p>
+        </div>
+
+    </div>
+
+    <!-- GRID ROW 2: Interactive Field Assignment Shutter Map -->
+    <div class="volunteer-assignment-panel">
+        <div class="assignment-panel-header">
+            <h3>Active Field Team Coordinate Map</h3>
+            <span class="gps-stream-badge"><span class="gps-pulse-beacon"></span>Live GPS Tracks Active</span>
+        </div>
+        
+        <div class="assignment-map-canvas-mockup">
+            <!-- Background drone topographical field operation map photo -->
+            <img src="./Assests/clean water charity.webp" alt="Topographical map layer tracking active NGO team nodes" class="assignment-backdrop-img">
+            
+            <!-- Interactive Team Marker Node 1 -->
+            <div class="assignment-ui-marker position-node-alpha">
+                <div class="marker-radar-ping"></div>
+                <div class="marker-details-bubble">
+                    <strong>Team Alpha Deployment</strong>
+                    <span>Sector: Salem West Hub</span>
+                    <span>Personnel: 14 Volunteers</span>
+                </div>
+            </div>
+
+            <!-- Interactive Team Marker Node 2 -->
+            <div class="assignment-ui-marker position-node-beta">
+                <div class="marker-radar-ping alert-orange-ping"></div>
+                <div class="marker-details-bubble">
+                    <strong>Team Delta Medical Mesh</strong>
+                    <span>Sector: Omalur Camp 4</span>
+                    <span class="text-alert-danger">Status: Emergency Surge Flow</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GRID ROW 3: Detailed On-Field Volunteer Registry Ledger -->
+    <div class="volunteer-registry-table-box">
+        <div class="v-table-title-row">
+            <h3>On-Field Personnel Assignment Registry</h3>
+        </div>
+        
+        <div class="v-table-overflow-containment">
+            <table class="volunteer-data-table">
+                <thead>
+                    <tr>
+                        <th>Personnel Deployment ID</th>
+                        <th>Volunteer Identity Name</th>
+                        <th>Assigned Campaign Sector</th>
+                        <th>Assigned Field Site Location</th>
+                        <th>Active On-Duty Shift</th>
+                        <th>Mission Clearance Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>STK-VOL-402</strong></td>
+                        <td>Arun Kumar Swamy</td>
+                        <td>Clean Water Aquifers</td>
+                        <td>Salem Northern Interchange</td>
+                        <td>Day Shift (08:00 - 17:00)</td>
+                        <td><span class="v-pill-tag state-deployed">Active Deployed</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>STK-VOL-115</strong></td>
+                        <td>Priyanka Ramesh</td>
+                        <td>Rural Nutrition Mesh</td>
+                        <td>MMR Complex Center Core</td>
+                        <td>Night Shift (17:00 - 02:00)</td>
+                        <td><span class="v-pill-tag state-deployed">Active Deployed</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>STK-VOL-689</strong></td>
+                        <td>Deepak Chandran</td>
+                        <td>Clean Water Aquifers</td>
+                        <td>Chinna Thirupathi Grid</td>
+                        <td>On-Call Emergency Block</td>
+                        <td><span class="v-pill-tag state-standby">Standby Ready</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>STK-VOL-224</strong></td>
+                        <td>Meera Krishnan</td>
+                        <td>Educational Toolkits</td>
+                        <td>Distribution Depot Beta</td>
+                        <td>Rest Cycle Interval</td>
+                        <td><span class="v-pill-tag state-rest">Rest Interval</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</section>
+<style>
+    /* ==========================================================================
+   MODULE 8: VOLUNTEER DEPLOYMENT & FIELD FORCE COMPONENTS
+   ========================================================================== */
+
+/* --- 1. UPPER VOLUNTEER FORCE PERFORMANCE CARD GRID --- */
+.volunteer-force-analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.volunteer-force-card {
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.force-tile-upper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.85rem;
+}
+
+.force-tile-tag-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #666666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.force-vector-box {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.force-vector-box svg { width: 18px; height: 18px; }
+
+/* Themed force vector fill map configurations codes */
+.force-vector-box.color-green { background-color: rgba(76, 175, 80, 0.08); fill: var(--text-forest); }
+.force-vector-box.color-blue { background-color: #e3f2fd; fill: #1e88e5; }
+.force-vector-box.color-amber { background-color: rgba(230, 81, 0, 0.08); fill: #e65100; }
+
+.force-tile-major {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--dark-slate);
+    line-height: 1;
+    margin-bottom: 0.85rem;
+    letter-spacing: -0.5px;
+}
+.force-tile-major .force-unit-label { font-size: 0.95rem; font-weight: 700; color: #777777; }
+
+/* Inline progress metrics sliders bars tracks */
+.force-progress-track {
+    width: 100%;
+    height: 6px;
+    background-color: #f0f2f5;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 0.6rem;
+}
+
+.force-progress-fill { height: 100%; border-radius: 10px; }
+.force-progress-fill.status-optimal { background-color: #2e7d32; }
+.force-progress-fill.status-secure { background-color: #2196f3; }
+.force-progress-fill.status-boost { background-color: #e65100; }
+
+.force-tile-caption { font-size: 0.8rem; font-weight: 600; color: #888888; }
+
+.volunteer-force-card:hover {
+    transform: translateY(-4px);
+    border-color: #ff9100;
+    box-shadow: 0 10px 25px rgba(230, 81, 0, 0.08);
+}
+
+/* --- 2. MIDDLE ROW INTERACTIVE GEOGRAPHIC SCANNED MAP PANEL --- */
+.volunteer-assignment-panel {
+    background-color: var(--white);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+    padding: 1.75rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.assignment-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+}
+.assignment-panel-header h3 { font-size: 1.2rem; font-weight: 800; color: var(--dark-slate); }
+
+.gps-stream-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.9rem;
+    background-color: #f5f7f6;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #444444;
+    border: 1px solid rgba(0,0,0,0.04);
+}
+
+.gps-pulse-beacon {
+    width: 8px;
+    height: 8px;
+    background-color: #1e88e5;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #1e88e5;
+    animation: forceGpsTrackerPulse 2s infinite ease-in-out;
+}
+
+.assignment-map-canvas-mockup {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.assignment-backdrop-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.75) contrast(1.15) saturate(0.9);
+}
+
+/* Floating interactive overlay coordinate map marks components layout mapping */
+.assignment-ui-marker {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.assignment-ui-marker.position-node-alpha { left: 25%; top: 30%; }
+.assignment-ui-marker.position-node-beta { right: 35%; bottom: 25%; }
+
+.marker-radar-ping {
+    width: 14px;
+    height: 14px;
+    background-color: #2e7d32;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #2e7d32;
+    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.marker-radar-ping.alert-orange-ping {
+    background-color: #e65100;
+    box-shadow: 0 0 10px #e65100;
+}
+
+.marker-details-bubble {
+    background-color: rgba(26, 34, 30, 0.96); /* High-contrast solid dark green slate overlay widget */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    opacity: 0.85;
+    transform: translateY(2px);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.marker-details-bubble strong { font-size: 0.85rem; color: #ffffff; }
+.marker-details-bubble span { font-size: 0.75rem; color: #93a39a; font-weight: 600; }
+.text-alert-danger { color: #ff9100 !important; font-weight: 800; }
+
+/* Interactive Map Nodes Hovers Trigger Actions */
+.assignment-ui-marker:hover .marker-radar-ping { transform: scale(1.3); }
+.assignment-ui-marker:hover .marker-details-bubble { opacity: 1; transform: translateY(0); border-color: #ff9100; box-shadow: 0 8px 25px rgba(230, 81, 0, 0.2); }
+
+/* --- 3. BOTTOM VOLUNTEER LOG HISTORY LEDGER DATA TABLE --- */
+.volunteer-registry-table-box {
+    background-color: var(--white);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+    padding: 1.75rem;
+    width: 100%;
+}
+
+.v-table-title-row { margin-bottom: 1.25rem; }
+.v-table-title-row h3 { font-size: 1.2rem; font-weight: 800; color: var(--dark-slate); }
+
+.v-table-overflow-containment { width: 100%; overflow-x: auto; }
+
+.volunteer-data-table { width: 100%; border-collapse: collapse; text-align: left; }
+.volunteer-data-table th, .volunteer-data-table td { padding: 1rem 1.25rem; font-size: 0.9rem; font-weight: 600; border-bottom: 1px solid #f0f2f5; }
+
+.volunteer-data-table th {
+    background-color: #f5f7f6;
+    color: #555555;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.8rem;
+}
+
+.volunteer-data-table tbody tr { transition: background-color 0.2s ease; }
+.volunteer-data-table tbody tr:hover { background-color: var(--bg-faint); }
+
+/* Individual clearance level status pill tag chips codes mappings */
+.v-pill-tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.v-pill-tag.state-deployed { background-color: rgba(76, 175, 80, 0.1); color: #2e7d32; border: 1px solid rgba(76, 175, 80, 0.15); }
+.v-pill-tag.state-standby { background-color: rgba(33, 150, 243, 0.1); color: #2196f3; }
+.v-pill-tag.state-rest { background-color: rgba(244, 81, 30, 0.1); color: #f4511e; }
+
+/* --- ACTIVE GPS TRACKER RADAR BEACON SIGNAL KEYFRAMES --- */
+@keyframes forceGpsTrackerPulse { 0% { transform: scale(0.95); opacity: 0.5; } 50% { transform: scale(1.05); opacity: 1; box-shadow: 0 0 12px #1e88e5; } 100% { transform: scale(0.95); opacity: 0.5; } }
+
+/* --- RESPONSIVE MEDIA GRID CLOSURES OVERRIDES --- */
+@media (max-width: 1200px) {
+    .volunteer-force-analytics-grid { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .volunteer-force-card:last-child { grid-column: span 2; }
+}
+
+@media (max-width: 768px) {
+    .volunteer-force-analytics-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .volunteer-force-card:last-child { grid-column: span 1; }
+    .assignment-map-canvas-mockup { height: 240px; }
+    .assignment-ui-marker.position-node-alpha { left: 10%; top: 20%; }
+    .assignment-ui-marker.position-node-beta { right: 10%; bottom: 15%; }
+    .marker-details-bubble { padding: 0.5rem 0.75rem; }
+}
+
+@media (max-width: 520px) {
+    .assignment-panel-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+    .volunteer-data-table th, .volunteer-data-table td { padding: 0.85rem 0.6rem; font-size: 0.8rem; }
+    .marker-details-bubble { display: none; } /* Drop heavy interactive popups on extra narrow touchscreen views */
+}
+
+</style>
+
+                <!-- Section Block 4: Resource Dispatches -->
+             <!-- Enhanced Logistics Supply & Resource Dispatches Panel -->
+<section class="viewport-section-card" id="resource-dispatches">
+    
+    <!-- GRID ROW 1: Supply Chain Performance Metrics Grid -->
+    <div class="logistics-pipeline-metrics-grid">
+        
+        <!-- Metrics Tile 1 -->
+        <div class="logistics-stat-tile">
+            <div class="logistics-tile-header">
+                <span class="logistics-tile-label">Dispatched Aid Kits</span>
+                <div class="logistics-vector-box green-shield-theme">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M11,7H13V12H11V7M11,14H13V16H11V14Z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="logistics-tile-major">1,850 <span class="logistics-sub-unit">Packs</span></div>
+            <div class="logistics-mini-progress">
+                <div class="logistics-progress-fill match-green" style="width: 82%;"></div>
+            </div>
+            <p class="logistics-tile-caption">82% of total seasonal asset target distributed</p>
+        </div>
+
+        <!-- Metrics Tile 2 -->
+        <div class="logistics-stat-tile">
+            <div class="logistics-tile-header">
+                <span class="logistics-tile-label">Active Cargo Vessels</span>
+                <div class="logistics-vector-box blue-truck-theme">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M20,8H17V4H3A2,2 0 0,0 1,6V17H3A3,3 0 0,0 6,20A3,3 0 0,0 9,17H15A3,3 0 0,0 18,20A3,3 0 0,0 21,17H23V12L20,8M6,18.5A1.5,1.5 0 1,1 7.5,17A1.5,1.5 0 0,1 6,18.5M17,12V9.5H19.5L21.4,12H17M18,18.5A1.5,1.5 0 1,1 19.5,17A1.5,1.5 0 0,1 18,18.5Z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="logistics-tile-major">18 <span class="logistics-sub-unit">In-Transit</span></div>
+            <div class="logistics-mini-progress">
+                <div class="logistics-progress-fill match-blue" style="width: 55%;"></div>
+            </div>
+            <p class="logistics-tile-caption">Monitored via integrated radio grid telemetry</p>
+        </div>
+
+        <!-- Metrics Tile 3 -->
+        <div class="logistics-stat-tile">
+            <div class="logistics-tile-header">
+                <span class="logistics-tile-label">Net Cargo Valuation</span>
+                <div class="logistics-vector-box amber-ledger-theme">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M5,6H19V18H5V6M5,4A2,2 0 0,0 3,6V18A2,2 0 0,0 5,20H19A2,2 0 0,0 21,18V6A2,2 0 0,0 19,4H5M7,8H11V11H7V8M7,13H17V15H7V13M13,8H17V10H13V8Z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="logistics-tile-major">₹8.45 <span class="logistics-sub-unit">Lakhs</span></div>
+            <div class="logistics-mini-progress">
+                <div class="logistics-progress-fill match-amber" style="width: 68%;"></div>
+            </div>
+            <p class="logistics-tile-caption">Fully insured under corporate global aid grants</p>
+        </div>
+
+    </div>
+
+    <!-- GRID ROW 2: Interactive Transit Waypoint Milestones Tracker Component -->
+    <div class="logistics-tracking-matrix-card">
+        <div class="tracking-card-header">
+            <h3>Active Consignment Route Tracker</h3>
+            <span class="dispatch-pill"><span class="dispatch-beacon"></span>GPS Stream Linked</span>
+        </div>
+        
+        <div class="milestones-horizontal-axis">
+            <!-- Step 1 -->
+            <div class="axis-step step-complete">
+                <div class="step-circle">
+                    <svg viewBox="0 0 24 24" width="16" height="16"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg>
+                </div>
+                <div class="step-content">
+                    <strong>Manifest Approved</strong>
+                    <span>Node ID: DIS-WTR-8801</span>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="axis-step step-complete">
+                <div class="step-circle">
+                    <svg viewBox="0 0 24 24" width="16" height="16"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg>
+                </div>
+                <div class="step-content">
+                    <strong>Loaded & Sealed</strong>
+                    <span>Verified Audit Lock</span>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="axis-step step-active">
+                <div class="step-circle-pulse"></div>
+                <div class="step-content">
+                    <strong>In Transit</strong>
+                    <span>Salem Transit Corridor</span>
+                </div>
+            </div>
+            <!-- Step 4 -->
+            <div class="axis-step step-pending">
+                <div class="step-circle"></div>
+                <div class="step-content">
+                    <strong>Field Handover</strong>
+                    <span>Distribution Node 4A</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GRID ROW 3: Detailed Dispatched Inventory Ledger Data Table -->
+    <div class="logistics-history-ledger-box">
+        <div class="ledger-title-row">
+            <h3>Dispatched Resource Inventory Audit Ledger</h3>
+        </div>
+        
+        <div class="ledger-table-overflow-containment">
+            <table class="logistics-history-table">
+                <thead>
+                    <tr>
+                        <th>Consignment Reference</th>
+                        <th>Resource Cargo Variant</th>
+                        <th>Target Destination Field Hub</th>
+                        <th>Dispatch Date</th>
+                        <th>Inventory Mass</th>
+                        <th>Milestone Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="invoice-token">STK-DIS-8801</code></td>
+                        <td>45x Reverse-Osmosis Water Filtration Units</td>
+                        <td>Salem Northern Interchange Hub</td>
+                        <td>Aug 24, 2026</td>
+                        <td>1,240 Kilograms</td>
+                        <td><span class="milestone-badge m-transit">In Transit</span></td>
+                    </tr>
+                    <tr>
+                        <td><code class="invoice-token">STK-DIS-7412</code></td>
+                        <td>500x Vacuum-Sealed Macronutrient Packs</td>
+                        <td>MMR Complex Center Core Node</td>
+                        <td>Aug 18, 2026</td>
+                        <td>250 Kilograms</td>
+                        <td><span class="milestone-badge m-complete">Delivered</span></td>
+                    </tr>
+                    <tr>
+                        <td><code class="invoice-token">STK-DIS-6190</code></td>
+                        <td>120x High-Contrast Educational Toolkits</td>
+                        <td>Chinna Thirupathi Grid Depot</td>
+                        <td>Aug 11, 2026</td>
+                        <td>340 Kilograms</td>
+                        <td><span class="milestone-badge m-complete">Delivered</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</section>
+<style>
+    /* ==========================================================================
+   MODULE 9: SUPPLY CHAIN LOGISTICS AND RESOURCE DISPATCH PANELS
+   ========================================================================== */
+
+/* --- 1. UPPER PIPELINE SUMMARY MATRIX GRID --- */
+.logistics-pipeline-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.logistics-stat-tile {
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logistics-tile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.85rem;
+}
+
+.logistics-tile-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #666666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.logistics-vector-box {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logistics-vector-box svg { width: 18px; height: 18px; }
+
+/* Custom themed tracking icon fills maps */
+.logistics-vector-box.green-shield-theme { background-color: rgba(76, 175, 80, 0.08); fill: var(--text-forest); }
+.logistics-vector-box.blue-truck-theme { background-color: #e3f2fd; fill: #1e88e5; }
+.logistics-vector-box.amber-ledger-theme { background-color: rgba(230, 81, 0, 0.08); fill: #e65100; }
+
+.logistics-tile-major {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--dark-neutral);
+    line-height: 1;
+    margin-bottom: 0.85rem;
+    letter-spacing: -0.5px;
+}
+.logistics-tile-major .logistics-sub-unit { font-size: 0.95rem; font-weight: 700; color: #777777; }
+
+.logistics-mini-progress {
+    width: 100%;
+    height: 6px;
+    background-color: #f0f2f5;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 0.6rem;
+}
+
+.logistics-progress-fill { height: 100%; border-radius: 10px; }
+.logistics-progress-fill.match-green { background-color: var(--text-forest); }
+.logistics-progress-fill.match-blue { background-color: #2196f3; }
+.logistics-progress-fill.match-amber { background-color: #ff9100; }
+
+.logistics-tile-caption { font-size: 0.8rem; font-weight: 600; color: #888888; }
+
+.logistics-stat-tile:hover {
+    transform: translateY(-4px);
+    border-color: #ff9100;
+    box-shadow: 0 10px 25px rgba(230, 81, 0, 0.08);
+}
+
+/* --- 2. MIDDLE ROW HORIZONTAL TRANSIT MILESTONES AXIS PANEL --- */
+.logistics-tracking-matrix-card {
+    background-color: var(--white);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+    padding: 1.75rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.tracking-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.tracking-card-header h3 { font-size: 1.2rem; font-weight: 800; color: var(--dark-neutral); }
+
+.dispatch-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.9rem;
+    background-color: #f5f7f6;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #444444;
+    border: 1px solid rgba(0,0,0,0.04);
+}
+
+.dispatch-beacon {
+    width: 8px;
+    height: 8px;
+    background-color: #1e88e5;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #1e88e5;
+    animation: logisticsGpsPulse 2s infinite ease-in-out;
+}
+
+.milestones-horizontal-axis {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    padding: 0 1rem;
+}
+
+.milestones-horizontal-axis::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 4rem;
+    right: 4rem;
+    height: 3px;
+    background-color: #e2e8f0;
+    z-index: 1;
+}
+
+.axis-step {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 2;
+    flex: 1;
+}
+
+.step-circle {
+    width: 32px;
+    height: 32px;
+    background-color: #ffffff;
+    border: 3px solid #cbd5e1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+.step-circle svg { fill: #ffffff; }
+
+.step-complete .step-circle {
+    background-color: var(--dark-neutral);
+    border-color: var(--dark-neutral);
+}
+
+.step-active .step-circle-pulse {
+    width: 32px;
+    height: 32px;
+    background-color: #ffffff;
+    border: 4px solid #1e88e5;
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(30, 136, 229, 0.4);
+    position: relative;
+    animation: logisticsActiveRingBounce 2s infinite alternate;
+}
+
+.step-content { margin-top: 0.75rem; display: flex; flex-direction: column; gap: 0.15rem; }
+.step-content strong { font-size: 0.9rem; color: var(--dark-neutral); }
+.step-content span { font-size: 0.75rem; color: #777777; font-weight: 600; }
+
+/* --- 3. BOTTOM HISTORICAL INVENTORY LEDGER TABLE --- */
+.logistics-history-ledger-box {
+    background-color: var(--white);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+    padding: 1.75rem;
+    width: 100%;
+}
+
+.ledger-title-row { margin-bottom: 1.25rem; }
+.ledger-title-row h3 { font-size: 1.2rem; font-weight: 800; color: var(--dark-neutral); }
+
+.ledger-table-overflow-containment { width: 100%; overflow-x: auto; }
+
+.logistics-history-table { width: 100%; border-collapse: collapse; text-align: left; }
+.logistics-history-table th, .logistics-history-table td { padding: 1rem 1.25rem; font-size: 0.9rem; font-weight: 600; border-bottom: 1px solid #f0f2f5; }
+
+.logistics-history-table th {
+    background-color: #f5f7f6;
+    color: #555555;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.8rem;
+}
+
+.logistics-history-table tbody tr { transition: background-color 0.2s ease; }
+.logistics-history-table tbody tr:hover { background-color: var(--bg-faint); }
+
+.invoice-token {
+    font-family: monospace;
+    background-color: #f5f7f6;
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: var(--dark-neutral);
+    font-weight: bold;
+}
+
+.milestone-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.milestone-badge.m-transit { background-color: rgba(30, 136, 229, 0.1); color: #1e88e5; }
+.milestone-badge.m-complete { background-color: rgba(76, 175, 80, 0.1); color: #2e7d32; border: 1px solid rgba(76, 175, 80, 0.15); }
+
+/* --- SEAMLESS LAYOUT SIGNAL KEYFRAMES ANIMATIONS --- */
+@keyframes logisticsGpsPulse { 0% { transform: scale(0.95); opacity: 0.5; } 50% { transform: scale(1.05); opacity: 1; box-shadow: 0 0 10px #1e88e5; } 100% { transform: scale(0.95); opacity: 0.5; } }
+@keyframes logisticsActiveRingBounce { 0% { border-color: #2196f3; } 100% { border-color: var(--dark-neutral); } }
+
+/* --- RESPONSIVE MEDIA GRID CLOSURES OVERRIDES --- */
+@media (max-width: 1200px) {
+    .logistics-pipeline-metrics-grid { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .logistics-stat-tile:last-child { grid-column: span 2; }
+}
+
+@media (max-width: 992px) {
+    .milestones-horizontal-axis { flex-direction: column; gap: 1.5rem; align-items: flex-start; padding-left: 2rem; }
+    .milestones-horizontal-axis::before { left: 2.5rem; top: 0; bottom: 0; width: 3px; height: 80%; }
+    .axis-step { flex-direction: row; gap: 1.5rem; text-align: left; }
+    .step-content { margin-top: 0; }
+}
+
+@media (max-width: 768px) {
+    .logistics-pipeline-metrics-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .logistics-stat-tile:last-child { grid-column: span 1; }
+}
+
+@media (max-width: 520px) {
+    .tracking-card-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+    .logistics-history-table th, .logistics-history-table td { padding: 0.85rem 0.6rem; font-size: 0.8rem; }
+}
+
+</style>
+
+            
+
+            </main>
+
+        </div>
+    </div>
+
+<style>
+    /* ==========================================================================
+   STACKLY NGO PARTNER MATRIX ENGINE - THEMED TO COMPASSIONATE GLOBAL AID
+   ========================================================================== */
+
+:root {
+    --bg-faint: #fff8f6;       /* Clean warm ivory background touch wash */
+    --text-forest: #2e7d32;    /* Balanced vibrant green accent for active growth/impact metrics */
+    --agri-glow: #e65100;      /* Warm humanitarian alert orange theme accent color */
+    --white: #ffffff;
+    --dark-neutral: #1a221e;   /* Premium high-contrast dark green slate for dark menu decks */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background-color: #f5f7f6;
+    color: var(--dark-neutral);
+    height: 100vh;
+    overflow: hidden; /* Blocks all unwanted page structural layout warping */
+}
+
+body.sidebar-scroll-lock {
+    overflow: hidden !important;
+}
+
+/* Master grid tree container completely forces sidebar and main panels apart mathematically */
+.partner-grid-matrix {
+    display: grid;
+    grid-template-columns: 270px 1fr; 
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* --- NAVIGATION MOBILE CANVASS BLUR LOCK SHUTTER --- */
+.sidebar-mobile-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.sidebar-mobile-overlay.active-lock {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ==========================================================================
+   MODULE 1: FIXED DARK SIDEBAR NAVIGATION BAR
+   ========================================================================== */
+.sidebar-panel-wrapper {
+    grid-column: 1; 
+    background-color: var(--dark-neutral);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 1.5rem;
+    z-index: 100;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+.brand-logo-anchor-box { display: inline-flex; }
+.sidebar-brand-img { height: 36px; width: auto; object-fit: contain; }
+
+.btn-sidebar-close {
+    display: none; 
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.sidebar-navigation { flex-grow: 1; }
+.nav-links-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+
+.nav-item-link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.85rem 1.15rem;
+    border-radius: 12px;
+    color: #93a39a; /* Mid-contrast charcoal grey layout text */
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: all 0.25s ease;
+}
+.nav-item-link svg { width: 18px; height: 18px; fill: #93a39a; transition: fill 0.25s ease, filter 0.25s ease; }
+
+.nav-item-link:hover, .nav-item-link.active {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.nav-item-link.active {
+    background-color: rgba(230, 81, 0, 0.08) !important; /* Premium warm tone transparency card backgrounds */
+    color: #ff9100;
+    border: 1px solid rgba(230, 81, 0, 0.15);
+}
+.nav-item-link.active svg { fill: #ff9100; filter: drop-shadow(0 0 3px #ff9100); }
+
+.sidebar-lower-actions {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 1.25rem;
+}
+.btn-sidebar-logout {
+    background: none;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.85rem 1.15rem;
+    color: #f4511e; 
+    font-weight: 700;
+    font-size: 0.95rem;
+    border-radius: 12px;
+    transition: background-color 0.25s ease;
+}
+.btn-sidebar-logout svg { width: 18px; height: 18px; fill: #f4511e; }
+.btn-sidebar-logout:hover { background-color: rgba(244, 81, 30, 0.04); }
+
+/* ==========================================================================
+   MODULE 2: VIEWPORT CONTAINER WRAPPER & HEADER BAR
+   ========================================================================== */
+.dashboard-viewport-wrapper {
+    grid-column: 2; 
+    display: flex;
+    flex-direction: column; 
+    height: 100vh;
+    background-color: #f5f7f6;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.dashboard-upper-header {
+    height: 70px;
+    width: 100%;
+    background-color: var(--white);
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0; 
+    z-index: 10;
+}
+
+.hamburger-menu-trigger {
+    display: none; 
+    background: none;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+.hamburger-menu-trigger svg { fill: var(--dark-neutral); }
+
+.header-breadcrumbs { font-size: 0.95rem; color: #52635c; }
+.header-breadcrumbs strong { color: var(--dark-neutral); }
+
+.header-utility-actions { display: flex; align-items: center; gap: 1.5rem; }
+
+.header-bell-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    color: var(--dark-neutral);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem;
+    border-radius: 50%;
+}
+.header-bell-btn:hover { background-color: var(--bg-faint); }
+.header-bell-btn svg { fill: var(--dark-neutral); }
+
+.alert-unread-dot {
+    position: absolute;
+    top: 4px;
+    right: 5px;
+    width: 7px;
+    height: 7px;
+    background-color: #f4511e;
+    border-radius: 50%;
+}
+
+.header-profile-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.35rem 1rem 0.35rem 0.4rem;
+    background-color: #f5f7f6;
+    border-radius: 30px;
+    border: 1px solid rgba(0,0,0,0.04);
+}
+.profile-avatar-circle { width: 32px; height: 32px; background-color: var(--text-forest); color: var(--white); font-weight: 800; font-size: 0.9rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.profile-username-string { font-size: 0.9rem; font-weight: 700; color: var(--dark-neutral); }
+
+/* ==========================================================================
+   MODULE 3: INDEPENDENT DATA PRESENTATION VIEWPORTS CANVAS
+   ========================================================================== */
+.dashboard-content-main {
+    flex-grow: 1; 
+    width: 100%;
+    padding: 2.5rem;
+    overflow-y: auto; 
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+.viewport-section-card {
+    display: none; 
+    width: 100%;
+    box-sizing: border-box;
+    animation: ngoFadeReveal 0.4s ease-out forwards;
+}
+.viewport-section-card.active { display: block; }
+
+.placeholder-content-title {
+    background-color: var(--white);
+    padding: 5rem 2.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(0,0,0,0.03);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.01);
+    text-align: center;
+    width: 100%;
+}
+.placeholder-content-title h2 { font-size: 1.8rem; font-weight: 800; color: var(--dark-neutral); margin-bottom: 0.6rem; letter-spacing: -0.5px; }
+.placeholder-content-title p { font-size: 1rem; color: #52635c; font-weight: 500; line-height: 1.5; max-width: 540px; margin: 0 auto; }
+
+@keyframes ngoFadeReveal {
+    0% { opacity: 0; transform: translateY(6px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   MODULE 4: HIGH-PERFORMANCE RESPONSIVE RESOLUTIONS
+   ========================================================================== */
+@media (max-width: 992px) {
+    .partner-grid-matrix { display: block; }
+    
+    .sidebar-panel-wrapper {
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 270px;
+        transform: translateX(-100%); 
+        z-index: 1000;
+        box-shadow: 25px 0 50px rgba(0,0,0,0.2);
+    }
+    .sidebar-panel-wrapper.mobile-visible { transform: translateX(0); }
+    .btn-sidebar-close { display: block; }
+    .hamburger-menu-trigger { display: flex; }
+    .dashboard-viewport-wrapper { width: 100%; }
+    .dashboard-upper-header { padding: 0 1.5rem; }
+    .dashboard-content-main { padding: 1.5rem; }
+}
+
+@media (max-width: 580px) {
+    .header-breadcrumbs { display: none; } 
+}
+
+</style>
+
+<script>
+    function refreshAndStayOnCurrentPage() {
+
+    const activePanel = document.querySelector(
+        ".viewport-section-card.active"
+    );
+
+    if (activePanel) {
+        sessionStorage.setItem(
+            "stackly_return_panel",
+            activePanel.id
+        );
+    }
+
+    window.location.reload();
+}
+
+    document.addEventListener("DOMContentLoaded", () => {
+    
+    // --- 1. EXTRACT AND RENDER UNIQUE USER NICKNAME FROM STORAGE DATA WELLS ---
+    const sessionEmailStr = localStorage.getItem("stackly_session_user");
+    const displayNode = document.getElementById("dashboard-user-display");
+
+    if (displayNode) {
+        if (sessionEmailStr && sessionEmailStr.includes("@")) {
+            const nicknameArray = sessionEmailStr.split("@");
+            displayNode.textContent = nicknameArray[0]; // Extracts short name index prefix cleanly
+        } else {
+            displayNode.textContent = "Mission Partner"; 
+        }
+    }
+
+    // --- 2. SWITCHER MATRIX OPERATIONS: VIEWPORT SECTION CARD PANELS ---
+    const navAnchors = document.querySelectorAll(".nav-item-link");
+    const viewCards = document.querySelectorAll(".viewport-section-card");
+    const topBreadcrumb = document.getElementById("dynamic-section-breadcrumb");
+
+    navAnchors.forEach((anchor) => {
+        anchor.addEventListener("click", (event) => {
+            event.preventDefault();
+
+            navAnchors.forEach((link) => link.classList.remove("active"));
+            viewCards.forEach((card) => card.classList.remove("active"));
+
+            anchor.classList.add("active");
+            const targetedIdString = anchor.getAttribute("data-target");
+            const matchingPanel = document.getElementById(targetedIdString);
+            
+            if (matchingPanel) {
+                matchingPanel.classList.add("active");
+            }
+
+            if (topBreadcrumb) {
+                const updatedLabel = anchor.querySelector("span").textContent;
+                topBreadcrumb.textContent = updatedLabel;
+            }
+
+            if (sidebarDrawer.classList.contains("mobile-visible")) {
+                retractMobileSidebarDrawerRoutine();
+            }
+        });
+    });
+
+    // --- 3. MOBILE ENGINE: HAMBURGER TRIGGER OVERLAYS WITH INTERACTIVE SCROLL LOCK ---
+    const openMenuBtn = document.getElementById("mobile-hamburger-btn");
+    const closeMenuBtn = document.getElementById("sidebar-close-trigger");
+    const sidebarDrawer = document.getElementById("dashboard-sidebar");
+    const backgroundOverlayShutter = document.getElementById("mobile-viewport-lock");
+    const rootBody = document.body;
+
+    function invokeMobileSidebarDrawerRoutine() {
+        sidebarDrawer.classList.add("mobile-visible");
+        backgroundOverlayShutter.classList.add("active-lock");
+        rootBody.classList.add("sidebar-scroll-lock");
+    }
+
+    function retractMobileSidebarDrawerRoutine() {
+        sidebarDrawer.classList.remove("mobile-visible");
+        backgroundOverlayShutter.classList.remove("active-lock");
+        rootBody.classList.remove("sidebar-scroll-lock");
+    }
+
+    if (openMenuBtn && closeMenuBtn && sidebarDrawer && backgroundOverlayShutter) {
+        openMenuBtn.addEventListener("click", invokeMobileSidebarDrawerRoutine);
+        closeMenuBtn.addEventListener("click", retractMobileSidebarDrawerRoutine);
+        backgroundOverlayShutter.addEventListener("click", retractMobileSidebarDrawerRoutine);
+    }
+
+    // --- 4. SECURE PORTAL TERMINATION EXIT FLOW ---
+    const logoutBtn = document.getElementById("portal-logout-trigger");
+    if (logoutBtn) {
+        logoutBtn.addEventListener("click", () => {
+            localStorage.removeItem("stackly_session_user");
+            window.location.href = "login.html";
+        });
+    }
+});
+
+
+
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const savedPanelId = sessionStorage.getItem("stackly_return_panel");
+
+    if (!savedPanelId) {
+        return;
+    }
+
+    const savedPanel = document.getElementById(savedPanelId);
+
+    if (!savedPanel) {
+        sessionStorage.removeItem("stackly_return_panel");
+        return;
+    }
+
+    /* Restore the saved panel */
+    document.querySelectorAll(".viewport-section-card").forEach(card => {
+        card.classList.remove("active");
+    });
+
+    savedPanel.classList.add("active");
+
+    /* Restore the corresponding sidebar button */
+    document.querySelectorAll(".nav-item-link").forEach(link => {
+        link.classList.remove("active");
+    });
+
+    const matchingNav = document.querySelector(
+        `.nav-item-link[data-target="${savedPanelId}"]`
+    );
+
+    if (matchingNav) {
+        matchingNav.classList.add("active");
+
+        const label = matchingNav.querySelector("span");
+        const breadcrumb = document.getElementById(
+            "dynamic-section-breadcrumb"
+        );
+
+        if (label && breadcrumb) {
+            breadcrumb.textContent = label.textContent;
+        }
+    }
+
+    /* Clear only after restoration */
+    sessionStorage.removeItem("stackly_return_panel");
+
+});
+</script>
+</body>
+</html>

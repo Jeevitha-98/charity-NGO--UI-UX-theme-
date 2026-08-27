@@ -1,0 +1,2149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly Charity Header</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <link href="https://googleapis.com/css2?family=Inter:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <a href="#" class="logo" onclick="refreshPage(event)">
+                <img src="./Assests/logo agriculture farming.webp" alt="Stackly Logo">
+            </a>
+
+            <nav class="navbar" id="navbar">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-item ">Home</a></li>
+                    <li><a href="about.html" class="nav-item">About Us</a></li>
+                    <li><a href="programs.html" class="nav-item">Our Programs</a></li>
+                    <li><a href="impact.html" class="nav-item">Impact</a></li>
+                    <li><a href="stories.html" class="nav-item">Stories</a></li>
+                    <li><a href="blog.html" class="nav-item">Blog</a></li>
+                    <li><a href="contact.html" class="nav-item active">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions" id="headerActions">
+                <a href="login.html" class="btn-login">Login Now</a>
+            </div>
+
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle Navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+<script>
+    function refreshPage(event) {
+    event.preventDefault();
+    window.location.reload();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const hamburgerBtn = document.getElementById("hamburgerBtn");
+    const navbar = document.getElementById("navbar");
+    const headerActions = document.getElementById("headerActions");
+    const menuOverlay = document.getElementById("menuOverlay");
+    const navItems = document.querySelectorAll(".nav-item");
+
+    function toggleMenu() {
+        hamburgerBtn.classList.toggle("active");
+        navbar.classList.toggle("mobile-open");
+        headerActions.classList.toggle("mobile-open");
+        menuOverlay.classList.toggle("show");
+        document.body.classList.toggle("no-scroll");
+    }
+
+    hamburgerBtn.addEventListener("click", toggleMenu);
+    menuOverlay.addEventListener("click", toggleMenu);
+
+    navItems.forEach(item => {
+        item.addEventListener("click", () => {
+            document.querySelector(".nav-item.active")?.classList.remove("active");
+            item.classList.add("active");
+
+            if (navbar.classList.contains("mobile-open")) {
+                toggleMenu();
+            }
+        });
+    });
+});
+
+</script>
+
+
+   <section class="contact-hero">
+    <!-- Blurred Background Image Container with Inline Img Tag -->
+    <div class="hero-bg-blur">
+        <img src="./Assests/about section BG 1.webp" alt="Charity background">
+    </div>
+    
+    <!-- Foreground Layout Container -->
+    <div class="hero-container">
+        <!-- Content stays exactly the same -->
+
+            <div class="hero-left-content">
+                <!-- Breadcrumb Navigation Links -->
+                <nav class="breadcrumb">
+                    <a href="#">Home</a> <span class="separator">&gt;</span> <span class="current">Contact Us</span>
+                </nav>
+
+                <!-- Target Typing Animation Container -->
+                <h1 class="main-title" id="typingTitle"></h1>
+
+                <p class="description-text">
+                    Have a question, partnership idea, or want to get involved? we're here to listen and help.
+                </p>
+
+                <!-- Blinking Marketing Utility Grid -->
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="icon-wrapper">
+                            <!-- Clock / Time Indicator Icon -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        </div>
+                        <div class="feature-text">
+                            <h4>We Respond Quickly</h4>
+                            <p>Within 24-48 hours</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="icon-wrapper">
+                            <!-- Support / Headset / User Icon -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                        <div class="feature-text">
+                            <h4>We're here to help</h4>
+                            <p>Your voice matters to us</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="icon-wrapper">
+                            <!-- Heart / Impact Icon -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Make an Impact</h4>
+                            <p>Together we create change</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <style>
+
+    /* Structural Background Container Layout */
+.hero-bg-blur {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    mask-image: linear-gradient(to right, transparent 35%, rgba(0,0,0,1) 75%);
+    -webkit-mask-image: linear-gradient(to right, transparent 35%, rgba(0,0,0,1) 75%);
+}
+
+/* Targeted Background Img Element Rules */
+.hero-bg-blur img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Forces image to scale uniformly without stretching distortion */
+    object-position: right center;
+    filter: blur(2px); /* Applying the requested blur filter directly to the image element */
+}
+
+    /* Universal Formatter Settings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f7f5ee;
+    overflow-x: hidden;
+}
+
+/* Master Wrapper Frame Config */
+.contact-hero {
+    position: relative;
+    width: 100%;
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+    background-color: #eaddd3; /* Fallback safe block match */
+    padding: 40px 5%;
+    overflow: hidden;
+}
+
+/* Structural Background Layout & Advanced Blur Application */
+.hero-bg-blur {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://unsplash.com');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: cover;
+    z-index: 1;
+    mask-image: linear-gradient(to right, transparent 35%, rgba(0,0,0,1) 75%);
+    -webkit-mask-image: linear-gradient(to right, transparent 35%, rgba(0,0,0,1) 75%);
+    filter: blur(2px); /* Applying the requested blur filter directly to the image */
+}
+
+/* Clear View Content Frame Layer */
+.hero-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    z-index: 2;
+    display: flex;
+}
+
+.hero-left-content {
+    max-width: 55%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Typography Hierarchy Styling */
+.breadcrumb {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: green;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: green;
+    opacity: 0.7;
+}
+
+.breadcrumb .separator {
+    margin: 0 4px;
+    opacity: 0.5;
+}
+
+.main-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 45px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #000000;
+    min-height: 45px; /* Blocks layout shifting during character runtime compilation */
+}
+
+.description-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 140%; /* Boosted strictly for structural readability vs standard absolute lines */
+    letter-spacing: 0%;
+    color: #000000;
+    max-width: 480px;
+    opacity: 0.85;
+}
+
+/* Utility Features Section Engine */
+.features-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 10px;
+    /* Features blinking animation implementation */
+    animation: simpleBlink 0s ease-in-out infinite; 
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.icon-wrapper svg {
+    width: 24px;
+    height: 24px;
+    stroke: #0d4429; /* Dark green accent mirroring original assets styling context */
+}
+
+.feature-text h4 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #000000;
+    margin-bottom: 2px;
+}
+
+.feature-text p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 100%;
+    color: #000000;
+    opacity: 0.7;
+}
+
+/* Keyframes Setup Definitions */
+@keyframes simpleBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+/* Complete Mobile Viewports Structural Scaling Optimization */
+@media (max-width: 991px) {
+    .hero-left-content {
+        max-width: 75%;
+    }
+    .hero-bg-blur {
+        mask-image: linear-gradient(to right, transparent 15%, rgba(0,0,0,0.8) 85%);
+        -webkit-mask-image: linear-gradient(to right, transparent 15%, rgba(0,0,0,0.8) 85%);
+    }
+}
+
+@media (max-width: 767px) {
+    .contact-hero {
+        min-height: auto;
+        padding: 60px 24px;
+    }
+    .hero-bg-blur {
+        opacity: 0.25; /* Prevents text-clashing on narrow compact viewports */
+        mask-image: none;
+        -webkit-mask-image: none;
+        background-position: center;
+    }
+    .hero-left-content {
+        max-width: 100%;
+        gap: 18px;
+    }
+    .main-title {
+        font-size: 34px;
+    }
+    .features-grid {
+        flex-direction: column;
+        gap: 14px;
+    }
+}
+
+  </style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    // --- Configuration Parameters ---
+    const targetText = "Contact Us";
+    const targetContainer = document.getElementById("typingTitle");
+    const characterTypingSpeedMs = 120; // Structural intervals metric tracker
+    
+    let currentIndex = 0;
+
+    // --- Letter-by-Letter Execution Routine ---
+    function appendNextLetter() {
+        if (currentIndex < targetText.length) {
+            targetContainer.textContent += targetText.charAt(currentIndex);
+            currentIndex++;
+            setTimeout(appendNextLetter, characterTypingSpeedMs);
+        }
+    }
+
+    // Initialize compilation script sequence 
+    appendNextLetter();
+});
+
+</script>
+
+<section class="stk-contact-section">
+    <div class="stk-contact-container">
+        
+        <!-- Left Side: Contact Information Content Column -->
+        <div class="stk-contact-info-col">
+            <h2 class="stk-contact-title" id="scrollLetterContactTitle">Contact Us</h2>
+            <p class="stk-contact-subtitle">Have a question, partnership idea, or want to get involved? we're here to listen and help.</p>
+
+          <div class="stk-info-list">
+    <!-- Office Address Block -->
+    <div class="stk-info-item">
+        <div class="stk-info-icon">
+            <!-- 🌟 Native White SVG Location Pin Icon -->
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="#FFFFFF" xmlns="http://w3.org">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </svg>
+        </div>
+        <div class="stk-info-text">
+            <h3>Our Office</h3>
+            <p>MMR Complex, Periyakollappatty, Chinna Thirupathi, Salem, Tamil Nadu 636008</p>
+        </div>
+    </div>
+
+    <!-- Phone Block -->
+    <div class="stk-info-item">
+        <div class="stk-info-icon">
+            <!-- 🌟 Native White SVG Phone Receiver Icon -->
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="#FFFFFF" xmlns="http://w3.org">
+                <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21c.28-.26.36-.65.25-1C8.79 6.35 8.59 5.16 8.59 3.92c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.54c0-.55-.45-1-1-1z"/>
+            </svg>
+        </div>
+        <div class="stk-info-text">
+            <h3>Phone</h3>
+            <p><a href="tel:+917010792745">+91 7010792745</a></p>
+        </div>
+    </div>
+
+    <!-- Email Block (Outlook Action Deep Link) -->
+    <div class="stk-info-item">
+        <div class="stk-info-icon">
+            <!-- 🌟 Native White SVG Envelope Mail Icon -->
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="#FFFFFF" xmlns="http://w3.org">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+        </div>
+        <div class="stk-info-text">
+            <h3>Email</h3>
+            <p><a href="mailto:info@stackly.com" class="stk-mailto-link">info@stackly.com</a></p>
+        </div>
+    </div>
+
+    <!-- Working Hours Block -->
+    <div class="stk-info-item">
+        <div class="stk-info-icon">
+            <!-- 🌟 Native White SVG Globe Web Grid Icon -->
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="#FFFFFF" xmlns="http://w3.org">
+                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95a15.65 15.65 0 0 0-1.38-3.56A8.03 8.03 0 0 1 18.92 8zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.34-.14 2s.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56A7.987 7.987 0 0 1 5.08 16zm2.95-8H5.08a7.987 7.987 0 0 1 4.33-3.56A15.65 15.65 0 0 0 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.34-.16-2s.07-1.34.16-2h4.68c.09.66.16 1.34.16 2s-.07 1.34-.16 2zm.28 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56zM16.36 14c.08-.66.14-1.34.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/>
+            </svg>
+        </div>
+        <div class="stk-info-text">
+            <h3>Working Hours</h3>
+            <p>Mon-Sat : 9:30AM-6:30PM<br>Sunday : Closed</p>
+        </div>
+    </div>
+</div>
+
+
+            <!-- Monochromatic Green Theme Social Links with Visible White Vectors -->
+            <div class="stk-social-wrapper">
+                <h3>Follow Us</h3>
+              <div class="stk-social-links">
+    <!-- Facebook -->
+    <a href="404.html" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="#FFFFFF"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.8z"/></svg>
+    </a>
+    <!-- LinkedIn -->
+    <a href="404.html" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="#FFFFFF"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.8v8.37h2.8v-4.67c0-.25.015-.51.09-.69.2-.5.65-1 1.41-1 1 0 1.38.76 1.38 1.87v4.49h2.8M6.5 8.37a1.37 1.37 0 1 0 0-2.75 1.37 1.37 0 0 0 0 2.75M8 18.5V10.13H5.2v8.37H8z"/></svg>
+    </a>
+    <!-- X (Twitter) -->
+    <a href="404.html" aria-label="X (Twitter)">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="#FFFFFF"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
+    <!-- Instagram -->
+    <a href="404.html" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="#FFFFFF"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+    </a>
+</div>
+
+            </div>
+        </div>
+
+        <!-- Right Side: Contact Validation Form Panel Box -->
+        <div class="stk-contact-form-col">
+            <div class="stk-form-card">
+                <h3>Send Us A Message</h3>
+                <p>Fill out the form below and our team will get back to you soon.</p>
+                
+                <!-- Status Validation Messaging Banner -->
+                <div id="formAlertMessage" class="stk-form-alert" style="display: none;"></div>
+
+                <form id="stkInteractiveContactForm" novalidate>
+                    <div class="stk-form-row-twin">
+                        <div class="stk-input-group">
+                            <input type="text" id="stkContactName" name="name" placeholder="Your Name" required autocomplete="off">
+                        </div>
+                        <div class="stk-input-group">
+                            <input type="email" id="stkContactEmail" name="email" placeholder="Your Email" required autocomplete="off">
+                        </div>
+                    </div>
+                    
+                    <div class="stk-input-group">
+                        <input type="text" id="stkContactSubject" name="subject" placeholder="Subject" required autocomplete="off">
+                    </div>
+
+                    <div class="stk-input-group">
+                        <textarea id="stkContactMessage" name="message" rows="6" placeholder="Your Message" required autocomplete="off"></textarea>
+                    </div>
+
+                    <button type="submit" class="stk-btn-submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+
+    /* Centers the clean SVG graphics cleanly inside your primary green circle badges */
+.stk-info-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--ct-green-primary, #126B2F);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.stk-info-icon svg {
+    display: block;
+    fill: #FFFFFF !important; /* Locks vector lines to a clean crisp white tone */
+}
+
+:root {
+    --ct-green-primary: #126B2F;
+    --ct-green-hover: #0c4d21;
+    --ct-text-dark: #000000;
+    --ct-text-muted: #555555;
+    --ct-bg-canvas: #FFFFFF;
+    --ct-border-light: #E2E8F0;
+    --ct-transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.stk-contact-section {
+    width: 100%;
+    background-color: var(--ct-bg-canvas);
+    padding: 30px 0 0;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.stk-contact-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 24px;
+    gap: 60px;
+    box-sizing: border-box;
+}
+
+/* Left Info Layout Column */
+.stk-contact-info-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.stk-contact-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    color: var(--ct-text-dark);
+    margin-bottom: 16px;
+}
+
+.stk-contact-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 140%;
+    color: var(--ct-text-muted);
+    margin-bottom: 40px;
+    max-width: 450px;
+}
+
+.stk-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin-bottom: 40px;
+}
+
+.stk-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.stk-info-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--ct-green-primary);
+    color: var(--ct-bg-canvas);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.stk-info-icon i {
+    color: #FFFFFF !important;
+}
+
+.stk-info-text h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--ct-text-dark);
+    margin-bottom: 4px;
+}
+
+.stk-info-text p, 
+.stk-info-text p a {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--ct-text-muted);
+    text-decoration: none;
+    line-height: 140%;
+    transition: var(--ct-transition);
+}
+
+.stk-info-text p a:hover {
+    color: var(--ct-green-primary);
+    text-decoration: underline;
+}
+
+/* Social Media Section & Icons Layout */
+.stk-social-wrapper h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--ct-text-dark);
+    margin-bottom: 12px;
+}
+
+.stk-social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.stk-social-links a {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--ct-green-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: var(--ct-transition);
+}
+
+/* 🌟 Vector Visibility Fix: Forced crisp white rendering */
+.stk-social-links a i {
+    color: #FFFFFF !important; 
+    font-size: 15px;
+    display: inline-block;
+}
+
+.stk-social-links a:hover {
+    background-color: var(--ct-green-hover);
+    transform: translateY(-3px);
+}
+
+/* Right Side: Message Card Form Structure Elements */
+.stk-contact-form-col {
+    flex: 1.2;
+}
+
+.stk-form-card {
+    background-color: var(--ct-bg-canvas);
+    border: 1px solid var(--ct-border-light);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    box-sizing: border-box;
+}
+
+.stk-form-card h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--ct-text-dark);
+    margin-bottom: 8px;
+}
+
+.stk-form-card p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--ct-text-muted);
+    margin-bottom: 28px;
+}
+
+.stk-form-row-twin {
+    display: flex;
+    gap: 20px;
+}
+
+.stk-input-group {
+    width: 100%;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.stk-input-group input,
+.stk-input-group textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid var(--ct-border-light);
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--ct-text-dark);
+    outline: none;
+    background-color: var(--ct-bg-canvas);
+    box-sizing: border-box;
+    transition: var(--ct-transition);
+}
+
+.stk-input-group input:focus,
+.stk-input-group textarea:focus {
+    border-color: var(--ct-green-primary);
+    box-shadow: 0 0 0 3px rgba(18, 107, 47, 0.1);
+}
+
+.stk-input-group.stk-input-error input,
+.stk-input-group.stk-input-error textarea {
+    border-color: #DC2626 !important;
+    background-color: #FFF5F5;
+}
+
+.stk-form-alert {
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    line-height: 140%;
+}
+
+.stk-form-alert.stk-alert-danger {
+    background-color: #FEE2E2;
+    color: #991B1B;
+    border: 1px solid #FCA5A5;
+}
+
+.stk-btn-submit {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--ct-green-primary);
+    color: var(--ct-bg-canvas);
+    border: none;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: var(--ct-transition);
+}
+
+.stk-btn-submit:hover {
+    background-color: var(--ct-green-hover);
+}
+
+/* Scroll Animation Letter Blocks */
+.stk-pt-char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1), transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.stk-pt-char.stk-pt-revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stk-pt-space {
+    display: inline-block;
+    width: 0.28em;
+}
+
+/* Responsive Rules Layout Screen Wrappers */
+@media (max-width: 992px) {
+    .stk-contact-container {
+        flex-direction: column;
+        gap: 50px;
+    }
+    .stk-contact-info-col, .stk-contact-form-col {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .stk-form-row-twin {
+        flex-direction: column;
+        gap: 0;
+    }
+    .stk-form-card {
+        padding: 24px 20px;
+    }
+    .stk-contact-title {
+        font-size: 30px;
+    }
+}
+
+/* ============================================
+   CONTACT SECTION SCROLL REVEAL EFFECT
+   ============================================ */
+
+.stk-contact-info-col,
+.stk-contact-form-col {
+    opacity: 0;
+    transform: translateY(50px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Left side comes from the left */
+.stk-contact-info-col {
+    transform: translateX(-60px) translateY(20px);
+}
+
+/* Right side comes from the right */
+.stk-contact-form-col {
+    transform: translateX(60px) translateY(20px);
+}
+
+/* Activated when section enters viewport */
+.stk-contact-section.stk-scroll-visible .stk-contact-info-col,
+.stk-contact-section.stk-scroll-visible .stk-contact-form-col {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+}
+
+/* Small stagger effect */
+.stk-contact-section.stk-scroll-visible .stk-contact-form-col {
+    transition-delay: 0.15s;
+}
+
+
+/* Individual information items */
+.stk-info-item {
+    opacity: 0;
+    transform: translateY(25px);
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.stk-contact-section.stk-scroll-visible .stk-info-item {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stk-contact-section.stk-scroll-visible .stk-info-item:nth-child(1) {
+    transition-delay: 0.25s;
+}
+
+.stk-contact-section.stk-scroll-visible .stk-info-item:nth-child(2) {
+    transition-delay: 0.35s;
+}
+
+.stk-contact-section.stk-scroll-visible .stk-info-item:nth-child(3) {
+    transition-delay: 0.45s;
+}
+
+.stk-contact-section.stk-scroll-visible .stk-info-item:nth-child(4) {
+    transition-delay: 0.55s;
+}
+
+
+/* Social media animation */
+.stk-social-wrapper {
+    opacity: 0;
+    transform: translateY(25px);
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+.stk-contact-section.stk-scroll-visible .stk-social-wrapper {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.7s;
+}
+
+
+/* Form fields animation */
+.stk-form-card h3,
+.stk-form-card > p,
+.stk-input-group,
+.stk-btn-submit {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+}
+
+.stk-contact-section.stk-scroll-visible .stk-form-card h3,
+.stk-contact-section.stk-scroll-visible .stk-form-card > p,
+.stk-contact-section.stk-scroll-visible .stk-input-group,
+.stk-contact-section.stk-scroll-visible .stk-btn-submit {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stk-contact-section.stk-scroll-visible .stk-form-card h3 {
+    transition-delay: 0.25s;
+}
+
+.stk-contact-section.stk-scroll-visible .stk-form-card > p {
+    transition-delay: 0.35s;
+}
+
+.stk-contact-section.stk-scroll-visible .stk-form-card .stk-input-group:nth-of-type(1) {
+    transition-delay: 0.45s;
+}
+
+.stk-contact-section.stk-scroll-visible .stk-form-card .stk-input-group:nth-of-type(2) {
+    transition-delay: 0.55s;
+}
+
+.stk-contact-section.stk-scroll-visible .stk-form-card .stk-input-group:nth-of-type(3) {
+    transition-delay: 0.65s;
+}
+
+.stk-contact-section.stk-scroll-visible .stk-form-card .stk-input-group:nth-of-type(4) {
+    transition-delay: 0.75s;
+}
+
+.stk-contact-section.stk-scroll-visible .stk-btn-submit {
+    transition-delay: 0.85s;
+}
+
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .stk-contact-info-col,
+    .stk-contact-form-col,
+    .stk-info-item,
+    .stk-social-wrapper,
+    .stk-form-card h3,
+    .stk-form-card > p,
+    .stk-input-group,
+    .stk-btn-submit {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+</style>
+
+<script>
+
+    // ============================================
+// CONTACT SECTION SCROLL REVEAL
+// ============================================
+
+const contactSection = document.querySelector(".stk-contact-section");
+
+if (contactSection) {
+
+    const contactScrollObserver = new IntersectionObserver(
+        (entries, observer) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    // Activate animation
+                    entry.target.classList.add("stk-scroll-visible");
+
+                    // Run only once
+                    observer.unobserve(entry.target);
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.20,
+            rootMargin: "0px 0px -80px 0px"
+        }
+    );
+
+    contactScrollObserver.observe(contactSection);
+}
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // --- 1. TITLE LETTER-BY-LETTER INTERSECTION SCROLL REVEAL ---
+    const contactTitle = document.getElementById("scrollLetterContactTitle");
+    if (contactTitle) {
+        const rawText = contactTitle.textContent.trim();
+        contactTitle.innerHTML = "";
+
+        Array.from(rawText).forEach(char => {
+            if (char === " ") {
+                const spaceSpan = document.createElement("span");
+                spaceSpan.classList.add("stk-pt-space");
+                contactTitle.appendChild(spaceSpan);
+            } else {
+                const letterSpan = document.createElement("span");
+                letterSpan.textContent = char;
+                letterSpan.classList.add("stk-pt-char");
+                contactTitle.appendChild(letterSpan);
+            }
+        });
+
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const letters = entry.target.querySelectorAll(".stk-pt-char");
+                    letters.forEach((letter, index) => {
+                        setTimeout(() => {
+                            letter.classList.add("stk-pt-revealed");
+                        }, index * 45);
+                    });
+                    scrollObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        scrollObserver.observe(contactTitle);
+    }
+
+    // --- 2. FIELD DATA MANAGEMENT PROTOCOLS ---
+    const formElement = document.getElementById("stkInteractiveContactForm");
+    const nameInput = document.getElementById("stkContactName");
+    const emailInput = document.getElementById("stkContactEmail");
+    const subjectInput = document.getElementById("stkContactSubject");
+    const messageInput = document.getElementById("stkContactMessage");
+    const alertBanner = document.getElementById("formAlertMessage");
+
+    // Block any numeric input inside the "Your Name" field in real time
+    nameInput.addEventListener("input", (e) => {
+        const validatedValue = e.target.value.replace(/[0-9]/g, '');
+        if (e.target.value !== validatedValue) {
+            e.target.value = validatedValue;
+        }
+    });
+
+    // Regular Expression validation checking for normal professional email formats
+    function isValidProfessionalEmail(emailAddress) {
+        const proEmailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        return proEmailRegex.test(emailAddress);
+    }
+
+    // Interactive Form Submit Verification Event Interceptor
+    formElement.addEventListener("submit", (event) => {
+        event.preventDefault();
+        
+        let hasErrors = false;
+        alertBanner.style.display = "none";
+        alertBanner.className = "stk-form-alert";
+        
+        const monitoredInputs = [nameInput, emailInput, subjectInput, messageInput];
+        monitoredInputs.forEach(input => {
+            input.parentElement.classList.remove("stk-input-error");
+        });
+
+        // Step A: Check for Empty Fields
+        let emptyFieldsDetected = false;
+        monitoredInputs.forEach(input => {
+            if (!input.value.trim()) {
+                input.parentElement.classList.add("stk-input-error");
+                emptyFieldsDetected = true;
+                hasErrors = true;
+            }
+        });
+
+        if (emptyFieldsDetected) {
+            alertBanner.textContent = "Please fill the fields before submitting.";
+            alertBanner.classList.add("stk-alert-danger");
+            alertBanner.style.display = "block";
+            return;
+        }
+
+        // Step B: Professional Domain Routing Check
+        if (!isValidProfessionalEmail(emailInput.value.trim())) {
+            emailInput.parentElement.classList.add("stk-input-error");
+            alertBanner.textContent = "Please provide a valid professional email address.";
+            alertBanner.classList.add("stk-alert-danger");
+            alertBanner.style.display = "block";
+            return;
+        }
+
+        // Action Trigger Phase: Forward to your custom page context path target setup
+        if (!hasErrors) {
+            window.location.href = "404.html";
+        }
+    });
+});
+</script>
+
+<section class="stk-map-section">
+    <div class="stk-map-viewport-wrapper">
+        
+        <!-- Native Map Image Capture Base Layer -->
+        <!-- Replace './Assets/map-screenshot.png' with your actual cropped map image path -->
+        <img src="./Assests/map.webp" alt="Static Geographic Location Vector Grid" class="stk-map-image-base">
+
+        <!-- 🌟 Highlighted Floating Interaction Card Component Overlay -->
+        <!-- Anchored natively using custom deep link query routing targeting Stackly, Salem -->
+        <a href="https://maps.app.goo.gl/1iUAJLxSuFhmkqeE8" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="stk-floating-office-card" 
+           aria-label="Navigate to Our Office location on Google Maps">
+           
+            <!-- 🌟 Clean Inline Vector SVG Pin Marker -->
+            <div class="stk-pin-marker">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="#DC2626" xmlns="http://w3.org">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+            </div>
+            
+            <div class="stk-card-content">
+                <h3 class="stk-card-title">Our Office</h3>
+                <p class="stk-card-meta">Tamilnadu</p>
+                <p class="stk-card-meta">Salem - 636008, India</p>
+            </div>
+        </a>
+
+    </div>
+    
+    <!-- Unified Accent Theme Baseline Strip Layout Divider -->
+    <div class="stk-map-accent-footer-line"></div>
+</section>
+
+
+<style>
+:root {
+    --map-green-accent: #126B2F;
+    --map-card-bg: #FFFFFF;
+    --map-text-dark: #000000;
+    --map-text-muted: #555555;
+    --map-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+    --map-radius: 12px;
+    --map-transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.stk-map-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+}
+
+/* Position relative wrapper container allowing elements to float on top perfectly */
+.stk-map-viewport-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto 0 auto;
+    padding: 0 0px 0;
+    box-sizing: border-box;
+}
+
+/* Base Image Handling Constraints */
+.stk-map-image-base {
+    width: 100%;
+    height: 250px;
+    display: block;
+    border-radius: var(--map-radius);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.02);
+    object-fit: cover;
+    min-height: 250px; /* Assures spatial volume remains sound on extreme phone devices */
+}
+
+/* 🌟 Floating Interactive Card Overlay Engine styling properties */
+.stk-floating-office-card {
+    position: absolute;
+    top: 25%;
+    left: 8%;
+    background-color: var(--map-card-bg);
+    border-radius: 6px;
+    padding: 12px 18px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    box-shadow: var(--map-shadow);
+    text-decoration: none; /* Safely removes standard hypertext underline rules */
+    transition: var(--map-transition);
+    z-index: 10;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+}
+
+/* Floating Card Premium Interactive Hover Feedback States */
+.stk-floating-office-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+    border-color: var(--map-green-accent);
+}
+
+/* Red Pin Marker Configuration Layout Styles */
+.stk-pin-marker {
+    color: #DC2626; /* Classic high-vis red marker pin color parameter */
+    font-size: 16px;
+    margin-top: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Inner Text Layout Typography Blocks inside the card */
+.stk-card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.stk-card-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--map-text-dark);
+    margin: 0 0 4px 0;
+    line-height: 120%;
+}
+
+.stk-card-meta {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    color: var(--map-text-muted);
+    margin: 0;
+    line-height: 140%;
+}
+
+/* Bottom Green Theme Alignment Strip Parameter Box */
+.stk-map-accent-footer-line {
+    width: 100%;
+    height: 32px; /* Uniform height dimensions precisely matching provided reference structure image design layout */
+    background-color: var(--map-green-accent);
+    margin-top: 40px;
+}
+
+/* LIQUID ADAPTIVE MATRIX RESPONSIVENESS OVERRIDES LAYER */
+@media (max-width: 768px) {
+    .stk-map-viewport-wrapper {
+        padding: 0 16px;
+        margin-top: 20px;
+    }
+    
+    .stk-map-accent-footer-line {
+        margin-top: 24px;
+        height: 24px;
+    }
+    
+    /* Center position shifts context card safely on smaller touch interface footprints */
+    .stk-floating-office-card {
+        top: 20%;
+        left: 5%;
+        padding: 10px 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stk-floating-office-card {
+        position: relative; /* Break workflow back to local flow blocks if viewport area falls beneath extreme threshold points */
+        top: auto;
+        left: auto;
+        display: flex;
+        margin: 0 auto 16px auto;
+        max-width: calc(100% - 32px);
+    }
+    .stk-map-image-base {
+        border-radius: 8px;
+    }
+}
+/* 🌟 MODERN OFFICE CARD ZOOM + FLOAT EFFECT */
+
+.stk-floating-office-card {
+    animation: officeCardFloat 3.5s ease-in-out infinite;
+
+    transition:
+        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+@keyframes officeCardFloat {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-7px) scale(1.015);
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+.stk-floating-office-card:hover {
+    animation-play-state: paused;
+    transform: translateY(-8px) scale(1.08);
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.20),
+        0 0 0 4px rgba(18, 107, 47, 0.08);
+
+    border-color: var(--map-green-accent);
+}
+
+
+/* 📍 Modern Pulsing Pin */
+
+.stk-pin-marker {
+    position: relative;
+    transition: transform 0.35s ease;
+}
+
+.stk-pin-marker::after {
+    content: "";
+
+    position: absolute;
+    width: 26px;
+    height: 26px;
+
+    border: 2px solid rgba(220, 38, 38, 0.35);
+    border-radius: 50%;
+
+    animation: pinPulse 2s ease-out infinite;
+}
+
+@keyframes pinPulse {
+    0% {
+        transform: scale(0.6);
+        opacity: 0.8;
+    }
+
+    70% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+}
+
+.stk-floating-office-card:hover .stk-pin-marker {
+    transform: scale(1.18);
+}
+
+
+/* 📝 Text Hover Movement */
+
+.stk-card-content {
+    transition: transform 0.35s ease;
+}
+
+.stk-floating-office-card:hover .stk-card-content {
+    transform: translateX(2px);
+}
+
+
+/* 📱 Mobile */
+
+@media (max-width: 768px) {
+    .stk-floating-office-card {
+        animation-duration: 4s;
+    }
+
+    .stk-floating-office-card:hover {
+        transform: translateY(-5px) scale(1.04);
+    }
+}
+
+
+/* ♿ Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    .stk-floating-office-card,
+    .stk-pin-marker::after {
+        animation: none;
+    }
+
+    .stk-floating-office-card:hover {
+        transform: none;
+    }
+}
+</style>
+
+<section class="stk-cta-section">
+    <!-- 🌟 Vector SVG Floating Background Elements -->
+    <div class="stk-cta-bg-vectors">
+        <!-- Floating Element 1: Abstract Heart Ring -->
+        <svg class="stk-vector-shape stk-shape-1" viewBox="0 0 100 100" fill="none" xmlns="http://w3.org">
+            <path d="M50 80c-15-12-30-24-30-38 0-8 6-14 14-14 6 0 11 4 16 9 5-5 10-9 16-9 8 0 14 6 14 14 0 14-15 26-30 38z" stroke="rgba(255,255,255,0.06)" stroke-width="2" stroke-dasharray="4 4"/>
+        </svg>
+        <!-- Floating Element 2: Concentric Circular Ripple -->
+        <svg class="stk-vector-shape stk-shape-2" viewBox="0 0 100 100" fill="none" xmlns="http://w3.org">
+            <circle cx="50" cy="50" r="40" stroke="rgba(255,255,255,0.05)" stroke-width="1.5"/>
+            <circle cx="50" cy="50" r="25" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+        </svg>
+        <!-- Floating Element 3: Abstract Geometric Sparkle -->
+        <svg class="stk-vector-shape stk-shape-3" viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+            <path d="M12 2l2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5L12 2z" fill="rgba(255,255,255,0.04)"/>
+        </svg>
+    </div>
+
+    <div class="stk-cta-container">
+        <!-- Text Content Wrapper -->
+        <div class="stk-cta-text-block">
+            <!-- 🌟 Target for Letter-by-Letter Javascript Observer Matrix -->
+            <h2 class="stk-cta-title" id="scrollLetterCtaTitle">Together,We Can Make A Difference</h2>
+            <p class="stk-cta-desc">Your donation today can bring hope,create opportunities,and build a better tomorrow for countless lives.</p>
+        </div>
+
+        <!-- 🌟 Floating Interaction Button Framework Container Target -->
+        <div class="stk-cta-btn-wrapper">
+            <a href="404.html" class="stk-btn-cta-float" aria-label="Navigate to donation checkout interface">Donate Now</a>
+        </div>
+    </div>
+</section>
+
+<style>
+:root {
+    --cta-green-bg: #126B2F;
+    --cta-green-text: #126B2F;
+    --cta-white: #FFFFFF;
+    --cta-transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Core Full-Bleed Section Panel Matching Your Image Profile */
+.stk-cta-section {
+    width: 100%;
+    background-color: var(--cta-green-bg);
+    padding: 20px 0; /* Tight horizontal bar padding proportions exactly like image layout */
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.stk-cta-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 40px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    position: relative;
+    z-index: 5;
+    box-sizing: border-box;
+}
+
+/* Left Alignment Text Layout blocks */
+.stk-cta-text-block {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+/* Title Specs: Inter, White, Bold 700, 30px, tight margins */
+.stk-cta-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    color: #FFFFFF;
+    margin: 0 0 10px 0;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+}
+
+/* Description Specs: Inter, Medium 500, 14px, muted white opacity matching sample image */
+.stk-cta-desc {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size:20px;
+    color: #FFFFFF;
+    margin: 0;
+    line-height: 145%;
+    max-width: 680px;
+}
+
+/* Right Alignment Button Floating Layout Matrix */
+.stk-cta-btn-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+/* 🌟 Pill Button Box with Dynamic Continuous Floating Translation Layer */
+.stk-btn-cta-float {
+    display: inline-block;
+    background-color: #FFFFFF;
+    color: var(--cta-green-text);
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 16px;
+    padding: 12px 28px;
+    border-radius: 8px; /* Clean matching slightly rounded profile layout */
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    will-change: transform;
+    transition: var(--cta-transition);
+    /* Soft infinite idle float animation layout cycle */
+    animation: idleCtaButtonFloat 3s ease-in-out infinite alternate;
+}
+
+/* Interactivity Hover States Overrides */
+.stk-btn-cta-float:hover {
+    background-color: var(--cta-white);
+    color: #0c4d21;
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.16);
+}
+
+/* 🌟 Continuous Floating Keyframe Script Engine for Button */
+@keyframes idleCtaButtonFloat {
+    0% {
+        transform: translateY(2px);
+    }
+    100% {
+        transform: translateY(-4px);
+    }
+}
+
+/* 🌟 Vector SVG Background Elements Arrangement Styles */
+.stk-cta-bg-vectors {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Passes mouse clicks safely down to input nodes */
+    z-index: 1;
+}
+
+.stk-vector-shape {
+    position: absolute;
+    will-change: transform;
+}
+
+/* Gentle structural animations tracking background assets */
+.stk-shape-1 {
+    width: 120px;
+    height: 120px;
+    left: 3%;
+    top: -20px;
+    animation: slowRotateShape 25s linear infinite;
+}
+
+.stk-shape-2 {
+    width: 200px;
+    height: 200px;
+    right: 18%;
+    bottom: -80px;
+    animation: slowDriftShape 12s ease-in-out infinite alternate;
+}
+
+.stk-shape-3 {
+    width: 40px;
+    height: 40px;
+    left: 45%;
+    bottom: 10%;
+    animation: slowRotateShape 15s linear infinite reverse;
+}
+
+@keyframes slowRotateShape {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes slowDriftShape {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(15px, -10px) scale(1.05); }
+}
+
+/* --- SCROLL ANIMATION SUB-STRUCTURES GENERATOR ENGINE --- */
+.stk-cta-char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateX(-4px) translateY(2px);
+    transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1), transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.stk-cta-char.stk-cta-revealed {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+}
+
+.stk-cta-space {
+    display: inline-block;
+    width: 0.26em;
+}
+
+/* LIQUID RESPONSIVE MATRIX ADAPTATION LAYER */
+@media (max-width: 768px) {
+    .stk-cta-section {
+        padding: 40px 0;
+    }
+    .stk-cta-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 28px;
+        padding: 0 24px;
+    }
+    .stk-cta-text-block {
+        text-align: center;
+        align-items: center;
+    }
+    .stk-cta-title {
+        font-size: 24px;
+    }
+    .stk-cta-desc {
+        font-size: 13.5px;
+    }
+    .stk-btn-cta-float {
+        width: 100%;
+        max-width: 260px;
+        padding: 12px 0;
+        text-align: center;
+    }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // --- LETTER-BY-LETTER CASCADING TRANSITION PROTOCOL ---
+    const ctaTitleNode = document.getElementById("scrollLetterCtaTitle");
+    
+    if (ctaTitleNode) {
+        const textContentString = ctaTitleNode.textContent.trim();
+        ctaTitleNode.innerHTML = ""; // Empty baseline text nodes container maps completely
+
+        // Parse strings into standalone animated characters hooks array nodes
+        Array.from(textContentString).forEach(char => {
+            if (char === " ") {
+                const spaceElement = document.createElement("span");
+                spaceElement.classList.add("stk-cta-space");
+                ctaTitleNode.appendChild(spaceElement);
+            } else {
+                const letterElement = document.createElement("span");
+                letterElement.textContent = char;
+                letterElement.classList.add("stk-cta-char");
+                ctaTitleNode.appendChild(letterElement);
+            }
+        });
+
+        // Intersection Observer kicks off typewriter sequence on scroll detect framework bounds
+        const ctaIntersectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const charactersArray = entry.target.querySelectorAll(".stk-cta-char");
+                    
+                    charactersArray.forEach((letterNode, index) => {
+                        // 🌟 Calibrated staggered delay timeline (index * 35ms) to reveal cleanly over ~1-2 seconds
+                        setTimeout(() => {
+                            letterNode.classList.add("stk-cta-revealed");
+                        }, index * 35);
+                    });
+                    
+                    // Stop watching once active tracking configuration runs successfully
+                    ctaIntersectionObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.25 });
+
+        ctaIntersectionObserver.observe(ctaTitleNode);
+    }
+});
+</script>
+
+<footer class="stk-site-footer">
+    <div class="stk-footer-main-container">
+        
+        <!-- Column 1: Brand Identifier and Vector Links -->
+        <div class="stk-footer-col stk-col-brand">
+            
+            <a href="#" class="stk-back-to-top-trigger" aria-label="Scroll back to top of page">
+                <img src="./Assests/logo AGRI.webp" alt="Stackly Organization Brand Logo Logo" class="stk-footer-brand-logo">
+            </a>
+            <p class="stk-brand-tagline">We are dedicated to creating a world where everyone has the opportunity to live a empowered life.</p>
+            
+            <!-- 🌟 Clean Monochromatic White Vector Social Icons Layout -->
+            <div class="stk-footer-social-wrapper">
+                <a href="404.html" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" fill="#FFFFFF"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.8z"/></svg>
+                </a>
+                <a href="404.html" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="#FFFFFF"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.8v8.37h2.8v-4.67c0-.25.015-.51.09-.69.2-.5.65-1 1.41-1 1 0 1.38.76 1.38 1.87v4.49h2.8M6.5 8.37a1.37 1.37 0 1 0 0-2.75 1.37 1.37 0 0 0 0 2.75M8 18.5V10.13H5.2v8.37H8z"/></svg>
+                </a>
+                <a href="404.html" aria-label="X (Twitter)">
+                    <svg viewBox="0 0 24 24" fill="#FFFFFF"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+                <a href="404.html" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="#FFFFFF"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Column 2: Quick Links Route Framework -->
+        <div class="stk-footer-col">
+            <h3 class="stk-footer-heading">Quick Links</h3>
+           <ul class="stk-footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="programs.html">Our Programs</a></li>
+                <li><a href="impact.html">Our Impact</a></li>
+                <li><a href="stories.html">Stories</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 3: Get Involved Navigation -->
+        <div class="stk-footer-col">
+            <h3 class="stk-footer-heading">Get Involved</h3>
+            <ul class="stk-footer-links">
+                <li><a href="404.html">Volunteer</a></li>
+                <li><a href="404.html">Donate</a></li>
+                <li><a href="404.html">Events</a></li>
+                <li><a href="404.html">Partner with us</a></li>
+                <li><a href="404.html">Fundraise</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 4: Resources Links -->
+        <div class="stk-footer-col">
+            <h3 class="stk-footer-heading">Resources</h3>
+            <ul class="stk-footer-links">
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="404.html">Reports</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="404.html">FAQ's</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 5: Right Newsletter Subscription Interface -->
+        <div class="stk-footer-col stk-col-newsletter">
+            <h3 class="stk-footer-heading">Newsletter</h3>
+            <p class="stk-newsletter-desc">Stay updated with our latest news and events.</p>
+            
+            <form id="stkFooterSubscriptionForm" class="stk-newsletter-form" novalidate>
+                <div class="stk-input-wrapper-footer">
+                    <input type="email" id="stkFooterEmailInput" placeholder="Your email address" autocomplete="off" required>
+                    <!-- Form Status Validation Message Bar -->
+                    <div id="stkSubscriptionAlert" class="stk-newsletter-alert-banner" style="display: none;"></div>
+                </div>
+                <button type="submit" class="stk-btn-footer-subscribe">Subscribe</button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- Bottom Secondary Info and Policy Layout -->
+    <div class="stk-footer-bottom-bar">
+        <div class="stk-footer-bottom-container">
+            <p class="stk-copyright">&copy; 2026 STACKLY. All rights reserved.</p>
+            <div class="stk-bottom-legal-links">
+                <a href="404.html">Privacy Policy</a>
+                <a href="404.html">Terms & Conditions</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<style>
+:root {
+    --ft-green-deep: #062b11;    /* Extremely deep layout background block matching image backdrop */
+    --ft-green-bright: #126B2F;  /* Standard primary theme green tint color value */
+    --ft-green-hover: #1b853d;   /* Hover focus shift color element mapping metrics */
+    --ft-text-light: #FFFFFF;
+    --ft-text-muted: rgba(255, 255, 255, 0.75);
+    --ft-border-line: rgba(255, 255, 255, 0.12);
+    --ft-transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.stk-site-footer {
+    width: 100%;
+    background-color: var(--ft-green-deep);
+    padding: 60px 0 0 0;
+    color: var(--ft-text-light);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.stk-footer-main-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px 50px 24px;
+    gap: 32px;
+    box-sizing: border-box;
+}
+
+/* Base Columns Formatting Architecture Matrix */
+.stk-footer-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.stk-col-brand {
+    flex: 1.8; /* Expands brand identification layout space proportionally */
+}
+
+.stk-col-newsletter {
+    flex: 2; /* Allocates adequate dimensions to subscription controls box */
+    padding-left: 20px;
+    border-left: 1px solid var(--ft-border-line); /* Clean vertical splitting line layout matched to reference */
+}
+
+/* Brand Assets Elements Configuration Setup */
+.stk-footer-brand-logo {
+    max-width: 140px;
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: var(--ft-transition);
+}
+
+.stk-footer-brand-logo:hover {
+    opacity: 0.85;
+    transform: scale(0.98);
+}
+
+.stk-brand-tagline {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 150%;
+    color: #FFFFFF;
+    margin-bottom: 24px;
+    max-width: 260px;
+}
+
+/* 🌟 White Icons, Green Canvas Background & Neon Glow Effects Styling Rules */
+.stk-footer-social-wrapper {
+    display: flex;
+    gap: 12px;
+}
+
+.stk-footer-social-wrapper a {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--ft-green-bright);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: var(--ft-transition);
+    box-shadow: 0 0 0 rgba(18, 107, 47, 0);
+}
+
+.stk-footer-social-wrapper a svg {
+    width: 16px;
+    height: 16px;
+    fill: #FFFFFF !important; /* Insures native vector asset layers bind explicitly in white */
+    transition: var(--ft-transition);
+}
+
+/* 🌟 Hover Glow Interaction Keyframe: Expands outer volumetric glowing shadow vectors */
+.stk-footer-social-wrapper a:hover {
+    background-color: var(--ft-text-light);
+    transform: translateY(-4px);
+    /* Vibrant glowing bloom backdrop synchronization effect rule */
+    box-shadow: 0 0 14px 4px rgba(255, 255, 255, 0.4), 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.stk-footer-social-wrapper a:hover svg {
+    fill: var(--ft-green-deep) !important; /* Inverts color logic smoothly on user cursor focus tracking points */
+}
+
+/* Middle Navigation Typography Elements Configuration Layer */
+.stk-footer-heading {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #FFFFFF;
+    margin: 0 0 18px 0;
+    letter-spacing: 0.02em;
+}
+
+.stk-footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.stk-footer-links li a {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: var(--ft-transition);
+}
+
+.stk-footer-links li a:hover {
+    color: var(--ft-text-light);
+    padding-left: 4px; /* Soft interactive shift prompt layout indicator direction */
+}
+
+/* Newsletter Input Layout Component Fields */
+.stk-newsletter-desc {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    color: #FFFFFF;
+    margin: 0 0 18px 0;
+    line-height: 140%;
+}
+
+.stk-newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+}
+
+.stk-input-wrapper-footer {
+    position: relative;
+    width: 100%;
+}
+
+.stk-newsletter-form input {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25); /* Sleek flat bottom border matching reference image */
+    padding: 10px 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    color: var(--ft-text-light);
+    outline: none;
+    box-sizing: border-box;
+    transition: var(--ft-transition);
+}
+
+.stk-newsletter-form input:focus {
+    border-bottom-color: var(--ft-text-light);
+}
+
+/* Subscription Form Error Highlighting Rules Box Container */
+.stk-newsletter-form input.stk-input-field-error {
+    border-bottom-color: #EF4444;
+}
+
+.stk-newsletter-alert-banner {
+    font-family: 'Inter', sans-serif;
+    font-size: 11.5px;
+    font-weight: 500;
+    color: #F87171;
+    margin-top: 6px;
+    line-height: 130%;
+}
+
+/* Subscribe Action Button Elements */
+.stk-btn-footer-subscribe {
+    width: 100%;
+    background-color: var(--ft-green-bright);
+    color: var(--ft-text-light);
+    border: none;
+    border-radius: 8px; /* Clean matching slightly rounded profile layout */
+    padding: 12px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: var(--ft-transition);
+    box-sizing: border-box;
+}
+
+.stk-btn-footer-subscribe:hover {
+    background-color: var(--ft-green-hover);
+    box-shadow: 0 4px 12px rgba(18, 107, 47, 0.25);
+}
+
+/* Bottom Legal Strip Layout Configurations */
+.stk-footer-bottom-bar {
+    width: 100%;
+    border-top: 1px solid var(--ft-border-line);
+    padding: 18px 0;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.stk-footer-bottom-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.stk-copyright {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 11.5px;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+}
+
+.stk-bottom-legal-links {
+    display: flex;
+    gap: 20px;
+}
+
+.stk-bottom-legal-links a {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 11.5px;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    transition: var(--ft-transition);
+}
+
+.stk-bottom-legal-links a:hover {
+    color: var(--ft-text-light);
+}
+
+/* LIQUID RESPONSIVE MATRIX OVERRIDES BREAKPOINTS */
+@media (max-width: 1024px) {
+    .stk-footer-main-container {
+        flex-wrap: wrap;
+        gap: 40px 24px;
+    }
+    .stk-col-brand {
+        flex: 1 1 calc(50% - 24px);
+    }
+    .stk-col-newsletter {
+        flex: 1 1 calc(50% - 24px);
+        padding-left: 0;
+        border-left: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .stk-site-footer {
+        padding-top: 40px;
+    }
+    .stk-footer-main-container {
+        flex-direction: column;
+        gap: 36px;
+        padding-bottom: 36px;
+    }
+    .stk-col-brand, .stk-col-newsletter {
+        width: 100%;
+    }
+    .stk-footer-bottom-container {
+        flex-direction: column-reverse;
+        gap: 14px;
+        text-align: center;
+    }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    // --- PART 1: SMOOTH BACK TO TOP SCROLL ANCHOR LOGIC ---
+    const backToTopButtons = document.querySelectorAll(".stk-back-to-top-trigger");
+
+    backToTopButtons.forEach(anchorBtn => {
+        anchorBtn.addEventListener("click", (event) => {
+            event.preventDefault();
+            // Fluid directional scroll parameter shift back up into top layout viewport zone
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    });
+
+    // --- PART 2: NEWSLETTER SUBSCRIPTION CONTROLS ENGINE ---
+    const subscriptionForm = document.getElementById("stkFooterSubscriptionForm");
+    const emailField = document.getElementById("stkFooterEmailInput");
+    const warningText = document.getElementById("stkSubscriptionAlert");
+
+    // Regular Expression helper evaluation framework checking basic email patterns
+    function validateEmailAddressPattern(emailInputString) {
+        const structuralMailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        return structuralMailRegex.test(emailInputString);
+    }
+
+    // Capture user event submissions
+    subscriptionForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        
+        // Reset operational flags states
+        emailField.classList.remove("stk-input-field-error");
+        warningText.style.display = "none";
+        warningText.textContent = "";
+
+        const dynamicInputStringValue = emailField.value.trim();
+
+        // 1. Mandatory Fields Content Boundary Checks
+        if (!dynamicInputStringValue) {
+            emailField.classList.add("stk-input-field-error");
+            warningText.textContent = "Please fill the fields.";
+            warningText.style.display = "block";
+            return;
+        }
+
+        // 2. Syntax Structure Routing Checks
+        if (!validateEmailAddressPattern(dynamicInputStringValue)) {
+            emailField.classList.add("stk-input-field-error");
+            warningText.textContent = "Please supply a valid formatting configuration schema layout.";
+            warningText.style.display = "block";
+            return;
+        }
+
+        // Success State Action Trigger Pipeline Routing to 404 page target
+        window.location.href = "404.html";
+    });
+});
+</script>
+
+</body>
+</html>
+

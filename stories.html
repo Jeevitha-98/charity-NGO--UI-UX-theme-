@@ -142,6 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 <style>
+    
  @import url('https://googleapis.com');
 
 /* Main Wrapper Settings */
@@ -359,6 +360,26 @@ document.addEventListener("DOMContentLoaded", () => {
     .search-input-wrapper { width: 100%; }
 }
 
+.search-form-box {
+    position: relative;
+}
+
+.validation-tooltip-msg {
+    bottom: auto !important;
+    top: -38px !important;
+    right: 0;
+    opacity: 0;
+    transform: translateY(5px);
+    pointer-events: none;
+}
+
+.validation-tooltip-msg.show-alert {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
 </style>
 
 <script>
@@ -467,7 +488,9 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
 
             <!-- Interactive Floating Action Button Component -->
-            <button class="floating-read-btn">Read Stories</button>
+            <button class="floating-read-btn" onclick="window.location.href='404.html'">
+    Read Stories
+</button>
         </div>
 
     </div>
@@ -1921,7 +1944,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="stk-testi-footer">
                     <div class="stk-testi-profile">
                         <div class="stk-testi-avatar-frame">
-                            <img src="user1.jpg" alt="Seetha Patwar" class="stk-testi-img">
+                            <img src="./Assests/charity test 1.webp" alt="Seetha Patwar" class="stk-testi-img">
                         </div>
                         <div class="stk-testi-meta">
                             <h4>Seetha Patwar</h4>
@@ -1940,7 +1963,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="stk-testi-footer">
                     <div class="stk-testi-profile">
                         <div class="stk-testi-avatar-frame">
-                            <img src="user2.jpg" alt="Ananya Sharma" class="stk-testi-img">
+                            <img src="./Assests/charity test 3.webp" alt="Ananya Sharma" class="stk-testi-img">
                         </div>
                         <div class="stk-testi-meta">
                             <h4>Ananya Sharma</h4>
@@ -1959,7 +1982,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="stk-testi-footer">
                     <div class="stk-testi-profile">
                         <div class="stk-testi-avatar-frame">
-                            <img src="user3.jpg" alt="Priya Kumari" class="stk-testi-img">
+                            <img src="./Assests/charity test 2.webp" alt="Priya Kumari" class="stk-testi-img">
                         </div>
                         <div class="stk-testi-meta">
                             <h4>Priya Kumari</h4>
@@ -2312,7 +2335,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <!-- 🌟 Floating Interaction Button Framework Container Target -->
         <div class="stk-cta-btn-wrapper">
-            <a href="#donate" class="stk-btn-cta-float" aria-label="Navigate to donation checkout interface">Donate Now</a>
+            <a href="404.html" class="stk-btn-cta-float" aria-label="Navigate to donation checkout interface">Donate Now</a>
         </div>
     </div>
 </section>
@@ -2603,12 +2626,12 @@ document.addEventListener("DOMContentLoaded", () => {
         <!-- Column 2: Quick Links Route Framework -->
         <div class="stk-footer-col">
             <h3 class="stk-footer-heading">Quick Links</h3>
-            <ul class="stk-footer-links">
-                <li><a href="404.html">Home</a></li>
-                <li><a href="404.html">About Us</a></li>
-                <li><a href="404.html">Our Programs</a></li>
-                <li><a href="404.html">Our Impact</a></li>
-                <li><a href="404.html">Stories</a></li>
+          <ul class="stk-footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="programs.html">Our Programs</a></li>
+                <li><a href="impact.html">Our Impact</a></li>
+                <li><a href="stories.html">Stories</a></li>
             </ul>
         </div>
 
@@ -2628,9 +2651,9 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="stk-footer-col">
             <h3 class="stk-footer-heading">Resources</h3>
             <ul class="stk-footer-links">
-                <li><a href="404.html">Blog</a></li>
+                <li><a href="blog.html">Blog</a></li>
                 <li><a href="404.html">Reports</a></li>
-                <li><a href="404.html">Contact Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
                 <li><a href="404.html">FAQ's</a></li>
             </ul>
         </div>

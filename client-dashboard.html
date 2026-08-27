@@ -1,0 +1,2614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly - NGO Client Registry</title>
+    <link rel="stylesheet" href="client-dashboard.css">
+</head>
+<body>
+
+    <div class="client-grid-matrix">
+        
+        <!-- Mobile Layout Shutter Backdrop Overlay Lock Shield -->
+        <div class="sidebar-mobile-overlay" id="mobile-viewport-lock"></div>
+        
+        <!-- ==========================================
+             MODULE 1: FIXED DARK SIDEBAR NAVIGATION BAR
+             ========================================== -->
+        <aside class="sidebar-panel-wrapper" id="client-sidebar">
+            <div class="sidebar-top-row">
+              <div class="brand-logo-anchor-box">
+    <a href="javascript:void(0);"
+       onclick="refreshClientDashboardAndStay();"
+       class="brand-refresh-link"
+       title="Refresh Donor Dashboard">
+
+        <img src="./Assests/logo AGRI.webp"
+             alt="🌱 STACKLY NGO"
+             class="sidebar-brand-img">
+
+    </a>
+</div>
+                <button class="btn-sidebar-close" id="sidebar-close-trigger" aria-label="Close layout navigation bar">×</button>
+            </div>
+
+            <!-- Professional Section-Wise Titles Alone Menus List -->
+            <nav class="sidebar-navigation">
+                <ul class="nav-links-list">
+                    <li>
+                        <a href="javascript:void(0);" class="nav-item-link active" data-target="donor-overview">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z"/></svg>
+                            <span>Donor Overview</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="nav-item-link" data-target="contribution-history">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17Z"/></svg>
+                            <span>My Contributions</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="nav-item-link" data-target="project-sponsorships">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12,21.35l-1.45-1.32C5.4,15.36,2,12.28,2,8.5C2,5.42,4.42,2,7.5,2c1.74,0,3.41,0.81,4.5,2.09C13.09,2.81,14.76,2,16.5,2C19.58,2,22,5.42,22,8.5c0,3.78-3.4,6.86-8.55,11.54L12,21.35z"/></svg>
+                            <span>Sponsorship Tracks</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="nav-item-link" data-target="impact-certificates">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.11,3 19,3M19,19H5V5H19V19M7,7H17V9H7V7M7,11H17V13H7V11M7,15H14V17H7V15Z"/></svg>
+                            <span>Impact Statements</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="nav-item-link" data-target="tax-ledgers">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5,6H19V18H5V6M5,4A2,2 0 0,0 3,6V18A2,2 0 0,0 5,20H19A2,2 0 0,0 21,18V6A2,2 0 0,0 19,4H5M7,8H11V11H7V8M7,13H17V15H7V13M13,8H17V10H13V8Z"/></svg>
+                            <span>Tax Receipts</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Bottom Guard Programmatic Log Out Action Row Area -->
+            <div class="sidebar-lower-actions">
+                <button class="btn-sidebar-logout" id="client-logout-trigger">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.08,15.59L16.66,13H7V11H16.66L14.08,8.41L15.5,7L20.5,12L15.5,17L14.08,15.59M19,3A2,2 0 0,1 21,5V9.67L19,7.67V5H5V19H19V16.33L21,14.33V19A2,2 0 0,1 19,21H5C3.89,21 3,20.11 3,19V5C3,3.89 3.89,3 5,3H14.08Z"/></svg>
+                    <span>Log Out</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- ==========================================
+             MODULE 2: PRIMARY WORKSPACE CENTRAL WRAPPER
+             ========================================== -->
+        <div class="dashboard-viewport-wrapper">
+            
+            <!-- FIXED UPPER CONTAINER: CEILING HEADER NAVIGATION DECK -->
+            <header class="dashboard-upper-header">
+                <!-- Responsive Touch Hamburger Button Module Action Trigger -->
+                <button class="hamburger-menu-trigger" id="mobile-hamburger-btn" aria-label="Open sidebar menu channels">
+                    <svg viewBox="0 0 24 24" width="24" height="24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"/></svg>
+                </button>
+
+                <div class="header-breadcrumbs">
+                    <span>Donor Center / <strong id="dynamic-section-breadcrumb">Donor Overview</strong></span>
+                </div>
+
+                <div class="header-utility-actions">
+                    <!-- Bell Alert Notification Anchor Button -->
+               <button class="header-bell-btn"
+        aria-label="Open notifications summary drawer"
+        onclick="window.location.href='404.html'">
+    <div class="alert-unread-dot"></div>
+    <svg viewBox="0 0 24 24" width="22" height="22">
+        <path d="M12,2A2,2 0,0,0 10,4A2,2 0,0,0 10,4.29C7.12,5.14 5,7.82 5,11V17L3,19V20H21V19L19,17V11C19,7.82 16.88,5.14 14,4.29A2,2 0,0,0 14,4A2,2 0,0,0 12,2M12,22A2,2 0,0,0 14,20H10A2,2 0,0,0 12,22Z"/>
+    </svg>
+</button>
+
+                    <!-- Account Profile Badge Capsule (Extracts nickname values programmatically) -->
+                    <div class="header-profile-badge">
+                        <div class="profile-avatar-circle">C</div>
+                        <span class="profile-username-string" id="client-user-display">Loading Donor...</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- ==========================================
+                 MODULE 3: ISOLATED WORKSPACE CONTENT PANELS
+                 ========================================== -->
+            <main class="dashboard-content-main">
+                
+                <!-- Section Block 1: Donor Overview -->
+               <!-- Enhanced Donor Overview Main Panel -->
+<div class="viewport-section-card active" id="donor-overview">
+    
+    <!-- GRID ROW 1: Philanthropic Impact Core Cards Matrix -->
+    <div class="donor-analytics-metrics-grid">
+        
+        <!-- Impact Card 1 -->
+        <div class="donor-stat-tile">
+            <div class="donor-tile-header">
+                <span class="donor-tile-label">My Total Aid Impact</span>
+                <div class="donor-vector-box fill-green">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12,21.35l-1.45-1.32C5.4,15.36,2,12.28,2,8.5C2,5.42,4.42,2,7.5,2c1.74,0,3.41,0.81,4.5,2.09C13.09,2.81,14.76,2,16.5,2C19.58,2,22,5.42,22,8.5c0,3.78-3.4,6.86-8.55,11.54L12,21.35z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="donor-tile-major">1,250 <span class="donor-sub-unit">Lives Reached</span></div>
+            <div class="donor-mini-progress">
+                <div class="donor-progress-fill match-green" style="width: 85%;"></div>
+            </div>
+            <p class="donor-tile-caption">Direct family healthcare & nutrition coverage</p>
+        </div>
+
+        <!-- Impact Card 2 -->
+        <div class="donor-stat-tile">
+            <div class="donor-tile-header">
+                <span class="donor-tile-label">Active Sponsored Projects</span>
+                <div class="donor-vector-box fill-blue">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M11,7H13V12H11V7M11,14H13V16H11V14Z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="donor-tile-major">04 <span class="donor-sub-unit">Active Sites</span></div>
+            <div class="donor-mini-progress">
+                <div class="donor-progress-fill match-blue" style="width: 100%;"></div>
+            </div>
+            <p class="donor-tile-caption">Continuous telemetry monitoring active</p>
+        </div>
+
+        <!-- Impact Card 3 -->
+        <div class="donor-stat-tile">
+            <div class="donor-tile-header">
+                <span class="donor-tile-label">Net Contributions Pooled</span>
+                <div class="donor-vector-box fill-orange">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M5,6H19V18H5V6M5,4A2,2 0 0,0 3,6V18A2,2 0 0,0 5,20H19A2,2 0 0,0 21,18V6A2,2 0 0,0 19,4H5M7,8H11V11H7V8M7,13H17V15H7V13M13,8H17V10H13V8Z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="donor-tile-major">₹1,85,000</div>
+            <div class="donor-mini-progress">
+                <div class="donor-progress-fill match-orange" style="width: 74%;"></div>
+            </div>
+            <p class="donor-tile-caption">74% Applied to immediate regional medical needs</p>
+        </div>
+
+    </div>
+
+    <!-- GRID ROW 2: Interactive Project Milestone Roadmap Tracker Panel -->
+    <div class="donor-roadmap-tracker-card">
+        <div class="roadmap-card-header">
+            <h3>Sponsored Sector Development Milestone Tracks</h3>
+            <span class="live-audit-badge"><span class="audit-beacon-dot"></span>Blockchain Audit Secure</span>
+        </div>
+        
+        <div class="roadmap-visual-canvas-mockup">
+            <!-- Background drone overlay topographical field scan map asset -->
+            <img src="./Assests/clean water charity.webp" alt="Topographical matrix predictive timelines graph" class="roadmap-backdrop-img">
+            
+            <!-- Floating Milestone Station Node 1 -->
+            <div class="roadmap-ui-station position-site-alpha">
+                <div class="station-radar-ping"></div>
+                <div class="station-metrics-popup">
+                    <strong>Salem Clean Water Well</strong>
+                    <span>Status: Structural Foundation Built</span>
+                    <span class="text-optimal-green">Target Operational: 12 Days</span>
+                </div>
+            </div>
+
+            <!-- Floating Milestone Station Node 2 -->
+            <div class="roadmap-ui-station position-site-beta">
+                <div class="station-radar-ping alert-blue-ping"></div>
+                <div class="station-metrics-popup">
+                    <strong>Omalur Nutrition Core</strong>
+                    <span>Status: Cold-Chain Grid Connected</span>
+                    <span>Daily Delivery Volume: 450 Packs</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GRID ROW 3: Live Beneficiary Dispatch Transparency Table Registry -->
+    <div class="donor-transparency-table-box">
+        <div class="d-table-title-row">
+            <h3>Live Contribution Allocation Tracking Stream</h3>
+        </div>
+        
+        <div class="d-table-overflow-containment">
+            <table class="donor-transparency-table">
+                <thead>
+                    <tr>
+                        <th>Allocation Transaction Hash</th>
+                        <th>Targeted Campaign Sector</th>
+                        <th>Field Destination Site</th>
+                        <th>Resource Cargo Dispatched</th>
+                        <th>Audited Impact Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="ledger-hash">ALC-9904-WTR</code></td>
+                        <td>Clean Water Aquifers</td>
+                        <td>Salem Northern Interchange</td>
+                        <td>08x Reverse-Osmosis Filters</td>
+                        <td><span class="donor-pill-tag state-secure">Fully Dispatched</span></td>
+                    </tr>
+                    <tr>
+                        <td><code class="ledger-hash">ALC-8741-NUT</code></td>
+                        <td>Rural Nutrition Mesh</td>
+                        <td>MMR Complex Center Depot</td>
+                        <td>150x Macro Protein Packs</td>
+                        <td><span class="donor-pill-tag state-secure">Fully Dispatched</span></td>
+                    </tr>
+                    <tr>
+                        <td><code class="ledger-hash">ALC-6110-EDU</code></td>
+                        <td>Educational Toolkits</td>
+                        <td>Distribution Hub Beta Core</td>
+                        <td>40x High-Contrast Study Kits</td>
+                        <td><span class="donor-pill-tag state-delivered">Delivered to Field</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+<style>
+    /* ==========================================================================
+   MODULE 6: ELABORATED DONOR OVERVIEW MATRIX & METRICS COMPONENT PANELS
+   ========================================================================== */
+
+/* --- 1. UPPER STRIP PHILANTHROPIC IMPACT CORE TILES --- */
+.donor-analytics-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.donor-stat-tile {
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.donor-tile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.85rem;
+}
+
+.donor-tile-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #666666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.donor-vector-box {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.donor-vector-box svg { width: 18px; height: 18px; }
+
+/* Micro color design asset token configurations */
+.donor-vector-box.fill-green { background-color: rgba(76, 175, 80, 0.08); fill: var(--text-forest); }
+.donor-vector-box.fill-blue { background-color: #e3f2fd; fill: #1e88e5; }
+.donor-vector-box.fill-orange { background-color: rgba(230, 81, 0, 0.08); fill: var(--agri-glow); }
+
+.donor-tile-major {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--dark-neutral);
+    line-height: 1;
+    margin-bottom: 0.85rem;
+    letter-spacing: -0.5px;
+}
+.donor-tile-major .donor-sub-unit { font-size: 0.95rem; font-weight: 700; color: #777777; }
+
+/* Inline structural linear progress tracking indicators */
+.donor-mini-progress {
+    width: 100%;
+    height: 6px;
+    background-color: #f0f2f5;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 0.6rem;
+}
+
+.donor-progress-fill { height: 100%; border-radius: 10px; }
+.donor-progress-fill.match-green { background-color: #2e7d32; }
+.donor-progress-fill.match-blue { background-color: #2196f3; }
+.donor-progress-fill.match-orange { background-color: #e65100; }
+
+.donor-tile-caption { font-size: 0.8rem; font-weight: 600; color: #888888; }
+
+.donor-stat-tile:hover {
+    transform: translateY(-4px);
+    border-color: #ff9100;
+    box-shadow: 0 10px 25px rgba(230, 81, 0, 0.08);
+}
+
+/* --- 2. MIDDLE ROW ROADMAP TRACKER RADAR SCAN PANEL --- */
+.donor-roadmap-tracker-card {
+    background-color: var(--white);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+    padding: 1.75rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.roadmap-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+}
+.roadmap-card-header h3 { font-size: 1.2rem; font-weight: 800; color: var(--dark-neutral); }
+
+.live-audit-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.9rem;
+    background-color: #f5f7f6;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #444444;
+    border: 1px solid rgba(0,0,0,0.04);
+}
+
+.audit-beacon-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #2e7d32;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #2e7d32;
+    animation: donorAuditPulse 2s infinite ease-in-out;
+}
+
+.roadmap-visual-canvas-mockup {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.roadmap-backdrop-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.75) contrast(1.15) saturate(0.9);
+}
+
+/* Floating Milestone Map Overlay Stations Coordinates */
+.roadmap-ui-station {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.roadmap-ui-station.position-site-alpha { left: 30%; top: 25%; }
+.roadmap-ui-station.position-site-beta { right: 28%; bottom: 30%; }
+
+.station-radar-ping {
+    width: 14px;
+    height: 14px;
+    background-color: #e65100;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #e65100;
+    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.station-radar-ping.alert-blue-ping {
+    background-color: #2196f3;
+    box-shadow: 0 0 10px #2196f3;
+}
+
+.station-metrics-popup {
+    background-color: rgba(26, 34, 30, 0.96); /* High-contrast solid dark green slate overlay widget bubble */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    opacity: 0.85;
+    transform: translateY(2px);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.station-metrics-popup strong { font-size: 0.85rem; color: #ffffff; }
+.station-metrics-popup span { font-size: 0.75rem; color: #93a39a; font-weight: 600; }
+.text-optimal-green { color: #4caf50 !important; font-weight: 800; }
+
+/* Milestone Overlays Hover Dynamics Transitions Trigger */
+.roadmap-ui-station:hover .station-radar-ping { transform: scale(1.3); }
+.roadmap-ui-station:hover .station-metrics-popup { opacity: 1; transform: translateY(0); border-color: #ff9100; box-shadow: 0 8px 25px rgba(230, 81, 0, 0.2); }
+
+/* --- 3. BOTTOM ALLOCATION TRANSPARENCY DATA TABLE LOGS --- */
+.donor-transparency-table-box {
+    background-color: var(--white);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+    padding: 1.75rem;
+    width: 100%;
+}
+
+.d-table-title-row { margin-bottom: 1.25rem; }
+.d-table-title-row h3 { font-size: 1.2rem; font-weight: 800; color: var(--dark-neutral); }
+
+.d-table-overflow-containment { width: 100%; overflow-x: auto; }
+
+.donor-transparency-table { width: 100%; border-collapse: collapse; text-align: left; }
+.donor-transparency-table th, .donor-transparency-table td { padding: 1rem 1.25rem; font-size: 0.9rem; font-weight: 600; border-bottom: 1px solid #f0f2f5; }
+
+.donor-transparency-table th {
+    background-color: #f5f7f6;
+    color: #555555;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.8rem;
+}
+
+.donor-transparency-table tbody tr { transition: background-color 0.2s ease; }
+.donor-transparency-table tbody tr:hover { background-color: var(--bg-faint); }
+
+.ledger-hash {
+    font-family: monospace;
+    background-color: #f5f7f6;
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: var(--dark-neutral);
+    font-weight: bold;
+}
+
+/* Status capsule Tag Chips codes mapping */
+.donor-pill-tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.donor-pill-tag.state-secure { background-color: rgba(33, 150, 243, 0.1); color: #2196f3; }
+.donor-pill-tag.state-delivered { background-color: rgba(76, 175, 80, 0.1); color: #2e7d32; border: 1px solid rgba(76, 175, 80, 0.15); }
+
+/* --- BLOCKCHAIN AUDIT BEACON PULSING SIGNAL KEYFRAMES --- */
+@keyframes donorAuditPulse { 0% { transform: scale(0.95); opacity: 0.5; } 50% { transform: scale(1.05); opacity: 1; box-shadow: 0 0 12px #2e7d32; } 100% { transform: scale(0.95); opacity: 0.5; } }
+
+/* --- RESPONSIVE MEDIA GRID CLOSURES OVERRIDES --- */
+@media (max-width: 1200px) {
+    .donor-analytics-metrics-grid { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .donor-stat-tile:last-child { grid-column: span 2; }
+}
+
+@media (max-width: 768px) {
+    .donor-analytics-metrics-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .donor-stat-tile:last-child { grid-column: span 1; }
+    .roadmap-visual-canvas-mockup { height: 240px; }
+    .roadmap-ui-station.position-site-alpha { left: 10%; top: 20%; }
+    .roadmap-ui-station.position-site-beta { right: 10%; bottom: 15%; }
+    .station-metrics-popup { padding: 0.5rem 0.75rem; }
+}
+
+@media (max-width: 520px) {
+    .roadmap-card-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+    .donor-transparency-table th, .donor-transparency-table td { padding: 0.85rem 0.6rem; font-size: 0.8rem; }
+    .station-metrics-popup { display: none; } /* Drop heavy interactive overlays on extra narrow touchscreen views */
+}
+
+</style>
+
+                <!-- Section Block 2: My Contributions -->
+               <!-- Enhanced My Contribution History Panel -->
+<div class="viewport-section-card" id="contribution-history">
+    
+    <!-- GRID ROW 1: Financial Allocation Analytics Tiles Matrix -->
+    <div class="donor-history-analytics-grid">
+        
+        <!-- Budget Tile 1 -->
+        <div class="donor-history-card">
+            <div class="history-tile-top-row">
+                <span class="history-tile-tag-label">Year-to-Date Giving</span>
+                <div class="history-vector-box color-green">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M5,6H19V18H5V6M5,4A2,2 0 0,0 3,6V18A2,2 0 0,0 5,20H19A2,2 0 0,0 21,18V6A2,2 0 0,0 19,4H5M7,8H11V11H7V8M7,13H17V15H7V13M13,8H17V10H13V8Z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="history-tile-major">₹45,500 <span class="history-unit-label">INR</span></div>
+            <div class="history-mini-progress-track">
+                <div class="history-indicator-fill status-optimal" style="width: 75%;"></div>
+            </div>
+            <p class="history-tile-caption">Next scheduled recurring debit: Sept 01, 2026</p>
+        </div>
+
+        <!-- Budget Tile 2 -->
+        <div class="donor-history-card">
+            <div class="history-tile-top-row">
+                <span class="history-tile-tag-label">Corporate Leveraged Fund</span>
+                <div class="history-vector-box color-blue">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.11,3 19,3M19,19H5V5H19V19M7,7H17V9H7V7M7,11H17V13H7V11M7,15H14V17H7V15Z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="history-tile-major">₹1,36,500 <span class="history-unit-label">Matched</span></div>
+            <div class="history-mini-progress-track">
+                <div class="history-indicator-fill status-secure" style="width: 100%;"></div>
+            </div>
+            <p class="history-tile-caption">3x Multiplier applied via partner trust grants</p>
+        </div>
+
+        <!-- Budget Tile 3 -->
+        <div class="donor-history-card">
+            <div class="history-tile-top-row">
+                <span class="history-tile-tag-label">Net Project Allocation</span>
+                <div class="history-vector-box color-amber">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M11,7H13V12H11V7M11,14H13V16H11V14Z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="history-tile-major">96.2% <span class="history-unit-label">Direct</span></div>
+            <div class="history-mini-progress-track">
+                <div class="history-indicator-fill status-minimal" style="width: 96%;"></div>
+            </div>
+            <p class="history-tile-caption">Admin overhead tightly optimized below limits</p>
+        </div>
+
+    </div>
+
+    <!-- GRID ROW 2: Interactive Donor Tier Status Card -->
+    <div class="donor-tier-management-card">
+        <div class="tier-card-header-row">
+            <div class="tier-meta-titles">
+                <h3>Active Patron Recognition Circle</h3>
+                <span class="tier-sub-tag">Account Membership ID: STK-DON-4089C</span>
+            </div>
+            <span class="tier-badge-pill"><span class="tier-pulse"></span>Tier Status: Silver Patron</span>
+        </div>
+        
+        <div class="tier-details-asymmetric-split">
+            <div class="tier-specs-box">
+                <h4>Silver Circle Sustaining Package</h4>
+                <p>Hosts automatic 3x institutional corporate match routing, transparent blockchain shipment milestone push notifications, early access to specialized field aid briefings, and annual tax-deductible ledger exports parameters.</p>
+            </div>
+            <div class="tier-action-box">
+                <div class="donation-bubble-wrap">
+                    <span class="donation-num">₹5,000</span>
+                    <span class="donation-cycle">/ Month</span>
+                </div>
+                <a href="404.html" class="btn-modify-donation-tier">Modify Donation Profile</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- GRID ROW 3: Responsive Historical Donation Records Table -->
+    <div class="donor-history-ledger-box">
+        <div class="h-table-headline-row">
+            <h3>Audited Personal Contribution Ledger</h3>
+        </div>
+        
+        <div class="h-table-overflow-containment">
+            <table class="donor-statement-table">
+                <thead>
+                    <tr>
+                        <th>Transaction Receipt ID</th>
+                        <th>Cycle Billing Interval</th>
+                        <th>Donation Frequency Channel</th>
+                        <th>Dispatched Capital mass</th>
+                        <th>Ledger Audit Status</th>
+                        <th>Certified Receipt Download</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="history-token">STK-REC-9942</code></td>
+                        <td>Aug 01, 2026 - Aug 31, 2026</td>
+                        <td>Sustaining Monthly Recurring Auto-Debit</td>
+                        <td>₹5,000</td>
+                        <td><span class="history-badge-pill state-settled">Settled Success</span></td>
+                        <td>
+                            <a href="404.html" class="btn-statement-download" aria-label="Download Certified Donation Receipt File">
+                                <svg viewBox="0 0 24 24" width="16" height="16"><path d="M5,20H19V18H5V20M19,9H15V3H9V9H5L12,16L19,9Z"/></svg>
+                                <span>PDF Receipt</span>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code class="history-token">STK-REC-8711</code></td>
+                        <td>July 01, 2026 - July 31, 2026</td>
+                        <td>Sustaining Monthly Recurring Auto-Debit</td>
+                        <td>₹5,000</td>
+                        <td><span class="history-badge-pill state-settled">Settled Success</span></td>
+                        <td>
+                            <a href="404.html" class="btn-statement-download" aria-label="Download Certified Donation Receipt File">
+                                <svg viewBox="0 0 24 24" width="16" height="16"><path d="M5,20H19V18H5V20M19,9H15V3H9V9H5L12,16L19,9Z"/></svg>
+                                <span>PDF Receipt</span>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code class="history-token">STK-ONE-3104</code></td>
+                        <td>June 15, 2026</td>
+                        <td>One-Time Crisis Disaster Emergency Relief Contribution</td>
+                        <td>₹35,500</td>
+                        <td><span class="history-badge-pill state-settled">Settled Success</span></td>
+                        <td>
+                            <a href="404.html" class="btn-statement-download" aria-label="Download Certified Donation Receipt File">
+                                <svg viewBox="0 0 24 24" width="16" height="16"><path d="M5,20H19V18H5V20M19,9H15V3H9V9H5L12,16L19,9Z"/></svg>
+                                <span>PDF Receipt</span>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+<style>
+    /* ==========================================================================
+   MODULE 7: SECURE NGO CLIENT DONATION HISTORY & STATUS COMPONENTS
+   ========================================================================== */
+
+/* --- 1. UPPER STRIP FINANCIAL FLUX TILES GRID --- */
+.donor-history-analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.donor-history-card {
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.history-tile-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.85rem;
+}
+
+.history-tile-tag-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #666666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.history-vector-box {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.history-vector-box svg { width: 18px; height: 18px; }
+
+/* Custom financial vector badge theme fills maps */
+.history-vector-box.color-green { background-color: rgba(76, 175, 80, 0.08); fill: var(--text-forest); }
+.history-vector-box.color-blue { background-color: #e3f2fd; fill: #1e88e5; }
+.history-vector-box.color-amber { background-color: rgba(230, 81, 0, 0.08); fill: var(--agri-glow); }
+
+.history-tile-major {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--dark-neutral);
+    line-height: 1;
+    margin-bottom: 0.85rem;
+    letter-spacing: -0.5px;
+}
+.history-tile-major .history-unit-label { font-size: 0.95rem; font-weight: 700; color: #777777; }
+
+.history-mini-progress-track {
+    width: 100%;
+    height: 6px;
+    background-color: #f0f2f5;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 0.6rem;
+}
+
+.history-indicator-fill { height: 100%; border-radius: 10px; }
+.history-indicator-fill.status-optimal { background-color: #2e7d32; }
+.history-indicator-fill.status-secure { background-color: #2196f3; }
+.history-indicator-fill.status-minimal { background-color: #ff9100; }
+
+.history-tile-caption { font-size: 0.8rem; font-weight: 600; color: #888888; }
+
+.donor-history-card:hover {
+    transform: translateY(-4px);
+    border-color: #ff9100;
+    box-shadow: 0 10px 25px rgba(230, 81, 0, 0.08);
+}
+
+/* --- 2. MIDDLE ROW INTERACTIVE PLAN ALLOCATION Blueprint DECK --- */
+.donor-tier-management-card {
+    background-color: var(--white);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+    padding: 1.75rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.tier-card-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #f0f2f5;
+    padding-bottom: 1rem;
+}
+
+.tier-meta-titles h3 { font-size: 1.25rem; font-weight: 800; color: var(--dark-neutral); margin-bottom: 0.15rem; }
+.tier-sub-tag { font-size: 0.8rem; font-weight: 700; color: #777777; }
+
+.tier-badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.35rem 0.85rem;
+    background-color: rgba(76, 175, 80, 0.08);
+    color: #2e7d32;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-radius: 20px;
+    border: 1px solid rgba(76, 175, 80, 0.15);
+}
+
+.tier-pulse {
+    width: 7px;
+    height: 7px;
+    background-color: #2e7d32;
+    border-radius: 50%;
+    box-shadow: 0 0 6px #2e7d32;
+    animation: clientHistoryPulseBeacon 2s infinite ease-in-out;
+}
+
+/* Asymmetrical column distribution split grid */
+.tier-details-asymmetric-split {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.tier-specs-box h4 { font-size: 1.1rem; font-weight: 800; color: var(--dark-neutral); margin-bottom: 0.4rem; }
+.tier-specs-box p { font-size: 0.95rem; color: #52635c; line-height: 1.55; font-weight: 500; }
+
+.tier-action-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+}
+
+.donation-bubble-wrap { display: flex; align-items: baseline; gap: 0.2rem; }
+.donation-bubble-wrap .donation-num { font-size: 2.2rem; font-weight: 900; color: var(--dark-neutral); letter-spacing: -1px; }
+.donation-bubble-wrap .donation-cycle { font-size: 0.9rem; font-weight: 700; color: #666666; }
+
+.btn-modify-donation-tier {
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--dark-neutral);
+    color: var(--white);
+    font-weight: 800;
+    font-size: 0.9rem;
+    border-radius: 24px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.btn-modify-donation-tier:hover {
+    background-color: #ff9100;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(230, 81, 0, 0.3);
+}
+
+/* --- 3. BOTTOM AUDITED HISTORICAL LEDGER TABLE MODULE --- */
+.donor-history-ledger-box {
+    background-color: var(--white);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+    padding: 1.75rem;
+    width: 100%;
+}
+
+.h-table-headline-row { margin-bottom: 1.25rem; }
+.h-table-headline-row h3 { font-size: 1.2rem; font-weight: 800; color: var(--dark-neutral); }
+
+.h-table-overflow-containment { width: 100%; overflow-x: auto; }
+
+.donor-statement-table { width: 100%; border-collapse: collapse; text-align: left; }
+.donor-statement-table th, .donor-statement-table td { padding: 1rem 1.25rem; font-size: 0.9rem; font-weight: 600; border-bottom: 1px solid #f0f2f5; }
+
+.donor-statement-table th {
+    background-color: #f5f7f6;
+    color: #555555;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.8rem;
+}
+
+.donor-statement-table tbody tr { transition: background-color 0.2s ease; }
+.donor-statement-table tbody tr:hover { background-color: var(--bg-faint); }
+
+.history-token {
+    font-family: monospace;
+    background-color: #f5f7f6;
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: var(--dark-neutral);
+    font-weight: bold;
+}
+
+.history-badge-pill {
+    display: inline-block;
+    padding: 0.25rem 0.65rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background-color: rgba(76, 175, 80, 0.1);
+    color: #2e7d32;
+    border: 1px solid rgba(76, 175, 80, 0.15);
+}
+
+/* Printable certified tax receipt download link mapping nodes */
+.btn-statement-download {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 1rem;
+    background-color: #f5f7f6;
+    border-radius: 8px;
+    color: var(--dark-neutral);
+    font-size: 0.85rem;
+    font-weight: 700;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: all 0.25s ease;
+}
+
+.btn-statement-download svg { fill: var(--dark-neutral); transition: transform 0.25s ease; }
+
+.btn-statement-download:hover {
+    background-color: var(--text-forest);
+    color: var(--white);
+    border-color: var(--text-forest);
+}
+.btn-statement-download:hover svg { fill: var(--white); transform: translateY(1px); }
+
+/* --- SIGNAL PULSE KEYFRAMES TRANSITIONS --- */
+@keyframes clientHistoryPulseBeacon { 0% { transform: scale(0.95); opacity: 0.5; } 50% { transform: scale(1.05); opacity: 1; } 100% { transform: scale(0.95); opacity: 0.5; } }
+
+/* --- RESPONSIVE MEDIA GRID CLOSURES OVERRIDES --- */
+@media (max-width: 1200px) {
+    .donor-history-analytics-grid { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .donor-history-card:last-child { grid-column: span 2; }
+    .tier-details-asymmetric-split { grid-template-columns: 1fr; gap: 2rem; }
+    .tier-action-box { align-items: flex-start; }
+}
+
+@media (max-width: 768px) {
+    .donor-history-analytics-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .donor-history-card:last-child { grid-column: span 1; }
+}
+
+@media (max-width: 520px) {
+    .tier-card-header-row { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .donor-statement-table th, .donor-statement-table td { padding: 0.85rem 0.6rem; font-size: 0.8rem; }
+    .btn-statement-download span { display: none; } /* Drop download text strings inside micro touch layout nodes */
+    .btn-statement-download { padding: 0.45rem; }
+}
+
+</style>
+
+                <!-- Section Block 3: Sponsorship Tracks -->
+             <!-- Enhanced Active Project Sponsorships Panel -->
+<div class="viewport-section-card" id="project-sponsorships">
+    
+    <!-- GRID ROW 1: Sponsorship Allocation Analytics Grid -->
+    <div class="sponsorship-analytics-metrics-grid">
+        
+        <!-- Analytics Tile 1 -->
+        <div class="sponsorship-stat-tile">
+            <div class="sponsorship-tile-header">
+                <span class="sponsorship-tile-label">Sponsored Sectors</span>
+                <div class="sponsorship-vector-box fill-green">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M11,7H13V12H11V7M11,14H13V16H11V14Z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="sponsorship-tile-major">03 <span class="sponsorship-sub-unit">Active Hubs</span></div>
+            <div class="sponsorship-mini-progress">
+                <div class="sponsorship-progress-fill match-green" style="width: 100%;"></div>
+            </div>
+            <p class="sponsorship-tile-caption">Continuous telemetry monitoring active</p>
+        </div>
+
+        <!-- Analytics Tile 2 -->
+        <div class="sponsorship-stat-tile">
+            <div class="sponsorship-tile-header">
+                <span class="sponsorship-tile-label">Fund Deployment Index</span>
+                <div class="sponsorship-vector-box fill-blue">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17Z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="sponsorship-tile-major">94.8% <span class="sponsorship-sub-unit">Direct Aid</span></div>
+            <div class="sponsorship-mini-progress">
+                <div class="sponsorship-progress-fill match-blue" style="width: 94%;"></div>
+            </div>
+            <p class="sponsorship-tile-caption">Administrative overhead optimized below 6%</p>
+        </div>
+
+        <!-- Analytics Tile 3 -->
+        <div class="sponsorship-stat-tile">
+            <div class="sponsorship-tile-header">
+                <span class="sponsorship-tile-label">Next Verification Audit</span>
+                <div class="sponsorship-vector-box fill-orange">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.11,3 19,3M19,19H5V5H19V19M7,7H17V9H7V7M7,11H17V13H7V11M7,15H14V17H7V15Z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="sponsorship-tile-major">04 <span class="sponsorship-sub-unit">Days Left</span></div>
+            <div class="sponsorship-mini-progress">
+                <div class="sponsorship-progress-fill match-orange" style="width: 35%;"></div>
+            </div>
+            <p class="sponsorship-tile-caption">Live field verification schedules active</p>
+        </div>
+
+    </div>
+
+    <!-- GRID ROW 2: Interactive Progress Milestone Roadmap Tracker Panel -->
+    <div class="sponsorship-roadmap-tracker-card">
+        <div class="sponsorship-roadmap-header">
+            <h3>Sponsorship Project Construction Pipeline</h3>
+            <span class="live-sponsorship-badge"><span class="sponsorship-beacon-dot"></span>Active GPS Handshake</span>
+        </div>
+        
+        <div class="sponsorship-visual-canvas-mockup">
+            <!-- Background drone overlay topographical field scan map asset -->
+            <img src="./Assests/community support.webp" alt="Topographical matrix predictive timelines graph" class="sponsorship-backdrop-img">
+            
+            <!-- Floating Milestone Station Node 1 -->
+            <div class="sponsorship-ui-station position-site-alpha">
+                <div class="sponsorship-station-radar-ping"></div>
+                <div class="sponsorship-station-metrics-popup">
+                    <strong>Community Healthcare Node</strong>
+                    <span>Status: Structural Foundation Built</span>
+                    <span class="text-optimal-green">Target Operational: 14 Days</span>
+                </div>
+            </div>
+
+            <!-- Floating Milestone Station Node 2 -->
+            <div class="sponsorship-ui-station position-site-beta">
+                <div class="sponsorship-station-radar-ping alert-blue-ping"></div>
+                <div class="sponsorship-station-metrics-popup">
+                    <strong>Subsurface Water Aquifer 2</strong>
+                    <span>Status: Piping Infrastructure Live</span>
+                    <span>Daily Volume Capacity: 2,500 G</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GRID ROW 3: Detailed On-Field Budget Utilization Ledger Table -->
+    <div class="sponsorship-transparency-table-box">
+        <div class="sponsorship-table-title-row">
+            <h3>On-Field Budget Deployment Ledger</h3>
+        </div>
+        
+        <div class="sponsorship-table-overflow-containment">
+            <table class="sponsorship-transparency-table">
+                <thead>
+                    <tr>
+                        <th>Project Deployment Token</th>
+                        <th>Sponsored Campaign Core</th>
+                        <th>Target Regional Field Sector</th>
+                        <th>Capital Dispatched Mass</th>
+                        <th>Ecosystem Impact Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="sponsorship-ledger-hash">STK-SPN-402A</code></td>
+                        <td>Clean Water Aquifers</td>
+                        <td>Salem Northern Interchange Hub</td>
+                        <td><strong>₹85,000</strong></td>
+                        <td><span class="sponsorship-pill-tag state-secure">Fully Dispatched</span></td>
+                    </tr>
+                    <tr>
+                        <td><code class="sponsorship-ledger-hash">STK-SPN-115B</code></td>
+                        <td>Rural Nutrition Mesh</td>
+                        <td>MMR Complex Center Core Node</td>
+                        <td><strong>₹45,000</strong></td>
+                        <td><span class="sponsorship-pill-tag state-secure">Fully Dispatched</span></td>
+                    </tr>
+                    <tr>
+                        <td><code class="sponsorship-ledger-hash">STK-SPN-689C</code></td>
+                        <td>Educational Toolkits</td>
+                        <td>Chinna Thirupathi Grid Depot</td>
+                        <td><strong>₹55,000</strong></td>
+                        <td><span class="sponsorship-pill-tag state-delivered">Delivered to Field</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<style>
+    /* ==========================================================================
+   MODULE 8: ACTIVE PROJECT SPONSORSHIPS FIELD COMPONENTS
+   ========================================================================== */
+
+/* --- 1. UPPER STRIP SPONSORSHIP ALLOCATION CORE TILES --- */
+.sponsorship-analytics-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.sponsorship-stat-tile {
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sponsorship-tile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.85rem;
+}
+
+.sponsorship-tile-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #666666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sponsorship-vector-box {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sponsorship-vector-box svg { width: 18px; height: 18px; }
+
+/* Micro color design asset token configurations */
+.sponsorship-vector-box.fill-green { background-color: rgba(76, 175, 80, 0.08); fill: var(--text-forest); }
+.sponsorship-vector-box.fill-blue { background-color: #e3f2fd; fill: #1e88e5; }
+.sponsorship-vector-box.fill-orange { background-color: rgba(230, 81, 0, 0.08); fill: var(--agri-glow); }
+
+.sponsorship-tile-major {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--dark-neutral);
+    line-height: 1;
+    margin-bottom: 0.85rem;
+    letter-spacing: -0.5px;
+}
+.sponsorship-tile-major .sponsorship-sub-unit { font-size: 0.95rem; font-weight: 700; color: #777777; }
+
+/* Inline structural linear progress tracking indicators */
+.sponsorship-mini-progress {
+    width: 100%;
+    height: 6px;
+    background-color: #f0f2f5;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 0.6rem;
+}
+
+.sponsorship-progress-fill { height: 100%; border-radius: 10px; }
+.sponsorship-progress-fill.match-green { background-color: #2e7d32; }
+.sponsorship-progress-fill.match-blue { background-color: #2196f3; }
+.sponsorship-progress-fill.match-orange { background-color: #e65100; }
+
+.sponsorship-tile-caption { font-size: 0.8rem; font-weight: 600; color: #888888; }
+
+.sponsorship-stat-tile:hover {
+    transform: translateY(-4px);
+    border-color: #ff9100;
+    box-shadow: 0 10px 25px rgba(230, 81, 0, 0.08);
+}
+
+/* --- 2. MIDDLE ROW ROADMAP TRACKER RADAR SCAN PANEL --- */
+.sponsorship-roadmap-tracker-card {
+    background-color: var(--white);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+    padding: 1.75rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.sponsorship-roadmap-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+}
+.sponsorship-roadmap-header h3 { font-size: 1.2rem; font-weight: 800; color: var(--dark-neutral); }
+
+.live-sponsorship-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.9rem;
+    background-color: #f5f7f6;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #444444;
+    border: 1px solid rgba(0,0,0,0.04);
+}
+
+.sponsorship-beacon-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #2e7d32;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #2e7d32;
+    animation: sponsorshipAuditPulse 2s infinite ease-in-out;
+}
+
+.sponsorship-visual-canvas-mockup {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.sponsorship-backdrop-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.75) contrast(1.15) saturate(0.9);
+}
+
+/* Floating Milestone Map Overlay Stations Coordinates */
+.sponsorship-ui-station {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.sponsorship-ui-station.position-site-alpha { left: 32%; top: 28%; }
+.sponsorship-ui-station.position-site-beta { right: 26%; bottom: 32%; }
+
+.sponsorship-station-radar-ping {
+    width: 14px;
+    height: 14px;
+    background-color: #e65100;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #e65100;
+    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.sponsorship-station-radar-ping.alert-blue-ping {
+    background-color: #2196f3;
+    box-shadow: 0 0 10px #2196f3;
+}
+
+.sponsorship-station-metrics-popup {
+    background-color: rgba(26, 34, 30, 0.96); /* High-contrast solid dark green slate overlay widget bubble */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    opacity: 0.85;
+    transform: translateY(2px);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.sponsorship-station-metrics-popup strong { font-size: 0.85rem; color: #ffffff; }
+.sponsorship-station-metrics-popup span { font-size: 0.75rem; color: #93a39a; font-weight: 600; }
+.text-optimal-green { color: #4caf50 !important; font-weight: 800; }
+
+/* Milestone Overlays Hover Dynamics Transitions Trigger */
+.sponsorship-ui-station:hover .sponsorship-station-radar-ping { transform: scale(1.3); }
+.sponsorship-ui-station:hover .sponsorship-station-metrics-popup { opacity: 1; transform: translateY(0); border-color: #ff9100; box-shadow: 0 8px 25px rgba(230, 81, 0, 0.2); }
+
+/* --- 3. BOTTOM ALLOCATION TRANSPARENCY DATA TABLE LOGS --- */
+.sponsorship-transparency-table-box {
+    background-color: var(--white);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+    padding: 1.75rem;
+    width: 100%;
+}
+
+.sponsorship-table-title-row { margin-bottom: 1.25rem; }
+.sponsorship-table-title-row h3 { font-size: 1.2rem; font-weight: 800; color: var(--dark-neutral); }
+
+.sponsorship-table-overflow-containment { width: 100%; overflow-x: auto; }
+
+.sponsorship-transparency-table { width: 100%; border-collapse: collapse; text-align: left; }
+.sponsorship-transparency-table th, .sponsorship-transparency-table td { padding: 1rem 1.25rem; font-size: 0.9rem; font-weight: 600; border-bottom: 1px solid #f0f2f5; }
+
+.sponsorship-transparency-table th {
+    background-color: #f5f7f6;
+    color: #555555;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.8rem;
+}
+
+.sponsorship-transparency-table tbody tr { transition: background-color 0.2s ease; }
+.sponsorship-transparency-table tbody tr:hover { background-color: var(--bg-faint); }
+
+.sponsorship-ledger-hash {
+    font-family: monospace;
+    background-color: #f5f7f6;
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: var(--dark-neutral);
+    font-weight: bold;
+}
+
+/* Status capsule Tag Chips codes mapping */
+.sponsorship-pill-tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.sponsorship-pill-tag.state-secure { background-color: rgba(33, 150, 243, 0.1); color: #2196f3; }
+.sponsorship-pill-tag.state-delivered { background-color: rgba(76, 175, 80, 0.1); color: #2e7d32; border: 1px solid rgba(76, 175, 80, 0.15); }
+
+/* --- BLOCKCHAIN AUDIT BEACON PULSING SIGNAL KEYFRAMES --- */
+@keyframes sponsorshipAuditPulse { 0% { transform: scale(0.95); opacity: 0.5; } 50% { transform: scale(1.05); opacity: 1; box-shadow: 0 0 12px #2e7d32; } 100% { transform: scale(0.95); opacity: 0.5; } }
+
+/* --- RESPONSIVE MEDIA GRID CLOSURES OVERRIDES --- */
+@media (max-width: 1200px) {
+    .sponsorship-analytics-metrics-grid { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .sponsorship-stat-tile:last-child { grid-column: span 2; }
+}
+
+@media (max-width: 768px) {
+    .sponsorship-analytics-metrics-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .sponsorship-stat-tile:last-child { grid-column: span 1; }
+    .sponsorship-visual-canvas-mockup { height: 240px; }
+    .sponsorship-ui-station.position-site-alpha { left: 10%; top: 20%; }
+    .sponsorship-ui-station.position-site-beta { right: 10%; bottom: 15%; }
+    .sponsorship-station-metrics-popup { padding: 0.5rem 0.75rem; }
+}
+
+@media (max-width: 520px) {
+    .sponsorship-roadmap-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+    .sponsorship-transparency-table th, .sponsorship-transparency-table td { padding: 0.85rem 0.6rem; font-size: 0.8rem; }
+    .sponsorship-station-metrics-popup { display: none; } /* Drop heavy interactive overlays on extra narrow touchscreen views */
+}
+
+</style>
+              <!-- Enhanced Ecosystem Impact Statements Panel -->
+<div class="viewport-section-card" id="impact-certificates">
+    
+    <!-- GRID ROW 1: Asymmetric Impact Indicator Grid Matrix -->
+    <div class="impact-metrics-analytics-grid">
+        
+        <!-- Indicator Tile 1 -->
+        <div class="impact-analytics-card">
+            <div class="impact-tile-header-row">
+                <span class="impact-tile-tag-label">Carbon Abatement</span>
+                <div class="impact-vector-shield green-theme">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,17C7.58,17 4,14.42 4,12C4,9.58 7.58,7 12,7C16.42,7 20,9.58 20,12C20,14.42 16.42,17 12,17Z"/></svg>
+                </div>
+            </div>
+            <div class="impact-tile-major-value">14.2 <span class="impact-sub-unit">Tons CO₂e</span></div>
+            <div class="impact-mini-progress">
+                <div class="impact-progress-fill match-green" style="width: 82%;"></div>
+            </div>
+            <p class="impact-tile-footer-note">Mitigated via automated valve run times</p>
+        </div>
+
+        <!-- Indicator Tile 2 -->
+        <div class="impact-analytics-card">
+            <div class="impact-tile-header-row">
+                <span class="impact-tile-tag-label">Water Vol Saved</span>
+                <div class="impact-vector-shield blue-theme">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17Z"/></svg>
+                </div>
+            </div>
+            <div class="impact-tile-major-value">185,000 <span class="impact-sub-unit">G</span></div>
+            <div class="impact-mini-progress">
+                <div class="impact-progress-fill match-blue" style="width: 74%;"></div>
+            </div>
+            <p class="impact-tile-footer-note">Preserved through loop soil sensors</p>
+        </div>
+
+        <!-- Indicator Tile 3 -->
+        <div class="impact-analytics-card">
+            <div class="impact-tile-header-row">
+                <span class="impact-tile-tag-label">Soil Biome Index</span>
+                <div class="impact-vector-shield orange-theme">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M11,7H13V12H11V7M11,14H13V16H11V14Z"/></svg>
+                </div>
+            </div>
+            <div class="impact-tile-major-value">0.84 <span class="impact-sub-unit">Healthy</span></div>
+            <div class="impact-mini-progress">
+                <div class="impact-progress-fill match-orange" style="width: 90%;"></div>
+            </div>
+            <p class="impact-tile-footer-note">photosynthetic canopy density spikes</p>
+        </div>
+
+    </div>
+
+    <!-- GRID ROW 2: Interactive Plan Status & Certification Level Settings Deck -->
+    <div class="impact-certification-management-card">
+        <div class="cert-card-header-row">
+            <div class="cert-meta-titles">
+                <h3>Certified Ecological Impact Status</h3>
+                <span class="cert-sub-tag">Institutional Member ID: STK-ECO-40992</span>
+            </div>
+            <span class="license-badge-pill"><span class="license-pulse"></span>Verification Safe</span>
+        </div>
+        
+        <div class="cert-details-asymmetric-split">
+            <div class="cert-specs-box">
+                <h4>Gold Patron Sustainability Quota</h4>
+                <p>Hosts multi-node satellite telemetry tracking loops, automated closed-loop structural reports, direct subsurface environmental logging grids, and annual downloadable PDF statement exports parameters.</p>
+            </div>
+            <div class="cert-action-box">
+                <div class="score-bubble-wrap">
+                    <span class="score-num">94.8</span>
+                    <span class="score-cycle">/ 100 Score</span>
+                </div>
+                <a href="404.html" class="btn-modify-impact-tier">Review Global Index</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- GRID ROW 3: Responsive Impact Certificate Registry Ledger Data Table -->
+    <div class="impact-history-ledger-box">
+        <div class="i-table-headline-row">
+            <h3>Verified Transnational Impact Certificates</h3>
+        </div>
+        
+        <div class="i-table-overflow-containment">
+            <table class="impact-statement-table">
+                <thead>
+                    <tr>
+                        <th>Statement Reference</th>
+                        <th>Cycle Statement Interval</th>
+                        <th>Audited Impact Category</th>
+                        <th>Net Certified Savings</th>
+                        <th>Ledger Status</th>
+                        <th>Certificate Download</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="ledger-token">STK-CERT-9921</code></td>
+                        <td>July 01, 2026 - July 31, 2026</td>
+                        <td>Subsurface Capillary Hydration Mesh</td>
+                        <td>4,200 Gallons Saved</td>
+                        <td><span class="ledger-badge-pill state-paid">Audited Safe</span></td>
+                        <td>
+                            <a href="404.html" class="btn-cert-download" aria-label="Download Certified Impact Statement File">
+                                <svg viewBox="0 0 24 24" width="16" height="16"><path d="M5,20H19V18H5V20M19,9H15V3H9V9H5L12,16L19,9Z"/></svg>
+                                <span>PDF Statement</span>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code class="ledger-token">STK-CERT-8840</code></td>
+                        <td>June 01, 2026 - June 30, 2026</td>
+                        <td>Automated Overhead Misting Run</td>
+                        <td>1,240 Gallons Saved</td>
+                        <td><span class="ledger-badge-pill state-paid">Audited Safe</span></td>
+                        <td>
+                            <a href="404.html" class="btn-cert-download" aria-label="Download Certified Impact Statement File">
+                                <svg viewBox="0 0 24 24" width="16" height="16"><path d="M5,20H19V18H5V20M19,9H15V3H9V9H5L12,16L19,9Z"/></svg>
+                                <span>PDF Statement</span>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code class="ledger-token">STK-CERT-7115</code></td>
+                        <td>May 01, 2026 - May 31, 2026</td>
+                        <td>Precision Micro-Drip Line Grids</td>
+                        <td>3,150 Gallons Saved</td>
+                        <td><span class="ledger-badge-pill state-paid">Audited Safe</span></td>
+                        <td>
+                            <a href="404.html" class="btn-cert-download" aria-label="Download Certified Impact Statement File">
+                                <svg viewBox="0 0 24 24" width="16" height="16"><path d="M5,20H19V18H5V20M19,9H15V3H9V9H5L12,16L19,9Z"/></svg>
+                                <span>PDF Statement</span>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+<style>
+    /* ==========================================================================
+   MODULE 11: ECOSYSTEM IMPACT CERTIFICATE & STATUS STATEMENTS
+   ========================================================================== */
+
+/* --- 1. UPPER STRIP ASYMMETRIC IMPACT INDICATOR GRID --- */
+.impact-metrics-analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.impact-analytics-card {
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.impact-tile-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.85rem;
+}
+
+.impact-tile-tag-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #666666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.impact-vector-shield {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.impact-vector-shield svg { width: 18px; height: 18px; }
+
+/* Custom impact vector badge theme fills maps */
+.impact-vector-shield.green-theme { background-color: rgba(76, 175, 80, 0.08); fill: var(--text-forest); }
+.impact-vector-shield.blue-theme { background-color: #e3f2fd; fill: #1e88e5; }
+.impact-vector-shield.orange-theme { background-color: rgba(230, 81, 0, 0.08); fill: var(--agri-glow); }
+
+.impact-tile-major-value {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--dark-neutral);
+    line-height: 1;
+    margin-bottom: 0.85rem;
+    letter-spacing: -0.5px;
+}
+.impact-tile-major-value .impact-sub-unit { font-size: 0.95rem; font-weight: 700; color: #777777; }
+
+.impact-mini-progress {
+    width: 100%;
+    height: 6px;
+    background-color: #f0f2f5;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 0.6rem;
+}
+
+.impact-progress-fill { height: 100%; border-radius: 10px; }
+.impact-progress-fill.match-green { background-color: #2e7d32; }
+.impact-progress-fill.match-blue { background-color: #2196f3; }
+.impact-progress-fill.match-orange { background-color: #e65100; }
+
+.impact-tile-footer-note { font-size: 0.8rem; font-weight: 600; color: #888888; }
+
+.impact-analytics-card:hover {
+    transform: translateY(-4px);
+    border-color: #ff9100;
+    box-shadow: 0 10px 25px rgba(230, 81, 0, 0.08);
+}
+
+/* --- 2. MIDDLE ROW PROGRESS MILESTONE GAUGE DECK --- */
+.impact-certification-management-card {
+    background-color: var(--white);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+    padding: 1.75rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.cert-card-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #f0f2f5;
+    padding-bottom: 1rem;
+}
+
+.cert-meta-titles h3 { font-size: 1.25rem; font-weight: 800; color: var(--dark-neutral); margin-bottom: 0.15rem; }
+.cert-sub-tag { font-size: 0.8rem; font-weight: 700; color: #777777; }
+
+.license-badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.35rem 0.85rem;
+    background-color: rgba(76, 175, 80, 0.08);
+    color: #2e7d32;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-radius: 20px;
+    border: 1px solid rgba(76, 175, 80, 0.15);
+}
+
+.license-pulse {
+    width: 7px;
+    height: 7px;
+    background-color: #2e7d32;
+    border-radius: 50%;
+    box-shadow: 0 0 6px #2e7d32;
+    animation: clientHistoryPulseBeacon 2s infinite ease-in-out;
+}
+
+/* Asymmetrical column split layout geometry */
+.cert-details-asymmetric-split {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.cert-specs-box h4 { font-size: 1.1rem; font-weight: 800; color: var(--dark-neutral); margin-bottom: 0.4rem; }
+.cert-specs-box p { font-size: 0.95rem; color: #52635c; line-height: 1.55; font-weight: 500; }
+
+.cert-action-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+}
+
+.score-bubble-wrap { display: flex; align-items: baseline; gap: 0.2rem; }
+.score-bubble-wrap .score-num { font-size: 2.2rem; font-weight: 900; color: var(--dark-neutral); letter-spacing: -1px; }
+.score-bubble-wrap .score-cycle { font-size: 0.9rem; font-weight: 700; color: #666666; }
+
+.btn-modify-impact-tier {
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--dark-neutral);
+    color: var(--white);
+    font-weight: 800;
+    font-size: 0.9rem;
+    border-radius: 24px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.btn-modify-impact-tier:hover {
+    background-color: #ff9100;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(230, 81, 0, 0.3);
+}
+
+/* --- 3. BOTTOM AUDITED STATEMENT MATRIX LEDGER TABLE MODULE --- */
+.impact-history-ledger-box {
+    background-color: var(--white);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+    padding: 1.75rem;
+    width: 100%;
+}
+
+.i-table-headline-row { margin-bottom: 1.25rem; }
+.i-table-headline-row h3 { font-size: 1.2rem; font-weight: 800; color: var(--dark-neutral); }
+
+.i-table-overflow-containment { width: 100%; overflow-x: auto; }
+
+.impact-statement-table { width: 100%; border-collapse: collapse; text-align: left; }
+.impact-statement-table th, .impact-statement-table td { padding: 1rem 1.25rem; font-size: 0.9rem; font-weight: 600; border-bottom: 1px solid #f0f2f5; }
+
+.impact-statement-table th {
+    background-color: #f5f7f6;
+    color: #555555;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.8rem;
+}
+
+.impact-statement-table tbody tr { transition: background-color 0.2s ease; }
+.impact-statement-table tbody tr:hover { background-color: var(--bg-faint); }
+
+.ledger-token {
+    font-family: monospace;
+    background-color: #f5f7f6;
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: var(--dark-neutral);
+    font-weight: bold;
+}
+
+.ledger-badge-pill {
+    display: inline-block;
+    padding: 0.25rem 0.65rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background-color: rgba(76, 175, 80, 0.1);
+    color: #2e7d32;
+    border: 1px solid rgba(76, 175, 80, 0.15);
+}
+
+/* Printable certified statement download link mapping nodes */
+.btn-cert-download {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 1rem;
+    background-color: #f5f7f6;
+    border-radius: 8px;
+    color: var(--dark-neutral);
+    font-size: 0.85rem;
+    font-weight: 700;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: all 0.25s ease;
+}
+
+.btn-cert-download svg { fill: var(--dark-neutral); transition: transform 0.25s ease; }
+
+.btn-cert-download:hover {
+    background-color: var(--text-forest);
+    color: var(--white);
+    border-color: var(--text-forest);
+}
+.btn-cert-download:hover svg { fill: var(--white); transform: translateY(1px); }
+
+/* --- SIGNAL PULSE KEYFRAMES TRANSITIONS --- */
+@keyframes clientHistoryPulseBeacon { 0% { transform: scale(0.95); opacity: 0.5; } 50% { transform: scale(1.05); opacity: 1; } 100% { transform: scale(0.95); opacity: 0.5; } }
+
+/* --- RESPONSIVE MEDIA GRID CLOSURES OVERRIDES --- */
+@media (max-width: 1200px) {
+    .impact-metrics-analytics-grid { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .impact-analytics-card:last-child { grid-column: span 2; }
+    .cert-details-asymmetric-split { grid-template-columns: 1fr; gap: 2rem; }
+    .cert-action-box { align-items: flex-start; }
+}
+
+@media (max-width: 768px) {
+    .impact-metrics-analytics-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .impact-analytics-card:last-child { grid-column: span 1; }
+}
+
+@media (max-width: 520px) {
+    .cert-card-header-row { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .impact-statement-table th, .impact-statement-table td { padding: 0.85rem 0.6rem; font-size: 0.8rem; }
+    .btn-cert-download span { display: none; } /* Drop download text strings inside micro touch layout nodes */
+    .btn-cert-download { padding: 0.45rem; }
+}
+
+</style>
+
+             <!-- Enhanced Tax Exemption Ledgers Panel -->
+<div class="viewport-section-card" id="tax-ledgers">
+    
+    <!-- GRID ROW 1: Tax Compliance Status Tiles Matrix -->
+    <div class="tax-compliance-analytics-grid">
+        
+        <!-- Compliance Tile 1 -->
+        <div class="tax-stat-tile">
+            <div class="tax-tile-header">
+                <span class="tax-tile-label">Deductible Total</span>
+                <div class="tax-vector-box verified-green-theme">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M5,6H19V18H5V6M5,4A2,2 0 0,0 3,6V18A2,2 0 0,0 5,20H19A2,2 0 0,0 21,18V6A2,2 0 0,0 19,4H5M7,8H11V11H7V8M7,13H17V15H7V13M13,8H17V10H13V8Z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="tax-tile-major">₹1,85,000 <span class="tax-sub-unit">YTD</span></div>
+            <div class="tax-mini-progress">
+                <div class="tax-progress-fill match-green" style="width: 100%;"></div>
+            </div>
+            <p class="tax-tile-caption">100% Eligible under Section 80G regulations</p>
+        </div>
+
+        <!-- Compliance Tile 2 -->
+        <div class="tax-stat-tile">
+            <div class="tax-tile-header">
+                <span class="tax-tile-label">Estimated Tax Rebate</span>
+                <div class="tax-vector-box secure-blue-theme">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17Z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="tax-tile-major">₹92,500 <span class="tax-sub-unit">Savings</span></div>
+            <div class="tax-mini-progress">
+                <div class="tax-progress-fill match-blue" style="width: 50%;"></div>
+            </div>
+            <p class="tax-tile-caption">Calculated via a flat 50% exemption bracket</p>
+        </div>
+
+        <!-- Compliance Tile 3 -->
+        <div class="tax-stat-tile">
+            <div class="tax-tile-header">
+                <span class="tax-tile-label">Filing Status</span>
+                <div class="tax-vector-box warning-orange-theme">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.11,3 19,3M19,19H5V5H19V19M7,7H17V9H7V7M7,11H17V13H7V11M7,15H14V17H7V15Z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="tax-tile-major">Form 10BE <span class="tax-sub-unit">Ready</span></div>
+            <div class="tax-mini-progress">
+                <div class="tax-progress-fill match-orange" style="width: 100%;"></div>
+            </div>
+            <p class="tax-tile-caption">Direct central tax directory link active</p>
+        </div>
+
+    </div>
+
+    <!-- GRID ROW 2: Asymmetric Section 80G Certificate Control Box -->
+    <div class="tax-token-management-card">
+        <div class="tax-card-header-row">
+            <div class="tax-meta-titles">
+                <h3>Institutional Non-Profit Registration Parameters</h3>
+                <span class="tax-sub-tag">Verified Compliance Framework Registry</span>
+            </div>
+            <span class="tax-badge-pill"><span class="tax-pulse"></span>Exemption Active</span>
+        </div>
+        
+        <div class="tax-details-asymmetric-split">
+            <div class="tax-specs-box">
+                <h4>Section 80G Exemption Certificate</h4>
+                <p>All contributions made to Stackly NGO are fully tax-exempt under Section 80G of the Income Tax Act. Your consolidated Form 10BE certificate has been pre-filed and integrated directly with the central electronic tax system parameters autonomously.</p>
+                <div class="secret-tax-display-box">
+                    <code class="tax-masked-string">NGO_REG_80G_AACTS8804RF2026_APPROVED</code>
+                </div>
+            </div>
+            <div class="tax-action-box">
+                <a href="404.html" class="btn-download-annual-summary">Export Consolidated 10BE</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- GRID ROW 3: Responsive Annual Tax Exemption Audit Ledger Table -->
+    <div class="tax-history-ledger-box">
+        <div class="t-table-headline-row">
+            <h3>Audited Annual Tax Exemption Records Ledger</h3>
+        </div>
+        
+        <div class="t-table-overflow-containment">
+            <table class="tax-security-table">
+                <thead>
+                    <tr>
+                        <th>Financial Fiscal Year</th>
+                        <th>Consolidated Giving Pool</th>
+                        <th>Tax Exemption Clause</th>
+                        <th>Filing Submission Date</th>
+                        <th>Certified Tax Exemption Receipt</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>FY 2026 - 2027</strong></td>
+                        <td>₹1,85,000</td>
+                        <td>Section 80G (5)(vi) Exemption</td>
+                        <td>Just Now, Aug 27, 2026</td>
+                        <td>
+                            <a href="404.html" class="btn-tax-receipt-download" aria-label="Download Certified Tax Receipt File">
+                                <svg viewBox="0 0 24 24" width="16" height="16"><path d="M5,20H19V18H5V20M19,9H15V3H9V9H5L12,16L19,9Z"/></svg>
+                                <span>PDF Receipt</span>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>FY 2025 - 2026</strong></td>
+                        <td>₹2,45,000</td>
+                        <td>Section 80G (5)(vi) Exemption</td>
+                        <td>May 14, 2026</td>
+                        <td>
+                            <a href="404.html" class="btn-tax-receipt-download" aria-label="Download Certified Tax Receipt File">
+                                <svg viewBox="0 0 24 24" width="16" height="16"><path d="M5,20H19V18H5V20M19,9H15V3H9V9H5L12,16L19,9Z"/></svg>
+                                <span>PDF Receipt</span>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<style>
+    /* ==========================================================================
+   MODULE 12: SECURE CLIENT TAX EXEMPTION LEDGER STYLES
+   ========================================================================== */
+
+/* --- 1. UPPER TAX COMPLIANCE STATUS TILES GRID --- */
+.tax-compliance-analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.tax-stat-tile {
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tax-tile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.85rem;
+}
+
+.tax-tile-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #666666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tax-vector-box {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tax-vector-box svg { width: 18px; height: 18px; }
+
+/* Custom themed vector fills configurations */
+.tax-vector-box.verified-green-theme { background-color: rgba(76, 175, 80, 0.08); fill: var(--text-forest); }
+.tax-vector-box.secure-blue-theme { background-color: #e3f2fd; fill: #1e88e5; }
+.tax-vector-box.warning-orange-theme { background-color: rgba(230, 81, 0, 0.08); fill: var(--agri-glow); }
+
+.tax-tile-major {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--dark-neutral);
+    line-height: 1;
+    margin-bottom: 0.85rem;
+    letter-spacing: -0.5px;
+}
+.tax-tile-major .tax-sub-unit { font-size: 0.9rem; font-weight: 700; color: #777777; }
+
+.tax-mini-progress {
+    width: 100%;
+    height: 6px;
+    background-color: #f0f2f5;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 0.6rem;
+}
+
+.tax-progress-fill { height: 100%; border-radius: 10px; }
+.tax-progress-fill.match-green { background-color: #2e7d32; }
+.tax-progress-fill.match-blue { background-color: #2196f3; }
+.tax-progress-fill.match-orange { background-color: var(--agri-glow); }
+
+.tax-tile-caption { font-size: 0.8rem; font-weight: 600; color: #888888; }
+
+.tax-stat-tile:hover {
+    transform: translateY(-4px);
+    border-color: #ff9100;
+    box-shadow: 0 10px 25px rgba(230, 81, 0, 0.08);
+}
+
+/* --- 2. MIDDLE ROW 80G REGISTRATION CONTROL WELL --- */
+.tax-token-management-card {
+    background-color: var(--white);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+    padding: 1.75rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.tax-card-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #f0f2f5;
+    padding-bottom: 1rem;
+}
+
+.tax-meta-titles h3 { font-size: 1.25rem; font-weight: 800; color: var(--dark-neutral); margin-bottom: 0.15rem; }
+.tax-sub-tag { font-size: 0.8rem; font-weight: 700; color: #777777; }
+
+.tax-badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.35rem 0.85rem;
+    background-color: rgba(76, 175, 80, 0.08);
+    color: #2e7d32;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-radius: 20px;
+    border: 1px solid rgba(76, 175, 80, 0.15);
+}
+
+.tax-pulse {
+    width: 7px;
+    height: 7px;
+    background-color: #2e7d32;
+    border-radius: 50%;
+    box-shadow: 0 0 6px #2e7d32;
+    animation: taxCompliancePulseBeacon 2s infinite ease-in-out;
+}
+
+.tax-details-asymmetric-split {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.tax-specs-box h4 { font-size: 1.1rem; font-weight: 800; color: var(--dark-neutral); margin-bottom: 0.4rem; }
+.tax-specs-box p { font-size: 0.95rem; color: #52635c; line-height: 1.5; font-weight: 500; }
+
+.secret-tax-display-box {
+    margin-top: 1rem;
+    background-color: #f5f7f6;
+    padding: 0.85rem 1.15rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-gray);
+    width: 100%;
+    overflow-x: auto;
+}
+.tax-masked-string { font-family: monospace; font-size: 0.85rem; color: #003d1c; font-weight: bold; white-space: nowrap; }
+
+.tax-action-box { display: flex; flex-direction: column; align-items: flex-end; }
+
+.btn-download-annual-summary {
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0.85rem 1.6rem;
+    background-color: var(--dark-neutral);
+    color: var(--white);
+    font-weight: 800;
+    font-size: 0.9rem;
+    border-radius: 24px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.btn-download-annual-summary:hover {
+    background-color: var(--agri-glow);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(230, 81, 0, 0.3);
+}
+
+/* --- 3. BOTTOM ANNUAL TAX AUDIT LEDGER TABLE MODULE --- */
+.tax-history-ledger-box {
+    background-color: var(--white);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+    padding: 1.75rem;
+    width: 100%;
+}
+
+.t-table-headline-row { margin-bottom: 1.25rem; }
+.t-table-headline-row h3 { font-size: 1.2rem; font-weight: 800; color: var(--dark-neutral); }
+
+.t-table-overflow-containment { width: 100%; overflow-x: auto; }
+
+.tax-security-table { width: 100%; border-collapse: collapse; text-align: left; }
+.tax-security-table th, .tax-security-table td { padding: 1rem 1.25rem; font-size: 0.9rem; font-weight: 600; border-bottom: 1px solid #f0f2f5; }
+
+.tax-security-table th {
+    background-color: #f5f7f6;
+    color: #555555;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.8rem;
+}
+
+.tax-security-table tbody tr { transition: background-color 0.2s ease; }
+.tax-security-table tbody tr:hover { background-color: var(--bg-faint); }
+
+.btn-tax-receipt-download {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 1rem;
+    background-color: #f5f7f6;
+    border-radius: 8px;
+    color: var(--dark-neutral);
+    font-size: 0.85rem;
+    font-weight: 700;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: all 0.25s ease;
+}
+
+.btn-tax-receipt-download svg { fill: var(--dark-neutral); transition: transform 0.25s ease; }
+
+.btn-tax-receipt-download:hover {
+    background-color: var(--text-forest);
+    color: var(--white);
+    border-color: var(--text-forest);
+}
+.btn-tax-receipt-download:hover svg { fill: var(--white); transform: translateY(1px); }
+
+/* --- SECURITY PULSING SIGNAL KEYFRAMES --- */
+@keyframes taxCompliancePulseBeacon { 0% { transform: scale(0.95); opacity: 0.5; } 50% { transform: scale(1.05); opacity: 1; } 100% { transform: scale(0.95); opacity: 0.5; } }
+
+/* --- RESPONSIVE MEDIA BREAKPOINTS CROSS OVERRIDES --- */
+@media (max-width: 1200px) {
+    .tax-compliance-analytics-grid { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .tax-stat-tile:last-child { grid-column: span 2; }
+    .tax-details-asymmetric-split { grid-template-columns: 1fr; gap: 2rem; }
+    .tax-action-box { align-items: flex-start; }
+}
+
+@media (max-width: 768px) {
+    .tax-compliance-analytics-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .tax-stat-tile:last-child { grid-column: span 1; }
+}
+
+@media (max-width: 520px) {
+    .tax-card-header-row { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .tax-security-table th, .tax-security-table td { padding: 0.85rem 0.6rem; font-size: 0.8rem; }
+}
+
+</style>
+
+            </main>
+
+        </div>
+    </div>
+
+<style>
+    /* ==========================================================================
+   STACKLY NGO CLIENT WORKSPACE MASTER CSS GRID ENGINE (NON-OVERLAPPING)
+   ========================================================================== */
+
+:root {
+    --bg-faint: #fff8f6;       /* Clean warm ivory background touch wash */
+    --text-forest: #2e7d32;    /* Balanced vibrant green accent for active growth/impact metrics */
+    --agri-glow: #e65100;      /* Warm humanitarian alert orange theme accent color */
+    --white: #ffffff;
+    --dark-neutral: #1a221e;   /* Premium high-contrast dark green slate for dark menu decks */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background-color: #f5f7f6;
+    color: var(--dark-neutral);
+    height: 100vh;
+    overflow: hidden; /* Hard-blocks unwanted page structural layout warping */
+}
+
+body.sidebar-scroll-lock {
+    overflow: hidden !important;
+}
+
+/* Master grid tree container completely forces sidebar and main panels apart mathematically */
+.client-grid-matrix {
+    display: grid;
+    grid-template-columns: 270px 1fr; 
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* --- NAVIGATION MOBILE CANVASS BLUR LOCK SHUTTER --- */
+.sidebar-mobile-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.sidebar-mobile-overlay.active-lock {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ==========================================================================
+   MODULE 1: FIXED DARK SIDEBAR NAVIGATION BAR
+   ========================================================================== */
+.sidebar-panel-wrapper {
+    grid-column: 1; 
+    background-color: var(--dark-neutral);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 1.5rem;
+    z-index: 100;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+.brand-logo-anchor-box { display: inline-flex; }
+.sidebar-brand-img { height: 36px; width: auto; object-fit: contain; }
+
+.btn-sidebar-close {
+    display: none; 
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.sidebar-navigation { flex-grow: 1; }
+.nav-links-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+
+.nav-item-link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.85rem 1.15rem;
+    border-radius: 12px;
+    color: #93a39a; /* Mid-contrast charcoal grey layout text */
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: all 0.25s ease;
+}
+.nav-item-link svg { width: 18px; height: 18px; fill: #93a39a; transition: fill 0.25s ease, filter 0.25s ease; }
+
+.nav-item-link:hover, .nav-item-link.active {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.nav-item-link.active {
+    background-color: rgba(230, 81, 0, 0.08) !important; /* Premium warm tone transparency card backgrounds */
+    color: #ff9100;
+    border: 1px solid rgba(230, 81, 0, 0.15);
+}
+.nav-item-link.active svg { fill: #ff9100; filter: drop-shadow(0 0 3px #ff9100); }
+
+.sidebar-lower-actions {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 1.25rem;
+}
+.btn-sidebar-logout {
+    background: none;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.85rem 1.15rem;
+    color: #f4511e; 
+    font-weight: 700;
+    font-size: 0.95rem;
+    border-radius: 12px;
+    transition: background-color 0.25s ease;
+}
+.btn-sidebar-logout svg { width: 18px; height: 18px; fill: #f4511e; }
+.btn-sidebar-logout:hover { background-color: rgba(244, 81, 30, 0.04); }
+
+/* ==========================================================================
+   MODULE 2: VIEWPORT CONTAINER WRAPPER & HEADER BAR
+   ========================================================================== */
+.dashboard-viewport-wrapper {
+    grid-column: 2; 
+    display: flex;
+    flex-direction: column; 
+    height: 100vh;
+    background-color: #f5f7f6;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.dashboard-upper-header {
+    height: 70px;
+    width: 100%;
+    background-color: var(--white);
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0; 
+    z-index: 10;
+}
+
+.hamburger-menu-trigger {
+    display: none; 
+    background: none;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+.hamburger-menu-trigger svg { fill: var(--dark-neutral); }
+
+.header-breadcrumbs { font-size: 0.95rem; color: #52635c; }
+.header-breadcrumbs strong { color: var(--dark-neutral); }
+
+.header-utility-actions { display: flex; align-items: center; gap: 1.5rem; }
+
+.header-bell-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    color: var(--dark-neutral);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem;
+    border-radius: 50%;
+}
+.header-bell-btn:hover { background-color: var(--bg-faint); }
+.header-bell-btn svg { fill: var(--dark-neutral); }
+
+.alert-unread-dot {
+    position: absolute;
+    top: 4px;
+    right: 5px;
+    width: 7px;
+    height: 7px;
+    background-color: #f4511e;
+    border-radius: 50%;
+}
+
+.header-profile-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.35rem 1rem 0.35rem 0.4rem;
+    background-color: #f5f7f6;
+    border-radius: 30px;
+    border: 1px solid rgba(0,0,0,0.04);
+}
+.profile-avatar-circle { width: 32px; height: 32px; background-color: var(--text-forest); color: var(--white); font-weight: 800; font-size: 0.9rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.profile-username-string { font-size: 0.9rem; font-weight: 700; color: var(--dark-neutral); }
+
+/* ==========================================================================
+   MODULE 3: INDEPENDENT DATA PRESENTATION VIEWPORTS CANVAS
+   ========================================================================== */
+.dashboard-content-main {
+    flex-grow: 1; 
+    width: 100%;
+    padding: 2.5rem;
+    overflow-y: auto; 
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+.viewport-section-card {
+    display: none; 
+    width: 100%;
+    box-sizing: border-box;
+    animation: ngoFadeReveal 0.4s ease-out forwards;
+}
+.viewport-section-card.active { display: block; }
+
+.placeholder-content-title {
+    background-color: var(--white);
+    padding: 5rem 2.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(0,0,0,0.03);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.01);
+    text-align: center;
+    width: 100%;
+}
+.placeholder-content-title h2 { font-size: 1.8rem; font-weight: 800; color: var(--dark-neutral); margin-bottom: 0.6rem; letter-spacing: -0.5px; }
+.placeholder-content-title p { font-size: 1rem; color: #52635c; font-weight: 500; line-height: 1.5; max-width: 540px; margin: 0 auto; }
+
+@keyframes ngoFadeReveal {
+    0% { opacity: 0; transform: translateY(6px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   MODULE 4: HIGH-PERFORMANCE RESPONSIVE RESOLUTIONS
+   ========================================================================== */
+@media (max-width: 992px) {
+    .client-grid-matrix { display: block; }
+    
+    .sidebar-panel-wrapper {
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 270px;
+        transform: translateX(-100%); 
+        z-index: 1000;
+        box-shadow: 25px 0 50px rgba(0,0,0,0.2);
+    }
+    .sidebar-panel-wrapper.mobile-visible { transform: translateX(0); }
+    .btn-sidebar-close { display: block; }
+    .hamburger-menu-trigger { display: flex; }
+    .dashboard-viewport-wrapper { width: 100%; }
+    .dashboard-upper-header { padding: 0 1.5rem; }
+    .dashboard-content-main { padding: 1.5rem; }
+}
+
+@media (max-width: 580px) {
+    .header-breadcrumbs { display: none; } 
+}
+
+</style>
+
+<script>
+
+    function refreshClientDashboardAndStay() {
+
+    const activePanel = document.querySelector(
+        ".viewport-section-card.active"
+    );
+
+    if (activePanel) {
+        sessionStorage.setItem(
+            "client_return_panel",
+            activePanel.id
+        );
+    }
+
+    window.location.reload();
+}
+    document.addEventListener("DOMContentLoaded", () => {
+    
+    // --- 1. EXTRACT AND RENDER UNIQUE USER NICKNAME FROM STORAGE DATA WELLS ---
+    const sessionEmailStr = localStorage.getItem("stackly_session_user");
+    const displayNode = document.getElementById("client-user-display");
+
+    if (displayNode) {
+        if (sessionEmailStr && sessionEmailStr.includes("@")) {
+            const nicknameArray = sessionEmailStr.split("@");
+            displayNode.textContent = nicknameArray[0]; // Extracts short name index prefix cleanly
+        } else {
+            displayNode.textContent = "Sponsor / Donor"; 
+        }
+    }
+
+    // --- 2. SWITCHER MATRIX OPERATIONS: VIEWPORT SECTION CARD PANELS ---
+    const navAnchors = document.querySelectorAll(".nav-item-link");
+    const viewCards = document.querySelectorAll(".viewport-section-card");
+    const topBreadcrumb = document.getElementById("dynamic-section-breadcrumb");
+
+    navAnchors.forEach((anchor) => {
+        anchor.addEventListener("click", (event) => {
+            event.preventDefault();
+
+            navAnchors.forEach((link) => link.classList.remove("active"));
+            viewCards.forEach((card) => card.classList.remove("active"));
+
+            anchor.classList.add("active");
+            const targetedIdString = anchor.getAttribute("data-target");
+            const matchingPanel = document.getElementById(targetedIdString);
+            
+            if (matchingPanel) {
+                matchingPanel.classList.add("active");
+            }
+
+            if (topBreadcrumb) {
+                const updatedLabel = anchor.querySelector("span").textContent;
+                topBreadcrumb.textContent = updatedLabel;
+            }
+
+            if (sidebarDrawer.classList.contains("mobile-visible")) {
+                retractMobileSidebarDrawerRoutine();
+            }
+        });
+    });
+
+    // --- 3. MOBILE ENGINE: HAMBURGER TRIGGER OVERLAYS WITH INTERACTIVE SCROLL LOCK ---
+    const openMenuBtn = document.getElementById("mobile-hamburger-btn");
+    const closeMenuBtn = document.getElementById("sidebar-close-trigger");
+    const sidebarDrawer = document.getElementById("client-sidebar");
+    const backgroundOverlayShutter = document.getElementById("mobile-viewport-lock");
+    const rootBody = document.body;
+
+    function invokeMobileSidebarDrawerRoutine() {
+        sidebarDrawer.classList.add("mobile-visible");
+        backgroundOverlayShutter.classList.add("active-lock");
+        rootBody.classList.add("sidebar-scroll-lock");
+    }
+
+    function retractMobileSidebarDrawerRoutine() {
+        sidebarDrawer.classList.remove("mobile-visible");
+        backgroundOverlayShutter.classList.remove("active-lock");
+        rootBody.classList.remove("sidebar-scroll-lock");
+    }
+
+    if (openMenuBtn && closeMenuBtn && sidebarDrawer && backgroundOverlayShutter) {
+        openMenuBtn.addEventListener("click", invokeMobileSidebarDrawerRoutine);
+        closeMenuBtn.addEventListener("click", retractMobileSidebarDrawerRoutine);
+        backgroundOverlayShutter.addEventListener("click", retractMobileSidebarDrawerRoutine);
+    }
+
+    // --- 4. SECURE PORTAL SESSION TERMINATION EXIT FLOW ---
+    const logoutBtn = document.getElementById("client-logout-trigger");
+    if (logoutBtn) {
+        logoutBtn.addEventListener("click", () => {
+            localStorage.removeItem("stackly_session_user");
+            window.location.href = "login.html";
+        });
+    }
+});
+
+
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const savedPanelId = sessionStorage.getItem("client_return_panel");
+
+    if (!savedPanelId) {
+        return;
+    }
+
+    const savedPanel = document.getElementById(savedPanelId);
+
+    if (!savedPanel) {
+        sessionStorage.removeItem("client_return_panel");
+        return;
+    }
+
+    /* Restore the selected content panel */
+    document.querySelectorAll(".viewport-section-card").forEach(card => {
+        card.classList.remove("active");
+    });
+
+    savedPanel.classList.add("active");
+
+    /* Restore the selected sidebar navigation */
+    document.querySelectorAll(".nav-item-link").forEach(link => {
+        link.classList.remove("active");
+    });
+
+    const matchingNav = document.querySelector(
+        `.nav-item-link[data-target="${savedPanelId}"]`
+    );
+
+    if (matchingNav) {
+
+        matchingNav.classList.add("active");
+
+        /* Restore breadcrumb */
+        const label = matchingNav.querySelector("span");
+
+        const breadcrumb = document.getElementById(
+            "dynamic-section-breadcrumb"
+        );
+
+        if (label && breadcrumb) {
+            breadcrumb.textContent = label.textContent;
+        }
+    }
+
+    /* Clear saved value after successful restoration */
+    sessionStorage.removeItem("client_return_panel");
+
+});
+</script>
+</body>
+</html>
