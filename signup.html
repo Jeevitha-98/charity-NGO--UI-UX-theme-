@@ -480,6 +480,193 @@ body {
 }
 @media (max-width: 1024px) {body { padding: 90px 1rem 40px 1rem; }.split-signup-container { grid-template-columns: 1fr; max-width: 580px; }.signup-right-panel { height: 420px; padding: 2.5rem 2rem; }.panel-hero-content-deck h2 { font-size: 2.1rem; }.signup-left-panel { padding: 2.5rem 1.5rem; }.signup-outer-logo-box { top: 25px; left: 15px; }.signup-outer-top-nav { top: 30px; right: 15px; }}@media (max-width: 480px) {body { padding: 80px 0.5rem 30px 0.5rem; }.signup-right-panel { display: none; }.signup-inside-card { padding: 0.5rem 0; }.sso-federated-row { grid-template-columns: 1fr; gap: 0.5rem; }.role-cards-selection-grid { grid-template-columns: 1fr; gap: 0.75rem; }}
 
+@media (max-width: 480px) {
+
+    body {
+        padding: 20px 10px 30px;
+        display: block;
+        min-height: 100vh;
+    }
+
+    /* ================================
+       TOP LOGO
+       ================================ */
+    .signup-outer-logo-box {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 100%;
+        padding: 5px 5px 0;
+        z-index: 20;
+    }
+
+    .outer-logo-img {
+        height: 32px;
+        width: auto;
+        max-width: 180px;
+        object-fit: contain;
+    }
+
+    /* ================================
+       ALREADY HAVE ACCOUNT / LOGIN
+       ================================ */
+    .signup-outer-top-nav {
+        position: relative;
+        top: auto;
+        right: auto;
+        left: auto;
+
+        width: 100%;
+        margin-top: 15px;
+        padding: 0 5px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 10px;
+        z-index: 20;
+    }
+
+    .signup-outer-top-nav span {
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: #475569 !important;
+        white-space: nowrap;
+    }
+
+    .btn-outer-login-link {
+        padding: 0.45rem 1rem;
+        font-size: 0.78rem;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    /* ================================
+       MAIN SIGNUP CONTAINER
+       ================================ */
+    .split-signup-container {
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        margin-top: 25px;
+
+        display: block;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    /* ================================
+       LEFT PANEL ALWAYS VISIBLE
+       ================================ */
+    .signup-left-panel {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+
+        width: 100%;
+        min-height: auto;
+        padding: 2rem 1rem 2.5rem;
+
+        background-color: #ffffff;
+    }
+
+    .signup-inside-card {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* ================================
+       TITLE
+       ================================ */
+    .card-title-header {
+        position: relative;
+        width: 100%;
+        margin: 0 0 1.5rem;
+        text-align: left;
+    }
+
+    .card-title-header h2 {
+        margin: 0 0 0.4rem;
+        padding: 0;
+
+        font-size: 1.55rem;
+        line-height: 1.25;
+        font-weight: 800;
+
+        color: #111111 !important;
+    }
+
+    .card-title-header p {
+        margin: 0;
+        padding: 0;
+
+        font-size: 0.85rem;
+        line-height: 1.5;
+        font-weight: 600;
+
+        color: #475569 !important;
+    }
+
+    /* ================================
+       SOCIAL BUTTONS
+       ================================ */
+    .sso-federated-row {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.55rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .btn-oauth-item {
+        width: 100%;
+    }
+
+    /* ================================
+       FORM
+       ================================ */
+    .card-core-form {
+        width: 100%;
+        gap: 1rem;
+    }
+
+    .field-wrapper {
+        width: 100%;
+    }
+
+    .field-wrapper label {
+        color: #111111 !important;
+    }
+
+    .card-core-form input[type="text"],
+    .card-core-form input[type="email"],
+    .card-core-form input[type="password"] {
+        width: 100%;
+        color: #1e293b !important;
+        background-color: #ffffff !important;
+    }
+
+    /* ================================
+       TERMS
+       ================================ */
+    .terms-string-text {
+        color: #475569 !important;
+    }
+
+    .terms-string-text a {
+        color: #003d1c !important;
+    }
+
+    /* ================================
+       HIDE RIGHT IMAGE ON PHONE
+       ================================ */
+    .signup-right-panel {
+        display: none !important;
+    }
+}
                     </style>
 
                 <script>
